@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gtda.graphs.transition &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.Projection.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.Projection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.Eccentricity.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.Entropy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.Entropy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.OneDimensionalCover.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.OneDimensionalCover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.CubicalCover.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.CubicalCover</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.FirstSimpleGap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.FirstSimpleGap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.FirstHistogramGap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.FirstHistogramGap</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.pipeline.make_mapper_pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.pipeline</span></code>.make_mapper_pipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.pipeline.MapperPipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.pipeline</span></code>.MapperPipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.visualization.plot_static_mapper_graph.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.visualization</span></code>.plot_static_mapper_graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.visualization.plot_interactive_mapper_graph.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.visualization</span></code>.plot_interactive_mapper_graph</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.utils.decorators.method_to_transform.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.utils.decorators</span></code>.method_to_transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.utils.pipeline</span></code>.transformer_from_callable_on_rows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.homology.VietorisRipsPersistence.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>.VietorisRipsPersistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.homology.ConsistentRescaling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>.ConsistentRescaling</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.diagrams.ForgetDimension.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.ForgetDimension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.diagrams.Scaler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.Scaler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.diagrams.Filtering.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.Filtering</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.diagrams.PairwiseDistance.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.PairwiseDistance</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.diagrams.Amplitude.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.Amplitude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.diagrams.PersistenceEntropy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.PersistenceEntropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.diagrams.PersistenceLandscape.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.PersistenceLandscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.diagrams.BettiCurve.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.BettiCurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.diagrams.HeatKernel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.HeatKernel</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.time_series.SlidingWindow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.SlidingWindow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.time_series.Resampler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.Resampler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.time_series.Stationarizer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.Stationarizer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.time_series.TakensEmbedding.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.TakensEmbedding</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.time_series.Labeller.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.Labeller</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.time_series.PermutationEntropy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.PermutationEntropy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.time_series.PearsonDissimilarity.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.PearsonDissimilarity</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.graphs.TransitionGraph.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>.TransitionGraph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.graphs.KNeighborsGraph.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>.KNeighborsGraph</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.graphs.GraphGeodesicDistance.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>.GraphGeodesicDistance</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.base.TransformerResamplerMixin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>.TransformerResamplerMixin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.pipeline.Pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>.Pipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.pipeline.make_pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>.make_pipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.meta_transformers.EntropyGenerator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>.EntropyGenerator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.meta_transformers.BettiCurveGenerator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>.BettiCurveGenerator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.meta_transformers.LandscapeGenerator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>.LandscapeGenerator</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.utils.check_diagram.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>.check_diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.utils.validate_params.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>.validate_params</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gtda.utils.validate_metric_params.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>.validate_metric_params</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>gtda.graphs.transition</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for gtda.graphs.transition</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Construct transition graphs from dynamical systems.&quot;&quot;&quot;</span>
+<span class="c1"># License: GNU AGPLv3</span>
+
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span> <span class="k">as</span> <span class="n">sp</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">SparseEfficiencyWarning</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">check_is_fitted</span>
+
+<span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
+<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span>
+
+
+<span class="k">def</span> <span class="nf">_identity</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The identity function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">X</span>
+
+
+<div class="viewcode-block" id="TransitionGraph"><a class="viewcode-back" href="../../../generated/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">TransitionGraph</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Undirected transition graphs from arrays of time-evolving states.</span>
+
+<span class="sd">    Let A be a two-dimensional array viewed as a time series (along the row</span>
+<span class="sd">    axis) of one-dimensional arrays encoding the &quot;state&quot; of a system. The</span>
+<span class="sd">    corresponding *undirected transition graph* (or *network*) has as vertex</span>
+<span class="sd">    set the set of all unique states (rows) in A, and there is an edge</span>
+<span class="sd">    between two vertices if and only if one of the corresponding states</span>
+<span class="sd">    immediately follows the other in A.</span>
+
+<span class="sd">    Given a collection of two-dimensional arrays, this transformer performs</span>
+<span class="sd">    two tasks:</span>
+
+<span class="sd">        1. Optionally, it preprocesses the arrays by applying a function row</span>
+<span class="sd">           by row to them. This can be used e.g. as a &quot;compression&quot; step</span>
+<span class="sd">           to reduce the size of the state space.</span>
+<span class="sd">        2. It computes the undirected transition graph of each array as a</span>
+<span class="sd">           sparse matrix.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    func : None or callable, optional, default: ``numpy.argsort``</span>
+<span class="sd">        If a callable, it is the function to be applied to each row of each</span>
+<span class="sd">        array as a preprocessing steps. Allowed callables are functions</span>
+<span class="sd">        mapping 1-D arrays to 1-D arrays of constant length, and must be</span>
+<span class="sd">        compatible with :mod:`numpy.apply_along_axis`. If ``None``, this</span>
+<span class="sd">        function is the identity (no preprocessing). The default is</span>
+<span class="sd">        ``numpy.argsort``, which makes the final transition graphs</span>
+<span class="sd">        *ordinal partition networks* [1]_ [2]_ [3]_.</span>
+
+<span class="sd">    func_params : None or dict, optional, default: ``None``</span>
+<span class="sd">        Additional keyword arguments for `func`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    effective_func_params_ : dict</span>
+<span class="sd">        A copy of `func_params` if this was not set to ``None``, otherwise an</span>
+<span class="sd">        empty dictionary.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from gtda.graphs import TransitionGraph</span>
+<span class="sd">    &gt;&gt;&gt; X = np.array([[[1, 0], [2, 3], [5, 4]],</span>
+<span class="sd">    ...               [[5, 4], [5, 4], [5, 4]])</span>
+<span class="sd">    &gt;&gt;&gt; tg = TransitionGraph()</span>
+<span class="sd">    &gt;&gt;&gt; tg = tg.fit(X)</span>
+<span class="sd">    &gt;&gt;&gt; print(tg.transform(X)[0].toarray())</span>
+<span class="sd">    [[0 1]</span>
+<span class="sd">     [1 0]]</span>
+<span class="sd">    &gt;&gt;&gt; print(tg.transform(X)[1].toarray())</span>
+<span class="sd">    [[1 0]</span>
+<span class="sd">     [0 0]]</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    GraphGeodesicDistance, gtda.time_series.TakensEmbedding</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    In general, the shapes of the sparse matrices output by :meth:`transform`</span>
+<span class="sd">    will be different across samples, and the same row or column index will</span>
+<span class="sd">    refer to different states in different samples.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] M. Small, &quot;Complex networks from time series: Capturing dynamics&quot;,</span>
+<span class="sd">           *2013 IEEE International Symposium on Circuits and Systems</span>
+<span class="sd">           (IS-CAS2013)*, 2013; doi: `10.1109/iscas.2013.6572389</span>
+<span class="sd">           &lt;http://dx.doi.org/10.1109/iscas.2013.6572389&gt;`_.</span>
+
+<span class="sd">    .. [2] M. McCullough, M. Small, T. Stemler, and H. Ho-Ching Iu, &quot;Time</span>
+<span class="sd">           lagged ordinal partition networks for capturing dynamics of</span>
+<span class="sd">           continuous dynamical systems&quot;; *Chaos: An Interdisciplinary</span>
+<span class="sd">           Journal of Nonlinear Science* **25** (5), p. 053101, 2015;</span>
+<span class="sd">           doi: `10.1063/1.4919075 &lt;http://dx.doi.org/10.1063/1.4919075&gt;`_.</span>
+
+<span class="sd">    .. [3] A. Myers, E. Munch, and F. A. Khasawneh, &quot;Persistent homology of</span>
+<span class="sd">           complex networks for dynamic state detection&quot;; *Phys. Rev. E*</span>
+<span class="sd">           **100**, 022314, 2019; doi: `10.1103/PhysRevE.100.022314</span>
+<span class="sd">           &lt;http://dx.doi.org/10.1109/CVPR.2015.7299106&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;_func&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">]}</span>
+
+<div class="viewcode-block" id="TransitionGraph.__init__"><a class="viewcode-back" href="../../../generated/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">,</span> <span class="n">func_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func_params</span> <span class="o">=</span> <span class="n">func_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+    <span class="k">def</span> <span class="nf">_make_adjacency_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">Xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+        <span class="n">Xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Xm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">n_indices</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xm</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">Xm</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">Xm</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">Xm</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n_indices</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+                           <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">]),</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">second</span><span class="p">,</span> <span class="n">first</span><span class="p">]))))</span>
+        <span class="c1"># Silence sparse warnings TODO: Benchmark</span>
+        <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">SparseEfficiencyWarning</span><span class="p">)</span>
+            <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="o">.</span><span class="n">setdiag</span><span class="p">(</span><span class="n">Xm</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xm</span>
+
+<div class="viewcode-block" id="TransitionGraph.fit"><a class="viewcode-back" href="../../../generated/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do nothing and return the estimator unchanged.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_time_steps, n_features)</span>
+<span class="sd">            Input data.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_func</span> <span class="o">=</span> <span class="n">_identity</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">effective_func_params_</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">effective_func_params_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">validate_params</span><span class="p">({</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="s1">&#39;_func&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">},</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="TransitionGraph.transform"><a class="viewcode-back" href="../../../generated/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create transition graphs from the input data and return their</span>
+<span class="sd">        adjacency matrices. The graphs are simple, undirected and</span>
+<span class="sd">        unweighted, and the adjacency matrices are sparse matrices of type</span>
+<span class="sd">        bool.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_time_steps, n_features)</span>
+<span class="sd">            Input data.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : array of sparse boolean matrices, shape (n_samples,)</span>
+<span class="sd">            The collection of ``n_samples`` transition graphs. Each transition</span>
+<span class="sd">            graph is encoded by a sparse matrix of boolean type.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_make_adjacency_matrix</span><span class="p">)(</span><span class="n">Xt</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>
+            <span class="nb">range</span><span class="p">(</span><span class="n">Xt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

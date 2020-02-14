@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gtda.utils.validate_params &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="gtda.utils.validate_metric_params" href="gtda.utils.validate_metric_params.html" />
+    <link rel="prev" title="gtda.utils.check_diagram" href="gtda.utils.check_diagram.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.Projection.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.Projection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.Eccentricity.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.Eccentricity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.Entropy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.Entropy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.OneDimensionalCover.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.OneDimensionalCover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.CubicalCover.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.CubicalCover</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.FirstSimpleGap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.FirstSimpleGap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.FirstHistogramGap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>.FirstHistogramGap</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.pipeline.make_mapper_pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.pipeline</span></code>.make_mapper_pipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.pipeline.MapperPipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.pipeline</span></code>.MapperPipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.visualization.plot_static_mapper_graph.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.visualization</span></code>.plot_static_mapper_graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.visualization.plot_interactive_mapper_graph.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.visualization</span></code>.plot_interactive_mapper_graph</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.utils.decorators.method_to_transform.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.utils.decorators</span></code>.method_to_transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper.utils.pipeline</span></code>.transformer_from_callable_on_rows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>.VietorisRipsPersistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.homology.ConsistentRescaling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>.ConsistentRescaling</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.diagrams.ForgetDimension.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.ForgetDimension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.diagrams.Scaler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.Scaler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.diagrams.Filtering.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.Filtering</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.diagrams.PairwiseDistance.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.PairwiseDistance</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.diagrams.Amplitude.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.Amplitude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.diagrams.PersistenceEntropy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.PersistenceEntropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.diagrams.PersistenceLandscape.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.PersistenceLandscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.diagrams.BettiCurve.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.BettiCurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.diagrams.HeatKernel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>.HeatKernel</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.time_series.SlidingWindow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.SlidingWindow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.time_series.Resampler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.Resampler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.time_series.Stationarizer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.Stationarizer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.time_series.TakensEmbedding.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.TakensEmbedding</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.time_series.Labeller.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.Labeller</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.time_series.PermutationEntropy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.PermutationEntropy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.time_series.PearsonDissimilarity.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>.PearsonDissimilarity</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.graphs.TransitionGraph.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>.TransitionGraph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.graphs.KNeighborsGraph.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>.KNeighborsGraph</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.graphs.GraphGeodesicDistance.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>.GraphGeodesicDistance</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.base.TransformerResamplerMixin.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>.TransformerResamplerMixin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.pipeline.Pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>.Pipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.pipeline.make_pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>.make_pipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gtda.meta_transformers.EntropyGenerator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>.EntropyGenerator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.meta_transformers.BettiCurveGenerator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>.BettiCurveGenerator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.meta_transformers.LandscapeGenerator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>.LandscapeGenerator</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gtda.utils.check_diagram.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>.check_diagram</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>.validate_params</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gtda.utils.validate_metric_params.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>.validate_metric_params</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>.validate_params</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/gtda.utils.validate_params.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gtda-utils-validate-params">
+<h1><a class="reference internal" href="../index.html#module-gtda.utils" title="gtda.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code></a>.validate_params<a class="headerlink" href="#gtda-utils-validate-params" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="gtda.utils.validate_params">
+<code class="sig-prename descclassname">gtda.utils.</code><code class="sig-name descname">validate_params</code><span class="sig-paren">(</span><em class="sig-param">parameters</em>, <em class="sig-param">references</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/utils/validation.html#validate_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.utils.validate_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="clearer"></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gtda.utils.validate_metric_params.html" class="btn btn-neutral float-right" title="gtda.utils.validate_metric_params" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gtda.utils.check_diagram.html" class="btn btn-neutral float-left" title="gtda.utils.check_diagram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
