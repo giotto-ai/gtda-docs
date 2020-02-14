@@ -1,0 +1,4 @@
+[submodule "sphinxcontrib-versioning"]
+	path = sphinxcontrib-versioning
+	url = git@github.com:z00sts/sphinxcontrib-versioning.git
+	branch = sphinx1.7-import-error-workaround
