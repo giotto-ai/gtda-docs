@@ -243,20 +243,18 @@
 fit-transformer which applies the callable to slices of 2D arrays along
 axis 1. When possible, the array output by the transformer’s
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">fit_transform</span></code> is two-dimensional.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>func</strong><span class="classifier">callable</span></dt><dd><p>A callable object.</p>
-</dd>
-<dt><strong>validate</strong><span class="classifier">bool, optional, default: <code class="docutils literal notranslate"><span class="pre">True</span></code></span></dt><dd><p>Whether the output transformer should implement input validation.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<em>callable</em>) – A callable object.</p></li>
+<li><p><strong>validate</strong> (bool, optional, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – Whether the output transformer should implement input validation.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl>
-<dt><strong>function_transformer</strong><span class="classifier"><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html#sklearn.preprocessing.FunctionTransformer" title="(in scikit-learn v0.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.preprocessing.FunctionTransformer</span></code></a>         object</span></dt><dd><p>Output fit-transformer.</p>
+<dd class="field-even"><p><strong>function_transformer</strong> – Output fit-transformer.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html#sklearn.preprocessing.FunctionTransformer" title="(in scikit-learn v0.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.preprocessing.FunctionTransformer</span></code></a>         object</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>

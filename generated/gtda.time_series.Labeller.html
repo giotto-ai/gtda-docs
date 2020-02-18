@@ -242,32 +242,32 @@
 <p>Useful to define a time series forecasting task in which labels are
 obtained from future values of the input time series, via the
 application of a function to time windows.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>width</strong><span class="classifier">int, optional, default: <code class="docutils literal notranslate"><span class="pre">10</span></code></span></dt><dd><p>Width of each sliding window. Each window contains <code class="docutils literal notranslate"><span class="pre">width</span> <span class="pre">+</span> <span class="pre">1</span></code>
-objects from the original time series.</p>
-</dd>
-<dt><strong>func</strong><span class="classifier">callable, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.std</span></code></span></dt><dd><p>Function to be applied to each window.</p>
-</dd>
-<dt><strong>func_params</strong><span class="classifier">dict, optional, default: <code class="docutils literal notranslate"><span class="pre">{}</span></code></span></dt><dd><p>Additional keyword arguments for <cite>func</cite>.</p>
-</dd>
-<dt><strong>percentiles</strong><span class="classifier">list of ordered floats between 0 and 1 or None, optional,                   default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">None</span></code>, creates a target for a regression task. Otherwise,
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – Width of each sliding window. Each window contains <code class="docutils literal notranslate"><span class="pre">width</span> <span class="pre">+</span> <span class="pre">1</span></code>
+objects from the original time series.</p></li>
+<li><p><strong>func</strong> (callable, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.std</span></code>) – Function to be applied to each window.</p></li>
+<li><p><strong>func_params</strong> (dict, optional, default: <code class="docutils literal notranslate"><span class="pre">{}</span></code>) – Additional keyword arguments for <cite>func</cite>.</p></li>
+<li><p><strong>percentiles</strong> (list of ordered floats between 0 and 1 or None, optional,                   default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If <code class="docutils literal notranslate"><span class="pre">None</span></code>, creates a target for a regression task. Otherwise,
 creates a target for an n-class classification task where
-<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">len(percentiles)</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
-</dd>
-<dt><strong>n_steps_future</strong><span class="classifier">int, optional, default: <code class="docutils literal notranslate"><span class="pre">1</span></code></span></dt><dd><p>Number of steps in the future for the predictive task.</p>
+<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">len(percentiles)</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
+<li><p><strong>n_steps_future</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Number of steps in the future for the predictive task.</p></li>
+</ul>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Attributes</dt>
-<dd class="field-even"><dl>
-<dt><strong>thresholds_</strong><span class="classifier">list of floats or <code class="docutils literal notranslate"><span class="pre">None</span></code> if percentiles is <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>Values corresponding to each percentile, based on data seen in
+<dl class="attribute">
+<dt id="gtda.time_series.Labeller.thresholds_">
+<code class="sig-name descname">thresholds_</code><a class="headerlink" href="#gtda.time_series.Labeller.thresholds_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Values corresponding to each percentile, based on data seen in
 <a class="reference internal" href="#gtda.time_series.Labeller.fit" title="gtda.time_series.Labeller.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of floats or <code class="docutils literal notranslate"><span class="pre">None</span></code> if percentiles is <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
+
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gtda.time_series</span> <span class="kn">import</span> <span class="n">Labeller</span>
@@ -290,165 +290,121 @@ creates a target for an n-class classification task where
 <span class="go"> 0.81649658 0.81649658]</span>
 </pre></div>
 </div>
-<p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.time_series.Labeller.fit" title="gtda.time_series.Labeller.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(self, X[, y])</p></td>
-<td><p>Compute <code class="xref py py-attr docutils literal notranslate"><span class="pre">thresholds_</span></code> and return the estimator.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.time_series.Labeller.fit_transform" title="gtda.time_series.Labeller.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a>(self, X[, y])</p></td>
-<td><p>Fit to data, then transform it.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.time_series.Labeller.fit_transform_resample" title="gtda.time_series.Labeller.fit_transform_resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform_resample</span></code></a>(self, X, y, …)</p></td>
-<td><p>Fit to data, then transform the input and resample the target.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.time_series.Labeller.get_params" title="gtda.time_series.Labeller.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>(self[, deep])</p></td>
-<td><p>Get parameters for this estimator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.time_series.Labeller.resample" title="gtda.time_series.Labeller.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample</span></code></a>(self, y[, X])</p></td>
-<td><p>Resample <cite>y</cite>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.time_series.Labeller.set_params" title="gtda.time_series.Labeller.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(self, \*\*params)</p></td>
-<td><p>Set the parameters of this estimator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.time_series.Labeller.transform" title="gtda.time_series.Labeller.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(self, X[, y])</p></td>
-<td><p>Cuts <cite>X</cite> so it is aligned with <cite>y</cite>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.time_series.Labeller.transform_resample" title="gtda.time_series.Labeller.transform_resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform_resample</span></code></a>(self, X, y)</p></td>
-<td><p>Fit to data, then transform it.</p></td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="gtda.time_series.Labeller.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">width=10</em>, <em class="sig-param">func=&lt;function std at 0x1164e3c20&gt;</em>, <em class="sig-param">func_params={}</em>, <em class="sig-param">percentiles=None</em>, <em class="sig-param">n_steps_future=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/time_series/target.html#Labeller.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.Labeller.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">width=10</em>, <em class="sig-param">func=&lt;function std&gt;</em>, <em class="sig-param">func_params={}</em>, <em class="sig-param">percentiles=None</em>, <em class="sig-param">n_steps_future=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/time_series/target.html#Labeller.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.Labeller.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.time_series.Labeller.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/time_series/target.html#Labeller.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.Labeller.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute <code class="xref py py-attr docutils literal notranslate"><span class="pre">thresholds_</span></code> and return the estimator.</p>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/time_series/target.html#Labeller.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.Labeller.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute <a class="reference internal" href="#gtda.time_series.Labeller.thresholds_" title="gtda.time_series.Labeller.thresholds_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">thresholds_</span></code></a> and return the estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples,) or (n_samples, 1)</span></dt><dd><p>Time series to build a target for.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>1</em><em>)</em>) – Time series to build a target for.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd></dd>
-</dl>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.time_series.Labeller.fit_transform">
-<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.fit_transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.fit_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
 and returns a transformed version of <cite>X</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples,) or (n_samples, 1)</span></dt><dd><p>Time series to build a target for.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>1</em><em>)</em>) – Time series to build a target for.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples_new, 1)</span></dt><dd><p>The cut input time series.</p>
+<dd class="field-even"><p><strong>Xt</strong> – The cut input time series.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples_new, 1)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.time_series.Labeller.fit_transform_resample">
-<code class="sig-name descname">fit_transform_resample</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.fit_transform_resample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_transform_resample</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.fit_transform_resample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform the input and resample the target.
 Fits transformer to X and y with optional parameters fit_params
 and returns a transformed version of X ans a resampled version of y.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, …)</span></dt><dd><p>Input data.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, )</span></dt><dd><p>Target data.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>..</em><em>)</em>) – Input data.</p></li>
+<li><p><strong>y</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>)</em>) – Target data.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples, …)</span></dt><dd><p>Transformed input.</p>
-</dd>
-<dt><strong>yr</strong><span class="classifier">ndarray of shape (n_samples, …)</span></dt><dd><p>Resampled target.</p>
-</dd>
-</dl>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>Xt</strong> (<em>ndarray of shape (n_samples, …)</em>) – Transformed input.</p></li>
+<li><p><strong>yr</strong> (<em>ndarray of shape (n_samples, …)</em>) – Resampled target.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.time_series.Labeller.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
-</dl>
-</dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">mapping of string to any</span></dt><dd><p>Parameter names mapped to their values.</p>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.time_series.Labeller.resample">
-<code class="sig-name descname">resample</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">y</em>, <em class="sig-param">X=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/time_series/target.html#Labeller.resample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.Labeller.resample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resample</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">X=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/time_series/target.html#Labeller.resample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.Labeller.resample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resample <cite>y</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples,)</span></dt><dd><p>Time series to build a target for.</p>
-</dd>
-<dt><strong>X</strong><span class="classifier">None</span></dt><dd><p>There is no need for <cite>X</cite>, yet the pipeline API requires this
-parameter.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) – Time series to build a target for.</p></li>
+<li><p><strong>X</strong> (<em>None</em>) – There is no need for <cite>X</cite>, yet the pipeline API requires this
+parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>yr</strong><span class="classifier">ndarray of shape (n_samples_new,)</span></dt><dd><p>Target for the prediction task.</p>
+<dd class="field-even"><p><strong>yr</strong> – Target for the prediction task.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples_new,)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.time_series.Labeller.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The latter have parameters of the form
@@ -456,63 +412,56 @@ parameter.</p>
 component of a nested object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
-</dd>
-</dl>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Estimator instance.</p>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.time_series.Labeller.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/time_series/target.html#Labeller.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.Labeller.transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/time_series/target.html#Labeller.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.Labeller.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cuts <cite>X</cite> so it is aligned with <cite>y</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples,) or (n_samples, 1)</span></dt><dd><p>Time series to build a target for.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target, yet the pipeline API
-requires this parameter.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>1</em><em>)</em>) – Time series to build a target for.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target, yet the pipeline API
+requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples_new, 1)</span></dt><dd><p>The cut input time series.</p>
+<dd class="field-even"><p><strong>Xt</strong> – The cut input time series.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples_new, 1)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.time_series.Labeller.transform_resample">
-<code class="sig-name descname">transform_resample</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.transform_resample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform_resample</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.Labeller.transform_resample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
 and returns a transformed version of <cite>X</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, …)</span></dt><dd><p>Input data.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, )</span></dt><dd><p>Target data.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>..</em><em>)</em>) – Input data.</p></li>
+<li><p><strong>y</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>)</em>) – Target data.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples, …)</span></dt><dd><p>Transformed input.</p>
+<dd class="field-even"><p><strong>Xt</strong> – Transformed input.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, ..)</p>
 </dd>
 </dl>
 </dd></dl>

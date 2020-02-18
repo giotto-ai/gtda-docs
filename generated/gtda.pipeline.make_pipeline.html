@@ -244,29 +244,29 @@ does not permit, naming the estimators. Instead, their names will be set
 to the lowercase of their types automatically.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>*steps</strong><span class="classifier">list of estimators.</span></dt><dd></dd>
-<dt><strong>memory</strong><span class="classifier">None, str or object with the joblib.Memory interface, optional</span></dt><dd><p>Used to cache the fitted transformers of the pipeline. By default,
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*steps</strong> (<em>list of estimators.</em>) – </p></li>
+<li><p><strong>memory</strong> (<em>None</em><em>, </em><em>str</em><em> or </em><em>object with the joblib.Memory interface</em><em>, </em><em>optional</em>) – Used to cache the fitted transformers of the pipeline. By default,
 no caching is performed. If a string is given, it is the path to
 the caching directory. Enabling caching triggers a clone of
 the transformers before fitting. Therefore, the transformer
 instance given to the pipeline cannot be inspected
 directly. Use the attribute <code class="docutils literal notranslate"><span class="pre">named_steps</span></code> or <code class="docutils literal notranslate"><span class="pre">steps</span></code> to
 inspect estimators within the pipeline. Caching the
-transformers is advantageous when fitting is time consuming.</p>
-</dd>
-</dl>
+transformers is advantageous when fitting is time consuming.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>p</strong><span class="classifier">Pipeline</span></dt><dd></dd>
-</dl>
+<dd class="field-even"><p><strong>p</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline" title="gtda.pipeline.Pipeline">Pipeline</a></p>
 </dd>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">imblearn.pipeline.Pipeline</span></code></dt><dd><p>Class for creating a pipeline of transforms with a final estimator.</p>
+<dt><code class="xref py py-func docutils literal notranslate"><span class="pre">imblearn.pipeline.Pipeline</span></code></dt><dd><p>Class for creating a pipeline of transforms with a final estimator.</p>
 </dd>
 </dl>
 </div>

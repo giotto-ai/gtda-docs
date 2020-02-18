@@ -243,153 +243,133 @@
 [b, d, q], subdiagrams corresponding to distinct homology dimensions are
 considered separately, and their respective Betti curves are obtained by
 evenly sampling the <a class="reference external" href="https://giotto.ai/theory">filtration parameter</a>.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>n_bins</strong><span class="classifier">int, optional, default: <code class="docutils literal notranslate"><span class="pre">100</span></code></span></dt><dd><p>The number of filtration parameter values, per available homology
-dimension, to sample during <a class="reference internal" href="#gtda.diagrams.BettiCurve.fit" title="gtda.diagrams.BettiCurve.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
-</dd>
-<dt><strong>n_jobs</strong><span class="classifier">int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_bins</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) – The number of filtration parameter values, per available homology
+dimension, to sample during <a class="reference internal" href="#gtda.diagrams.BettiCurve.fit" title="gtda.diagrams.BettiCurve.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
 unless in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means
-using all processors.</p>
+using all processors.</p></li>
+</ul>
 </dd>
 </dl>
+<dl class="attribute">
+<dt id="gtda.diagrams.BettiCurve.homology_dimensions_">
+<code class="sig-name descname">homology_dimensions_</code><a class="headerlink" href="#gtda.diagrams.BettiCurve.homology_dimensions_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Homology dimensions seen in <a class="reference internal" href="#gtda.diagrams.BettiCurve.fit" title="gtda.diagrams.BettiCurve.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>, sorted in ascending order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
-<dt class="field-even">Attributes</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>homology_dimensions_</strong><span class="classifier">list</span></dt><dd><p>Homology dimensions seen in <a class="reference internal" href="#gtda.diagrams.BettiCurve.fit" title="gtda.diagrams.BettiCurve.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>, sorted in ascending order.</p>
-</dd>
-<dt><strong>samplings_</strong><span class="classifier">dict</span></dt><dd><p>For each number in <cite>homology_dimensions_</cite>, a discrete sampling of
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gtda.diagrams.BettiCurve.samplings_">
+<code class="sig-name descname">samplings_</code><a class="headerlink" href="#gtda.diagrams.BettiCurve.samplings_" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each number in <cite>homology_dimensions_</cite>, a discrete sampling of
 filtration parameters, calculated during <a class="reference internal" href="#gtda.diagrams.BettiCurve.fit" title="gtda.diagrams.BettiCurve.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> according to the
 minimum birth and maximum death values observed across all samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
+
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape" title="gtda.diagrams.PersistenceLandscape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PersistenceLandscape</span></code></a>, <a class="reference internal" href="gtda.diagrams.PersistenceEntropy.html#gtda.diagrams.PersistenceEntropy" title="gtda.diagrams.PersistenceEntropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a>, <a class="reference internal" href="gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel" title="gtda.diagrams.HeatKernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HeatKernel</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">PersistenceImage</span></code>, <a class="reference internal" href="gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amplitude</span></code></a>, <a class="reference internal" href="gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PairwiseDistance</span></code></a>, <a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gtda.homology.VietorisRipsPersistence</span></code></a></dt><dd></dd>
-</dl>
+<p><a class="reference internal" href="gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape" title="gtda.diagrams.PersistenceLandscape"><code class="xref py py-class docutils literal notranslate"><span class="pre">PersistenceLandscape</span></code></a>, <a class="reference internal" href="gtda.diagrams.PersistenceEntropy.html#gtda.diagrams.PersistenceEntropy" title="gtda.diagrams.PersistenceEntropy"><code class="xref py py-class docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a>, <a class="reference internal" href="gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel" title="gtda.diagrams.HeatKernel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeatKernel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PersistenceImage</span></code>, <a class="reference internal" href="gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">Amplitude</span></code></a>, <a class="reference internal" href="gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairwiseDistance</span></code></a>, <a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.homology.VietorisRipsPersistence</span></code></a></p>
 </div>
 <p class="rubric">Notes</p>
-<p>The samplings in <code class="xref py py-attr docutils literal notranslate"><span class="pre">samplings_</span></code> are in general different between
+<p>The samplings in <a class="reference internal" href="#gtda.diagrams.BettiCurve.samplings_" title="gtda.diagrams.BettiCurve.samplings_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">samplings_</span></code></a> are in general different between
 different homology dimensions. This means that the j-th entry of a Betti
 curve in homology dimension q typically arises from a different parameter
 values to the j-th entry of a curve in dimension q’.</p>
-<p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.diagrams.BettiCurve.fit" title="gtda.diagrams.BettiCurve.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(self, X[, y])</p></td>
-<td><p>Store all observed homology dimensions in <code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code> and, for each dimension separately, store evenly sample filtration parameter values in <code class="xref py py-attr docutils literal notranslate"><span class="pre">samplings_</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.diagrams.BettiCurve.fit_transform" title="gtda.diagrams.BettiCurve.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a>(self, X[, y])</p></td>
-<td><p>Fit to data, then transform it.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.diagrams.BettiCurve.get_params" title="gtda.diagrams.BettiCurve.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>(self[, deep])</p></td>
-<td><p>Get parameters for this estimator.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.diagrams.BettiCurve.set_params" title="gtda.diagrams.BettiCurve.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(self, \*\*params)</p></td>
-<td><p>Set the parameters of this estimator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.diagrams.BettiCurve.transform" title="gtda.diagrams.BettiCurve.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(self, X[, y])</p></td>
-<td><p>Compute the Betti curves of diagrams in <cite>X</cite>.</p></td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="gtda.diagrams.BettiCurve.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/diagrams/features.html#BettiCurve.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.BettiCurve.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/diagrams/features.html#BettiCurve.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.BettiCurve.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.diagrams.BettiCurve.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/diagrams/features.html#BettiCurve.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.BettiCurve.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/diagrams/features.html#BettiCurve.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.BettiCurve.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Store all observed homology dimensions in
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code> and, for each dimension separately,
-store evenly sample filtration parameter values in <code class="xref py py-attr docutils literal notranslate"><span class="pre">samplings_</span></code>.
+<a class="reference internal" href="#gtda.diagrams.BettiCurve.homology_dimensions_" title="gtda.diagrams.BettiCurve.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a> and, for each dimension separately,
+store evenly sample filtration parameter values in <a class="reference internal" href="#gtda.diagrams.BettiCurve.samplings_" title="gtda.diagrams.BettiCurve.samplings_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">samplings_</span></code></a>.
 Then, return the estimator.</p>
 <p>This method is here to implement the usual scikit-learn API and hence
 work in pipelines.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_features, 3)</span></dt><dd><p>Input data. Array of persistence diagrams, each a collection of
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Input data. Array of persistence diagrams, each a collection of
 triples [b, d, q] representing persistent topological features
-through their birth (b), death (d) and homology dimension (q).</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+through their birth (b), death (d) and homology dimension (q).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd></dd>
-</dl>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.diagrams.BettiCurve.fit_transform">
-<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.BettiCurve.fit_transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.BettiCurve.fit_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
 and returns a transformed version of <cite>X</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_features, 3)</span></dt><dd><p>Input data. Array of persistence diagrams, each a collection of
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Input data. Array of persistence diagrams, each a collection of
 triples [b, d, q] representing persistent topological features
-through their birth (b), death (d) and homology dimension (q).</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+through their birth (b), death (d) and homology dimension (q).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples, n_homology_dimensions, n_bins)</span></dt><dd><p>Betti curves: one curve (represented as a one-dimensional array
+<dd class="field-even"><p><strong>Xt</strong> – Betti curves: one curve (represented as a one-dimensional array
 of integer values) per sample and per homology dimension seen
 in <a class="reference internal" href="#gtda.diagrams.BettiCurve.fit" title="gtda.diagrams.BettiCurve.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>. Index i along axis 1 corresponds to the i-th
-homology dimension in <code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code>.</p>
+homology dimension in <a class="reference internal" href="#gtda.diagrams.BettiCurve.homology_dimensions_" title="gtda.diagrams.BettiCurve.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions, n_bins)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.diagrams.BettiCurve.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.BettiCurve.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.BettiCurve.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
-</dl>
-</dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">mapping of string to any</span></dt><dd><p>Parameter names mapped to their values.</p>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.diagrams.BettiCurve.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.BettiCurve.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.BettiCurve.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The latter have parameters of the form
@@ -397,44 +377,39 @@ contained subobjects that are estimators.</p>
 component of a nested object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
-</dd>
-</dl>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Estimator instance.</p>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.diagrams.BettiCurve.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/diagrams/features.html#BettiCurve.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.BettiCurve.transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/diagrams/features.html#BettiCurve.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.BettiCurve.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Betti curves of diagrams in <cite>X</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_features, 3)</span></dt><dd><p>Input data. Array of persistence diagrams, each a collection of
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Input data. Array of persistence diagrams, each a collection of
 triples [b, d, q] representing persistent topological features
-through their birth (b), death (d) and homology dimension (q).</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+through their birth (b), death (d) and homology dimension (q).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples, n_homology_dimensions, n_bins)</span></dt><dd><p>Betti curves: one curve (represented as a one-dimensional array
+<dd class="field-even"><p><strong>Xt</strong> – Betti curves: one curve (represented as a one-dimensional array
 of integer values) per sample and per homology dimension seen
 in <a class="reference internal" href="#gtda.diagrams.BettiCurve.fit" title="gtda.diagrams.BettiCurve.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>. Index i along axis 1 corresponds to the i-th
-homology dimension in <code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code>.</p>
+homology dimension in <a class="reference internal" href="#gtda.diagrams.BettiCurve.homology_dimensions_" title="gtda.diagrams.BettiCurve.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions, n_bins)</p>
 </dd>
 </dl>
 </dd></dl>

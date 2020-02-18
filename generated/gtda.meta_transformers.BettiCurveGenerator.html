@@ -241,10 +241,10 @@
 <dd><p>Meta transformer returning Betti curves directly from point clouds.</p>
 <p>Implements a feature generation pipeline which computes persistence
 diagrams, scales and filters them, and then computes their Betti curves.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>metric</strong><span class="classifier">string or callable, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code></span></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, each entry in <cite>X</cite> along axis 0 is
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metric</strong> (string or callable, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>) – If set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, each entry in <cite>X</cite> along axis 0 is
 interpreted to be a distance matrix. Otherwise, entries are
 interpreted as feature arrays, and <cite>metric</cite> determines a rule with
 which to calculate distances between pairs of instances (i.e. rows)
@@ -256,19 +256,16 @@ including “euclidean”, “manhattan” or “cosine”.
 If <cite>metric</cite> is a callable function, it is called on each pair of
 instances and the resulting value recorded. The callable should take
 two arrays from the entry in <cite>X</cite> as input, and return a value
-indicating the distance between them.</p>
-</dd>
-<dt><strong>max_edge_length</strong><span class="classifier">float, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code></span></dt><dd><p>Upper bound on the maximum value of the Vietoris-Rips filtration
+indicating the distance between them.</p></li>
+<li><p><strong>max_edge_length</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code>) – Upper bound on the maximum value of the Vietoris-Rips filtration
 parameter. Points whose distance is greater than this value will
 never be connected by an edge, and topological features at scales
-larger than this value will not be detected.</p>
-</dd>
-<dt><strong>homology_dimensions</strong><span class="classifier">iterable, optional, default: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code></span></dt><dd><p>Dimensions (non-negative integers) of the topological features to be
-detected.</p>
-</dd>
-<dt><strong>scaler_metric</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> | <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> | <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> |                     <code class="docutils literal notranslate"><span class="pre">'betti'</span></code> | <code class="docutils literal notranslate"><span class="pre">'heat'</span></code>, optional, default:                     <code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code></span></dt><dd><p>Distance or dissimilarity function used to define the amplitude of
+larger than this value will not be detected.</p></li>
+<li><p><strong>homology_dimensions</strong> (iterable, optional, default: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>) – Dimensions (non-negative integers) of the topological features to be
+detected.</p></li>
+<li><p><strong>scaler_metric</strong> (<code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> | <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> | <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> |                     <code class="docutils literal notranslate"><span class="pre">'betti'</span></code> | <code class="docutils literal notranslate"><span class="pre">'heat'</span></code>, optional, default:                     <code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code>) – <p>Distance or dissimilarity function used to define the amplitude of
 a subdiagram as its distance from the diagonal diagram:</p>
-<ul class="simple">
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> and <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> refer to the identically named
 perfect-matching–based notions of distance.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> refers to the <span class="math notranslate nohighlight">\(L^p\)</span> distance between
@@ -277,9 +274,9 @@ persistence landscapes.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'heat'</span></code> refers to the <span class="math notranslate nohighlight">\(L^p\)</span> distance between
 Gaussian-smoothed diagrams.</p></li>
 </ul>
-</dd>
-<dt><strong>scaler_metric_params</strong><span class="classifier">dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>Additional keyword arguments for <cite>scaler_metric</cite>:</p>
-<ul class="simple">
+</p></li>
+<li><p><strong>scaler_metric_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>Additional keyword arguments for <cite>scaler_metric</cite>:</p>
+<ul>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'bottleneck'</span></code> there are no available arguments.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'wasserstein'</span></code> the only argument is <cite>p</cite> (int,
 default: <code class="docutils literal notranslate"><span class="pre">2</span></code>).</p></li>
@@ -292,130 +289,96 @@ default: <code class="docutils literal notranslate"><span class="pre">2.</span><
 default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>sigma</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>) and <cite>n_bins</cite>
 (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
 </ul>
-</dd>
-<dt><strong>scaler_function</strong><span class="classifier">callable, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.max</span></code></span></dt><dd><p>Function used to extract a single positive scalar from the collection
-of norms of diagrams.</p>
-</dd>
-<dt><strong>filter_epsilon</strong><span class="classifier">float, optional, default: <code class="docutils literal notranslate"><span class="pre">0.</span></code></span></dt><dd><p>The cutoff value controlling the amount of filtering.</p>
-</dd>
-<dt><strong>n_bins</strong><span class="classifier">int, optional, default: <code class="docutils literal notranslate"><span class="pre">100</span></code></span></dt><dd><p>Length of array used to sample the continuous Betti curves.</p>
-</dd>
-<dt><strong>n_jobs</strong><span class="classifier">int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
+</p></li>
+<li><p><strong>scaler_function</strong> (callable, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.max</span></code>) – Function used to extract a single positive scalar from the collection
+of norms of diagrams.</p></li>
+<li><p><strong>filter_epsilon</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">0.</span></code>) – The cutoff value controlling the amount of filtering.</p></li>
+<li><p><strong>n_bins</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) – Length of array used to sample the continuous Betti curves.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
 unless in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means
-using all processors.</p>
+using all processors.</p></li>
+</ul>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.meta_transformers.BettiCurveGenerator.fit" title="gtda.meta_transformers.BettiCurveGenerator.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(self, X[, y])</p></td>
-<td><p>Create a <a class="reference internal" href="gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline" title="gtda.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.pipeline.Pipeline</span></code></a> object and fit it.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.meta_transformers.BettiCurveGenerator.fit_transform" title="gtda.meta_transformers.BettiCurveGenerator.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a>(self, X[, y])</p></td>
-<td><p>Fit to data, then transform it.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.meta_transformers.BettiCurveGenerator.get_params" title="gtda.meta_transformers.BettiCurveGenerator.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>(self[, deep])</p></td>
-<td><p>Get parameters for this estimator.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.meta_transformers.BettiCurveGenerator.set_params" title="gtda.meta_transformers.BettiCurveGenerator.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(self, \*\*params)</p></td>
-<td><p>Set the parameters of this estimator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.meta_transformers.BettiCurveGenerator.transform" title="gtda.meta_transformers.BettiCurveGenerator.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(self, X[, y])</p></td>
-<td><p>Extract Betti curves from the sample point clouds in <cite>X</cite>.</p></td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="gtda.meta_transformers.BettiCurveGenerator.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">metric='euclidean'</em>, <em class="sig-param">max_edge_length=inf</em>, <em class="sig-param">homology_dimensions=(0</em>, <em class="sig-param">1)</em>, <em class="sig-param">scaler_metric='bottleneck'</em>, <em class="sig-param">scaler_metric_params=None</em>, <em class="sig-param">scaler_function=&lt;function amax at 0x1164de7a0&gt;</em>, <em class="sig-param">filter_epsilon=0.0</em>, <em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/meta_transformers/features.html#BettiCurveGenerator.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">metric='euclidean'</em>, <em class="sig-param">max_edge_length=inf</em>, <em class="sig-param">homology_dimensions=(0</em>, <em class="sig-param">1)</em>, <em class="sig-param">scaler_metric='bottleneck'</em>, <em class="sig-param">scaler_metric_params=None</em>, <em class="sig-param">scaler_function=&lt;function amax&gt;</em>, <em class="sig-param">filter_epsilon=0.0</em>, <em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/meta_transformers/features.html#BettiCurveGenerator.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.meta_transformers.BettiCurveGenerator.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/meta_transformers/features.html#BettiCurveGenerator.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/meta_transformers/features.html#BettiCurveGenerator.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a <a class="reference internal" href="gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline" title="gtda.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.pipeline.Pipeline</span></code></a> object and fit it. Then,
 return the estimator.</p>
 <p>This method is here to implement the usual scikit-learn API and hence
 work in pipelines.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_dimensions)</span></dt><dd><p>Input data. <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> is the number of point clouds,
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> is the number of point clouds,
 <code class="docutils literal notranslate"><span class="pre">n_points</span></code> is the number of points per point cloud and
 <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code> is the number of features for each point of the
-point cloud (i.e. the dimension of the point cloud space)</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>Ignored.</p>
-</dd>
-</dl>
+point cloud (i.e. the dimension of the point cloud space)</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – Ignored.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd></dd>
-</dl>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.meta_transformers.BettiCurveGenerator.fit_transform">
-<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.fit_transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.fit_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
 and returns a transformed version of <cite>X</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_dimensions)</span></dt><dd><p>Input data. <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> is the number of point clouds,
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> is the number of point clouds,
 <code class="docutils literal notranslate"><span class="pre">n_points</span></code> is the number of points per point cloud and
 <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code> is the number of features for each point of the
-point cloud (i.e. the dimension of the point cloud space)</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>Ignored.</p>
-</dd>
-</dl>
+point cloud (i.e. the dimension of the point cloud space)</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – Ignored.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples, n_homology_dimensions,              n_bins)</span></dt><dd><p>For each point cloud in <cite>X</cite>, one discretised Betti curve
+<dd class="field-even"><p><strong>Xt</strong> – For each point cloud in <cite>X</cite>, one discretised Betti curve
 per homology dimension in <cite>homology_dimensions</cite>.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions,              n_bins)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.meta_transformers.BettiCurveGenerator.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
-</dl>
-</dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">mapping of string to any</span></dt><dd><p>Parameter names mapped to their values.</p>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.meta_transformers.BettiCurveGenerator.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The latter have parameters of the form
@@ -423,43 +386,38 @@ contained subobjects that are estimators.</p>
 component of a nested object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
-</dd>
-</dl>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Estimator instance.</p>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.meta_transformers.BettiCurveGenerator.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/meta_transformers/features.html#BettiCurveGenerator.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/meta_transformers/features.html#BettiCurveGenerator.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.meta_transformers.BettiCurveGenerator.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract Betti curves from the sample point clouds in <cite>X</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_dimensions)</span></dt><dd><p>Input data. <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> is the number of point clouds,
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> is the number of point clouds,
 <code class="docutils literal notranslate"><span class="pre">n_points</span></code> is the number of points per point cloud and
 <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code> is the number of features for each point of
-the point cloud (i.e. the dimension of the point cloud space).</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+the point cloud (i.e. the dimension of the point cloud space).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples, n_homology_dimensions,              n_bins)</span></dt><dd><p>For each point cloud in <cite>X</cite>, one discretised Betti curve
+<dd class="field-even"><p><strong>Xt</strong> – For each point cloud in <cite>X</cite>, one discretised Betti curve
 per homology dimension in <cite>homology_dimensions</cite>.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions,              n_bins)</p>
 </dd>
 </dl>
 </dd></dl>

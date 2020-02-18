@@ -240,7 +240,7 @@
 <em class="property">class </em><code class="sig-prename descclassname">gtda.homology.</code><code class="sig-name descname">ConsistentRescaling</code><span class="sig-paren">(</span><em class="sig-param">metric='euclidean'</em>, <em class="sig-param">metric_params={}</em>, <em class="sig-param">neighbor_rank=1</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/homology/consistent.html#ConsistentRescaling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.ConsistentRescaling" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rescaling of distances between pairs of points by the geometric mean
 of the distances to the respective <span class="math notranslate nohighlight">\(k\)</span>-th nearest neighbours.</p>
-<p>Based on ideas in <a class="reference internal" href="#r68c67c61ded6-1" id="id1"><span>[R68c67c61ded6-1]</span></a>. The computation during <a class="reference internal" href="#gtda.homology.ConsistentRescaling.transform" title="gtda.homology.ConsistentRescaling.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a> depends on
+<p>Based on ideas in <a class="footnote-reference brackets" href="#id2" id="id1">1</a>. The computation during <a class="reference internal" href="#gtda.homology.ConsistentRescaling.transform" title="gtda.homology.ConsistentRescaling.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a> depends on
 the nature of the array <cite>X</cite>. If each entry in <cite>X</cite> along axis 0 represents a
 distance matrix <span class="math notranslate nohighlight">\(D\)</span>, then the corresponding entry in the transformed
 array is the distance matrix
@@ -249,10 +249,10 @@ index of the <span class="math notranslate nohighlight">\(k\)</span>-th largest 
 for <span class="math notranslate nohighlight">\(j\)</span>). If the entries in <cite>X</cite> represent point clouds, their
 distance matrices are first computed, and then rescaled according to the
 same formula.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>metric</strong><span class="classifier">string or callable, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code></span></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, each entry in <cite>X</cite> along axis 0 is
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metric</strong> (string or callable, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>) – If set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, each entry in <cite>X</cite> along axis 0 is
 interpreted to be a distance matrix. Otherwise, entries are
 interpreted as feature arrays, and <cite>metric</cite> determines a rule with
 which to calculate distances between pairs of instances (i.e. rows)
@@ -264,32 +264,14 @@ including “euclidean”, “manhattan” or “cosine”.
 If <cite>metric</cite> is a callable function, it is called on each pair of
 instances and the resulting value recorded. The callable should take
 two arrays from the entry in <cite>X</cite> as input, and return a value
-indicating the distance between them.</p>
-</dd>
-<dt><strong>metric_params</strong><span class="classifier">dict, optional, default: <code class="docutils literal notranslate"><span class="pre">{}</span></code></span></dt><dd><p>Additional keyword arguments for the metric function.</p>
-</dd>
-<dt><strong>neighbor_rank</strong><span class="classifier">int, optional, default: <code class="docutils literal notranslate"><span class="pre">1</span></code></span></dt><dd><p>Rank of the neighbors used to modify the metric structure according
-to the “consistent rescaling” procedure.</p>
-</dd>
-<dt><strong>n_jobs</strong><span class="classifier">int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
+indicating the distance between them.</p></li>
+<li><p><strong>metric_params</strong> (dict, optional, default: <code class="docutils literal notranslate"><span class="pre">{}</span></code>) – Additional keyword arguments for the metric function.</p></li>
+<li><p><strong>neighbor_rank</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Rank of the neighbors used to modify the metric structure according
+to the “consistent rescaling” procedure.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
 unless in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means
-using all processors.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code></a></dt><dd></dd>
-</dl>
-</div>
-<p class="rubric">References</p>
-<dl class="citation">
-<dt class="label" id="r68c67c61ded6-1"><span class="brackets"><a class="fn-backref" href="#id1">R68c67c61ded6-1</a></span></dt>
-<dd><p>T. Berry and T. Sauer, “Consistent manifold representation for
-topological data analysis”; <em>Foundations of data analysis</em> <strong>1</strong>,
-pp. 1–38, 2019; doi: <a class="reference external" href="http://dx.doi.org/10.3934/fods.2019001">10.3934/fods.2019001</a>.</p>
+using all processors.</p></li>
+</ul>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -302,118 +284,100 @@ pp. 1–38, 2019; doi: <a class="reference external" href="http://dx.doi.org/10.
 <span class="go">(1, 3, 3)</span>
 </pre></div>
 </div>
-<p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.homology.ConsistentRescaling.fit" title="gtda.homology.ConsistentRescaling.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(self, X[, y])</p></td>
-<td><p>Do nothing and return the estimator unchanged.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.homology.ConsistentRescaling.fit_transform" title="gtda.homology.ConsistentRescaling.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a>(self, X[, y])</p></td>
-<td><p>Fit to data, then transform it.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.homology.ConsistentRescaling.get_params" title="gtda.homology.ConsistentRescaling.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>(self[, deep])</p></td>
-<td><p>Get parameters for this estimator.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.homology.ConsistentRescaling.set_params" title="gtda.homology.ConsistentRescaling.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(self, \*\*params)</p></td>
-<td><p>Set the parameters of this estimator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.homology.ConsistentRescaling.transform" title="gtda.homology.ConsistentRescaling.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(self, X[, y])</p></td>
-<td><p>For each entry in the input data array X, find the metric structure after consistent rescaling and encodes it as a distance matrix.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>T. Berry and T. Sauer, “Consistent manifold representation for
+topological data analysis”; <em>Foundations of data analysis</em> <strong>1</strong>,
+pp. 1–38, 2019; doi: <a class="reference external" href="http://dx.doi.org/10.3934/fods.2019001">10.3934/fods.2019001</a>.</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="gtda.homology.ConsistentRescaling.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">metric='euclidean'</em>, <em class="sig-param">metric_params={}</em>, <em class="sig-param">neighbor_rank=1</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/homology/consistent.html#ConsistentRescaling.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.ConsistentRescaling.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">metric='euclidean'</em>, <em class="sig-param">metric_params={}</em>, <em class="sig-param">neighbor_rank=1</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/homology/consistent.html#ConsistentRescaling.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.ConsistentRescaling.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.homology.ConsistentRescaling.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/homology/consistent.html#ConsistentRescaling.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.ConsistentRescaling.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/homology/consistent.html#ConsistentRescaling.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.ConsistentRescaling.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do nothing and return the estimator unchanged.</p>
 <p>This method is here to implement the usual scikit-learn API and hence
 work in pipelines.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_points) or (n_samples,             n_points, n_dimensions)</span></dt><dd><p>Input data. If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'precomputed'</span></code>, the input should be an
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_points</em><em>) or </em><em>(</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'precomputed'</span></code>, the input should be an
 ndarray whose each entry along axis 0 is a distance matrix of shape
 <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code>. Otherwise, each such entry will be
 interpreted as an array of <code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in
-<code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+<code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd></dd>
-</dl>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.homology.ConsistentRescaling.fit_transform">
-<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.ConsistentRescaling.fit_transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.ConsistentRescaling.fit_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
 and returns a transformed version of <cite>X</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_points) or (n_samples,             n_points, n_dimensions)</span></dt><dd><p>Input data. If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'precomputed'</span></code>, the input should be an
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_points</em><em>) or </em><em>(</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'precomputed'</span></code>, the input should be an
 ndarray whose each entry along axis 0 is a distance matrix of shape
 <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code>. Otherwise, each such entry will be
 interpreted as an array of <code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in
-<code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+<code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_points)</span></dt><dd><p>Array containing (as entries along axis 0) the distance matrices
+<dd class="field-even"><p><strong>Xt</strong> – Array containing (as entries along axis 0) the distance matrices
 after consistent rescaling.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_points, n_points)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.homology.ConsistentRescaling.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.ConsistentRescaling.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.ConsistentRescaling.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
-</dl>
-</dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">mapping of string to any</span></dt><dd><p>Parameter names mapped to their values.</p>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.homology.ConsistentRescaling.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.ConsistentRescaling.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.ConsistentRescaling.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The latter have parameters of the form
@@ -421,46 +385,41 @@ contained subobjects that are estimators.</p>
 component of a nested object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
-</dd>
-</dl>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Estimator instance.</p>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.homology.ConsistentRescaling.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/homology/consistent.html#ConsistentRescaling.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.ConsistentRescaling.transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/homology/consistent.html#ConsistentRescaling.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.ConsistentRescaling.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>For each entry in the input data array X, find the metric structure
 after consistent rescaling and encodes it as a distance matrix. Then,
 arrange all results in a single ndarray of appropriate shape.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_points) or (n_samples,             n_points, n_dimensions)</span></dt><dd><p>Input data. If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'precomputed'</span></code>, the input should be an
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_points</em><em>) or </em><em>(</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'precomputed'</span></code>, the input should be an
 ndarray whose each entry along axis 0 is a distance matrix of shape
 <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code>. Otherwise, each such entry will be
 interpreted as an array of <code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in
-<code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+<code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_points)</span></dt><dd><p>Array containing (as entries along axis 0) the distance matrices
+<dd class="field-even"><p><strong>Xt</strong> – Array containing (as entries along axis 0) the distance matrices
 after consistent rescaling.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_points, n_points)</p>
 </dd>
 </dl>
 </dd></dl>

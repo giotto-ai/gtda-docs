@@ -245,23 +245,21 @@ as kernel density estimators and anomaly/novelty detection estimators,
 to allow for these estimators are to be used as steps in a pipeline.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>cls</strong><span class="classifier">object</span></dt><dd><p>Class to be wrapped. If <cite>method_name</cite> is not one of its methods,
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code> always returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-</dd>
-<dt><strong>method_name</strong><span class="classifier">str</span></dt><dd><p>Name of the method in <cite>cls</cite> to which <code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code> will be
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cls</strong> (<em>object</em>) – Class to be wrapped. If <cite>method_name</cite> is not one of its methods,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code> always returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>method_name</strong> (<em>str</em>) – Name of the method in <cite>cls</cite> to which <code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code> will be
 an alias. The fist argument of this method becomes the <cite>X</cite>
-input for <code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code>.</p>
-</dd>
-</dl>
+input for <code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code>.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>wrapped_cls</strong><span class="classifier">object</span></dt><dd><p>New class inheriting from <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="(in scikit-learn v0.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.base.TransformerMixin</span></code></a>,
+<dd class="field-even"><p><strong>wrapped_cls</strong> – New class inheriting from <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="(in scikit-learn v0.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.base.TransformerMixin</span></code></a>,
 so that a <code class="xref py py-meth docutils literal notranslate"><span class="pre">fit_transform</span></code> is also available. Its name is the
 name of <cite>cls</cite> prepended with <code class="docutils literal notranslate"><span class="pre">'Extended'</span></code>.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>

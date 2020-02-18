@@ -239,7 +239,7 @@
 <dt id="gtda.mapper.pipeline.make_mapper_pipeline">
 <code class="sig-prename descclassname">gtda.mapper.pipeline.</code><code class="sig-name descname">make_mapper_pipeline</code><span class="sig-paren">(</span><em class="sig-param">scaler=None</em>, <em class="sig-param">filter_func=None</em>, <em class="sig-param">cover=None</em>, <em class="sig-param">clustering_preprocessing=None</em>, <em class="sig-param">clusterer=None</em>, <em class="sig-param">n_jobs=None</em>, <em class="sig-param">parallel_backend_prefer='threads'</em>, <em class="sig-param">graph_step=True</em>, <em class="sig-param">min_intersection=1</em>, <em class="sig-param">memory=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/mapper/pipeline.html#make_mapper_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.pipeline.make_mapper_pipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a MapperPipeline object according to the specified Mapper
-steps. <a class="reference internal" href="#r57f314b1d286-1" id="id1">[1]</a></p>
+steps. <a class="footnote-reference brackets" href="#id3" id="id1">1</a></p>
 <p>The role of this function’s key parameters is illustrated in <a class="reference external" href="/mapper_pipeline.svg">this diagram</a>. All computational steps may be arbitrary
 scikit-learn Pipeline objects. The scaling and cover steps must be
 transformers implementing a <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> method. The filter
@@ -248,82 +248,52 @@ or a callable acting on one-dimensional arrays – in the latter case,
 a transformer is internally created whose <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> applies this
 callable independently on each row of the data. The clustering step need
 only implement a <code class="docutils literal notranslate"><span class="pre">fit</span></code> method storing clustering labels.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>scaler</strong><span class="classifier">object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>Scaling transformer. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, no scaling is performed.</p>
-</dd>
-<dt><strong>filter_func</strong><span class="classifier">object, callable or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>Filter function to apply to the scaled data. <code class="docutils literal notranslate"><span class="pre">None</span></code> means using PCA
-(<code class="xref py py-meth docutils literal notranslate"><span class="pre">sklearn.decomposition.PCA</span></code>) with 2 components.</p>
-</dd>
-<dt><strong>cover</strong><span class="classifier">object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>Covering transformer. <code class="docutils literal notranslate"><span class="pre">None</span></code> means using a cubical cover
-(<a class="reference internal" href="gtda.mapper.CubicalCover.html#gtda.mapper.CubicalCover" title="gtda.mapper.CubicalCover"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CubicalCover</span></code></a>) with its default parameters.</p>
-</dd>
-<dt><strong>clustering_preprocessing</strong><span class="classifier">object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>If not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is a transformer which is applied to the
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scaler</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Scaling transformer. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, no scaling is performed.</p></li>
+<li><p><strong>filter_func</strong> (object, callable or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Filter function to apply to the scaled data. <code class="docutils literal notranslate"><span class="pre">None</span></code> means using PCA
+(<code class="xref py py-meth docutils literal notranslate"><span class="pre">sklearn.decomposition.PCA</span></code>) with 2 components.</p></li>
+<li><p><strong>cover</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Covering transformer. <code class="docutils literal notranslate"><span class="pre">None</span></code> means using a cubical cover
+(<a class="reference internal" href="gtda.mapper.CubicalCover.html#gtda.mapper.CubicalCover" title="gtda.mapper.CubicalCover"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CubicalCover</span></code></a>) with its default parameters.</p></li>
+<li><p><strong>clustering_preprocessing</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is a transformer which is applied to the
 data independently to the <cite>scaler</cite> -&gt; <cite>filter_func</cite> -&gt; <cite>cover</cite>
 pipeline. Clustering is then performed on portions (determined by
 the <cite>scaler</cite> -&gt; <cite>filter_func</cite> -&gt; <cite>cover</cite> pipeline) of the
-transformed data.</p>
-</dd>
-<dt><strong>clusterer</strong><span class="classifier">object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>Clustering object. <code class="docutils literal notranslate"><span class="pre">None</span></code> means using DBSCAN
-(<code class="xref py py-meth docutils literal notranslate"><span class="pre">sklearn.cluster.DBSCAN</span></code>) with its default parameters.</p>
-</dd>
-<dt><strong>n_jobs</strong><span class="classifier">int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>The number of jobs to use in a joblib-parallel application of the
+transformed data.</p></li>
+<li><p><strong>clusterer</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Clustering object. <code class="docutils literal notranslate"><span class="pre">None</span></code> means using DBSCAN
+(<code class="xref py py-meth docutils literal notranslate"><span class="pre">sklearn.cluster.DBSCAN</span></code>) with its default parameters.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use in a joblib-parallel application of the
 clustering step across pullback cover sets. To be used in
 conjunction with <cite>parallel_backend_prefer</cite>. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless
 in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all
-processors.</p>
-</dd>
-<dt><strong>parallel_backend_prefer</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">'processes'</span></code> | <code class="docutils literal notranslate"><span class="pre">'threads'</span></code>, optional,         default: <code class="docutils literal notranslate"><span class="pre">'threads'</span></code></span></dt><dd><p>Soft hint for the default joblib backend to use in a joblib-parallel
+processors.</p></li>
+<li><p><strong>parallel_backend_prefer</strong> (<code class="docutils literal notranslate"><span class="pre">'processes'</span></code> | <code class="docutils literal notranslate"><span class="pre">'threads'</span></code>, optional,         default: <code class="docutils literal notranslate"><span class="pre">'threads'</span></code>) – Soft hint for the default joblib backend to use in a joblib-parallel
 application of the clustering step across pullback cover sets. To be
 used in conjunction with <cite>n_jobs</cite>. The default process-based backend is
-‘loky’ and the default thread-based backend is ‘threading’. See <a class="reference internal" href="#r57f314b1d286-2" id="id2">[2]</a>.</p>
-</dd>
-<dt><strong>graph_step</strong><span class="classifier">bool, optional, default: <code class="docutils literal notranslate"><span class="pre">True</span></code></span></dt><dd><p>Whether the resulting pipeline should stop at the calculation of the
-Mapper cover, or include the construction of the Mapper graph.</p>
-</dd>
-<dt><strong>min_intersection</strong><span class="classifier">int, optional, default: <code class="docutils literal notranslate"><span class="pre">1</span></code></span></dt><dd><p>Minimum size of the intersection between clusters required for creating
+‘loky’ and the default thread-based backend is ‘threading’. See <a class="footnote-reference brackets" href="#id4" id="id2">2</a>.</p></li>
+<li><p><strong>graph_step</strong> (bool, optional, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – Whether the resulting pipeline should stop at the calculation of the
+Mapper cover, or include the construction of the Mapper graph.</p></li>
+<li><p><strong>min_intersection</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Minimum size of the intersection between clusters required for creating
 an edge in the Mapper graph. Ignored if <cite>graph_step</cite> is set to
-<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</dd>
-<dt><strong>memory</strong><span class="classifier">None, str or object with the joblib.Memory interface,         optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>Used to cache the fitted transformers of the pipeline. By default, no
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>memory</strong> (None, str or object with the joblib.Memory interface,         optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Used to cache the fitted transformers of the pipeline. By default, no
 caching is performed. If a string is given, it is the path to the
 caching directory. Enabling caching triggers a clone of the
 transformers before fitting. Therefore, the transformer instance
 given to the pipeline cannot be inspected directly. Use the attribute
 <code class="docutils literal notranslate"><span class="pre">named_steps</span></code> or <code class="docutils literal notranslate"><span class="pre">steps</span></code> to inspect estimators within the
 pipeline. Caching the transformers is advantageous when fitting is
-time consuming.</p>
-</dd>
-<dt><strong>verbose</strong><span class="classifier">bool, optional, default: <code class="docutils literal notranslate"><span class="pre">False</span></code></span></dt><dd><p>If True, the time elapsed while fitting each step will be printed as it
-is completed.</p>
-</dd>
-</dl>
+time consuming.</p></li>
+<li><p><strong>verbose</strong> (bool, optional, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – If True, the time elapsed while fitting each step will be printed as it
+is completed.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl>
-<dt><strong>mapper_pipeline</strong><span class="classifier"><a class="reference internal" href="gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline" title="gtda.mapper.pipeline.MapperPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">MapperPipeline</span></code></a> object</span></dt><dd><p>Output Mapper pipeline.</p>
+<dd class="field-even"><p><strong>mapper_pipeline</strong> – Output Mapper pipeline.</p>
 </dd>
-</dl>
-</dd>
-</dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline" title="gtda.mapper.pipeline.MapperPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">MapperPipeline</span></code></a></dt><dd></dd>
-<dt><a class="reference internal" href="gtda.mapper.utils.decorators.method_to_transform.html#gtda.mapper.utils.decorators.method_to_transform" title="gtda.mapper.utils.decorators.method_to_transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">method_to_transform</span></code></a></dt><dd></dd>
-</dl>
-</div>
-<p class="rubric">References</p>
-<dl class="citation">
-<dt class="label" id="r57f314b1d286-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>G. Singh, F. Mémoli, and G. Carlsson, “Topological methods for the
-analysis of high dimensional data sets and 3D object recognition”;
-in <em>SPBG</em>, pp. 91–100, 2007.</p>
-</dd>
-<dt class="label" id="r57f314b1d286-2"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>“Thread-based parallelism vs process-based parallelism”, in
-<a class="reference external" href="https://joblib.readthedocs.io/en/latest/parallel.html">joblib documentation</a>.</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline" title="gtda.mapper.pipeline.MapperPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">MapperPipeline</span></code></a> object</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -414,6 +384,22 @@ in <em>SPBG</em>, pp. 91–100, 2007.</p>
 <span class="go">[Pipeline] ............. (step 3 of 3) Processing nerve, total=   0.3s</span>
 </pre></div>
 </div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline" title="gtda.mapper.pipeline.MapperPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">MapperPipeline</span></code></a>, <a class="reference internal" href="gtda.mapper.utils.decorators.method_to_transform.html#gtda.mapper.utils.decorators.method_to_transform" title="gtda.mapper.utils.decorators.method_to_transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">method_to_transform</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>G. Singh, F. Mémoli, and G. Carlsson, “Topological methods for the
+analysis of high dimensional data sets and 3D object recognition”;
+in <em>SPBG</em>, pp. 91–100, 2007.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>“Thread-based parallelism vs process-based parallelism”, in
+<a class="reference external" href="https://joblib.readthedocs.io/en/latest/parallel.html">joblib documentation</a>.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="clearer"></div></div>

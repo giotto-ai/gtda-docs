@@ -247,12 +247,11 @@ corresponding vector is among the k nearest neighbors of the
 second, or vice-versa.</p>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.kneighbors_graph.html#sklearn.neighbors.kneighbors_graph" title="(in scikit-learn v0.22)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.neighbors.kneighbors_graph</span></code></a> is used to compute the
 adjacency matrices of kNN graphs.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>n_neighbors</strong><span class="classifier">int, optional, default: <code class="docutils literal notranslate"><span class="pre">4</span></code></span></dt><dd><p>Number of neighbors to use.</p>
-</dd>
-<dt><strong>metric</strong><span class="classifier">string or callable, default <code class="docutils literal notranslate"><span class="pre">'minkowski'</span></code></span></dt><dd><p>Metric to use for distance computation. Any metric from scikit-learn
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_neighbors</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">4</span></code>) – Number of neighbors to use.</p></li>
+<li><p><strong>metric</strong> (string or callable, default <code class="docutils literal notranslate"><span class="pre">'minkowski'</span></code>) – <p>Metric to use for distance computation. Any metric from scikit-learn
 or <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.spatial.distance</span></code> can be used.
 If metric is a callable function, it is called on each
 pair of instances (rows) and the resulting value recorded. The callable
@@ -261,7 +260,7 @@ distance between them. This works for Scipy’s metrics, but is less
 efficient than passing the metric name as a string.
 Distance matrices are not supported.
 Valid values for <cite>metric</cite> are:</p>
-<ul class="simple">
+<ul>
 <li><p>from scikit-learn: [<code class="docutils literal notranslate"><span class="pre">'cityblock'</span></code>, <code class="docutils literal notranslate"><span class="pre">'cosine'</span></code>, <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>,
 <code class="docutils literal notranslate"><span class="pre">'l1'</span></code>, <code class="docutils literal notranslate"><span class="pre">'l2'</span></code>, <code class="docutils literal notranslate"><span class="pre">'manhattan'</span></code>]</p></li>
 <li><p>from <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.spatial.distance</span></code>: [<code class="docutils literal notranslate"><span class="pre">'braycurtis'</span></code>,
@@ -273,20 +272,16 @@ Valid values for <cite>metric</cite> are:</p>
 </ul>
 <p>See the documentation for <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.spatial.distance</span></code> for details on
 these metrics.</p>
-</dd>
-<dt><strong>metric_params</strong><span class="classifier">dict, optional, default: <code class="docutils literal notranslate"><span class="pre">{}</span></code></span></dt><dd><p>Additional keyword arguments for the metric function.</p>
-</dd>
-<dt><strong>p</strong><span class="classifier">int, optional, default: <code class="docutils literal notranslate"><span class="pre">2</span></code></span></dt><dd><p>Parameter for the Minkowski (i.e. <span class="math notranslate nohighlight">\(\ell^p\)</span>) metric from
+</p></li>
+<li><p><strong>metric_params</strong> (dict, optional, default: <code class="docutils literal notranslate"><span class="pre">{}</span></code>) – Additional keyword arguments for the metric function.</p></li>
+<li><p><strong>p</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Parameter for the Minkowski (i.e. <span class="math notranslate nohighlight">\(\ell^p\)</span>) metric from
 <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.metrics.pairwise.pairwise_distances</span></code>. <cite>p</cite> = 1 is the
-Manhattan distance and <cite>p</cite> = 2 is the Euclidean distance.</p>
-</dd>
-<dt><strong>metric_params</strong><span class="classifier">dict, optional, default: <code class="docutils literal notranslate"><span class="pre">{}</span></code></span></dt><dd><p>Additional keyword arguments for the metric function.</p>
-</dd>
-<dt><strong>n_jobs</strong><span class="classifier">int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
+Manhattan distance and <cite>p</cite> = 2 is the Euclidean distance.</p></li>
+<li><p><strong>metric_params</strong> – Additional keyword arguments for the metric function.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
 unless in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means
-using all processors.</p>
-</dd>
-</dl>
+using all processors.</p></li>
+</ul>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -305,111 +300,81 @@ using all processors.</p>
 <span class="go"> [1. 1. 1. 0.]]</span>
 </pre></div>
 </div>
-<p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.graphs.KNeighborsGraph.fit" title="gtda.graphs.KNeighborsGraph.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(self, X[, y])</p></td>
-<td><p>Do nothing and return the estimator unchanged.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.graphs.KNeighborsGraph.fit_transform" title="gtda.graphs.KNeighborsGraph.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a>(self, X[, y])</p></td>
-<td><p>Fit to data, then transform it.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.graphs.KNeighborsGraph.get_params" title="gtda.graphs.KNeighborsGraph.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>(self[, deep])</p></td>
-<td><p>Get parameters for this estimator.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#gtda.graphs.KNeighborsGraph.set_params" title="gtda.graphs.KNeighborsGraph.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(self, \*\*params)</p></td>
-<td><p>Set the parameters of this estimator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#gtda.graphs.KNeighborsGraph.transform" title="gtda.graphs.KNeighborsGraph.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(self, X[, y])</p></td>
-<td><p>Compute kNN graphs and return their adjacency matrices as sparse matrices.</p></td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="gtda.graphs.KNeighborsGraph.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">n_neighbors=4</em>, <em class="sig-param">metric='euclidean'</em>, <em class="sig-param">p=2</em>, <em class="sig-param">metric_params={}</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/graphs/kneighbors.html#KNeighborsGraph.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">n_neighbors=4</em>, <em class="sig-param">metric='euclidean'</em>, <em class="sig-param">p=2</em>, <em class="sig-param">metric_params={}</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/graphs/kneighbors.html#KNeighborsGraph.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.graphs.KNeighborsGraph.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/graphs/kneighbors.html#KNeighborsGraph.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/graphs/kneighbors.html#KNeighborsGraph.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do nothing and return the estimator unchanged.</p>
 <p>This method is here to implement the usual scikit-learn API and hence
 work in pipelines.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_dimensions)</span></dt><dd><p>Input data. Each entry in <cite>X</cite> along axis 0 is an array of
-<code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. Each entry in <cite>X</cite> along axis 0 is an array of
+<code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd></dd>
-</dl>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.graphs.KNeighborsGraph.fit_transform">
-<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.fit_transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.fit_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
 and returns a transformed version of <cite>X</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_dimensions)</span></dt><dd><p>Input data. Each entry in <cite>X</cite> along axis 0 is an array of
-<code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. Each entry in <cite>X</cite> along axis 0 is an array of
+<code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of sparse matrices in CSR format, shape (n_samples,)</span></dt><dd><p>Adjacency matrices of kNN graphs.</p>
+<dd class="field-even"><p><strong>Xt</strong> – Adjacency matrices of kNN graphs.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of sparse matrices in CSR format, shape (n_samples,)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.graphs.KNeighborsGraph.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
-</dl>
-</dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">mapping of string to any</span></dt><dd><p>Parameter names mapped to their values.</p>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.graphs.KNeighborsGraph.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The latter have parameters of the form
@@ -417,41 +382,36 @@ contained subobjects that are estimators.</p>
 component of a nested object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
-</dd>
-</dl>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Estimator instance.</p>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="gtda.graphs.KNeighborsGraph.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/graphs/kneighbors.html#KNeighborsGraph.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gtda/graphs/kneighbors.html#KNeighborsGraph.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.graphs.KNeighborsGraph.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute kNN graphs and return their adjacency matrices as
 sparse matrices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">ndarray of shape (n_samples, n_points, n_dimensions)</span></dt><dd><p>Input data. Each entry in <cite>X</cite> along axis 0 is an array of
-<code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">None</span></dt><dd><p>There is no need for a target in a transformer, yet the pipeline
-API requires this parameter.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. Each entry in <cite>X</cite> along axis 0 is an array of
+<code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>Xt</strong><span class="classifier">ndarray of sparse matrices in CSR format, shape (n_samples,)</span></dt><dd><p>Adjacency matrices of kNN graphs.</p>
+<dd class="field-even"><p><strong>Xt</strong> – Adjacency matrices of kNN graphs.</p>
 </dd>
-</dl>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of sparse matrices in CSR format, shape (n_samples,)</p>
 </dd>
 </dl>
 </dd></dl>
