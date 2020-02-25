@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OneDimensionalCover &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">OneDimensionalCover</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>OneDimensionalCover</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/modules/generated/mapper/covers/gtda.mapper.OneDimensionalCover.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="onedimensionalcover">
+<h1>OneDimensionalCover<a class="headerlink" href="#onedimensionalcover" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gtda.mapper.OneDimensionalCover">
+<em class="property">class </em><code class="sig-prename descclassname">gtda.mapper.</code><code class="sig-name descname">OneDimensionalCover</code><span class="sig-paren">(</span><em class="sig-param">kind='uniform'</em>, <em class="sig-param">n_intervals=10</em>, <em class="sig-param">overlap_frac=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cover.html#OneDimensionalCover"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.OneDimensionalCover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cover of one-dimensional data coming from open overlapping intervals.</p>
+<p>In <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.fit" title="gtda.mapper.OneDimensionalCover.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>, given a training array <cite>X</cite> representing a collection of
+real numbers, a cover of the real line by open intervals
+<span class="math notranslate nohighlight">\(I_k = (a_k, b_k)\)</span> (<span class="math notranslate nohighlight">\(k = 1, \ldots, n\)</span>,
+<span class="math notranslate nohighlight">\(a_k &lt; a_{k+1}\)</span>, <span class="math notranslate nohighlight">\(b_k &lt; b_{k+1}\)</span>) is constructed
+based on the distribution of values in <cite>X</cite>. In <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.transform" title="gtda.mapper.OneDimensionalCover.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a>,
+the cover is applied to a new array <cite>X’</cite> to yield a cover of <cite>X’</cite>.</p>
+<p>All covers constructed in <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.fit" title="gtda.mapper.OneDimensionalCover.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> have <span class="math notranslate nohighlight">\(a_1 = -\infty\)</span>
+and <span class="math notranslate nohighlight">\(b_n = + \infty\)</span>. Two kinds of cover are currently available:
+“uniform” and “balanced”. A uniform cover is such that
+<span class="math notranslate nohighlight">\(b_1 - m = b_2 - a_2 = \cdots = M - a_n\)</span> where <span class="math notranslate nohighlight">\(m\)</span> and
+<span class="math notranslate nohighlight">\(M\)</span> are the minimum and maximum values in <cite>X</cite> respectively. A
+balanced cover is such that approximately the same number of unique
+values from <cite>X</cite> is contained in each cover interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> (<code class="docutils literal notranslate"><span class="pre">'uniform'</span></code> | <code class="docutils literal notranslate"><span class="pre">'balanced'</span></code>, optional, default: <code class="docutils literal notranslate"><span class="pre">'uniform'</span></code>) – The kind of cover to use.</p></li>
+<li><p><strong>n_intervals</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – The number of intervals in the cover calculated in <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.fit" title="gtda.mapper.OneDimensionalCover.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p></li>
+<li><p><strong>overlap_frac</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">0.1</span></code>) – If the cover is uniform, this is the ratio between the length of the
+intersection between consecutive intervals and the length of each
+interval. If the cover is balanced, this is the analogous fractional
+overlap for a uniform cover of the closed interval
+<span class="math notranslate nohighlight">\((0.5, N + 0.5)\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of unique
+values in the training array (see the Notes).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="gtda.mapper.OneDimensionalCover.left_limits_">
+<code class="sig-name descname">left_limits_</code><a class="headerlink" href="#gtda.mapper.OneDimensionalCover.left_limits_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Left limits of the cover intervals computed in <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.fit" title="gtda.mapper.OneDimensionalCover.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>. See the
+Notes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_intervals,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gtda.mapper.OneDimensionalCover.right_limits_">
+<code class="sig-name descname">right_limits_</code><a class="headerlink" href="#gtda.mapper.OneDimensionalCover.right_limits_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Right limits of the cover intervals computed in <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.fit" title="gtda.mapper.OneDimensionalCover.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>. See the
+Notes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_intervals,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>In the case of a balanced cover, <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.left_limits_" title="gtda.mapper.OneDimensionalCover.left_limits_"><code class="xref py py-meth docutils literal notranslate"><span class="pre">left_limits_</span></code></a> and
+<a class="reference internal" href="#gtda.mapper.OneDimensionalCover.right_limits_" title="gtda.mapper.OneDimensionalCover.right_limits_"><code class="xref py py-meth docutils literal notranslate"><span class="pre">right_limits_</span></code></a> are computed as follows given a training array <cite>X</cite>:
+first, entries in <cite>X</cite> are ranked in ascending order, starting at 1 and
+with the same rank repeated in the case of equal values; then, the closed
+interval <span class="math notranslate nohighlight">\((0.5, N + 0.5)\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the maximum
+rank observed, is covered uniformly with parameters <cite>n_intervals</cite> and
+<cite>overlap_frac</cite>, yielding intervals <span class="math notranslate nohighlight">\((\alpha_k, \beta_k)\)</span>;
+the final cover is made of intervals <span class="math notranslate nohighlight">\((a_k, b_k)\)</span> where, for
+<span class="math notranslate nohighlight">\(k &gt; 1\)</span> (resp. <span class="math notranslate nohighlight">\(k &lt; \)</span>), <span class="math notranslate nohighlight">\(a_k\)</span> (resp.
+<span class="math notranslate nohighlight">\(b_k\)</span>) is the value of any entry in <cite>X</cite> ranked as the floor (
+resp. ceiling) of <span class="math notranslate nohighlight">\(\alpha_k\)</span> (resp. <span class="math notranslate nohighlight">\(\beta_k\)</span>).</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="gtda.mapper.CubicalCover.html#gtda.mapper.CubicalCover" title="gtda.mapper.CubicalCover"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubicalCover</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="gtda.mapper.OneDimensionalCover.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">kind='uniform'</em>, <em class="sig-param">n_intervals=10</em>, <em class="sig-param">overlap_frac=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cover.html#OneDimensionalCover.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.OneDimensionalCover.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.mapper.OneDimensionalCover.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cover.html#OneDimensionalCover.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.OneDimensionalCover.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute all cover interval limits according to <cite>X</cite> and store them
+in <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.left_limits_" title="gtda.mapper.OneDimensionalCover.left_limits_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">left_limits_</span></code></a> and <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.right_limits_" title="gtda.mapper.OneDimensionalCover.right_limits_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">right_limits_</span></code></a>. Then, return the
+estimator.</p>
+<p>This method is here to implement the usual scikit-learn API and hence
+work in pipelines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>1</em><em>)</em>) – Input data.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.mapper.OneDimensionalCover.fit_transform">
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cover.html#OneDimensionalCover.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.OneDimensionalCover.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
+and returns a transformed version of <cite>X</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>1</em><em>)</em>) – Input data.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Encoding of the cover of <cite>X</cite> as a boolean array. In general,
+<code class="docutils literal notranslate"><span class="pre">n_cover_sets</span></code> is less than or equal to <cite>n_intervals</cite> as empty
+or duplicated cover sets are removed.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_cover_sets)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.mapper.OneDimensionalCover.get_fitted_intervals">
+<code class="sig-name descname">get_fitted_intervals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cover.html#OneDimensionalCover.get_fitted_intervals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.OneDimensionalCover.get_fitted_intervals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the open intervals computed in <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.fit" title="gtda.mapper.OneDimensionalCover.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>, as a list of
+tuples (a, b) where a &lt; b.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.mapper.OneDimensionalCover.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.mapper.OneDimensionalCover.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.mapper.OneDimensionalCover.set_params">
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.mapper.OneDimensionalCover.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s possible to update each
+component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.mapper.OneDimensionalCover.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cover.html#OneDimensionalCover.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.OneDimensionalCover.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a cover of <cite>X</cite> according to the cover of the real line
+computed in <a class="reference internal" href="#gtda.mapper.OneDimensionalCover.fit" title="gtda.mapper.OneDimensionalCover.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>, and return it as a two-dimensional boolean
+array. Each column indicates the location of entries in <cite>X</cite>
+belonging to a common cover interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>1</em><em>)</em>) – Input data.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Encoding of the cover of <cite>X</cite> as a boolean array. In general,
+<code class="docutils literal notranslate"><span class="pre">n_cover_sets</span></code> is less than or equal to <cite>n_intervals</cite> as empty
+or duplicated cover sets are removed.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_cover_sets)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

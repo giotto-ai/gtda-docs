@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PearsonDissimilarity &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">PearsonDissimilarity</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>PearsonDissimilarity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/modules/generated/time_series/multivariate/gtda.time_series.PearsonDissimilarity.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="pearsondissimilarity">
+<h1>PearsonDissimilarity<a class="headerlink" href="#pearsondissimilarity" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gtda.time_series.PearsonDissimilarity">
+<em class="property">class </em><code class="sig-prename descclassname">gtda.time_series.</code><code class="sig-name descname">PearsonDissimilarity</code><span class="sig-paren">(</span><em class="sig-param">absolute_value=False</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/time_series/multivariate.html#PearsonDissimilarity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.PearsonDissimilarity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pearson dissimilarities from collections of multivariate time series.</p>
+<p>The sample Pearson correlation coefficients between pairs of
+components of an <span class="math notranslate nohighlight">\(N\)</span>-variate time series form an <span class="math notranslate nohighlight">\(N
+\times N\)</span> matrix <span class="math notranslate nohighlight">\(R\)</span> with entries</p>
+<div class="math notranslate nohighlight" id="equation-modules-generated-time-series-multivariate-gtda-time-series-pearsondissimilarity-0">
+<span class="eqno">()<a class="headerlink" href="#equation-modules-generated-time-series-multivariate-gtda-time-series-pearsondissimilarity-0" title="Permalink to this equation">¶</a></span>\[R_{ij} = \frac{ C_{ij} }{ \sqrt{ C_{ii} C_{jj} } },\]</div>
+<p>where <span class="math notranslate nohighlight">\(C\)</span> is the covariance matrix. Setting <span class="math notranslate nohighlight">\(D_{ij} =
+(1 - R_{ij})/2\)</span> or <span class="math notranslate nohighlight">\(D_{ij} = 1 - |R_{ij}|\)</span> we obtain a
+dissimilarity matrix with entries between 0 and 1.</p>
+<p>This transformer computes one dissimilarity matrix per multivariate time
+series in a collection. Examples of such collections are the outputs of
+<a class="reference internal" href="../preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow" title="gtda.time_series.SlidingWindow"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>absolute_value</strong> (bool, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – Whether absolute values of the Pearson correlation coefficients
+should be taken. Doing so makes pairs of strongly anti-correlated
+variables as similar as pairs of strongly correlated ones.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
+unless in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means
+using all processors.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow" title="gtda.time_series.SlidingWindow"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a>, <a class="reference internal" href="../../homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.homology.VietorisRipsPersistence</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="gtda.time_series.PearsonDissimilarity.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">absolute_value=False</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/time_series/multivariate.html#PearsonDissimilarity.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.PearsonDissimilarity.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.time_series.PearsonDissimilarity.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/time_series/multivariate.html#PearsonDissimilarity.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.PearsonDissimilarity.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do nothing and return the estimator unchanged.</p>
+<p>This method is here to implement the usual scikit-learn API and hence
+work in pipelines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_observations</em><em>, </em><em>n_features</em><em>)</em>) – Input data. Each entry along axis 0 is a sample of <code class="docutils literal notranslate"><span class="pre">n_features</span></code>
+different variables, of size <code class="docutils literal notranslate"><span class="pre">n_observations</span></code>.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.time_series.PearsonDissimilarity.fit_transform">
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.PearsonDissimilarity.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
+and returns a transformed version of <cite>X</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_observations</em><em>, </em><em>n_features</em><em>)</em>) – Input data. Each entry along axis 0 is a sample of <code class="docutils literal notranslate"><span class="pre">n_features</span></code>
+different variables, of size <code class="docutils literal notranslate"><span class="pre">n_observations</span></code>.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Array of Pearson dissimilarities.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_features, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.time_series.PearsonDissimilarity.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.PearsonDissimilarity.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.time_series.PearsonDissimilarity.set_params">
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.time_series.PearsonDissimilarity.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s possible to update each
+component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.time_series.PearsonDissimilarity.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/time_series/multivariate.html#PearsonDissimilarity.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.time_series.PearsonDissimilarity.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Pearson dissimilarities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_observations</em><em>, </em><em>n_features</em><em>)</em>) – Input data. Each entry along axis 0 is a sample of <code class="docutils literal notranslate"><span class="pre">n_features</span></code>
+different variables, of size <code class="docutils literal notranslate"><span class="pre">n_observations</span></code>.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Array of Pearson dissimilarities.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_features, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

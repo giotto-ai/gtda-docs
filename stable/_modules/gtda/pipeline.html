@@ -1,0 +1,706 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gtda.pipeline &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>gtda.pipeline</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for gtda.pipeline</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;The module :mod:`gtda.pipeline` extends scikit-learn&#39;s module by defining</span>
+<span class="sd">Pipelines that include TransformerResamplers.&quot;&quot;&quot;</span>
+<span class="c1"># License: GNU AGPLv3</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">clone</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.metaestimators</span> <span class="kn">import</span> <span class="n">if_delegate_has_method</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_memory</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pipeline&#39;</span><span class="p">,</span> <span class="s1">&#39;make_pipeline&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Pipeline"><a class="viewcode-back" href="../../modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline">[docs]</a><span class="k">class</span> <span class="nc">Pipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Pipeline of transforms and resamples with a final estimator.</span>
+
+<span class="sd">    Sequentially apply a list of transforms, sampling, and a final estimator.</span>
+<span class="sd">    Intermediate steps of the pipeline must be transformers or resamplers,</span>
+<span class="sd">    that is, they must implement fit, transform and sample methods.</span>
+<span class="sd">    The samplers are only applied during fit.</span>
+<span class="sd">    The final estimator only needs to implement fit.</span>
+<span class="sd">    The transformers and samplers in the pipeline can be cached using</span>
+<span class="sd">    ``memory`` argument.</span>
+
+<span class="sd">    The purpose of the pipeline is to assemble several steps that can be</span>
+<span class="sd">    cross-validated together while setting different parameters.</span>
+<span class="sd">    For this, it enables setting parameters of the various steps using their</span>
+<span class="sd">    names and the parameter name separated by a &#39;__&#39;, as in the example below.</span>
+<span class="sd">    A step&#39;s estimator may be replaced entirely by setting the parameter</span>
+<span class="sd">    with its name to another estimator, or a transformer removed by setting</span>
+<span class="sd">    it to &#39;passthrough&#39; or ``None``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    steps : list</span>
+<span class="sd">        List of (name, transform) tuples (implementing</span>
+<span class="sd">        fit/transform) that are chained, in the order in which</span>
+<span class="sd">        they are chained, with the last object an estimator.</span>
+
+<span class="sd">    memory : Instance of joblib.Memory or string, optional (default: ``None``)</span>
+<span class="sd">        Used to cache the fitted transformers of the pipeline. By default,</span>
+<span class="sd">        no caching is performed. If a string is given, it is the path to</span>
+<span class="sd">        the caching directory. Enabling caching triggers a clone of</span>
+<span class="sd">        the transformers before fitting. Therefore, the transformer</span>
+<span class="sd">        instance given to the pipeline cannot be inspected</span>
+<span class="sd">        directly. Use the attribute ``named_steps`` or ``steps`` to</span>
+<span class="sd">        inspect estimators within the pipeline. Caching the</span>
+<span class="sd">        transformers is advantageous when fitting is time consuming.</span>
+
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    named_steps : dict</span>
+<span class="sd">        Read-only attribute to access any step parameter by user given name.</span>
+<span class="sd">        Keys are step names and values are steps parameters.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    make_pipeline : helper function to make pipeline.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import gtda.time_series as ts</span>
+<span class="sd">    &gt;&gt;&gt; import gtda.homology as hl</span>
+<span class="sd">    &gt;&gt;&gt; import gtda.diagrams as diag</span>
+<span class="sd">    &gt;&gt;&gt; from gtda.pipeline import Pipeline</span>
+<span class="sd">    &gt;&gt;&gt; import sklearn.preprocessing as skprep</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; X = np.random.rand(600, 1)</span>
+<span class="sd">    &gt;&gt;&gt; n_train, n_test = 400, 200</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; labeller = ts.Labeller(width=5, percentiles=[80],</span>
+<span class="sd">    &gt;&gt;&gt;                        n_steps_future=1)</span>
+<span class="sd">    &gt;&gt;&gt; X_train = X[:n_train]</span>
+<span class="sd">    &gt;&gt;&gt; y_train = X_train</span>
+<span class="sd">    &gt;&gt;&gt; X_train, y_train = labeller.fit_transform_resample(X_train, y_train)</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; print(X_train.shape, y_train.shape)</span>
+<span class="sd">    (395, 1) (395,)</span>
+<span class="sd">    &gt;&gt;&gt; steps = [</span>
+<span class="sd">    &gt;&gt;&gt;     (&#39;embedding&#39;, ts.TakensEmbedding()),</span>
+<span class="sd">    &gt;&gt;&gt;     (&#39;window&#39;, ts.SlidingWindow(width=5, stride=1)),</span>
+<span class="sd">    &gt;&gt;&gt;     (&#39;diagram&#39;, hl.VietorisRipsPersistence()),</span>
+<span class="sd">    &gt;&gt;&gt;     (&#39;rescaler&#39;, diag.Scaler()),</span>
+<span class="sd">    &gt;&gt;&gt;     (&#39;filter&#39;, diag.Filtering(epsilon=0.1)),</span>
+<span class="sd">    &gt;&gt;&gt;     (&#39;entropy&#39;, diag.PersistenceEntropy()),</span>
+<span class="sd">    &gt;&gt;&gt;     (&#39;scaling&#39;, skprep.MinMaxScaler(copy=True)),</span>
+<span class="sd">    &gt;&gt;&gt; ]</span>
+<span class="sd">    &gt;&gt;&gt; pipeline = Pipeline(steps)</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; Xt_train, yr_train = pipeline.\\</span>
+<span class="sd">    &gt;&gt;&gt;     fit_transform_resample(X_train, y_train)</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; print(X_train_final.shape, y_train_final.shape)</span>
+<span class="sd">    (389, 2) (389,)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_steps</span><span class="p">()</span>
+        <span class="c1"># Setup the memory</span>
+        <span class="n">memory</span> <span class="o">=</span> <span class="n">check_memory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="p">)</span>
+
+        <span class="n">fit_transform_one_cached</span> <span class="o">=</span> <span class="n">memory</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">_fit_transform_one</span><span class="p">)</span>
+        <span class="n">fit_transform_resample_one_cached</span> <span class="o">=</span> <span class="n">memory</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span>
+            <span class="n">_fit_transform_resample_one</span><span class="p">)</span>
+
+        <span class="n">fit_params_steps</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">{}</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span>
+                            <span class="k">if</span> <span class="n">step</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">pname</span><span class="p">,</span> <span class="n">pval</span> <span class="ow">in</span> <span class="n">fit_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">step</span><span class="p">,</span> <span class="n">param</span> <span class="o">=</span> <span class="n">pname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">fit_params_steps</span><span class="p">[</span><span class="n">step</span><span class="p">][</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="n">pval</span>
+        <span class="k">for</span> <span class="n">step_idx</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">transformer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter</span><span class="p">(</span><span class="n">with_final</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">memory</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">memory</span><span class="o">.</span><span class="n">location</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="c1"># joblib &gt;= 0.12. We do not clone when caching is disabled to</span>
+                <span class="c1"># preserve backward compatibility</span>
+                <span class="n">cloned_transformer</span> <span class="o">=</span> <span class="n">transformer</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cloned_transformer</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">transformer</span><span class="p">)</span>
+            <span class="c1"># Fit or load from cache the current transfomer</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cloned_transformer</span><span class="p">,</span> <span class="s2">&quot;resample&quot;</span><span class="p">)</span> <span class="ow">or</span> \
+               <span class="nb">hasattr</span><span class="p">(</span><span class="n">cloned_transformer</span><span class="p">,</span> <span class="s2">&quot;fit_transform_resample&quot;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">X</span><span class="p">,</span> <span class="n">fitted_transformer</span> <span class="o">=</span> <span class="n">fit_transform_one_cached</span><span class="p">(</span>
+                        <span class="n">cloned_transformer</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+                        <span class="o">**</span><span class="n">fit_params_steps</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fitted_transformer</span> <span class="o">=</span> \
+                        <span class="n">fit_transform_resample_one_cached</span><span class="p">(</span>
+                            <span class="n">cloned_transformer</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+                            <span class="o">**</span><span class="n">fit_params_steps</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">X</span><span class="p">,</span> <span class="n">fitted_transformer</span> <span class="o">=</span> <span class="n">fit_transform_one_cached</span><span class="p">(</span>
+                    <span class="n">cloned_transformer</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+                    <span class="o">**</span><span class="n">fit_params_steps</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+
+            <span class="c1"># Replace the transformer of the step with the fitted</span>
+            <span class="c1"># transformer. This is necessary when loading the transformer</span>
+            <span class="c1"># from the cache.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="n">step_idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fitted_transformer</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span> <span class="o">==</span> <span class="s1">&#39;passthrough&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">{}</span>
+        <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fit_params_steps</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+
+<div class="viewcode-block" id="Pipeline.fit"><a class="viewcode-back" href="../../modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit the model.</span>
+
+<span class="sd">        Fit all the transforms/samplers one after the other and</span>
+<span class="sd">        transform/sample the data, then fit the transformed/sampled</span>
+<span class="sd">        data using the final estimator.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : iterable</span>
+<span class="sd">            Training data. Must fulfill input requirements of first step of the</span>
+<span class="sd">            pipeline.</span>
+
+<span class="sd">        y : iterable or None, default: ``None``</span>
+<span class="sd">            Training targets. Must fulfill label requirements for all steps of</span>
+<span class="sd">            the pipeline.</span>
+
+<span class="sd">        **fit_params : dict of string -&gt; object</span>
+<span class="sd">            Parameters passed to the :meth:`fit` method of each step, where</span>
+<span class="sd">            each parameter name is prefixed such that parameter ``p`` for step</span>
+<span class="sd">            ``s`` has key ``s__p``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : Pipeline</span>
+<span class="sd">            This estimator</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="n">fit_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span> <span class="o">!=</span> <span class="s1">&#39;passthrough&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Pipeline.fit_transform"><a class="viewcode-back" href="../../modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit the model and transform with the final estimator.</span>
+
+<span class="sd">        Fits all the transformers/samplers one after the other and</span>
+<span class="sd">        transform/sample the data, then uses fit_transform on</span>
+<span class="sd">        transformed data with the final estimator.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : iterable</span>
+<span class="sd">            Training data. Must fulfill input requirements of first step of the</span>
+<span class="sd">            pipeline.</span>
+
+<span class="sd">        y : iterable, default: ``None``</span>
+<span class="sd">            Training targets. Must fulfill label requirements for all steps of</span>
+<span class="sd">            the pipeline.</span>
+
+<span class="sd">        **fit_params : dict of string -&gt; object</span>
+<span class="sd">            Parameters passed to the :meth:`fit` method of each step, where</span>
+<span class="sd">            each parameter name is prefixed such that parameter ``p`` for step</span>
+<span class="sd">            ``s`` has key ``s__p``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : array-like, shape (n_samples, n_transformed_features)</span>
+<span class="sd">            Transformed samples</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">last_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span>
+        <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="n">fit_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">last_step</span> <span class="o">==</span> <span class="s1">&#39;passthrough&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Xt</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">last_step</span><span class="p">,</span> <span class="s1">&#39;fit_transform&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">last_step</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">last_step</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Pipeline.fit_transform_resample"><a class="viewcode-back" href="../../modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.fit_transform_resample">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform_resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit the model and sample with the final estimator.</span>
+
+<span class="sd">        Fits all the transformers/samplers one after the other and</span>
+<span class="sd">        transform/sample the data, then uses fit_resample on transformed</span>
+<span class="sd">        data with the final estimator.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : iterable</span>
+<span class="sd">            Training data. Must fulfill input requirements of first step of the</span>
+<span class="sd">            pipeline.</span>
+
+<span class="sd">        y : iterable, default: ``None``</span>
+<span class="sd">            Training targets. Must fulfill label requirements for all steps of</span>
+<span class="sd">            the pipeline.</span>
+
+<span class="sd">        **fit_params : dict of string -&gt; object</span>
+<span class="sd">            Parameters passed to the :meth:`fit` method of each step, where</span>
+<span class="sd">            each parameter name is prefixed such that parameter ``p`` for step</span>
+<span class="sd">            ``s`` has key ``s__p``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : array-like, shape (n_samples, n_transformed_features)</span>
+<span class="sd">            Transformed samples.</span>
+
+<span class="sd">        yr : array-like, shape (n_samples, n_transformed_features)</span>
+<span class="sd">            Transformed target.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">last_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span>
+        <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="n">fit_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">last_step</span> <span class="o">==</span> <span class="s1">&#39;passthrough&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">last_step</span><span class="p">,</span> <span class="s1">&#39;fit_transform_resample&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">last_step</span><span class="o">.</span><span class="n">fit_transform_resample</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">last_step</span><span class="p">,</span> <span class="s1">&#39;fit_transform&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">last_step</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">),</span> <span class="n">yr</span></div>
+
+<div class="viewcode-block" id="Pipeline.fit_predict"><a class="viewcode-back" href="../../modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.fit_predict">[docs]</a>    <span class="nd">@if_delegate_has_method</span><span class="p">(</span><span class="n">delegate</span><span class="o">=</span><span class="s1">&#39;_final_estimator&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Applies fit_predict of last step in pipeline after transforms.</span>
+
+<span class="sd">        Applies fit_transforms of a pipeline to the data, followed by the</span>
+<span class="sd">        fit_predict method of the final estimator in the pipeline. Valid</span>
+<span class="sd">        only if the final estimator implements fit_predict.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : iterable</span>
+<span class="sd">            Training data. Must fulfill input requirements of first step of</span>
+<span class="sd">            the pipeline.</span>
+
+<span class="sd">        y : iterable or None, default: ``None``</span>
+<span class="sd">            Training targets. Must fulfill label requirements for all steps</span>
+<span class="sd">            of the pipeline.</span>
+
+<span class="sd">        **fit_params : dict of string -&gt; object</span>
+<span class="sd">            Parameters passed to the :meth:`fit` method of each step, where</span>
+<span class="sd">            each parameter name is prefixed such that parameter ``p`` for step</span>
+<span class="sd">            ``s`` has key ``s__p``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y_pred : array-like</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="n">fit_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply transformers/transformer_resamplers, and transform with the</span>
+<span class="sd">        final estimator.</span>
+
+<span class="sd">        This also works where final estimator is ``None``: all prior</span>
+<span class="sd">        transformations are applied.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        y : array-like, shape = (n_samples, )</span>
+<span class="sd">            Data to resample. Must fulfill input requirements of first step</span>
+<span class="sd">            of the pipeline.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        yr : array-like, shape = (n_samples_new, )</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># _final_estimator is None or has transform, otherwise attribute error</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span> <span class="o">!=</span> <span class="s1">&#39;passthrough&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span><span class="o">.</span><span class="n">resample</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resample</span>
+
+    <span class="k">def</span> <span class="nf">_resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">yr</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter</span><span class="p">():</span>
+            <span class="n">yr</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">yr</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">transform_resample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply transformers/transformer_resamplers, and transform with the</span>
+<span class="sd">        final estimator.</span>
+
+<span class="sd">        This also works where final estimator is ``None``: all prior</span>
+<span class="sd">        transformations are applied.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : iterable</span>
+<span class="sd">            Data to transform. Must fulfill input requirements of first step</span>
+<span class="sd">            of the pipeline.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : array-like, shape = (n_samples_new, n_transformed_features)</span>
+<span class="sd">        yr : array-like, shape = (n_samples_new, )</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># _final_estimator is None or has transform, otherwise attribute error</span>
+        <span class="n">final_estimator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span>
+        <span class="k">if</span> <span class="n">final_estimator</span> <span class="o">!=</span> <span class="s1">&#39;passthrough&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">final_estimator</span><span class="p">,</span> <span class="s1">&#39;transform_resample&#39;</span><span class="p">):</span>
+                <span class="n">final_estimator</span><span class="o">.</span><span class="n">transform_resample</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">final_estimator</span><span class="o">.</span><span class="n">transform</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform_resample</span>
+
+    <span class="k">def</span> <span class="nf">_transform_resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="s1">&#39;transform_resample&#39;</span><span class="p">):</span>
+                <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform_resample</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Xt</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply transformers/transformer_resamplers, and transform with the</span>
+<span class="sd">        final estimator.</span>
+
+<span class="sd">        This also works where final estimator is ``None``: all prior</span>
+<span class="sd">        transformations are applied.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : iterable</span>
+<span class="sd">            Data to transform. Must fulfill input requirements of first step</span>
+<span class="sd">            of the pipeline.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : array-like, shape (n_samples, n_transformed_features)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># _final_estimator is None or has transform, otherwise attribute error</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span> <span class="o">!=</span> <span class="s1">&#39;passthrough&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_final_estimator</span><span class="o">.</span><span class="n">transform</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span>
+
+    <span class="k">def</span> <span class="nf">_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">X</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter</span><span class="p">():</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply inverse transformations in reverse order</span>
+
+<span class="sd">        All estimators in the pipeline must support ``inverse_transform``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        Xt : array-like, shape (n_samples, n_transformed_features)</span>
+<span class="sd">            Data samples, where ``n_samples`` is the number of samples and</span>
+<span class="sd">            ``n_features`` is the number of features. Must fulfill</span>
+<span class="sd">            input requirements of last step of pipeline&#39;s</span>
+<span class="sd">            ``inverse_transform`` method.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : array-like, shape (n_samples, n_features)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># raise AttributeError if necessary for hasattr behaviour</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter</span><span class="p">():</span>
+            <span class="n">transform</span><span class="o">.</span><span class="n">inverse_transform</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inverse_transform</span>
+
+    <span class="k">def</span> <span class="nf">_inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+        <span class="n">reverse_iter</span> <span class="o">=</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_iter</span><span class="p">()))</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">transform</span> <span class="ow">in</span> <span class="n">reverse_iter</span><span class="p">:</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span>
+
+<div class="viewcode-block" id="Pipeline.score"><a class="viewcode-back" href="../../modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.score">[docs]</a>    <span class="nd">@if_delegate_has_method</span><span class="p">(</span><span class="n">delegate</span><span class="o">=</span><span class="s1">&#39;_final_estimator&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply transformers/samplers, and score with the final estimator</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : iterable</span>
+<span class="sd">            Data to predict on. Must fulfill input requirements of first step</span>
+<span class="sd">            of the pipeline.</span>
+
+<span class="sd">        y : iterable or None, default: ``None``</span>
+<span class="sd">            Targets used for scoring. Must fulfill label requirements for all</span>
+<span class="sd">            steps of the pipeline.</span>
+
+<span class="sd">        sample_weight : array-like or None, default: ``None``</span>
+<span class="sd">            If not None, this argument is passed as ``sample_weight`` keyword</span>
+<span class="sd">            argument to the ``score`` method of the final estimator.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        score : float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter</span><span class="p">(</span><span class="n">with_final</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="s2">&quot;transform_resample&quot;</span><span class="p">)):</span>
+                <span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform_resample</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Xt</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+
+        <span class="n">score_params</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">score_params</span><span class="p">[</span><span class="s1">&#39;sample_weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_weight</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="o">**</span><span class="n">score_params</span><span class="p">)</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_fit_transform_one</span><span class="p">(</span><span class="n">transformer</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">transformer</span><span class="p">,</span> <span class="s1">&#39;fit_transform&#39;</span><span class="p">):</span>
+        <span class="n">X_res</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">X_res</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="c1"># if we have a weight for this transformer, multiply output</span>
+    <span class="k">if</span> <span class="n">weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">X_res</span><span class="p">,</span> <span class="n">transformer</span>
+    <span class="k">return</span> <span class="n">X_res</span> <span class="o">*</span> <span class="n">weight</span><span class="p">,</span> <span class="n">transformer</span>
+
+
+<span class="k">def</span> <span class="nf">_fit_transform_resample_one</span><span class="p">(</span><span class="n">transformer_resampler</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+                                <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">transformer_resampler</span><span class="p">,</span> <span class="s1">&#39;fit_transform_resample&#39;</span><span class="p">):</span>
+        <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">transformer_resampler</span><span class="o">.</span><span class="n">fit_transform_resample</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">transformer_resampler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span><span class="o">.</span><span class="n">transform_resample</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">transformer_resampler</span>
+    <span class="k">return</span> <span class="n">X_res</span> <span class="o">*</span> <span class="n">weight</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">transformer_resampler</span>
+
+
+<div class="viewcode-block" id="make_pipeline"><a class="viewcode-back" href="../../modules/generated/gtda.pipeline.make_pipeline.html#gtda.pipeline.make_pipeline">[docs]</a><span class="k">def</span> <span class="nf">make_pipeline</span><span class="p">(</span><span class="o">*</span><span class="n">steps</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Construct a Pipeline from the given estimators.</span>
+
+<span class="sd">    This is a shorthand for the Pipeline constructor; it does not require, and</span>
+<span class="sd">    does not permit, naming the estimators. Instead, their names will be set</span>
+<span class="sd">    to the lowercase of their types automatically.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    *steps : list of estimators.</span>
+
+<span class="sd">    memory : None, str or object with the joblib.Memory interface, optional</span>
+<span class="sd">        Used to cache the fitted transformers of the pipeline. By default,</span>
+<span class="sd">        no caching is performed. If a string is given, it is the path to</span>
+<span class="sd">        the caching directory. Enabling caching triggers a clone of</span>
+<span class="sd">        the transformers before fitting. Therefore, the transformer</span>
+<span class="sd">        instance given to the pipeline cannot be inspected</span>
+<span class="sd">        directly. Use the attribute ``named_steps`` or ``steps`` to</span>
+<span class="sd">        inspect estimators within the pipeline. Caching the</span>
+<span class="sd">        transformers is advantageous when fitting is time consuming.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    p : Pipeline</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    imblearn.pipeline.Pipeline : Class for creating a pipeline of</span>
+<span class="sd">        transforms with a final estimator.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.naive_bayes import GaussianNB</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.preprocessing import StandardScaler</span>
+<span class="sd">    &gt;&gt;&gt; make_pipeline(StandardScaler(), GaussianNB(priors=None))</span>
+<span class="sd">    ... # doctest: +NORMALIZE_WHITESPACE</span>
+<span class="sd">    Pipeline(memory=None,</span>
+<span class="sd">             steps=[(&#39;standardscaler&#39;,</span>
+<span class="sd">                     StandardScaler(copy=True, with_mean=True, with_std=True)),</span>
+<span class="sd">                    (&#39;gaussiannb&#39;,</span>
+<span class="sd">                     GaussianNB(priors=None, var_smoothing=1e-09))],</span>
+<span class="sd">             verbose=False)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">memory</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;memory&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Unknown keyword arguments: &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span>
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">_name_estimators</span><span class="p">(</span><span class="n">steps</span><span class="p">),</span> <span class="n">memory</span><span class="o">=</span><span class="n">memory</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

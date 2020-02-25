@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gtda.homology.point_clouds &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>gtda.homology.point_clouds</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for gtda.homology.point_clouds</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Persistent homology on point clouds or finite metric spaces.&quot;&quot;&quot;</span>
+<span class="c1"># License: GNU AGPLv3</span>
+
+<span class="kn">import</span> <span class="nn">numbers</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">check_is_fitted</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">pairwise_distances</span>
+
+<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_postprocess_diagrams</span>
+<span class="kn">from</span> <span class="nn">..externals.python</span> <span class="kn">import</span> <span class="n">ripser</span><span class="p">,</span> <span class="n">SparseRipsComplex</span><span class="p">,</span> <span class="n">CechComplex</span>
+<span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
+<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span>
+
+
+<div class="viewcode-block" id="VietorisRipsPersistence"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">VietorisRipsPersistence</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;`Persistence diagrams &lt;https://giotto.ai/theory&gt;`_ resulting from</span>
+<span class="sd">    `Vietoris-Rips filtrations &lt;https://giotto.ai/theory&gt;`_.</span>
+
+<span class="sd">    Given a `point cloud &lt;https://giotto.ai/theory&gt;`_ in Euclidean space,</span>
+<span class="sd">    or an abstract `metric space &lt;https://giotto.ai/theory&gt;`_ encoded by a</span>
+<span class="sd">    distance matrix, information about the appearance and disappearance of</span>
+<span class="sd">    topological features (technically, `homology classes</span>
+<span class="sd">    &lt;https://giotto.ai/theory&gt;`_) of various dimensions and at different</span>
+<span class="sd">    scales is summarised in the corresponding persistence diagram.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    metric : string or callable, optional, default: ``&#39;euclidean&#39;``</span>
+<span class="sd">        If set to `&#39;precomputed&#39;`, input data is to be interpreted as a</span>
+<span class="sd">        collection of distance matrices. Otherwise, input data is to be</span>
+<span class="sd">        interpreted as a collection of point clouds (i.e. feature arrays),</span>
+<span class="sd">        and `metric` determines a rule with which to calculate distances</span>
+<span class="sd">        between pairs of instances (i.e. rows) in these arrays.</span>
+<span class="sd">        If `metric` is a string, it must be one of the options allowed by</span>
+<span class="sd">        :func:`scipy.spatial.distance.pdist` for its metric parameter, or a</span>
+<span class="sd">        metric listed in :obj:`sklearn.pairwise.PAIRWISE_DISTANCE_FUNCTIONS`,</span>
+<span class="sd">        including &quot;euclidean&quot;, &quot;manhattan&quot;, or &quot;cosine&quot;.</span>
+<span class="sd">        If `metric` is a callable function, it is called on each pair of</span>
+<span class="sd">        instances and the resulting value recorded. The callable should take</span>
+<span class="sd">        two arrays from the entry in `X` as input, and return a value</span>
+<span class="sd">        indicating the distance between them.</span>
+
+<span class="sd">    homology_dimensions : iterable, optional, default: ``(0, 1)``</span>
+<span class="sd">        Dimensions (non-negative integers) of the topological features to be</span>
+<span class="sd">        detected.</span>
+
+<span class="sd">    coeff : int prime, optional, default: ``2``</span>
+<span class="sd">        Compute homology with coefficients in the prime field</span>
+<span class="sd">        :math:`\\mathbb{F}_p = \\{ 0, \\ldots, p - 1 \\}` where</span>
+<span class="sd">        :math:`p` equals `coeff`.</span>
+
+<span class="sd">    max_edge_length : float, optional, default: ``numpy.inf``</span>
+<span class="sd">        Upper bound on the maximum value of the Vietoris-Rips filtration</span>
+<span class="sd">        parameter. Points whose distance is greater than this value will</span>
+<span class="sd">        never be connected by an edge, and topological features at scales</span>
+<span class="sd">        larger than this value will not be detected.</span>
+
+<span class="sd">    infinity_values : float or None, default: ``None``</span>
+<span class="sd">        Which death value to assign to features which are still alive at</span>
+<span class="sd">        filtration value `max_edge_length`. ``None`` means that this</span>
+<span class="sd">        death value is declared to be equal to `max_edge_length`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    infinity_values_ : float</span>
+<span class="sd">        Effective death value to assign to features which are still alive at</span>
+<span class="sd">        filtration value `max_edge_length`.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    SparseRipsPersistence, ConsistentRescaling</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    `Ripser &lt;https://github.com/Ripser/ripser&gt;`_ is used as a C++ backend</span>
+<span class="sd">    for computing Vietoris-Rips persistent homology. Python bindings were</span>
+<span class="sd">    modified for performance from the `ripser.py</span>
+<span class="sd">    &lt;https://github.com/scikit-tda/ripser.py&gt;`_ package.</span>
+
+<span class="sd">    Persistence diagrams produced by this class must be interpreted with</span>
+<span class="sd">    care due to the presence of padding triples which carry no information.</span>
+<span class="sd">    See :meth:`transform` for additional information.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    [1] U. Bauer, &quot;Ripser: efficient computation of Vietoris-Rips persistence \</span>
+<span class="sd">        barcodes&quot;, 2019; `arXiv:1908.02518 \</span>
+<span class="sd">        &lt;https://arxiv.org/abs/1908.02518&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_edge_length&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">],</span>
+                        <span class="s1">&#39;infinity_values_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">],</span>
+                        <span class="s1">&#39;_homology_dimensions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]],</span>
+                        <span class="s1">&#39;coeff&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
+
+<div class="viewcode-block" id="VietorisRipsPersistence.__init__"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">max_edge_length</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                 <span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">coeff</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">infinity_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span> <span class="o">=</span> <span class="n">homology_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coeff</span> <span class="o">=</span> <span class="n">coeff</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span> <span class="o">=</span> <span class="n">max_edge_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span> <span class="o">=</span> <span class="n">infinity_values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+    <span class="k">def</span> <span class="nf">_ripser_diagram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="n">ripser</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span>
+                       <span class="n">maxdim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_max_homology_dimension</span><span class="p">,</span>
+                       <span class="n">thresh</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span><span class="p">,</span> <span class="n">coeff</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">coeff</span><span class="p">,</span>
+                       <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">)[</span><span class="s1">&#39;dgms&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">:</span>
+            <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># Remove final death at np.inf</span>
+
+        <span class="c1"># Add dimension as the third elements of each (b, d) tuple</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                 <span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
+                                               <span class="n">dtype</span><span class="o">=</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
+                 <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">Xdgms</span>
+
+<div class="viewcode-block" id="VietorisRipsPersistence.fit"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`infinity_values_`. Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_points) or \</span>
+<span class="sd">            (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. If ``metric == &#39;precomputed&#39;``, the input should be an</span>
+<span class="sd">            ndarray whose each entry along axis 0 is a distance matrix of shape</span>
+<span class="sd">            ``(n_points, n_points)``. Otherwise, each such entry will be</span>
+<span class="sd">            interpreted as an ndarray of ``n_points`` row vectors in</span>
+<span class="sd">            ``n_dimensions``-dimensional space.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">)</span>
+
+        <span class="n">validate_params</span><span class="p">({</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
+                         <span class="s1">&#39;infinity_values_&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span><span class="p">,</span>
+                         <span class="s1">&#39;_homology_dimensions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">},</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+        <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">force_all_finite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_homology_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="VietorisRipsPersistence.transform"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For each point cloud or distance matrix in `X`, compute the</span>
+<span class="sd">        relevant persistence diagram as an array of triples [b, d, q]. Each</span>
+<span class="sd">        triple represents a persistent topological feature in dimension q</span>
+<span class="sd">        (belonging to `homology_dimensions`) which is born at b and dies at d.</span>
+<span class="sd">        Only triples in which b &lt; d are meaningful. Triples in which b and d</span>
+<span class="sd">        are equal (&quot;diagonal elements&quot;) may be artificially introduced during</span>
+<span class="sd">        the computation for padding purposes, since the number of non-trivial</span>
+<span class="sd">        persistent topological features is typically not constant across</span>
+<span class="sd">        samples. They carry no information and hence should be effectively</span>
+<span class="sd">        ignored by any further computation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_points) or \</span>
+<span class="sd">            (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. If ``metric == &#39;precomputed&#39;``, the input should be an</span>
+<span class="sd">            ndarray whose each entry along axis 0 is a distance matrix of shape</span>
+<span class="sd">            ``(n_points, n_points)``. Otherwise, each such entry will be</span>
+<span class="sd">            interpreted as an ndarray of ``n_points`` row vectors in</span>
+<span class="sd">            ``n_dimensions``-dimensional space.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Array of persistence diagrams computed from the feature arrays or</span>
+<span class="sd">            distance matrices in `X`. ``n_features`` equals</span>
+<span class="sd">            :math:`\\sum_q n_q`, where :math:`n_q` is the maximum number of</span>
+<span class="sd">            topological features in dimension :math:`q` across all samples in</span>
+<span class="sd">            `X`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">force_all_finite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ripser_diagram</span><span class="p">)(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                                          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">_postprocess_diagrams</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">,</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
+
+
+<span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">SparseRipsPersistence</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;`Persistence diagrams &lt;https://giotto.ai/theory&gt;`_ resulting from</span>
+<span class="sd">    `Sparse Vietoris-Rips filtrations &lt;https://giotto.ai/theory&gt;`_.</span>
+
+<span class="sd">    Given a `point cloud &lt;https://giotto.ai/theory&gt;`_ in Euclidean space,</span>
+<span class="sd">    or an abstract `metric space &lt;https://giotto.ai/theory&gt;`_ encoded by a</span>
+<span class="sd">    distance matrix, information about the appearance and disappearance of</span>
+<span class="sd">    topological features (technically, `homology classes</span>
+<span class="sd">    &lt;https://giotto.ai/theory&gt;`_) of various dimensions and at different</span>
+<span class="sd">    scales is summarised in the corresponding persistence diagram.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    metric : string or callable, optional, default: ``&#39;euclidean&#39;``</span>
+<span class="sd">        If set to `&#39;precomputed&#39;`, input data is to be interpreted as a</span>
+<span class="sd">        collection of distance matrices. Otherwise, input data is to be</span>
+<span class="sd">        interpreted as a collection of point clouds (i.e. feature arrays),</span>
+<span class="sd">        and `metric` determines a rule with which to calculate distances</span>
+<span class="sd">        between pairs of instances (i.e. rows) in these arrays.</span>
+<span class="sd">        If `metric` is a string, it must be one of the options allowed by</span>
+<span class="sd">        :func:`scipy.spatial.distance.pdist` for its metric parameter, or a</span>
+<span class="sd">        metric listed in :obj:`sklearn.pairwise.PAIRWISE_DISTANCE_FUNCTIONS`,</span>
+<span class="sd">        including &quot;euclidean&quot;, &quot;manhattan&quot;, or &quot;cosine&quot;.</span>
+<span class="sd">        If `metric` is a callable function, it is called on each pair of</span>
+<span class="sd">        instances and the resulting value recorded. The callable should take</span>
+<span class="sd">        two arrays from the entry in `X` as input, and return a value</span>
+<span class="sd">        indicating the distance between them.</span>
+
+<span class="sd">    homology_dimensions : iterable, optional, default: ``(0, 1)``</span>
+<span class="sd">        Dimensions (non-negative integers) of the topological features to be</span>
+<span class="sd">        detected.</span>
+
+<span class="sd">    coeff : int prime, optional, default: ``2``</span>
+<span class="sd">        Compute homology with coefficients in the prime field</span>
+<span class="sd">        :math:`\\mathbb{F}_p = \\{ 0, \\ldots, p - 1 \\}` where</span>
+<span class="sd">        :math:`p` equals `coeff`.</span>
+
+<span class="sd">    epsilon : float between 0. and 1., optional, default: ``0.1``</span>
+<span class="sd">        Parameter controlling the approximation to the exact Vietoris-Rips</span>
+<span class="sd">        filtration. If set to `0.`, :class:`SparseRipsPersistence` leads to</span>
+<span class="sd">        the same results as :class:`VietorisRipsPersistence` but is slower.</span>
+
+<span class="sd">    max_edge_length : float, optional, default: ``numpy.inf``</span>
+<span class="sd">        Upper bound on the maximum value of the Vietoris-Rips filtration</span>
+<span class="sd">        parameter. Points whose distance is greater than this value will</span>
+<span class="sd">        never be connected by an edge, and topological features at scales</span>
+<span class="sd">        larger than this value will not be detected.</span>
+
+<span class="sd">    infinity_values : float or None, default : ``None``</span>
+<span class="sd">        Which death value to assign to features which are still alive at</span>
+<span class="sd">        filtration value `max_edge_length`. ``None`` means that this</span>
+<span class="sd">        death value is declared to be equal to `max_edge_length`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    infinity_values_ : float</span>
+<span class="sd">        Effective death value to assign to features which are still alive at</span>
+<span class="sd">        filtration value `max_edge_length`. Set in :meth:`fit`.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    VietorisRipsPersistence, ConsistentRescaling</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    `GUDHI &lt;https://github.com/GUDHI/gudhi-devel&gt;`_ is used as a C++ backend</span>
+<span class="sd">    for computing sparse Vietoris-Rips persistent homology. Python bindings</span>
+<span class="sd">    were modified for performance.</span>
+
+<span class="sd">    Persistence diagrams produced by this class must be interpreted with</span>
+<span class="sd">    care due to the presence of padding triples which carry no information.</span>
+<span class="sd">    See :meth:`transform` for additional information.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    [1] C. Maria, &quot;Persistent Cohomology&quot;, 2020; `GUDHI User and Reference \</span>
+<span class="sd">        Manual &lt;http://gudhi.gforge.inria.fr/doc/3.1.0/group__persistent_\</span>
+<span class="sd">        cohomology.html&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;epsilon&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)],</span>
+                        <span class="s1">&#39;max_edge_length&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">],</span>
+                        <span class="s1">&#39;infinity_values_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">],</span>
+                        <span class="s1">&#39;_homology_dimensions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]],</span>
+                        <span class="s1">&#39;coeff&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">max_edge_length</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                 <span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">coeff</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                 <span class="n">infinity_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span> <span class="o">=</span> <span class="n">homology_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coeff</span> <span class="o">=</span> <span class="n">coeff</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">=</span> <span class="n">epsilon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span> <span class="o">=</span> <span class="n">max_edge_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span> <span class="o">=</span> <span class="n">infinity_values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
+
+    <span class="k">def</span> <span class="nf">_gudhi_diagram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">)</span>
+        <span class="n">sparse_rips_complex</span> <span class="o">=</span> <span class="n">SparseRipsComplex</span><span class="p">(</span>
+            <span class="n">distance_matrix</span><span class="o">=</span><span class="n">Xdgms</span><span class="p">,</span> <span class="n">max_edge_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span><span class="p">,</span>
+            <span class="n">sparse</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
+        <span class="n">simplex_tree</span> <span class="o">=</span> <span class="n">sparse_rips_complex</span><span class="o">.</span><span class="n">create_simplex_tree</span><span class="p">(</span>
+            <span class="n">max_dimension</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="n">simplex_tree</span><span class="o">.</span><span class="n">persistence</span><span class="p">(</span>
+            <span class="n">homology_coeff_field</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">coeff</span><span class="p">,</span> <span class="n">min_persistence</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Separate diagrams by homology dimensions</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xdgms</span><span class="p">))</span>
+                                <span class="k">if</span> <span class="n">Xdgms</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">dim</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+                 <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">:</span>
+            <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>  <span class="c1"># Remove final death at np.inf</span>
+
+        <span class="c1"># Add dimension as the third elements of each (b, d) tuple</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                 <span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
+                                               <span class="n">dtype</span><span class="o">=</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
+                 <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">Xdgms</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`infinity_values_`. Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_points) or \</span>
+<span class="sd">            (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. If ``metric == &#39;precomputed&#39;``, the input should be an</span>
+<span class="sd">            ndarray whose each entry along axis 0 is a distance matrix of shape</span>
+<span class="sd">            ``(n_points, n_points)``. Otherwise, each such entry will be</span>
+<span class="sd">            interpreted as an ndarray of ``n_points`` row vectors in</span>
+<span class="sd">            ``n_dimensions``-dimensional space.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">)</span>
+
+        <span class="n">validate_params</span><span class="p">({</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
+                         <span class="s1">&#39;infinity_values_&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span><span class="p">,</span>
+                         <span class="s1">&#39;_homology_dimensions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">},</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+        <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">force_all_finite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_homology_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For each point cloud or distance matrix in `X`, compute the</span>
+<span class="sd">        relevant persistence diagram as an array of triples [b, d, q]. Each</span>
+<span class="sd">        triple represents a persistent topological feature in dimension q</span>
+<span class="sd">        (belonging to `homology_dimensions`) which is born at b and dies at d.</span>
+<span class="sd">        Only triples in which b &lt; d are meaningful. Triples in which b and d</span>
+<span class="sd">        are equal (&quot;diagonal elements&quot;) may be artificially introduced during</span>
+<span class="sd">        the computation for padding purposes, since the number of non-trivial</span>
+<span class="sd">        persistent topological features is typically not constant across</span>
+<span class="sd">        samples. They carry no information and hence should be effectively</span>
+<span class="sd">        ignored by any further computation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_points) or \</span>
+<span class="sd">            (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. If ``metric == &#39;precomputed&#39;``, the input should be an</span>
+<span class="sd">            ndarray whose each entry along axis 0 is a distance matrix of shape</span>
+<span class="sd">            ``(n_points, n_points)``. Otherwise, each such entry will be</span>
+<span class="sd">            interpreted as an ndarray of ``n_points`` row vectors in</span>
+<span class="sd">            ``n_dimensions``-dimensional space.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Array of persistence diagrams computed from the feature arrays or</span>
+<span class="sd">            distance matrices in `X`. ``n_features`` equals</span>
+<span class="sd">            :math:`\\sum_q n_q`, where :math:`n_q` is the maximum number of</span>
+<span class="sd">            topological features in dimension :math:`q` across all samples in</span>
+<span class="sd">            `X`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">force_all_finite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_gudhi_diagram</span><span class="p">)(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span>
+                <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">_postprocess_diagrams</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">,</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span>
+
+
+<span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">EuclideanCechPersistence</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;`Persistence diagrams &lt;https://giotto.ai/theory&gt;`_ resulting from</span>
+<span class="sd">    `Cech filtrations &lt;https://giotto.ai/theory&gt;`_.</span>
+<span class="sd">    Given a `point cloud &lt;https://giotto.ai/theory&gt;`_ in Euclidean space,</span>
+<span class="sd">    information about the appearance and disappearance of topological</span>
+<span class="sd">    features (technically, `homology classes &lt;https://giotto.ai/theory&gt;`_) of</span>
+<span class="sd">    various dimensions and at different scales is summarised in the</span>
+<span class="sd">    corresponding persistence diagram.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    homology_dimensions : iterable, optional, default: ``(0, 1)``</span>
+<span class="sd">        Dimensions (non-negative integers) of the topological features to be</span>
+<span class="sd">        detected.</span>
+
+<span class="sd">    coeff : int prime, optional, default: ``2``</span>
+<span class="sd">        Compute homology with coefficients in the prime field</span>
+<span class="sd">        :math:`\\mathbb{F}_p = \\{ 0, \\ldots, p - 1 \\}` where</span>
+<span class="sd">        :math:`p` equals `coeff`.</span>
+
+<span class="sd">    max_edge_length : float, optional, default: ``numpy.inf``</span>
+<span class="sd">        Upper bound on the maximum value of the Vietoris-Rips filtration</span>
+<span class="sd">        parameter. Points whose distance is greater than this value will</span>
+<span class="sd">        never be connected by an edge, and topological features at scales</span>
+<span class="sd">        larger than this value will not be detected.</span>
+
+<span class="sd">    infinity_values : float or None, default: ``None``</span>
+<span class="sd">        Which death value to assign to features which are still alive at</span>
+<span class="sd">        filtration value `max_edge_length`. ``None`` means that this death</span>
+<span class="sd">        value is declared to be equal to `max_edge_length`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    infinity_values_ : float</span>
+<span class="sd">        Effective death value to assign to features which are still alive at</span>
+<span class="sd">        filtration value `max_edge_length`.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    VietorisRipsPersistence, SparseRipsPersistence, ConsistentRescaling</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    `GUDHI &lt;https://github.com/GUDHI/gudhi-devel&gt;`_ is used as a C++ backend</span>
+<span class="sd">    for computing Cech persistent homology. Python bindings were modified</span>
+<span class="sd">    for performance.</span>
+
+<span class="sd">    Persistence diagrams produced by this class must be interpreted with</span>
+<span class="sd">    care due to the presence of padding triples which carry no information.</span>
+<span class="sd">    See :meth:`transform` for additional information.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    [1] C. Maria, &quot;Persistent Cohomology&quot;, 2020; `GUDHI User and Reference \</span>
+<span class="sd">        Manual &lt;http://gudhi.gforge.inria.fr/doc/3.1.0/group__persistent_\</span>
+<span class="sd">        cohomology.html&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_edge_length&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">],</span>
+                        <span class="s1">&#39;infinity_values_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">],</span>
+                        <span class="s1">&#39;_homology_dimensions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]],</span>
+                        <span class="s1">&#39;coeff&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_edge_length</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                 <span class="n">coeff</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">infinity_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span> <span class="o">=</span> <span class="n">homology_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coeff</span> <span class="o">=</span> <span class="n">coeff</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span> <span class="o">=</span> <span class="n">max_edge_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span> <span class="o">=</span> <span class="n">infinity_values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
+
+    <span class="k">def</span> <span class="nf">_gudhi_diagram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">cech_complex</span> <span class="o">=</span> <span class="n">CechComplex</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">max_radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span><span class="p">)</span>
+        <span class="n">simplex_tree</span> <span class="o">=</span> <span class="n">cech_complex</span><span class="o">.</span><span class="n">create_simplex_tree</span><span class="p">(</span>
+            <span class="n">max_dimension</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="n">simplex_tree</span><span class="o">.</span><span class="n">persistence</span><span class="p">(</span>
+            <span class="n">homology_coeff_field</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">coeff</span><span class="p">,</span> <span class="n">min_persistence</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Separate diagrams by homology dimensions</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xdgms</span><span class="p">))</span>
+                                <span class="k">if</span> <span class="n">Xdgms</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">dim</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+                 <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">:</span>
+            <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>  <span class="c1"># Remove final death at np.inf</span>
+
+        <span class="c1"># Add dimension as the third elements of each (b, d) tuple</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                 <span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
+                                               <span class="n">dtype</span><span class="o">=</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
+                 <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">Xdgms</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`infinity_values_`. Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. Each entry along axis 0 is a point cloud of</span>
+<span class="sd">            ``n_points`` row vectors in ``n_dimensions``-dimensional space.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">)</span>
+
+        <span class="n">validate_params</span><span class="p">({</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
+                         <span class="s1">&#39;infinity_values_&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span><span class="p">,</span>
+                         <span class="s1">&#39;_homology_dimensions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">},</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+        <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_homology_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For each point cloud in `X`, compute the relevant persistence</span>
+<span class="sd">        diagram as an array of triples [b, d, q]. Each triple represents a</span>
+<span class="sd">        persistent topological feature in dimension q (belonging to</span>
+<span class="sd">        `homology_dimensions`) which is born at b and dies at d. Only triples</span>
+<span class="sd">        in which b &lt; d are meaningful. Triples in which b and d are equal</span>
+<span class="sd">        (&quot;diagonal elements&quot;) may be artificially introduced during the</span>
+<span class="sd">        computation for padding purposes, since the number of non-trivial</span>
+<span class="sd">        persistent topological features is typically not constant across</span>
+<span class="sd">        samples. They carry no information and hence should be effectively</span>
+<span class="sd">        ignored by any further computation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. Each entry along axis 0 is a point cloud of</span>
+<span class="sd">            ``n_points`` row vectors in ``n_dimensions``-dimensional space.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Array of persistence diagrams computed from the feature arrays in</span>
+<span class="sd">            `X`. ``n_features`` equals :math:`\\sum_q n_q`, where :math:`n_q`</span>
+<span class="sd">            is the maximum number of topological features in dimension</span>
+<span class="sd">            :math:`q` across all samples in `X`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_gudhi_diagram</span><span class="p">)(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span>
+                <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">_postprocess_diagrams</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">,</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

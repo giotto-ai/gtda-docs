@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contributing &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Contributing</a><ul>
+<li><a class="reference internal" href="#developer-installation">Developer installation</a><ul>
+<li><a class="reference internal" href="#linux">Linux</a></li>
+<li><a class="reference internal" href="#macos">macOS</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+<li><a class="reference internal" href="#to-install">To install:</a><ul>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#guidelines">Guidelines</a></li>
+<li><a class="reference internal" href="#contributing-guidelines">Contributing guidelines</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Contributing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/contributing_.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="contributing">
+<span id="contrib"></span><h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>This page contains a summary of what one needs to do to contribute.</p>
+<div class="section" id="developer-installation">
+<h2>Developer installation<a class="headerlink" href="#developer-installation" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Installing both the PyPI release and source of giotto-tda in the same environment is not recommended since it is
+known to cause conflicts with the C++ bindings.</p>
+<p>The developer installation requires three important C++ dependencies:</p>
+<ul class="simple">
+<li><p>A C++14 compatible compiler</p></li>
+<li><p>CMake &gt;= 3.9</p></li>
+<li><p>Boost &gt;= 1.56</p></li>
+</ul>
+<p>Please refer to your system’s instructions and to the <a class="reference external" href="https://cmake.org/">CMake</a> and
+<a class="reference external" href="https://www.boost.org/doc/libs/1_72_0/more/getting_started/index.html">Boost</a> websites for definitive guidance on how to install these dependencies. The instructions below are unofficial, please follow them at your own risk.</p>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>Most Linux systems should come with a suitable compiler pre-installed. For the other two dependencies, you may consider using your distribution’s package manager, e.g. by running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install cmake libboost-dev
+</pre></div>
+</div>
+<p>if <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> is available in your system.</p>
+</div>
+<div class="section" id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
+<p>On macOS, you may consider using <code class="docutils literal notranslate"><span class="pre">brew</span></code> (<a class="reference external" href="https://brew.sh/">https://brew.sh/</a>) to install the dependencies as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install gcc cmake boost
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>On Windows, you will likely need to have <a class="reference external" href="https://visualstudio.microsoft.com/">Visual Studio</a> installed. At present,
+it appears to be important to have a recent version of the VS C++ compiler. One way to check whether this is the case
+is as follows: 1) open the VS Installer GUI; 2) under the “Installed” tab, click on “Modify” in the relevant VS
+version; 3) in the newly opened window, select “Individual components” and ensure that v14.24 or above of the MSVC
+“C++ x64/x86 build tools” is selected. The CMake and Boost dependencies are best installed using the latest binary
+executables from the websites of the respective projects.</p>
+</div>
+<div class="section" id="source-code">
+<h3>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h3>
+<p>You can obtain the latest state of the source code with the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">giotto</span><span class="o">-</span><span class="n">ai</span><span class="o">/</span><span class="n">giotto</span><span class="o">-</span><span class="n">tda</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="to-install">
+<h3>To install:<a class="headerlink" href="#to-install" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> giotto-tda
+python -m pip install -e <span class="s2">&quot;.[dev]&quot;</span>
+</pre></div>
+</div>
+<p>This way, you can pull the library’s latest changes and make them immediately available on your machine.
+Note: we recommend upgrading <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> to recent versions before installing in this way.</p>
+<div class="section" id="testing">
+<h4>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h4>
+<p>After installation, you can launch the test suite from outside the
+source directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">gtda</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="contributing-guidelines">
+<h2>Contributing guidelines<a class="headerlink" href="#contributing-guidelines" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Before sending your pull requests, make sure you followed this list.</dt><dd><ul class="simple">
+<li><p>Read the <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/GOVERNANCE.rst">contributing guidelines</a>.</p></li>
+<li><p>Read the <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/CODE_OF_CONDUCT.rst">code of conduct</a>.</p></li>
+<li><p>Ensure you have signed the <a class="reference external" href="https://cla-assistant.io/giotto-ai/giotto-tda">contributor license agreement (CLA)</a>.</p></li>
+<li><p>Check if the changes are consistent with the guidelines.</p></li>
+<li><p>Changes are consistent with the Coding Style.</p></li>
+<li><p>Run Unit Tests.</p></li>
+</ul>
+</dd>
+</dl>
+<p>In order to become a contributor of giotto-tda, the first step is to sign the
+<a class="reference external" href="https://cla-assistant.io/giotto-ai/giotto-tda">contributor license agreement (CLA)</a>.
+<strong>NOTE</strong>: Only original source code from you and other people that have signed
+the CLA can be accepted into the main repository.</p>
+<p>If you have improvements to giotto-tda, do not hesitate to send us pull requests!
+Please follow the Github how to (<a class="reference external" href="https://help.github.com/articles/using-pull-requests/">https://help.github.com/articles/using-pull-requests/</a>).
+The giotto-tda team will review your pull requests. Once the pull requests are approved and pass continuous integration checks, the
+giotto-tda team will work on getting your pull request submitted to our GitHub
+repository. Eventually, your pull request will be merged automatically on GitHub.
+If you want to contribute, start working through the giotto-tda codebase,
+navigate to the <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/issues">GitHub issue tab</a>
+and start looking through interesting issues. These are issues that we believe
+are particularly well suited for outside contributions, often because we
+probably won’t get to them right now. If you decide to start on an issue, leave
+a comment so that other people know that you’re working on it. If you want to
+help out, but not alone, use the issue comment thread to coordinate.</p>
+<p>Before sending your pull request for review, make sure your changes are
+consistent with the guidelines and follow the coding style below.</p>
+<ul class="simple">
+<li><p>Include unit tests when you contribute new features, as they help to
+a) prove that your code works correctly, and
+b) guard against future breaking changes to lower the maintenance cost.</p></li>
+<li><p>Bug fixes also generally require unit tests, because the presence of bugs
+usually indicates insufficient test coverage.</p></li>
+<li><p>Keep API compatibility in mind when you change code in core giotto-tda.</p></li>
+<li><p>Clearly define your exceptions using the utils functions and test the exceptions.</p></li>
+<li><p>When you contribute a new feature to giotto-tda, the maintenance burden is
+(by default) transferred to the giotto-tda team. This means that the benefit
+of the contribution must be compared against the cost of maintaining the
+feature.</p></li>
+</ul>
+<p>Changes to giotto-tda’s C/C++ code should conform to <a class="reference external" href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a>.
+Use <cite>clang-tidy</cite> to check your C/C++ changes. To install <cite>clang-tidy</cite> on
+ubuntu:16.04, do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get install -y clang-tidy
+</pre></div>
+</div>
+<p>You can check a C/C++ file by doing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>clang-format &lt;my_cc_file&gt; --style<span class="o">=</span>google &gt; /tmp/my_cc_file.ccdiff &lt;my_cc_file&gt; /tmp/my_cc_file.cc
+</pre></div>
+</div>
+<p>Changes to giotto-tda’s Python code should conform to PEP8 directives.
+Use <cite>flake8</cite> to check your Python changes. To install <cite>flake8</cite> just do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">flake8</span>
+</pre></div>
+</div>
+<p>You can use <cite>flake8</cite> on your python code via the following instructions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">flake8</span> <span class="n">name_of_your_script</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>We provide a pre-commit git hook to prevent accidental commits to the master branch. To activate, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> .git/hooks
+ln -s ../../.tools/git-pre-commit pre-commit
+</pre></div>
+</div>
+<p>There are two ways to run unit tests for giotto-tda.</p>
+<ol class="arabic simple">
+<li><p>Using tools and libraries installed directly on your system. The election tool is <cite>pytest</cite>. To install <cite>pytest</cite> just do</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span>
+</pre></div>
+</div>
+<p>You can use <cite>pytest</cite> on your python code via the following instructions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">name_of_your_script</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Using Azure (azure-pipelines.yml) and giotto-tda’s CI scripts.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

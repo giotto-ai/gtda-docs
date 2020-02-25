@@ -1,0 +1,580 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gtda.diagrams.preprocessing &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>gtda.diagrams.preprocessing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for gtda.diagrams.preprocessing</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Persistence diagram preprocessing.&quot;&quot;&quot;</span>
+<span class="c1"># License: GNU AGPLv3</span>
+
+<span class="kn">import</span> <span class="nn">numbers</span>
+<span class="kn">import</span> <span class="nn">types</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
+
+<span class="kn">from</span> <span class="nn">._metrics</span> <span class="kn">import</span> <span class="n">_parallel_amplitude</span>
+<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_sort</span><span class="p">,</span> <span class="n">_filter</span><span class="p">,</span> <span class="n">_bin</span><span class="p">,</span> <span class="n">_calculate_weights</span>
+<span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
+<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="p">(</span><span class="n">check_diagram</span><span class="p">,</span> <span class="n">validate_params</span><span class="p">,</span>
+                                <span class="n">validate_metric_params</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ForgetDimension"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">ForgetDimension</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Replaces all homology dimensions in persistence diagrams with</span>
+<span class="sd">    ``numpy.inf``.</span>
+
+<span class="sd">    Useful when downstream tasks require the use of topological features all at</span>
+<span class="sd">    once -- and not separated between different homology dimensions.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ForgetDimension.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ForgetDimension.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do nothing and return the estimator unchanged.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="ForgetDimension.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Replace all homology dimensions in `X` with ``numpy.inf``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Output persistence diagram.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">Xt</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
+
+
+<div class="viewcode-block" id="Scaler"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">Scaler</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Linear scaling of persistence diagrams.</span>
+
+<span class="sd">    A positive scale factor is calculated during :meth:`fit` by considering all</span>
+<span class="sd">    available persistence diagrams and homology dimensions. During</span>
+<span class="sd">    :meth:`transform`, all birth-death pairs are divided by this factor.</span>
+
+<span class="sd">    The value of the scale factor depends on two things:</span>
+
+<span class="sd">        - A way of computing, for each homology dimension, the `amplitude</span>
+<span class="sd">          &lt;https://giotto.ai/theory&gt;`_ in that dimension of a persistence</span>
+<span class="sd">          diagram consisting of birth-death-dimension triples [b, d, q].</span>
+<span class="sd">          Together, `metric` and `metric_params` define this in the same way as</span>
+<span class="sd">          in :class:`Amplitude`.</span>
+<span class="sd">        - A scalar-valued function which is applied to the resulting</span>
+<span class="sd">          two-dimensional array of amplitudes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    metric : ``&#39;bottleneck&#39;`` | ``&#39;wasserstein&#39;`` | ``&#39;landscape&#39;`` | \</span>
+<span class="sd">        ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: ``&#39;bottleneck&#39;``</span>
+<span class="sd">        Distance or dissimilarity function used to define the amplitude of</span>
+<span class="sd">        a subdiagram as its distance from the diagonal diagram:</span>
+
+<span class="sd">        - ``&#39;bottleneck&#39;`` and ``&#39;wasserstein&#39;`` refer to the identically named</span>
+<span class="sd">          perfect-matching--based notions of distance.</span>
+<span class="sd">        - ``&#39;landscape&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          persistence landscapes.</span>
+<span class="sd">        - ``&#39;betti&#39;`` refers to the :math:`L^p` distance between Betti curves.</span>
+<span class="sd">        - ``&#39;heat&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          Gaussian-smoothed diagrams.</span>
+
+<span class="sd">    metric_params : dict or None, optional, default: ``None``</span>
+<span class="sd">        Additional keyword arguments for the metric function:</span>
+
+<span class="sd">        - If ``metric == &#39;bottleneck&#39;`` there are no available arguments.</span>
+<span class="sd">        - If ``metric == &#39;wasserstein&#39;`` the only argument is `p` (int,</span>
+<span class="sd">          default: ``2``).</span>
+<span class="sd">        - If ``metric == &#39;betti&#39;`` the available arguments are `p` (float,</span>
+<span class="sd">          default: ``2.``) and `n_bins` (int, default: ``100``).</span>
+<span class="sd">        - If ``metric == &#39;landscape&#39;`` the available arguments are `p`</span>
+<span class="sd">          (float, default: ``2.``), `n_bins` (int, default: ``100``) and</span>
+<span class="sd">          `n_layers` (int, default: ``1``).</span>
+<span class="sd">        - If ``metric == &#39;heat&#39;`` the available arguments are `p` (float,</span>
+<span class="sd">          default: ``2.``), `sigma` (float, default: ``1.``) and `n_bins`</span>
+<span class="sd">          (int, default: ``100``).</span>
+<span class="sd">        - If ``metric == &#39;persistence_image&#39;`` the available arguments are `p`</span>
+<span class="sd">          (float, default: ``2.``), `sigma` (float, default: ``1.``),</span>
+<span class="sd">          `n_bins` (int, default: ``100``) and `weight_function`</span>
+<span class="sd">          (func, default x -&gt; x).</span>
+
+
+<span class="sd">    function : callable, optional, default: ``numpy.max``</span>
+<span class="sd">        Function used to extract a positive scalar from the collection of</span>
+<span class="sd">        amplitude vectors in :meth:`fit`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1</span>
+<span class="sd">        unless in a :obj:`joblib.parallel_backend` context. ``-1`` means</span>
+<span class="sd">        using all processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    effective_metric_params_ : dict</span>
+<span class="sd">        Dictionary containing all information present in `metric_params` as</span>
+<span class="sd">        well as on any relevant quantities computed in :meth:`fit`.</span>
+
+<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">        Homology dimensions seen in :meth:`fit`, sorted in ascending order.</span>
+
+<span class="sd">    scale_ : float</span>
+<span class="sd">        Value by which to rescale diagrams.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    Filtering, Amplitude, PairwiseDistance, \</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    To compute scaling factors without first splitting the computation between</span>
+<span class="sd">    different homology dimensions, data should be first transformed by an</span>
+<span class="sd">    instance of :class:`ForgetDimension`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">]}</span>
+
+<div class="viewcode-block" id="Scaler.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;bottleneck&#39;</span><span class="p">,</span> <span class="n">metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span> <span class="o">=</span> <span class="n">metric_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="n">function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="Scaler.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
+<span class="sd">        :attr:`homology_dimensions_` and compute :attr:`scale_`.</span>
+<span class="sd">        Then, return the estimator.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">validate_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">validate_metric_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">[</span><span class="s1">&#39;samplings&#39;</span><span class="p">],</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">[</span><span class="s1">&#39;step_sizes&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="n">_bin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">==</span> <span class="s1">&#39;persistence_image&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="n">_calculate_weights</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">)</span>
+
+        <span class="n">amplitude_array</span> <span class="o">=</span> <span class="n">_parallel_amplitude</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
+                                              <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">,</span>
+                                              <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">,</span>
+                                              <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">amplitude_array</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Scaler.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Divide all birth and death values in `X` by :attr:`scale_`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Rescaled diagrams.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">Xs</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale_</span>
+        <span class="k">return</span> <span class="n">Xs</span></div>
+
+<div class="viewcode-block" id="Scaler.inverse_transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Scale back the data to the original representation. Multiplies</span>
+<span class="sd">        by the scale found in :meth:`fit`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Data to apply the inverse transform to.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xs : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Rescaled diagrams.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">Xs</span> <span class="o">=</span> <span class="n">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">Xs</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale_</span>
+        <span class="k">return</span> <span class="n">Xs</span></div></div>
+
+
+<div class="viewcode-block" id="Filtering"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">Filtering</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Filtering of persistence diagrams.</span>
+
+<span class="sd">    Filtering a diagram means removing all points whose distance from the</span>
+<span class="sd">    diagonal is less than or equal to a certain cutoff value which can be</span>
+<span class="sd">    interpreted as (:math:`1/\\sqrt{2}` times) the &quot;minimum amount of</span>
+<span class="sd">    persistence&quot; required from points in the filtered diagram.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    homology_dimensions : iterable or None, optional, default: ``None``</span>
+<span class="sd">        When set to ``None``, subdiagrams corresponding to all homology</span>
+<span class="sd">        dimensions seen in :meth:`fit` will be filtered.</span>
+<span class="sd">        Otherwise, it contains the homology dimensions at which filtering</span>
+<span class="sd">        should occur.</span>
+
+<span class="sd">    epsilon : float, optional, default: ``0.01``</span>
+<span class="sd">        The cutoff value controlling the amount of filtering.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">        If `homology_dimensions` is set to ``None``, then this is the list</span>
+<span class="sd">        of homology dimensions seen in :meth:`fit`, sorted in ascending</span>
+<span class="sd">        order. Otherwise, it is a similarly sorted version of</span>
+<span class="sd">        `homology_dimensions`.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    Scaling, Amplitude, PairwiseDistance, \</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;homology_dimensions_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]],</span>
+                        <span class="s1">&#39;epsilon&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
+
+<div class="viewcode-block" id="Filtering.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span> <span class="o">=</span> <span class="n">homology_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">=</span> <span class="n">epsilon</span></div>
+
+<div class="viewcode-block" id="Filtering.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Store relevant homology dimensions in</span>
+<span class="sd">        :attr:`homology_dimensions_`. Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+
+        <span class="n">validate_params</span><span class="p">({</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
+                         <span class="s1">&#39;homology_dimensions_&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">},</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> \
+            <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Filtering.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Filter all relevant persistence subdiagrams.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Filtered persistence diagrams. Only the subdiagrams corresponding</span>
+<span class="sd">            to dimensions in :attr:`homology_dimensions_` are filtered.</span>
+<span class="sd">            Discarded points are replaced by points on the diagonal.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">X</span> <span class="o">=</span> <span class="n">_sort</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">_filter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

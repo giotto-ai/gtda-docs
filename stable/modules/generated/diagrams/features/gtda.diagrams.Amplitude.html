@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Amplitude &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Amplitude</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Amplitude</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/modules/generated/diagrams/features/gtda.diagrams.Amplitude.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="amplitude">
+<h1>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gtda.diagrams.Amplitude">
+<em class="property">class </em><code class="sig-prename descclassname">gtda.diagrams.</code><code class="sig-name descname">Amplitude</code><span class="sig-paren">(</span><em class="sig-param">metric='landscape'</em>, <em class="sig-param">metric_params=None</em>, <em class="sig-param">order=2.0</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/distance.html#Amplitude"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Amplitude" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://giotto.ai/theory">Amplitudes</a> of persistence diagrams,
+constructed from the amplitudes of their subdiagrams with constant
+homology dimension.</p>
+<p>Given a single persistence diagram consisting of birth-death-dimension
+triples [b, d, q], a vector of amplitudes or a single scalar amplitude is
+calculated according to the following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>All diagrams are partitioned into subdiagrams corresponding to
+distinct homology dimensions.</p></li>
+<li><p>The amplitude of each subdiagram is calculated according to the
+parameters <cite>metric</cite> and <cite>metric_params</cite>. This gives a vector of
+amplitudes, <span class="math notranslate nohighlight">\(\mathbf{a} = (a_{q_1}, \ldots, a_{q_n})\)</span>.</p></li>
+<li><p>The final result is either <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> itself or
+a norm of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>.</p></li>
+</ol>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metric</strong> (<code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> | <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> | <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> |         <code class="docutils literal notranslate"><span class="pre">'betti'</span></code> | <code class="docutils literal notranslate"><span class="pre">'heat'</span></code> | <code class="docutils literal notranslate"><span class="pre">'persistence_image'</span></code>, optional,) – <p>default: <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code>
+Distance or dissimilarity function used to define the amplitude of
+a subdiagram as its distance from the diagonal diagram:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> and <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> refer to the identically named
+perfect-matching–based notions of distance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> refers to the <span class="math notranslate nohighlight">\(L^p\)</span> distance between
+persistence landscapes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'betti'</span></code> refers to the <span class="math notranslate nohighlight">\(L^p\)</span> distance between Betti curves.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'heat'</span></code> refers to the <span class="math notranslate nohighlight">\(L^p\)</span> distance between
+Gaussian-smoothed diagrams.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'persistence_image'</span></code> refers to the <span class="math notranslate nohighlight">\(L^p\)</span> distance between
+Gaussian-smoothed diagrams represented on birth-persistence axes.</p></li>
+</ul>
+</p></li>
+<li><p><strong>metric_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>Additional keyword arguments for the metric function:</p>
+<ul>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'bottleneck'</span></code> there are no available arguments.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'wasserstein'</span></code> the only argument is <cite>p</cite> (int,
+default: <code class="docutils literal notranslate"><span class="pre">2</span></code>).</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'betti'</span></code> the available arguments are <cite>p</cite> (float,
+default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>) and <cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'landscape'</span></code> the available arguments are <cite>p</cite>
+(float, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) and
+<cite>n_layers</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>).</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'heat'</span></code> the available arguments are <cite>p</cite> (float,
+default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>sigma</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>) and <cite>n_bins</cite>
+(int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'persistence_image'</span></code> the available arguments are <cite>p</cite>
+(float, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>sigma</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>),
+<cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) and <cite>weight_function</cite>
+(func, default x -&gt; x).</p></li>
+</ul>
+</p></li>
+<li><p><strong>order</strong> (float or None, optional, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>) – If <code class="docutils literal notranslate"><span class="pre">None</span></code>, <a class="reference internal" href="#gtda.diagrams.Amplitude.transform" title="gtda.diagrams.Amplitude.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a> returns for each diagram a vector of
+amplitudes corresponding to the dimensions in
+<a class="reference internal" href="#gtda.diagrams.Amplitude.homology_dimensions_" title="gtda.diagrams.Amplitude.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>. Otherwise, the <span class="math notranslate nohighlight">\(p\)</span>-norm of
+these vectors with <span class="math notranslate nohighlight">\(p\)</span> equal to <cite>order</cite> is taken.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless
+in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all
+processors.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="gtda.diagrams.Amplitude.effective_metric_params_">
+<code class="sig-name descname">effective_metric_params_</code><a class="headerlink" href="#gtda.diagrams.Amplitude.effective_metric_params_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary containing all information present in <cite>metric_params</cite> as
+well as on any relevant quantities computed in <a class="reference internal" href="#gtda.diagrams.Amplitude.fit" title="gtda.diagrams.Amplitude.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gtda.diagrams.Amplitude.homology_dimensions_">
+<code class="sig-name descname">homology_dimensions_</code><a class="headerlink" href="#gtda.diagrams.Amplitude.homology_dimensions_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Homology dimensions seen in <a class="reference internal" href="#gtda.diagrams.Amplitude.fit" title="gtda.diagrams.Amplitude.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>, sorted in ascending order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairwiseDistance</span></code></a>, <a class="reference internal" href="../preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler" title="gtda.diagrams.Scaler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scaler</span></code></a>, <a class="reference internal" href="../preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering" title="gtda.diagrams.Filtering"><code class="xref py py-class docutils literal notranslate"><span class="pre">Filtering</span></code></a>, <a class="reference internal" href="gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve" title="gtda.diagrams.BettiCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">BettiCurve</span></code></a>, <a class="reference internal" href="gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape" title="gtda.diagrams.PersistenceLandscape"><code class="xref py py-class docutils literal notranslate"><span class="pre">PersistenceLandscape</span></code></a>, <a class="reference internal" href="gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel" title="gtda.diagrams.HeatKernel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeatKernel</span></code></a>, <a class="reference internal" href="../../homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.homology.VietorisRipsPersistence</span></code></a></p>
+</div>
+<p class="rubric">Notes</p>
+<p>To compute amplitudes without first splitting the computation between
+different homology dimensions, data should be first transformed by an
+instance of <a class="reference internal" href="../preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension" title="gtda.diagrams.ForgetDimension"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForgetDimension</span></code></a>.</p>
+<dl class="method">
+<dt id="gtda.diagrams.Amplitude.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">metric='landscape'</em>, <em class="sig-param">metric_params=None</em>, <em class="sig-param">order=2.0</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/distance.html#Amplitude.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Amplitude.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Amplitude.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/distance.html#Amplitude.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Amplitude.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store all observed homology dimensions in
+<a class="reference internal" href="#gtda.diagrams.Amplitude.homology_dimensions_" title="gtda.diagrams.Amplitude.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a> and compute
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">effective_metric_params</span></code>. Then, return the estimator.</p>
+<p>This method is here to implement the usual scikit-learn API and hence
+work in pipelines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Input data. Array of persistence diagrams, each a collection of
+triples [b, d, q] representing persistent topological features
+through their birth (b), death (d) and homology dimension (q).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Amplitude.fit_transform">
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.Amplitude.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
+and returns a transformed version of <cite>X</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Input data. Array of persistence diagrams, each a collection of
+triples [b, d, q] representing persistent topological features
+through their birth (b), death (d) and homology dimension (q).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Amplitudes or amplitude vectors of the diagrams in <cite>X</cite>. In the
+second case, index i along axis 1 corresponds to the i-th
+homology dimension in <a class="reference internal" href="#gtda.diagrams.Amplitude.homology_dimensions_" title="gtda.diagrams.Amplitude.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions) if <cite>order</cite>              is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else (n_samples, 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Amplitude.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.Amplitude.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Amplitude.set_params">
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.Amplitude.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s possible to update each
+component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Amplitude.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/distance.html#Amplitude.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Amplitude.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the amplitudes or amplitude vectors of diagrams in <cite>X</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Input data. Array of persistence diagrams, each a collection of
+triples [b, d, q] representing persistent topological features
+through their birth (b), death (d) and homology dimension (q).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Amplitudes or amplitude vectors of the diagrams in <cite>X</cite>. In the
+second case, index i along axis 1 corresponds to the i-th
+homology dimension in <a class="reference internal" href="#gtda.diagrams.Amplitude.homology_dimensions_" title="gtda.diagrams.Amplitude.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions) if <cite>order</cite>              is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else (n_samples, 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

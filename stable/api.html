@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to giotto-tda’s API reference! &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to giotto-tda’s API reference!</a><ul>
+<li><a class="reference internal" href="#module-gtda.mapper"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>: Mapper</a><ul>
+<li><a class="reference internal" href="#filters">Filters</a></li>
+<li><a class="reference internal" href="#covers">Covers</a></li>
+<li><a class="reference internal" href="#clustering">Clustering</a></li>
+<li><a class="reference internal" href="#pipeline">Pipeline</a></li>
+<li><a class="reference internal" href="#visualization">Visualization</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gtda.homology"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a></li>
+<li><a class="reference internal" href="#module-gtda.diagrams"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
+<li><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
+<li><a class="reference internal" href="#distances">Distances</a></li>
+<li><a class="reference internal" href="#diagram-features">Diagram features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gtda.time_series"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>: Time series</a><ul>
+<li><a class="reference internal" href="#id3">Preprocessing</a></li>
+<li><a class="reference internal" href="#time-delay-embedding">Time-delay embedding</a></li>
+<li><a class="reference internal" href="#target-preparation">Target preparation</a></li>
+<li><a class="reference internal" href="#dynamical-systems">Dynamical systems</a></li>
+<li><a class="reference internal" href="#multivariate">Multivariate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gtda.graphs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>: Graphs</a><ul>
+<li><a class="reference internal" href="#graph-creation">Graph creation</a></li>
+<li><a class="reference internal" href="#graph-processing">Graph processing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gtda.base"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>: Base</a></li>
+<li><a class="reference internal" href="#module-gtda.pipeline"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>: Pipeline</a></li>
+<li><a class="reference internal" href="#module-gtda.meta_transformers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a></li>
+<li><a class="reference internal" href="#module-gtda.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a></li>
+<li><a class="reference internal" href="#module-gtda.images"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
+<li><a class="reference internal" href="#id4">Preprocessing</a></li>
+<li><a class="reference internal" href="#filtrations">Filtrations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Welcome to giotto-tda’s API reference!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="welcome-to-giotto-tda-s-api-reference">
+<h1>Welcome to giotto-tda’s API reference!<a class="headerlink" href="#welcome-to-giotto-tda-s-api-reference" title="Permalink to this headline">¶</a></h1>
+<p>This pages contains a list of available features in the library.</p>
+<div class="section" id="module-gtda.mapper">
+<span id="gtda-mapper-mapper"></span><h2><a class="reference internal" href="#module-gtda.mapper" title="gtda.mapper"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code></a>: Mapper<a class="headerlink" href="#module-gtda.mapper" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-gtda.mapper" title="gtda.mapper"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code></a> implements the Mapper algorithm for
+topological clustering and visualisation.</p>
+<div class="section" id="filters">
+<h3>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection" title="gtda.mapper.Projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.Projection</span></code></a>([columns])</p></td>
+<td><p>Projection onto specified columns.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/mapper/filters/gtda.mapper.Eccentricity.html#gtda.mapper.Eccentricity" title="gtda.mapper.Eccentricity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.Eccentricity</span></code></a>([exponent, metric, …])</p></td>
+<td><p>Eccentricities of points in a point cloud or abstract metric space.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/mapper/filters/gtda.mapper.Entropy.html#gtda.mapper.Entropy" title="gtda.mapper.Entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.Entropy</span></code></a>()</p></td>
+<td><p>Entropy of rows in a two-dimensional array.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="covers">
+<h3>Covers<a class="headerlink" href="#covers" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/mapper/covers/gtda.mapper.OneDimensionalCover.html#gtda.mapper.OneDimensionalCover" title="gtda.mapper.OneDimensionalCover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.OneDimensionalCover</span></code></a>([kind, …])</p></td>
+<td><p>Cover of one-dimensional data coming from open overlapping intervals.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/mapper/covers/gtda.mapper.CubicalCover.html#gtda.mapper.CubicalCover" title="gtda.mapper.CubicalCover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.CubicalCover</span></code></a>([kind, n_intervals, …])</p></td>
+<td><p>Cover of multi-dimensional data coming from overlapping hypercubes (technically, parallelopipeds) given by taking products of one-dimensional intervals.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="clustering">
+<h3>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html#gtda.mapper.FirstSimpleGap" title="gtda.mapper.FirstSimpleGap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.FirstSimpleGap</span></code></a>([relative_gap_size, …])</p></td>
+<td><p>Agglomerative clustering cutting the dendrogram at the first instance of a sufficiently large gap.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html#gtda.mapper.FirstHistogramGap" title="gtda.mapper.FirstHistogramGap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.FirstHistogramGap</span></code></a>([freq_threshold, …])</p></td>
+<td><p>Agglomerative clustering with stopping rule given by a histogram-based version of the first gap method, introduced in <a href="#id5"><span class="problematic" id="id1">[1]_</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pipeline">
+<h3>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html#gtda.mapper.pipeline.make_mapper_pipeline" title="gtda.mapper.pipeline.make_mapper_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.pipeline.make_mapper_pipeline</span></code></a>([…])</p></td>
+<td><p>Construct a MapperPipeline object according to the specified Mapper steps.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline" title="gtda.mapper.pipeline.MapperPipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.pipeline.MapperPipeline</span></code></a>(steps[, …])</p></td>
+<td><p>Subclass of <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v0.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.pipeline.Pipeline</span></code></a> to deal with pipelines generated by <a class="reference internal" href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html#gtda.mapper.pipeline.make_mapper_pipeline" title="gtda.mapper.pipeline.make_mapper_pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mapper_pipeline</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="visualization">
+<h3>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html#gtda.mapper.visualization.plot_static_mapper_graph" title="gtda.mapper.visualization.plot_static_mapper_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.visualization.plot_static_mapper_graph</span></code></a>(…)</p></td>
+<td><p>Plotting function for static Mapper graphs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html#gtda.mapper.visualization.plot_interactive_mapper_graph" title="gtda.mapper.visualization.plot_interactive_mapper_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper.visualization.plot_interactive_mapper_graph</span></code></a>(…)</p></td>
+<td><p>Plotting function for interactive Mapper graphs.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="module-gtda.homology">
+<span id="gtda-homology-persistent-homology"></span><h2><a class="reference internal" href="#module-gtda.homology" title="gtda.homology"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code></a>: Persistent homology<a class="headerlink" href="#module-gtda.homology" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-gtda.homology" title="gtda.homology"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code></a> implements transformers
+to modify metric spaces or generate persistence diagrams.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.VietorisRipsPersistence</span></code></a>([metric, …])</p></td>
+<td><p><a class="reference external" href="https://giotto.ai/theory">Persistence diagrams</a> resulting from <a class="reference external" href="https://giotto.ai/theory">Vietoris-Rips filtrations</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/homology/gtda.homology.ConsistentRescaling.html#gtda.homology.ConsistentRescaling" title="gtda.homology.ConsistentRescaling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.ConsistentRescaling</span></code></a>([metric, …])</p></td>
+<td><p>Rescaling of distances between pairs of points by the geometric mean of the distances to the respective <span class="math notranslate nohighlight">\(k\)</span>-th nearest neighbours.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-gtda.diagrams">
+<span id="gtda-diagrams-persistence-diagrams"></span><h2><a class="reference internal" href="#module-gtda.diagrams" title="gtda.diagrams"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code></a>: Persistence diagrams<a class="headerlink" href="#module-gtda.diagrams" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-gtda.diagrams" title="gtda.diagrams"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code></a> implements transformers to preprocess
+persistence diagrams or extract features from them.</p>
+<div class="section" id="preprocessing">
+<h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension" title="gtda.diagrams.ForgetDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.ForgetDimension</span></code></a>()</p></td>
+<td><p>Replaces all homology dimensions in persistence diagrams with <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler" title="gtda.diagrams.Scaler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.Scaler</span></code></a>([metric, metric_params, …])</p></td>
+<td><p>Linear scaling of persistence diagrams.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering" title="gtda.diagrams.Filtering"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.Filtering</span></code></a>([homology_dimensions, …])</p></td>
+<td><p>Filtering of persistence diagrams.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="distances">
+<h3>Distances<a class="headerlink" href="#distances" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.PairwiseDistance</span></code></a>([metric, …])</p></td>
+<td><p><p><a class="reference external" href="https://giotto.ai/theory">Distances</a> between pairs of persistence diagrams, constructed from the distances between their respective subdiagrams with constant homology dimension.</p>
+</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="diagram-features">
+<h3>Diagram features<a class="headerlink" href="#diagram-features" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.Amplitude</span></code></a>([metric, metric_params, …])</p></td>
+<td><p><a class="reference external" href="https://giotto.ai/theory">Amplitudes</a> of persistence diagrams, constructed from the amplitudes of their subdiagrams with constant homology dimension.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html#gtda.diagrams.PersistenceEntropy" title="gtda.diagrams.PersistenceEntropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.PersistenceEntropy</span></code></a>([n_jobs])</p></td>
+<td><p><a class="reference external" href="https://giotto.ai/theory">Persistence entropies</a> of persistence diagrams.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/diagrams/features/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape" title="gtda.diagrams.PersistenceLandscape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.PersistenceLandscape</span></code></a>([n_layers, …])</p></td>
+<td><p><a class="reference external" href="https://giotto.ai/theory">Persistence landscapes</a> of persistence diagrams.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/diagrams/features/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve" title="gtda.diagrams.BettiCurve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.BettiCurve</span></code></a>([n_bins, n_jobs])</p></td>
+<td><p><a class="reference external" href="https://giotto.ai/theory">Betti curves</a> of persistence diagrams.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/diagrams/features/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel" title="gtda.diagrams.HeatKernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.HeatKernel</span></code></a>([sigma, n_bins, n_jobs])</p></td>
+<td><p>Convolution of persistence diagrams with a Gaussian kernel.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="module-gtda.time_series">
+<span id="gtda-time-series-time-series"></span><h2><a class="reference internal" href="#module-gtda.time_series" title="gtda.time_series"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code></a>: Time series<a class="headerlink" href="#module-gtda.time_series" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-gtda.time_series" title="gtda.time_series"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code></a> implements transformers to
+preprocess time series or embed them in a higher dimensional space for
+persistent homology.</p>
+<div class="section" id="id3">
+<h3>Preprocessing<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow" title="gtda.time_series.SlidingWindow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_series.SlidingWindow</span></code></a>([width, stride])</p></td>
+<td><p>Sliding windows onto the data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/time_series/preprocessing/gtda.time_series.Resampler.html#gtda.time_series.Resampler" title="gtda.time_series.Resampler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_series.Resampler</span></code></a>([period])</p></td>
+<td><p>Time series resampling at regular intervals.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html#gtda.time_series.Stationarizer" title="gtda.time_series.Stationarizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_series.Stationarizer</span></code></a>([operation])</p></td>
+<td><p>Methods for stationarizing time series data.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="time-delay-embedding">
+<h3>Time-delay embedding<a class="headerlink" href="#time-delay-embedding" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding" title="gtda.time_series.TakensEmbedding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_series.TakensEmbedding</span></code></a>([…])</p></td>
+<td><p>Representation of a univariate time series as a time series of point clouds.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="target-preparation">
+<h3>Target preparation<a class="headerlink" href="#target-preparation" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/time_series/target_preparation/gtda.time_series.Labeller.html#gtda.time_series.Labeller" title="gtda.time_series.Labeller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_series.Labeller</span></code></a>([width, func, …])</p></td>
+<td><p>Target creation from sliding windows over a time series.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dynamical-systems">
+<h3>Dynamical systems<a class="headerlink" href="#dynamical-systems" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/time_series/dynamical_system/gtda.time_series.PermutationEntropy.html#gtda.time_series.PermutationEntropy" title="gtda.time_series.PermutationEntropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_series.PermutationEntropy</span></code></a>([n_jobs])</p></td>
+<td><p>Entropies from sets of permutations arg-sorting rows in arrays.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="multivariate">
+<h3>Multivariate<a class="headerlink" href="#multivariate" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/time_series/multivariate/gtda.time_series.PearsonDissimilarity.html#gtda.time_series.PearsonDissimilarity" title="gtda.time_series.PearsonDissimilarity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_series.PearsonDissimilarity</span></code></a>([…])</p></td>
+<td><p>Pearson dissimilarities from collections of multivariate time series.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="module-gtda.graphs">
+<span id="gtda-graphs-graphs"></span><h2><a class="reference internal" href="#module-gtda.graphs" title="gtda.graphs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code></a>: Graphs<a class="headerlink" href="#module-gtda.graphs" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-gtda.graphs" title="gtda.graphs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code></a> implements transformers to create graphs or
+extract metric spaces from graphs.</p>
+<div class="section" id="graph-creation">
+<h3>Graph creation<a class="headerlink" href="#graph-creation" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph" title="gtda.graphs.TransitionGraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">graphs.TransitionGraph</span></code></a>([func, func_params, …])</p></td>
+<td><p>Undirected transition graphs from arrays of time-evolving states.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/graphs/creation/gtda.graphs.KNeighborsGraph.html#gtda.graphs.KNeighborsGraph" title="gtda.graphs.KNeighborsGraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">graphs.KNeighborsGraph</span></code></a>([n_neighbors, …])</p></td>
+<td><p>Adjacency matrices of k-nearest neighbor graphs.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="graph-processing">
+<h3>Graph processing<a class="headerlink" href="#graph-processing" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/graphs/processing/gtda.graphs.GraphGeodesicDistance.html#gtda.graphs.GraphGeodesicDistance" title="gtda.graphs.GraphGeodesicDistance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">graphs.GraphGeodesicDistance</span></code></a>([n_jobs])</p></td>
+<td><p>Distance matrices arising from geodesic distances on graphs.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="module-gtda.base">
+<span id="gtda-base-base"></span><h2><a class="reference internal" href="#module-gtda.base" title="gtda.base"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code></a>: Base<a class="headerlink" href="#module-gtda.base" title="Permalink to this headline">¶</a></h2>
+<p>Implements a TransformerResamplerMixin for transformers that have a resample
+method.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/base/gtda.base.TransformerResamplerMixin.html#gtda.base.TransformerResamplerMixin" title="gtda.base.TransformerResamplerMixin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base.TransformerResamplerMixin</span></code></a></p></td>
+<td><p>Mixin class for all transformers-resamplers in giotto-tda.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-gtda.pipeline">
+<span id="gtda-pipeline-pipeline"></span><h2><a class="reference internal" href="#module-gtda.pipeline" title="gtda.pipeline"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code></a>: Pipeline<a class="headerlink" href="#module-gtda.pipeline" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-gtda.pipeline" title="gtda.pipeline"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code></a> extends scikit-learn’s module by defining
+Pipelines that include TransformerResamplers.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline" title="gtda.pipeline.Pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pipeline.Pipeline</span></code></a>(steps[, memory, verbose])</p></td>
+<td><p>Pipeline of transforms and resamples with a final estimator.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/gtda.pipeline.make_pipeline.html#gtda.pipeline.make_pipeline" title="gtda.pipeline.make_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pipeline.make_pipeline</span></code></a>(*steps, **kwargs)</p></td>
+<td><p>Construct a Pipeline from the given estimators.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-gtda.meta_transformers">
+<span id="gtda-meta-transformers-convenience-pipelines"></span><h2><a class="reference internal" href="#module-gtda.meta_transformers" title="gtda.meta_transformers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code></a>: Convenience pipelines<a class="headerlink" href="#module-gtda.meta_transformers" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-gtda.meta_transformers" title="gtda.meta_transformers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code></a> implements convenience
+<a class="reference internal" href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline" title="gtda.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.pipeline.Pipeline</span></code></a> transformers for direct topological feature
+generation.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator" title="gtda.meta_transformers.EntropyGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">meta_transformers.EntropyGenerator</span></code></a>([metric, …])</p></td>
+<td><p>Persistence entropies directly from point clouds.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator" title="gtda.meta_transformers.BettiCurveGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">meta_transformers.BettiCurveGenerator</span></code></a>([…])</p></td>
+<td><p>Meta transformer returning Betti curves directly from point clouds.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator" title="gtda.meta_transformers.LandscapeGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">meta_transformers.LandscapeGenerator</span></code></a>([…])</p></td>
+<td><p>Meta transformer returning persistence landscapes directly from point clouds.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-gtda.utils">
+<span id="gtda-utils-validation"></span><h2><a class="reference internal" href="#module-gtda.utils" title="gtda.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code></a>: Validation<a class="headerlink" href="#module-gtda.utils" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-gtda.utils" title="gtda.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code></a> implements hyperparameter and input
+validation functions.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.check_diagram</span></code>(X[, copy])</p></td>
+<td><p>Input validation on a diagram</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.validate_params</span></code>(parameters, references)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.validate_metric_params</span></code>(metric, …)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-gtda.images">
+<span id="gtda-images-images"></span><h2><a class="reference internal" href="#module-gtda.images" title="gtda.images"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code></a>: Images<a class="headerlink" href="#module-gtda.images" title="Permalink to this headline">¶</a></h2>
+<p>The module <a class="reference internal" href="#module-gtda.images" title="gtda.images"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code></a> implements techniques
+that can be used to apply Topological Data Analysis to images.</p>
+<div class="section" id="id4">
+<h3>Preprocessing<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/images/gtda.images.Inverter.html#gtda.images.Inverter" title="gtda.images.Inverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.Inverter</span></code></a>([n_jobs])</p></td>
+<td><p>Invert all 2D/3D binary images in a collection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/images/gtda.images.Padder.html#gtda.images.Padder" title="gtda.images.Padder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.Padder</span></code></a>([paddings, activated, n_jobs])</p></td>
+<td><p>Pad all 2D/3D binary images in a collection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/images/gtda.images.ImageToPointCloud.html#gtda.images.ImageToPointCloud" title="gtda.images.ImageToPointCloud"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.ImageToPointCloud</span></code></a>([n_jobs])</p></td>
+<td><p>Represent active pixels in 2D/3D binary images as points in 2D/3D space.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="filtrations">
+<h3>Filtrations<a class="headerlink" href="#filtrations" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/images/gtda.images.HeightFiltration.html#gtda.images.HeightFiltration" title="gtda.images.HeightFiltration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.HeightFiltration</span></code></a>([direction, n_jobs])</p></td>
+<td><p>Filtrations of 2D/3D binary images based on distances to lines/planes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/images/gtda.images.RadialFiltration.html#gtda.images.RadialFiltration" title="gtda.images.RadialFiltration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.RadialFiltration</span></code></a>([center, radius, …])</p></td>
+<td><p>Filtrations of 2D/3D binary images based on distances to a reference pixel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration" title="gtda.images.DilationFiltration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.DilationFiltration</span></code></a>([n_iterations, n_jobs])</p></td>
+<td><p>Filtrations of 2D/3D binary images based on the dilation of activated regions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/generated/images/gtda.images.ErosionFiltration.html#gtda.images.ErosionFiltration" title="gtda.images.ErosionFiltration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.ErosionFiltration</span></code></a>([n_iterations, n_jobs])</p></td>
+<td><p>Filtrations of 2D/3D binary images based on the erosion of activated regions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.SignedDistanceFiltration</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

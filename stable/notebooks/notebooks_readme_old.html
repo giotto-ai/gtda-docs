@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples, tutorials and plotting utilities &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Examples, tutorials and plotting utilities</a><ul>
+<li><a class="reference internal" href="#classifying-shapes">Classifying Shapes</a></li>
+<li><a class="reference internal" href="#lorenz-attractor">Lorenz attractor</a></li>
+<li><a class="reference internal" href="#mapper-quickstart">Mapper quickstart</a></li>
+<li><a class="reference internal" href="#can-there-be-non-trivial-h2-in-2-dimensions">Can there be non trivial H<sub>2</sub> in 2 dimensions?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Examples, tutorials and plotting utilities</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/notebooks/notebooks_readme_old.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<a class="reference internal image-reference" href="https://www.giotto.ai/static/vector/logo.svg"><img alt="https://www.giotto.ai/static/vector/logo.svg" src="https://www.giotto.ai/static/vector/logo.svg" width="850" /></a>
+<div class="section" id="examples-tutorials-and-plotting-utilities">
+<h1>Examples, tutorials and plotting utilities<a class="headerlink" href="#examples-tutorials-and-plotting-utilities" title="Permalink to this headline">¶</a></h1>
+<p>In this folder you can find basic tutorials and examples to get started quickly with giotto-tda. Additionally, <code class="docutils literal notranslate"><span class="pre">plotting.py</span></code> contains utilities for plotting the outputs of several computations you can perform with giotto-tda.</p>
+<div class="section" id="classifying-shapes">
+<h2>Classifying Shapes<a class="headerlink" href="#classifying-shapes" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="classifying_shapes.html"><span class="doc">This tutorial</span></a> is about generating classical surfaces, such as tori and 2-spheres, and study their cohomological properites.
+Non-orientable surfaces, such as the Klein bottle, are approximated by a grid and the reciprocal distances between the grid
+vertices forms the input of the Vietoris-Rips algorithm.</p>
+</div>
+<div class="section" id="lorenz-attractor">
+<h2>Lorenz attractor<a class="headerlink" href="#lorenz-attractor" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="lorenz_attractor.html"><span class="doc">This tutorial</span></a> is about detecting chaotic regimes in a simulation of the <a class="reference external" href="https://en.wikipedia.org/wiki/Lorenz_system">Lorenz attractor</a>. The main tools of giotto-tda useful for time-series analysis (such as the <em>Takens embedding</em>) are used and explained in the tutorial. Other feature creation methods, such as the <em>persistence landscape</em> or the <em>persistence entropy</em>, are described in the final part of the
+tutorial.</p>
+</div>
+<div class="section" id="mapper-quickstart">
+<span id="mapper"></span><h2>Mapper quickstart<a class="headerlink" href="#mapper-quickstart" title="Permalink to this headline">¶</a></h2>
+<p>The Mapper algorithm was introduced in v0.1.5, and allows you to visualize complex, high-dimensional data in a simple way as a graph to reveal structural insights. This tutorial covers some of the main functionalities of the <code class="docutils literal notranslate"><span class="pre">gtda.mapper</span></code> module.</p>
+</div>
+<div class="section" id="can-there-be-non-trivial-h2-in-2-dimensions">
+<h2>Can there be non trivial H<sub>2</sub> in 2 dimensions?<a class="headerlink" href="#can-there-be-non-trivial-h2-in-2-dimensions" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="voids_on_the_plane.html"><span class="doc">This tutorial</span></a> is a simple riddle that shows how the Vietoris-Rips algorithm may find counterintuitive patters in point-clouds.
+The second homology group, H<sub>2</sub>, describes and counts voids: for example, the 2-sphere has a non-trivial H<sub>2</sub>. Therefore, we would not expect to find voids in 2-dimensional flat space! On the other hand, it is enough to carefully position 6 points on the plane to get a nontrivial H<sub>2</sub>: check the example out for an empirical proof!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

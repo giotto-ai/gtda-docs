@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Readme &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Readme</a></li>
+<li><a class="reference internal" href="#giotto-tda">giotto-tda</a><ul>
+<li><a class="reference internal" href="#project-genesis">Project genesis</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li><a class="reference internal" href="#tutorials-and-use-cases">Tutorials and use cases</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#user-installation">User installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributing">Contributing</a><ul>
+<li><a class="reference internal" href="#developer-installation">Developer installation</a><ul>
+<li><a class="reference internal" href="#linux">Linux</a></li>
+<li><a class="reference internal" href="#macos">macOS</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+<li><a class="reference internal" href="#to-install">To install:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#changelog">Changelog</a><ul>
+<li><a class="reference internal" href="#important-links">Important links</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#community">Community</a></li>
+<li><a class="reference internal" href="#contacts">Contacts</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Readme</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/readme_.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="readme">
+<span id="id1"></span><h1>Readme<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="https://www.giotto.ai/static/vector/logo-tda.svg"><img alt="https://www.giotto.ai/static/vector/logo-tda.svg" src="https://www.giotto.ai/static/vector/logo-tda.svg" width="850" /></a>
+<p><a class="reference external" href="https://dev.azure.com/maintainers/Giotto/_build?definitionId=6&amp;_a=summary&amp;repositoryFilter=6&amp;branchFilter=141&amp;requestedForFilter=ae4334d8-48e3-4663-af95-cb6c654474ea"><img alt="Version" src="https://img.shields.io/pypi/v/giotto-tda" /></a> <a class="reference external" href="https://dev.azure.com/maintainers/Giotto/_build?definitionId=6&amp;_a=summary&amp;repositoryFilter=6&amp;branchFilter=141&amp;requestedForFilter=ae4334d8-48e3-4663-af95-cb6c654474ea"><img alt="Azure-build" src="https://dev.azure.com/maintainers/Giotto/_apis/build/status/giotto-ai.giotto-tda?branchName=master" /></a> <a class="reference external" href="https://twitter.com/intent/follow?screen_name=giotto_ai"><img alt="Azure-cov" src="https://img.shields.io/azure-devops/coverage/maintainers/Giotto/6/master" /></a> <a class="reference external" href="https://twitter.com/intent/follow?screen_name=giotto_ai"><img alt="Azure-test" src="https://img.shields.io/azure-devops/tests/maintainers/Giotto/6/master" /></a> <a class="reference external" href="https://twitter.com/intent/follow?screen_name=giotto_ai"><img alt="Twitter-follow" src="https://img.shields.io/twitter/follow/giotto_ai?label=Follow%20%40giotto_ai&amp;style=social" /></a> <a class="reference external" href="https://slack.giotto.ai/"><img alt="Slack-join" src="https://img.shields.io/badge/Slack-Join-yellow" /></a></p>
+</div>
+<div class="section" id="giotto-tda">
+<h1>giotto-tda<a class="headerlink" href="#giotto-tda" title="Permalink to this headline">¶</a></h1>
+<p>giotto-tda is a high performance topological machine learning toolbox in Python built on top of
+scikit-learn and is distributed under the GNU AGPLv3 license. It is part of the <a class="reference external" href="https://github.com/giotto-ai">Giotto</a> family of open-source projects.</p>
+<div class="section" id="project-genesis">
+<h2>Project genesis<a class="headerlink" href="#project-genesis" title="Permalink to this headline">¶</a></h2>
+<p>giotto-tda is the result of a collaborative effort between <a class="reference external" href="https://www.l2f.ch/">L2F SA</a>, the <a class="reference external" href="https://www.epfl.ch/labs/hessbellwald-lab/">Laboratory for Topology and Neuroscience</a> at EPFL, and the <a class="reference external" href="https://heig-vd.ch/en/research/reds">Institute of Reconfigurable &amp; Embedded Digital Systems (REDS)</a> of HEIG-VD.</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>giotto-tda is distributed under the AGPLv3 <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/LICENSE">license</a>.
+If you need a different distribution license, please contact the L2F team at
+<a class="reference external" href="mailto:business&#37;&#52;&#48;l2f&#46;ch">business<span>&#64;</span>l2f<span>&#46;</span>ch</a>.</p>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>API reference (stable release): <a class="reference external" href="https://docs-tda.giotto.ai">https://docs-tda.giotto.ai</a></p></li>
+<li><p>Theory glossary: <a class="reference external" href="https://giotto.ai/theory">https://giotto.ai/theory</a></p></li>
+</ul>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>To get started with giotto-tda, first follow the installations steps below. <a class="reference external" href="https://towardsdatascience.com/getting-started-with-giotto-learn-a-python-library-for-topological-machine-learning-451d88d2c4bc">This blog post</a>, and references therein, offer a friendly introduction to the topic of topological machine learning and to the philosophy behind giotto-tda.</p>
+<div class="section" id="tutorials-and-use-cases">
+<h3>Tutorials and use cases<a class="headerlink" href="#tutorials-and-use-cases" title="Permalink to this headline">¶</a></h3>
+<p>Simple tutorials can be found in the <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/tree/master/examples">examples</a> folder. For a wide selection of use cases and application domains, you can visit <a class="reference external" href="https://giotto.ai/learn/course-content">this page</a>.</p>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<p>The latest stable version of giotto-tda requires:</p>
+<ul class="simple">
+<li><p>Python (&gt;= 3.6)</p></li>
+<li><p>NumPy (&gt;= 1.17.0)</p></li>
+<li><p>SciPy (&gt;= 0.17.0)</p></li>
+<li><p>joblib (&gt;= 0.13)</p></li>
+<li><p>scikit-learn (&gt;= 0.22.0)</p></li>
+<li><p>python-igraph (&gt;= 0.7.1.post6)</p></li>
+<li><p>matplotlib (&gt;= 3.0.3)</p></li>
+<li><p>plotly (&gt;= 4.4.1)</p></li>
+<li><p>ipywidgets (&gt;= 7.5.1)</p></li>
+</ul>
+<p>To run the examples, jupyter is required.</p>
+</div>
+<div class="section" id="user-installation">
+<h3>User installation<a class="headerlink" href="#user-installation" title="Permalink to this headline">¶</a></h3>
+<p>The simplest way to install giotto-tda is using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span>
+</pre></div>
+</div>
+<p>If necessary, this will also automatically install all the above dependencies. Note: we recommend
+upgrading <code class="docutils literal notranslate"><span class="pre">pip</span></code> to a recent version as the above may fail on very old versions.</p>
+<p>Pre-release, experimental builds containing recently added features, and/or
+bug fixes can be installed by running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span><span class="o">-</span><span class="n">nightly</span>
+</pre></div>
+</div>
+<p>The main difference between giotto-tda-nightly and the developer installation (see the section
+on contributing, below) is that the former is shipped with pre-compiled wheels (similarly to the stable
+release) and hence does not require any C++ dependencies. As the main library module is called <code class="docutils literal notranslate"><span class="pre">gtda</span></code> in
+both the stable and nightly versions, giotto-tda and giotto-tda-nightly should not be installed in
+the same environment.</p>
+</div>
+</div>
+<div class="section" id="contributing">
+<span id="contributing-section"></span><h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>We welcome new contributors of all experience levels. The Giotto
+community goals are to be helpful, welcoming, and effective. To learn more about
+making a contribution to giotto-tda, please see the <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/CONTRIBUTING.rst">CONTRIBUTING.rst</a> file.</p>
+<div class="section" id="developer-installation">
+<h3>Developer installation<a class="headerlink" href="#developer-installation" title="Permalink to this headline">¶</a></h3>
+<p>Installing both the PyPI release and source of giotto-tda in the same environment is not recommended since it is
+known to cause conflicts with the C++ bindings.</p>
+<p>The developer installation requires three important C++ dependencies:</p>
+<ul class="simple">
+<li><p>A C++14 compatible compiler</p></li>
+<li><p>CMake &gt;= 3.9</p></li>
+<li><p>Boost &gt;= 1.56</p></li>
+</ul>
+<p>Please refer to your system’s instructions and to the <a class="reference external" href="https://cmake.org/">CMake</a> and
+<a class="reference external" href="https://www.boost.org/doc/libs/1_72_0/more/getting_started/index.html">Boost</a> websites for definitive guidance on how to install these dependencies. The instructions below are unofficial, please follow them at your own risk.</p>
+<div class="section" id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
+<p>Most Linux systems should come with a suitable compiler pre-installed. For the other two dependencies, you may consider using your distribution’s package manager, e.g. by running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install cmake libboost-dev
+</pre></div>
+</div>
+<p>if <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> is available in your system.</p>
+</div>
+<div class="section" id="macos">
+<h4>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h4>
+<p>On macOS, you may consider using <code class="docutils literal notranslate"><span class="pre">brew</span></code> (<a class="reference external" href="https://brew.sh/">https://brew.sh/</a>) to install the dependencies as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install gcc cmake boost
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
+<p>On Windows, you will likely need to have <a class="reference external" href="https://visualstudio.microsoft.com/">Visual Studio</a> installed. At present,
+it appears to be important to have a recent version of the VS C++ compiler. One way to check whether this is the case
+is as follows: 1) open the VS Installer GUI; 2) under the “Installed” tab, click on “Modify” in the relevant VS
+version; 3) in the newly opened window, select “Individual components” and ensure that v14.24 or above of the MSVC
+“C++ x64/x86 build tools” is selected. The CMake and Boost dependencies are best installed using the latest binary
+executables from the websites of the respective projects.</p>
+</div>
+<div class="section" id="source-code">
+<h4>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h4>
+<p>You can obtain the latest state of the source code with the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">giotto</span><span class="o">-</span><span class="n">ai</span><span class="o">/</span><span class="n">giotto</span><span class="o">-</span><span class="n">tda</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="to-install">
+<h4>To install:<a class="headerlink" href="#to-install" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> giotto-tda
+python -m pip install -e <span class="s2">&quot;.[dev]&quot;</span>
+</pre></div>
+</div>
+<p>This way, you can pull the library’s latest changes and make them immediately available on your machine.
+Note: we recommend upgrading <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> to recent versions before installing in this way.</p>
+</div>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>After installation, you can launch the test suite from outside the
+source directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">gtda</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<p>See the <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/RELEASE.rst">RELEASE.rst</a> file
+for a history of notable changes to giotto-tda.</p>
+<div class="section" id="important-links">
+<h3>Important links<a class="headerlink" href="#important-links" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Official source code repo: <a class="reference external" href="https://github.com/giotto-ai/giotto-tda">https://github.com/giotto-ai/giotto-tda</a></p></li>
+<li><p>Download releases: <a class="reference external" href="https://pypi.org/project/giotto-tda/">https://pypi.org/project/giotto-tda/</a></p></li>
+<li><p>Issue tracker: <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/issues">https://github.com/giotto-ai/giotto-tda/issues</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="community">
+<h2>Community<a class="headerlink" href="#community" title="Permalink to this headline">¶</a></h2>
+<p>giotto-ai Slack workspace: <a class="reference external" href="https://slack.giotto.ai/">https://slack.giotto.ai/</a></p>
+</div>
+<div class="section" id="contacts">
+<h2>Contacts<a class="headerlink" href="#contacts" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="mailto:maintainers&#37;&#52;&#48;giotto&#46;ai">maintainers<span>&#64;</span>giotto<span>&#46;</span>ai</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

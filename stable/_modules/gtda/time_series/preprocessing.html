@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gtda.time_series.preprocessing &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>gtda.time_series.preprocessing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for gtda.time_series.preprocessing</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Resampling and stationarization of time series data.&quot;&quot;&quot;</span>
+<span class="c1"># License: GNU AGPLv3</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">column_or_1d</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
+
+<span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">TransformerResamplerMixin</span>
+<span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
+<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span>
+
+
+<div class="viewcode-block" id="Resampler"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Resampler.html#gtda.time_series.Resampler">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">Resampler</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerResamplerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Time series resampling at regular intervals.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    period : int, default: ``2``</span>
+<span class="sd">        The sampling period, i.e. one point every period will be kept.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from gtda.time_series import Resampler</span>
+<span class="sd">    &gt;&gt;&gt; # Create a noisy signal</span>
+<span class="sd">    &gt;&gt;&gt; signal = np.asarray([np.sin(x /40) + np.random.random()</span>
+<span class="sd">    ...                      for x in range(0, 300)])</span>
+<span class="sd">    &gt;&gt;&gt; # Set up the Resampler</span>
+<span class="sd">    &gt;&gt;&gt; period = 10</span>
+<span class="sd">    &gt;&gt;&gt; periodic_sampler = Resampler(period=period)</span>
+<span class="sd">    &gt;&gt;&gt; # Fit and transform the signal</span>
+<span class="sd">    &gt;&gt;&gt; signal_resampled = periodic_sampler.fit_transform(signal)</span>
+<span class="sd">    &gt;&gt;&gt; print(signal_resampled.shape)</span>
+<span class="sd">    (30,)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;period&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
+
+<div class="viewcode-block" id="Resampler.__init__"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Resampler.html#gtda.time_series.Resampler.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="n">period</span></div>
+
+<div class="viewcode-block" id="Resampler.fit"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Resampler.html#gtda.time_series.Resampler.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do nothing and return the estimator unchanged.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples,) or (n_samples, ...)</span>
+<span class="sd">            Input data.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">validate_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+        <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Resampler.transform"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Resampler.html#gtda.time_series.Resampler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resample `X`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples,) or (n_samples, ...)</span>
+<span class="sd">            Input data.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target, yet the pipeline API</span>
+<span class="sd">            requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples_new, ...)</span>
+<span class="sd">            Resampled array. ``n_samples_new = n_samples // period``.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Xt</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[:</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[::</span><span class="bp">self</span><span class="o">.</span><span class="n">period</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">Xt</span></div>
+
+<div class="viewcode-block" id="Resampler.resample"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Resampler.html#gtda.time_series.Resampler.resample">[docs]</a>    <span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resample `y`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        y : ndarray of shape (n_samples,)</span>
+<span class="sd">            Target.</span>
+
+<span class="sd">        X : None</span>
+<span class="sd">            There is no need for input data,</span>
+<span class="sd">            yet the pipeline API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        yr : ndarray of shape (n_samples_new,)</span>
+<span class="sd">            Resampled target. ``n_samples_new = n_samples // period``.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
+        <span class="n">yr</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">yr</span> <span class="o">=</span> <span class="n">yr</span><span class="p">[::</span><span class="bp">self</span><span class="o">.</span><span class="n">period</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">yr</span></div></div>
+
+
+<div class="viewcode-block" id="Stationarizer"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html#gtda.time_series.Stationarizer">[docs]</a><span class="k">class</span> <span class="nc">Stationarizer</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerResamplerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Methods for stationarizing time series data.</span>
+
+<span class="sd">    Time series may be stationarized to remove or reduce linear or exponential</span>
+<span class="sd">    trends.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    operation : ``&#39;return&#39;`` | ``&#39;log-return&#39;``, default: ``&#39;return&#39;``</span>
+<span class="sd">        The type of stationarization operation to perform. It can have two</span>
+<span class="sd">        values:</span>
+
+<span class="sd">        - ``&#39;return&#39;``:</span>
+<span class="sd">          This option transforms the time series :math:`{X_t}_t` into the</span>
+<span class="sd">          time series of relative returns, i.e. the ratio :math:`(X_t-X_{</span>
+<span class="sd">          t-1})/X_t`.</span>
+
+<span class="sd">        - ``&#39;log-return&#39;``:</span>
+<span class="sd">          This option transforms the time series :math:`{X_t}_t` into the</span>
+<span class="sd">          time series of relative log-returns, i.e. :math:`\\log(X_t/X_{</span>
+<span class="sd">          t-1})`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from gtda.time_series import Stationarizer</span>
+<span class="sd">    &gt;&gt;&gt; # Create a noisy signal</span>
+<span class="sd">    &gt;&gt;&gt; signal = np.asarray([np.sin(x /40) + 5 + np.random.random()</span>
+<span class="sd">    &gt;&gt;&gt;                      for x in range(0, 300)]).reshape(-1, 1)</span>
+<span class="sd">    &gt;&gt;&gt; # Initialize the stationarizer</span>
+<span class="sd">    &gt;&gt;&gt; stationarizer = Stationarizer(operation=&#39;return&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # Fit and transform the signal</span>
+<span class="sd">    &gt;&gt;&gt; signal_stationarized = stationarizer.fit_transform(signal)</span>
+<span class="sd">    &gt;&gt;&gt; print(signal_stationarized.shape)</span>
+<span class="sd">    (299,)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;operation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">,</span> <span class="s1">&#39;log-return&#39;</span><span class="p">]]}</span>
+
+<div class="viewcode-block" id="Stationarizer.__init__"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html#gtda.time_series.Stationarizer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s1">&#39;return&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="n">operation</span></div>
+
+<div class="viewcode-block" id="Stationarizer.fit"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html#gtda.time_series.Stationarizer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do nothing and return the estimator unchanged.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples,) or (n_samples, ...)</span>
+<span class="sd">            Input data.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">validate_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+        <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Stationarizer.transform"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html#gtda.time_series.Stationarizer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Stationarize `X` by applying the procedure given by `operation`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples,) or (n_samples, ...)</span>
+<span class="sd">            Input data.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target, yet the pipeline API</span>
+<span class="sd">            requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples_new, ...)</span>
+<span class="sd">            Stationarized array. ``n_samples_new = n_samples - 1``.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Xt</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;return&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">Xt</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Assumes &#39;log-return&#39; operation</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Xt</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Stationarizer.resample"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html#gtda.time_series.Stationarizer.resample">[docs]</a>    <span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resample `y`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        y : ndarray of shape (n_samples,)</span>
+<span class="sd">            Target.</span>
+
+<span class="sd">        X : None</span>
+<span class="sd">            There is no need for input data,</span>
+<span class="sd">            yet the pipeline API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        yr : ndarray of shape (n_samples_new,)</span>
+<span class="sd">            Resampled target. ``n_samples_new = n_samples - 1``.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

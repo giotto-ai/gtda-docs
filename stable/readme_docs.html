@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Description of the infrastructure &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Description of the infrastructure</a></li>
+<li><a class="reference internal" href="#production-integration">Production integration</a></li>
+<li><a class="reference internal" href="#how-to-deploy">How to deploy</a></li>
+<li><a class="reference internal" href="#working-with-submodules">Working with submodules</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Description of the infrastructure</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/readme_docs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="description-of-the-infrastructure">
+<h1>Description of the infrastructure<a class="headerlink" href="#description-of-the-infrastructure" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>The documentation is hosted on github-pages (<a class="reference external" href="https://wreise.github.io/gtda-docs/">https://wreise.github.io/gtda-docs/</a>), from the <cite>../docs/</cite> directory. It has 3 main components:</dt><dd><ul class="simple">
+<li><p>API: auto-generated python documentation (sphinx-numpydoc),</p></li>
+<li><p>contribution guidelines, README, theory page etc,</p></li>
+<li><p>sphinx-gallery (examples from ../examples, converted to <cite>.py</cite> scripts and executed)</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="production-integration">
+<h1>Production integration<a class="headerlink" href="#production-integration" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>In this section, we describe the workflow to put the docs online (in production).</dt><dd><ol class="arabic simple">
+<li><p>The <cite>theory/glossary.tex</cite> is parsed (using pandoc) to a file <cite>theory/glossary.rst</cite>.</p></li>
+<li><p>Notebooks in <cite>../examples/</cite> are converted to <cite>.py</cite>, which are then executed by the sphinx-gallery extension.</p></li>
+<li><p>Documentation (html) is generated with <cite>sphinx</cite>, and stored in <cite>build/html/</cite>. This includes parsing files generated in 1. and 2.</p></li>
+<li><p>The documentation is copied from <cite>build/html/</cite> to <cite>../docs/</cite>, which is a private repository (<a class="reference external" href="https://github.com/wreise/gtda-docs">https://github.com/wreise/gtda-docs</a>) and a submodule of the giotto-tda package.</p></li>
+<li><p>The contents of the repository are staged, committed and pushed to master.</p></li>
+</ol>
+</dd>
+</dl>
+<p>Steps 1-5 lead to recreating the docs, starting from what is in the cloned repository on the branch <cite>ghpages</cite> (<a class="reference external" href="https://github.com/wreise/giotto-learn/tree/ghpages">https://github.com/wreise/giotto-learn/tree/ghpages</a>).</p>
+</div>
+<div class="section" id="how-to-deploy">
+<h1>How to deploy<a class="headerlink" href="#how-to-deploy" title="Permalink to this headline">¶</a></h1>
+<p>The steps mentioned in <span class="xref std std-ref">Production Integration</span> are also reflected in the Makefile. By default, sphinx produces html documentation with the command <cite>make html</cite>, executed from the root of the <cite>doc/</cite> folder.
+We have added the following recipes:
+- <cite>make theory</cite>: corresponds to step 1 above.
+- <cite>make sphinx-gal</cite>: step 2,
+- <cite>make github</cite>: steps 3 and 4,
+- <cite>make gh-commit</cite>: step 5</p>
+<p>The steps <cite>theory, sphinx-gal, github</cite> are encompassed in the <cite>make all-gh</cite> command. To avoid pre-mature publications, we do not provide a single command to also push the documentation to production.</p>
+</div>
+<div class="section" id="working-with-submodules">
+<h1>Working with submodules<a class="headerlink" href="#working-with-submodules" title="Permalink to this headline">¶</a></h1>
+<p>While development of modules can be done locally, deploying them requires interaction with the submodule under <cite>../docs/</cite>.</p>
+<p>To incorporate the local changes remotely (push the new documentation to gh-pages), use the <cite>gh-commit</cite> target from the Makefile.</p>
+<p>To reflect those changes in the main repository (giotto-tda), you need to execute <cite>git submodule add docs/</cite>.</p>
+<p>For further reference on the topic, please checkout <cite>https://git-scm.com/book/en/v2/Git-Tools-Submodules</cite>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
