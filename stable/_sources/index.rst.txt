@@ -37,9 +37,15 @@ by Lewis Tunstall provides a general overview of the library.
 
 Mapper example
 --------------
+.. toctree::
+    :maxdepth: 4
+    :glob:
+    :hidden:
+    
+    notebooks/mapper_quickstart
 
 .. include::
-   mapper_quickstart
+   notebooks/mapper_quickstart
 
 Installation
 ============
@@ -63,7 +69,7 @@ Examples
    Please have a look at :doc:`gallery/index`.
 
 .. include:: notebooks/notebooks_readme.rst
-   :start-after: Examples
+   :start-after: Examples, tutorials and plotting utilities
 
 Theory
 ======
@@ -141,6 +147,6 @@ We are also grateful to all who filed issues or helped resolve them, asked and
 answered questions, and were part of inspiring discussions.
 
 FAQ
-===========
+===
 
 For additional information, please refer to :doc:`Frequently asked questions <faq>`.
