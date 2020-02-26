@@ -10,6 +10,10 @@ scikit-learn and is distributed under the GNU AGPLv3 license. It is part of the 
 
 **Read our paper on arXiv!**
 
+.. contents::
+   :hidden:
+
+
 Guiding principles
 ==================
 
@@ -37,12 +41,6 @@ by Lewis Tunstall provides a general overview of the library.
 
 Mapper example
 --------------
-.. toctree::
-    :maxdepth: 4
-    :glob:
-    :hidden:
-    
-    notebooks/mapper_quickstart
 
 .. include::
    notebooks/mapper_quickstart
