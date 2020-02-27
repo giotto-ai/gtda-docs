@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Giotto-tda documentation &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Giotto-tda documentation</a><ul>
+<li><a class="reference internal" href="#guiding-principles">Guiding principles</a></li>
+<li><a class="reference internal" href="#s-guide-to-giotto-tda">30s guide to giotto-tda</a><ul>
+<li><a class="reference internal" href="#introduction-to-giotto-tda">Introduction to giotto-tda</a></li>
+<li><a class="reference internal" href="#mapper-example">Mapper example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#user-installation">User installation</a></li>
+<li><a class="reference internal" href="#developer-installation">Developer installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-reference">API reference</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#theory">Theory</a></li>
+<li><a class="reference internal" href="#release-notes-0-1-4">Release notes - 0.1.4</a><ul>
+<li><a class="reference internal" href="#library-name-change">Library name change</a></li>
+<li><a class="reference internal" href="#change-of-license">Change of license</a></li>
+<li><a class="reference internal" href="#major-features-and-improvements">Major Features and Improvements</a></li>
+<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li><a class="reference internal" href="#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
+<li><a class="reference internal" href="#thanks-to-our-contributors">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#faq">FAQ</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Giotto-tda documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="giotto-tda-documentation">
+<h1>Giotto-tda documentation<a class="headerlink" href="#giotto-tda-documentation" title="Permalink to this headline">¶</a></h1>
+<p><strong>A high performance topological machine learning toolbox in Python.</strong></p>
+<p>Giotto-tda is a high performance topological machine learning toolbox in Python built on top of
+scikit-learn and is distributed under the GNU AGPLv3 license. It is part of the <a class="reference external" href="https://github.com/giotto-ai">Giotto</a> family of open-source projects.</p>
+<p><strong>Read our paper on arXiv!</strong></p>
+<div class="section" id="guiding-principles">
+<h2>Guiding principles<a class="headerlink" href="#guiding-principles" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><div class="line-block">
+<div class="line"><strong>Seamless integration with widely used ML frameworks: Python + scikit-learn.</strong></div>
+<div class="line">Inherit their strengths and allow for creation of heterogeneous ML pipelines.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Code modularity: Algorithms as transformers.</strong></div>
+<div class="line">“Lego blocks” approach.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>User-friendliness and familiarity to the broad data science community.</strong></div>
+<div class="line">Strict adherence to scikit-learn API and developer guidelines, “fit-transform” paradigm</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Standardisation.</strong></div>
+<div class="line">Allow for integration of most available techniques into a generic framework.  Consistency of API across different modules</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Performance within the language constraints.</strong></div>
+<div class="line">Vectorized code, parallelism (likely in future: just-in-time compilation and more)</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Data structures.</strong></div>
+<div class="line">Support for time series, graphs, images.</div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="s-guide-to-giotto-tda">
+<h2>30s guide to giotto-tda<a class="headerlink" href="#s-guide-to-giotto-tda" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction-to-giotto-tda">
+<h3>Introduction to giotto-tda<a class="headerlink" href="#introduction-to-giotto-tda" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://towardsdatascience.com/getting-started-with-giotto-learn-a-python-library-for-topological-machine-learning-451d88d2c4bc">post</a>
+by Lewis Tunstall provides a general overview of the library.</p>
+</div>
+<div class="section" id="mapper-example">
+<h3>Mapper example<a class="headerlink" href="#mapper-example" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<p>The latest stable version of giotto-tda requires:</p>
+<ul class="simple">
+<li><p>Python (&gt;= 3.6)</p></li>
+<li><p>NumPy (&gt;= 1.17.0)</p></li>
+<li><p>SciPy (&gt;= 0.17.0)</p></li>
+<li><p>joblib (&gt;= 0.13)</p></li>
+<li><p>scikit-learn (&gt;= 0.22.0)</p></li>
+<li><p>python-igraph (&gt;= 0.7.1.post6)</p></li>
+<li><p>matplotlib (&gt;= 3.0.3)</p></li>
+<li><p>plotly (&gt;= 4.4.1)</p></li>
+<li><p>ipywidgets (&gt;= 7.5.1)</p></li>
+</ul>
+<p>To run the examples, jupyter is required.</p>
+</div>
+<div class="section" id="user-installation">
+<h3>User installation<a class="headerlink" href="#user-installation" title="Permalink to this headline">¶</a></h3>
+<p>The simplest way to install giotto-tda is using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span>
+</pre></div>
+</div>
+<p>If necessary, this will also automatically install all the above dependencies. Note: we recommend
+upgrading <code class="docutils literal notranslate"><span class="pre">pip</span></code> to a recent version as the above may fail on very old versions.</p>
+<p>Pre-release, experimental builds containing recently added features, and/or
+bug fixes can be installed by running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span><span class="o">-</span><span class="n">nightly</span>
+</pre></div>
+</div>
+<p>The main difference between giotto-tda-nightly and the developer installation (see the section
+on contributing, below) is that the former is shipped with pre-compiled wheels (similarly to the stable
+release) and hence does not require any C++ dependencies. As the main library module is called <code class="docutils literal notranslate"><span class="pre">gtda</span></code> in
+both the stable and nightly versions, giotto-tda and giotto-tda-nightly should not be installed in
+the same environment.</p>
+</div>
+<div class="section" id="developer-installation">
+<span id="contributing-section"></span><h3>Developer installation<a class="headerlink" href="#developer-installation" title="Permalink to this headline">¶</a></h3>
+<p>For information about the developer installation, please refer to <a class="reference internal" href="contributing_.html#contrib"><span class="std std-ref">Contributing guidelines</span></a>.</p>
+</div>
+</div>
+<div class="section" id="api-reference">
+<h2>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference internal" href="api.html"><span class="doc">the API reference</span></a>.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Please have a look at <a class="reference internal" href="notebooks/notebooks_readme.html"><span class="doc">Examples, tutorials and plotting utilities</span></a>.</p>
+</div>
+<div class="section" id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<p>The theory behind Topological Data Analysis might be overwhelming.
+For this reason, we provide a <a class="reference internal" href="theory/glossary.html"><span class="doc">Glossary</span></a>.</p>
+</div>
+<div class="section" id="release-notes-0-1-4">
+<h2>Release notes - 0.1.4<a class="headerlink" href="#release-notes-0-1-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="library-name-change">
+<h3>Library name change<a class="headerlink" href="#library-name-change" title="Permalink to this headline">¶</a></h3>
+<p>The library and GitHub repository have been renamed to <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>! While the
+new name is meant to better convey the library’s focus on Topology-powered
+machine learning and Data Analysis, the commitment to seamless integration with
+<code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> will remain just as strong and a defining feature of the project.
+Concurrently, the main module has been renamed from <code class="docutils literal notranslate"><span class="pre">giotto</span></code> to <code class="docutils literal notranslate"><span class="pre">gtda</span></code> in this
+version. <code class="docutils literal notranslate"><span class="pre">giotto-learn</span></code> will remain on PyPI as a legacy package (stuck at v0.1.3)
+until we have ensured that users and developers have fully migrated. The new PyPI
+package <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> will start at v0.1.4 for project continuity.</p>
+<p>Short summary: install via</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span>
+</pre></div>
+</div>
+<p>and <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">gtda</span></code> in your scripts or notebooks!</p>
+</div>
+<div class="section" id="change-of-license">
+<h3>Change of license<a class="headerlink" href="#change-of-license" title="Permalink to this headline">¶</a></h3>
+<p>The license changes from Apache 2.0 to GNU AGPLv3 from this release on.</p>
+</div>
+<div class="section" id="major-features-and-improvements">
+<h3>Major Features and Improvements<a class="headerlink" href="#major-features-and-improvements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">mapper</span></code> submodule implementing the Mapper algorithm of Singh, Mémoli and Carlsson. The main tools are the
+functions <code class="docutils literal notranslate"><span class="pre">make_mapper_pipeline</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_static_mapper_graph</span></code> and <code class="docutils literal notranslate"><span class="pre">plot_interactive_mapper_graph</span></code>. The first
+creates an object of class <code class="docutils literal notranslate"><span class="pre">MapperPipeline</span></code> which can be fit-transformed to data to create a Mapper graph in the
+form of an <code class="docutils literal notranslate"><span class="pre">igraph.Graph</span></code> object (see below). The <code class="docutils literal notranslate"><span class="pre">MapperPipeline</span></code> class itself is a simple subclass
+of scikit-learn’s <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> which is adapted to the precise structure of the Mapper algorithm, so that a
+<code class="docutils literal notranslate"><span class="pre">MapperPipeline</span></code> object can be used as part of even larger scikit-learn pipelines, inside a meta-estimator, in a
+grid search, etc. One also has access to other important features of scikit-learn’s <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code>, such as memory
+caching to avoid unnecessary recomputation of early steps when parameters involved in later steps are changed.
+The clustering step can be parallelised over the pullback cover sets via <code class="docutils literal notranslate"><span class="pre">joblib</span></code> – though this can actually
+<em>lower</em> performance in small- and medium-size datasets. A range of pre-defined filter functions are also included,
+as well as covers in one and several dimensions, agglomerative clustering algorithms based on stopping rules to
+create flat cuts, and utilities for making transformers out of callables or out of other classes which have no
+<code class="docutils literal notranslate"><span class="pre">transform</span></code> method. <code class="docutils literal notranslate"><span class="pre">plot_static_mapper_graph</span></code> allows the user to visualise (in 2D or 3D) the Mapper graph
+arising from fit-transforming a <code class="docutils literal notranslate"><span class="pre">MapperPipeline</span></code> to data, and offers a range of colouring options to correlate the
+graph’s structure with exogenous or endogenous information. It relies on <code class="docutils literal notranslate"><span class="pre">plotly</span></code> for plotting and displaying
+metadata. <code class="docutils literal notranslate"><span class="pre">plot_interactive_mapper_graph</span></code> adds interactivity to this, via <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code>: specifically, the user
+can fine-tune some parameters involved in the definition of the Mapper pipeline, and observe in real time how the
+structure of the graph changes as a result. In this release, all hyperparameters involved in the covering and
+clustering steps are supported. The ability to fine-tune other hyperparameters will be considered for future versions.</p></li>
+<li><p>Added support for Python 3.8.</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fixed consistently incorrect documentation for the <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> methods. This has been achieved by introducing a
+class decorator <code class="docutils literal notranslate"><span class="pre">adapt_fit_transform_docs</span></code> which is defined in the newly introduced <code class="docutils literal notranslate"><span class="pre">gtda.utils._docs.py</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="backwards-incompatible-changes">
+<h3>Backwards-Incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The library name change and the change in the name of the main module <code class="docutils literal notranslate"><span class="pre">giotto</span></code>
+are important major changes.</p></li>
+<li><p>There are now additional dependencies in the <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">plotly</span></code>, and <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> libraries.</p></li>
+</ul>
+</div>
+<div class="section" id="thanks-to-our-contributors">
+<h3>Thanks to our Contributors<a class="headerlink" href="#thanks-to-our-contributors" title="Permalink to this headline">¶</a></h3>
+<p>This release contains contributions from many people:</p>
+<p>Umberto Lupo, Lewis Tunstall, Guillaume Tauzin, Philipp Weiler, Julian Burella Pérez.</p>
+<p>We are also grateful to all who filed issues or helped resolve them, asked and
+answered questions, and were part of inspiring discussions.</p>
+</div>
+</div>
+<div class="section" id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
+<p>For additional information, please refer to <a class="reference internal" href="faq.html"><span class="doc">Frequently asked questions</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

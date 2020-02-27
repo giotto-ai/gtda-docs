@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pipeline &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Pipeline</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Pipeline</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modules/generated/base/gtda.pipeline.Pipeline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="pipeline">
+<h1>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gtda.pipeline.Pipeline">
+<em class="property">class </em><code class="sig-prename descclassname">gtda.pipeline.</code><code class="sig-name descname">Pipeline</code><span class="sig-paren">(</span><em class="sig-param">steps</em>, <em class="sig-param">memory=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/pipeline.html#Pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pipeline of transforms and resamples with a final estimator.</p>
+<p>Sequentially apply a list of transforms, sampling, and a final estimator.
+Intermediate steps of the pipeline must be transformers or resamplers,
+that is, they must implement fit, transform and sample methods.
+The samplers are only applied during fit.
+The final estimator only needs to implement fit.
+The transformers and samplers in the pipeline can be cached using
+<code class="docutils literal notranslate"><span class="pre">memory</span></code> argument.</p>
+<p>The purpose of the pipeline is to assemble several steps that can be
+cross-validated together while setting different parameters.
+For this, it enables setting parameters of the various steps using their
+names and the parameter name separated by a ‘__’, as in the example below.
+A step’s estimator may be replaced entirely by setting the parameter
+with its name to another estimator, or a transformer removed by setting
+it to ‘passthrough’ or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>steps</strong> (<em>list</em>) – List of (name, transform) tuples (implementing
+fit/transform) that are chained, in the order in which
+they are chained, with the last object an estimator.</p></li>
+<li><p><strong>memory</strong> (Instance of joblib.Memory or string, optional (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)) – Used to cache the fitted transformers of the pipeline. By default,
+no caching is performed. If a string is given, it is the path to
+the caching directory. Enabling caching triggers a clone of
+the transformers before fitting. Therefore, the transformer
+instance given to the pipeline cannot be inspected
+directly. Use the attribute <code class="docutils literal notranslate"><span class="pre">named_steps</span></code> or <code class="docutils literal notranslate"><span class="pre">steps</span></code> to
+inspect estimators within the pipeline. Caching the
+transformers is advantageous when fitting is time consuming.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="gtda.pipeline.Pipeline.named_steps">
+<code class="sig-name descname">named_steps</code><a class="headerlink" href="#gtda.pipeline.Pipeline.named_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read-only attribute to access any step parameter by user given name.
+Keys are step names and values are steps parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="../gtda.pipeline.make_pipeline.html#gtda.pipeline.make_pipeline" title="gtda.pipeline.make_pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">make_pipeline</span></code></a></dt><dd><p>helper function to make pipeline.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gtda.time_series</span> <span class="k">as</span> <span class="nn">ts</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gtda.homology</span> <span class="k">as</span> <span class="nn">hl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gtda.diagrams</span> <span class="k">as</span> <span class="nn">diag</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gtda.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sklearn.preprocessing</span> <span class="k">as</span> <span class="nn">skprep</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_train</span><span class="p">,</span> <span class="n">n_test</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">200</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labeller</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">Labeller</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">percentiles</span><span class="o">=</span><span class="p">[</span><span class="mi">80</span><span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>                       <span class="n">n_steps_future</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="n">n_train</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_train</span> <span class="o">=</span> <span class="n">X_train</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">labeller</span><span class="o">.</span><span class="n">fit_transform_resample</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(395, 1) (395,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">(</span><span class="s1">&#39;embedding&#39;</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">TakensEmbedding</span><span class="p">()),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">(</span><span class="s1">&#39;window&#39;</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">SlidingWindow</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">(</span><span class="s1">&#39;diagram&#39;</span><span class="p">,</span> <span class="n">hl</span><span class="o">.</span><span class="n">VietorisRipsPersistence</span><span class="p">()),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">(</span><span class="s1">&#39;rescaler&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">Scaler</span><span class="p">()),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">(</span><span class="s1">&#39;filter&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">Filtering</span><span class="p">(</span><span class="n">epsilon</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">(</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">PersistenceEntropy</span><span class="p">()),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">(</span><span class="s1">&#39;scaling&#39;</span><span class="p">,</span> <span class="n">skprep</span><span class="o">.</span><span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xt_train</span><span class="p">,</span> <span class="n">yr_train</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span>\
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">fit_transform_resample</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">X_train_final</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train_final</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(389, 2) (389,)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">steps</em>, <em class="sig-param">memory=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sklearn/pipeline.html#Pipeline.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.decision_function">
+<code class="sig-name descname">decision_function</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sklearn/pipeline.html#Pipeline.decision_function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.decision_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transforms, and decision_function of the final estimator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>iterable</em>) – Data to predict on. Must fulfill input requirements of first step
+of the pipeline.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y_score</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like of shape (n_samples, n_classes)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/pipeline.html#Pipeline.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model.</p>
+<p>Fit all the transforms/samplers one after the other and
+transform/sample the data, then fit the transformed/sampled
+data using the final estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>iterable</em>) – Training data. Must fulfill input requirements of first step of the
+pipeline.</p></li>
+<li><p><strong>y</strong> (iterable or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Training targets. Must fulfill label requirements for all steps of
+the pipeline.</p></li>
+<li><p><strong>**fit_params</strong> (<em>dict of string -&gt; object</em>) – Parameters passed to the <a class="reference internal" href="#gtda.pipeline.Pipeline.fit" title="gtda.pipeline.Pipeline.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> method of each step, where
+each parameter name is prefixed such that parameter <code class="docutils literal notranslate"><span class="pre">p</span></code> for step
+<code class="docutils literal notranslate"><span class="pre">s</span></code> has key <code class="docutils literal notranslate"><span class="pre">s__p</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong> – This estimator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gtda.pipeline.Pipeline" title="gtda.pipeline.Pipeline">Pipeline</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.fit_predict">
+<code class="sig-name descname">fit_predict</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/pipeline.html#Pipeline.fit_predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.fit_predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies fit_predict of last step in pipeline after transforms.</p>
+<p>Applies fit_transforms of a pipeline to the data, followed by the
+fit_predict method of the final estimator in the pipeline. Valid
+only if the final estimator implements fit_predict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>iterable</em>) – Training data. Must fulfill input requirements of first step of
+the pipeline.</p></li>
+<li><p><strong>y</strong> (iterable or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Training targets. Must fulfill label requirements for all steps
+of the pipeline.</p></li>
+<li><p><strong>**fit_params</strong> (<em>dict of string -&gt; object</em>) – Parameters passed to the <a class="reference internal" href="#gtda.pipeline.Pipeline.fit" title="gtda.pipeline.Pipeline.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> method of each step, where
+each parameter name is prefixed such that parameter <code class="docutils literal notranslate"><span class="pre">p</span></code> for step
+<code class="docutils literal notranslate"><span class="pre">s</span></code> has key <code class="docutils literal notranslate"><span class="pre">s__p</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y_pred</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.fit_transform">
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/pipeline.html#Pipeline.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model and transform with the final estimator.</p>
+<p>Fits all the transformers/samplers one after the other and
+transform/sample the data, then uses fit_transform on
+transformed data with the final estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>iterable</em>) – Training data. Must fulfill input requirements of first step of the
+pipeline.</p></li>
+<li><p><strong>y</strong> (iterable, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Training targets. Must fulfill label requirements for all steps of
+the pipeline.</p></li>
+<li><p><strong>**fit_params</strong> (<em>dict of string -&gt; object</em>) – Parameters passed to the <a class="reference internal" href="#gtda.pipeline.Pipeline.fit" title="gtda.pipeline.Pipeline.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> method of each step, where
+each parameter name is prefixed such that parameter <code class="docutils literal notranslate"><span class="pre">p</span></code> for step
+<code class="docutils literal notranslate"><span class="pre">s</span></code> has key <code class="docutils literal notranslate"><span class="pre">s__p</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Transformed samples</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like, shape (n_samples, n_transformed_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.fit_transform_resample">
+<code class="sig-name descname">fit_transform_resample</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/pipeline.html#Pipeline.fit_transform_resample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.fit_transform_resample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model and sample with the final estimator.</p>
+<p>Fits all the transformers/samplers one after the other and
+transform/sample the data, then uses fit_resample on transformed
+data with the final estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>iterable</em>) – Training data. Must fulfill input requirements of first step of the
+pipeline.</p></li>
+<li><p><strong>y</strong> (iterable, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Training targets. Must fulfill label requirements for all steps of
+the pipeline.</p></li>
+<li><p><strong>**fit_params</strong> (<em>dict of string -&gt; object</em>) – Parameters passed to the <a class="reference internal" href="#gtda.pipeline.Pipeline.fit" title="gtda.pipeline.Pipeline.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> method of each step, where
+each parameter name is prefixed such that parameter <code class="docutils literal notranslate"><span class="pre">p</span></code> for step
+<code class="docutils literal notranslate"><span class="pre">s</span></code> has key <code class="docutils literal notranslate"><span class="pre">s__p</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>Xt</strong> (<em>array-like, shape (n_samples, n_transformed_features)</em>) – Transformed samples.</p></li>
+<li><p><strong>yr</strong> (<em>array-like, shape (n_samples, n_transformed_features)</em>) – Transformed target.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sklearn/pipeline.html#Pipeline.get_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>deep</strong> (<em>boolean</em><em>, </em><em>optional</em>) – If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.inverse_transform">
+<em class="property">property </em><code class="sig-name descname">inverse_transform</code><a class="headerlink" href="#gtda.pipeline.Pipeline.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply inverse transformations in reverse order</p>
+<p>All estimators in the pipeline must support <code class="docutils literal notranslate"><span class="pre">inverse_transform</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Xt</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_transformed_features</em><em>)</em>) – Data samples, where <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> is the number of samples and
+<code class="docutils literal notranslate"><span class="pre">n_features</span></code> is the number of features. Must fulfill
+input requirements of last step of pipeline’s
+<code class="docutils literal notranslate"><span class="pre">inverse_transform</span></code> method.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like, shape (n_samples, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">**predict_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sklearn/pipeline.html#Pipeline.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transforms to the data, and predict with the final estimator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>iterable</em>) – Data to predict on. Must fulfill input requirements of first step
+of the pipeline.</p></li>
+<li><p><strong>**predict_params</strong> (<em>dict of string -&gt; object</em>) – Parameters to the <code class="docutils literal notranslate"><span class="pre">predict</span></code> called at the end of all
+transformations in the pipeline. Note that while this may be
+used to return uncertainties from some models with return_std
+or return_cov, uncertainties that are generated by the
+transformations in the pipeline are not propagated to the
+final estimator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y_pred</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.predict_log_proba">
+<code class="sig-name descname">predict_log_proba</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sklearn/pipeline.html#Pipeline.predict_log_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.predict_log_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transforms, and predict_log_proba of the final estimator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>iterable</em>) – Data to predict on. Must fulfill input requirements of first step
+of the pipeline.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y_score</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like of shape (n_samples, n_classes)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.predict_proba">
+<code class="sig-name descname">predict_proba</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sklearn/pipeline.html#Pipeline.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.predict_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transforms, and predict_proba of the final estimator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>iterable</em>) – Data to predict on. Must fulfill input requirements of first step
+of the pipeline.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y_proba</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like of shape (n_samples, n_classes)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.resample">
+<em class="property">property </em><code class="sig-name descname">resample</code><a class="headerlink" href="#gtda.pipeline.Pipeline.resample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transformers/transformer_resamplers, and transform with the
+final estimator.</p>
+<p>This also works where final estimator is <code class="docutils literal notranslate"><span class="pre">None</span></code>: all prior
+transformations are applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>array-like</em><em>, </em><em>shape =</em><em> (</em><em>n_samples</em><em>, </em><em>)</em>) – Data to resample. Must fulfill input requirements of first step
+of the pipeline.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>yr</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like, shape = (n_samples_new, )</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.score">
+<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">sample_weight=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/pipeline.html#Pipeline.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transformers/samplers, and score with the final estimator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>iterable</em>) – Data to predict on. Must fulfill input requirements of first step
+of the pipeline.</p></li>
+<li><p><strong>y</strong> (iterable or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Targets used for scoring. Must fulfill label requirements for all
+steps of the pipeline.</p></li>
+<li><p><strong>sample_weight</strong> (array-like or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If not None, this argument is passed as <code class="docutils literal notranslate"><span class="pre">sample_weight</span></code> keyword
+argument to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method of the final estimator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>score</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.score_samples">
+<code class="sig-name descname">score_samples</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sklearn/pipeline.html#Pipeline.score_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.score_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transforms, and score_samples of the final estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>iterable</em>) – Data to predict on. Must fulfill input requirements of first step
+of the pipeline.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y_score</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray, shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.set_params">
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/sklearn/pipeline.html#Pipeline.set_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.pipeline.Pipeline.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>Valid parameter keys can be listed with <code class="docutils literal notranslate"><span class="pre">get_params()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.transform">
+<em class="property">property </em><code class="sig-name descname">transform</code><a class="headerlink" href="#gtda.pipeline.Pipeline.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transformers/transformer_resamplers, and transform with the
+final estimator.</p>
+<p>This also works where final estimator is <code class="docutils literal notranslate"><span class="pre">None</span></code>: all prior
+transformations are applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>iterable</em>) – Data to transform. Must fulfill input requirements of first step
+of the pipeline.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like, shape (n_samples, n_transformed_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.pipeline.Pipeline.transform_resample">
+<em class="property">property </em><code class="sig-name descname">transform_resample</code><a class="headerlink" href="#gtda.pipeline.Pipeline.transform_resample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transformers/transformer_resamplers, and transform with the
+final estimator.</p>
+<p>This also works where final estimator is <code class="docutils literal notranslate"><span class="pre">None</span></code>: all prior
+transformations are applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>iterable</em>) – Data to transform. Must fulfill input requirements of first step
+of the pipeline.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>Xt</strong> (<em>array-like, shape = (n_samples_new, n_transformed_features)</em>)</p></li>
+<li><p><strong>yr</strong> (<em>array-like, shape = (n_samples_new, )</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

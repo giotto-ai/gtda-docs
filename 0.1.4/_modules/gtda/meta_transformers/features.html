@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gtda.meta_transformers.features &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>gtda.meta_transformers.features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for gtda.meta_transformers.features</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Feature generation using meta transformers.&quot;&quot;&quot;</span>
+<span class="c1"># License: GNU AGPLv3</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">diagrams</span> <span class="k">as</span> <span class="n">diag</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">homology</span> <span class="k">as</span> <span class="n">hl</span>
+<span class="kn">from</span> <span class="nn">..pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
+
+
+<div class="viewcode-block" id="EntropyGenerator"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">EntropyGenerator</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Persistence entropies directly from point clouds.</span>
+
+<span class="sd">    Implements a feature generation pipeline which computes persistence</span>
+<span class="sd">    diagrams, scales and filters them, and then computes their persistence</span>
+<span class="sd">    entropies.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    metric : string or callable, optional, default: ``&#39;euclidean&#39;``</span>
+<span class="sd">        If set to ``&#39;precomputed&#39;``, each entry in `X` along axis 0 is</span>
+<span class="sd">        interpreted to be a distance matrix. Otherwise, entries are</span>
+<span class="sd">        interpreted as feature arrays, and `metric` determines a rule with</span>
+<span class="sd">        which to calculate distances between pairs of instances (i.e. rows)</span>
+<span class="sd">        in these arrays.</span>
+<span class="sd">        If `metric` is a string, it must be one of the options allowed by</span>
+<span class="sd">        :func:`scipy.spatial.distance.pdist` for its metric parameter, or a</span>
+<span class="sd">        metric listed in :obj:`sklearn.pairwise.PAIRWISE_DISTANCE_FUNCTIONS`,</span>
+<span class="sd">        including &quot;euclidean&quot;, &quot;manhattan&quot; or &quot;cosine&quot;.</span>
+<span class="sd">        If `metric` is a callable function, it is called on each pair of</span>
+<span class="sd">        instances and the resulting value recorded. The callable should take</span>
+<span class="sd">        two arrays from the entry in `X` as input, and return a value</span>
+<span class="sd">        indicating the distance between them.</span>
+
+<span class="sd">    max_edge_length : float, optional, default: ``numpy.inf``</span>
+<span class="sd">        Upper bound on the maximum value of the Vietoris-Rips filtration</span>
+<span class="sd">        parameter. Points whose distance is greater than this value will</span>
+<span class="sd">        never be connected by an edge, and topological features at scales</span>
+<span class="sd">        larger than this value will not be detected.</span>
+
+<span class="sd">    homology_dimensions : iterable, optional, default: ``(0, 1)``</span>
+<span class="sd">        Dimensions (non-negative integers) of the topological features to be</span>
+<span class="sd">        detected.</span>
+
+<span class="sd">    scaler_metric : ``&#39;bottleneck&#39;`` | ``&#39;wasserstein&#39;`` | ``&#39;landscape&#39;`` | \</span>
+<span class="sd">                    ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: \</span>
+<span class="sd">                    ``&#39;bottleneck&#39;``</span>
+<span class="sd">        Distance or dissimilarity function used to define the amplitude of</span>
+<span class="sd">        a subdiagram as its distance from the diagonal diagram:</span>
+
+<span class="sd">        - ``&#39;bottleneck&#39;`` and ``&#39;wasserstein&#39;`` refer to the identically named</span>
+<span class="sd">          perfect-matching--based notions of distance.</span>
+<span class="sd">        - ``&#39;landscape&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          persistence landscapes.</span>
+<span class="sd">        - ``&#39;betti&#39;`` refers to the :math:`L^p` distance between Betti curves.</span>
+<span class="sd">        - ``&#39;heat&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          Gaussian-smoothed diagrams.</span>
+
+<span class="sd">    scaler_metric_params : dict or None, optional, default: ``None``</span>
+<span class="sd">        Additional keyword arguments for `scaler_metric`:</span>
+
+<span class="sd">        - If ``metric == &#39;bottleneck&#39;`` there are no available arguments.</span>
+<span class="sd">        - If ``metric == &#39;wasserstein&#39;`` the only argument is `p` (int,</span>
+<span class="sd">          default: ``2``).</span>
+<span class="sd">        - If ``metric == &#39;betti&#39;`` the available arguments are `p` (float,</span>
+<span class="sd">          default: ``2.``) and `n_bins` (int, default: ``100``).</span>
+<span class="sd">        - If ``metric == &#39;landscape&#39;`` the available arguments are `p`</span>
+<span class="sd">          (float, default: ``2.``), `n_bins` (int, default: ``100``) and</span>
+<span class="sd">          `n_layers` (int, default: ``1``).</span>
+<span class="sd">        - If ``metric == &#39;heat&#39;`` the available arguments are `p` (float,</span>
+<span class="sd">          default: ``2.``), `sigma` (float, default: ``1.``) and `n_bins`</span>
+<span class="sd">          (int, default: ``100``).</span>
+
+<span class="sd">    scaler_function : callable, optional, default: ``numpy.max``</span>
+<span class="sd">        Function used to extract a single positive scalar from the collection</span>
+<span class="sd">        of norms of diagrams.</span>
+
+<span class="sd">    filter_epsilon : float, optional, default: ``0.``</span>
+<span class="sd">        The cutoff value controlling the amount of filtering.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1</span>
+<span class="sd">        unless in a :obj:`joblib.parallel_backend` context. ``-1`` means</span>
+<span class="sd">        using all processors.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from gtda.meta_transformers import EntropyGenerator as eg</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; ent = eg()</span>
+<span class="sd">    &gt;&gt;&gt; X = np.asarray([[[1, 2], [2, 1], [1, 1]]])</span>
+<span class="sd">    &gt;&gt;&gt; Xt = ent.fit_transform(X)</span>
+<span class="sd">    &gt;&gt;&gt; print(Xt)</span>
+<span class="sd">    [[0.69314718, -0.]]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="EntropyGenerator.__init__"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">max_edge_length</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                 <span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">scaler_metric</span><span class="o">=</span><span class="s1">&#39;bottleneck&#39;</span><span class="p">,</span>
+                 <span class="n">scaler_metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">scaler_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">filter_epsilon</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
+                 <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span> <span class="o">=</span> <span class="n">max_edge_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span> <span class="o">=</span> <span class="n">homology_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric</span> <span class="o">=</span> <span class="n">scaler_metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric_params</span> <span class="o">=</span> <span class="n">scaler_metric_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler_function</span> <span class="o">=</span> <span class="n">scaler_function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_epsilon</span> <span class="o">=</span> <span class="n">filter_epsilon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="EntropyGenerator.fit"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do nothing and return the estimator unchanged.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. ``n_samples`` is the number of point clouds,</span>
+<span class="sd">            ``n_points`` is the number of points per point cloud and</span>
+<span class="sd">            ``n_dimensions`` is the number of features for each point of the</span>
+<span class="sd">            point cloud (i.e. the dimension of the point cloud space).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">&#39;diagram&#39;</span><span class="p">,</span> <span class="n">hl</span><span class="o">.</span><span class="n">VietorisRipsPersistence</span><span class="p">(</span>
+                <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
+                <span class="n">max_edge_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span><span class="p">,</span>
+                <span class="n">homology_dimensions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">,</span>
+                <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">Scaler</span><span class="p">(</span>
+                <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric</span><span class="p">,</span>
+                <span class="n">metric_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric_params</span><span class="p">,</span>
+                <span class="n">function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler_function</span><span class="p">,</span>
+                <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;filter&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">Filtering</span><span class="p">(</span>
+                <span class="n">epsilon</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_epsilon</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">PersistenceEntropy</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">))]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="EntropyGenerator.transform"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extract persistence entropies from the sample point clouds in `X`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. ``n_samples`` is the number of point clouds,</span>
+<span class="sd">            ``n_points`` is the number of points per point cloud and</span>
+<span class="sd">            ``n_dimensions`` is the number of features for each point of the</span>
+<span class="sd">            point cloud (i.e. the dimension of the point cloud space).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions)</span>
+<span class="sd">            For each point cloud in `X`, one persistence entropy per homology</span>
+<span class="sd">            dimension in `homology_dimensions`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
+
+
+<div class="viewcode-block" id="BettiCurveGenerator"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">BettiCurveGenerator</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Meta transformer returning Betti curves directly from point clouds.</span>
+
+<span class="sd">    Implements a feature generation pipeline which computes persistence</span>
+<span class="sd">    diagrams, scales and filters them, and then computes their Betti curves.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    metric : string or callable, optional, default: ``&#39;euclidean&#39;``</span>
+<span class="sd">        If set to ``&#39;precomputed&#39;``, each entry in `X` along axis 0 is</span>
+<span class="sd">        interpreted to be a distance matrix. Otherwise, entries are</span>
+<span class="sd">        interpreted as feature arrays, and `metric` determines a rule with</span>
+<span class="sd">        which to calculate distances between pairs of instances (i.e. rows)</span>
+<span class="sd">        in these arrays.</span>
+<span class="sd">        If `metric` is a string, it must be one of the options allowed by</span>
+<span class="sd">        :func:`scipy.spatial.distance.pdist` for its metric parameter, or a</span>
+<span class="sd">        metric listed in :obj:`sklearn.pairwise.PAIRWISE_DISTANCE_FUNCTIONS`,</span>
+<span class="sd">        including &quot;euclidean&quot;, &quot;manhattan&quot; or &quot;cosine&quot;.</span>
+<span class="sd">        If `metric` is a callable function, it is called on each pair of</span>
+<span class="sd">        instances and the resulting value recorded. The callable should take</span>
+<span class="sd">        two arrays from the entry in `X` as input, and return a value</span>
+<span class="sd">        indicating the distance between them.</span>
+
+<span class="sd">    max_edge_length : float, optional, default: ``numpy.inf``</span>
+<span class="sd">        Upper bound on the maximum value of the Vietoris-Rips filtration</span>
+<span class="sd">        parameter. Points whose distance is greater than this value will</span>
+<span class="sd">        never be connected by an edge, and topological features at scales</span>
+<span class="sd">        larger than this value will not be detected.</span>
+
+<span class="sd">    homology_dimensions : iterable, optional, default: ``(0, 1)``</span>
+<span class="sd">        Dimensions (non-negative integers) of the topological features to be</span>
+<span class="sd">        detected.</span>
+
+<span class="sd">    scaler_metric : ``&#39;bottleneck&#39;`` | ``&#39;wasserstein&#39;`` | ``&#39;landscape&#39;`` | \</span>
+<span class="sd">                    ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: \</span>
+<span class="sd">                    ``&#39;bottleneck&#39;``</span>
+<span class="sd">        Distance or dissimilarity function used to define the amplitude of</span>
+<span class="sd">        a subdiagram as its distance from the diagonal diagram:</span>
+
+<span class="sd">        - ``&#39;bottleneck&#39;`` and ``&#39;wasserstein&#39;`` refer to the identically named</span>
+<span class="sd">          perfect-matching--based notions of distance.</span>
+<span class="sd">        - ``&#39;landscape&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          persistence landscapes.</span>
+<span class="sd">        - ``&#39;betti&#39;`` refers to the :math:`L^p` distance between Betti curves.</span>
+<span class="sd">        - ``&#39;heat&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          Gaussian-smoothed diagrams.</span>
+
+<span class="sd">    scaler_metric_params : dict or None, optional, default: ``None``</span>
+<span class="sd">        Additional keyword arguments for `scaler_metric`:</span>
+
+<span class="sd">        - If ``metric == &#39;bottleneck&#39;`` there are no available arguments.</span>
+<span class="sd">        - If ``metric == &#39;wasserstein&#39;`` the only argument is `p` (int,</span>
+<span class="sd">          default: ``2``).</span>
+<span class="sd">        - If ``metric == &#39;betti&#39;`` the available arguments are `p` (float,</span>
+<span class="sd">          default: ``2.``) and `n_bins` (int, default: ``100``).</span>
+<span class="sd">        - If ``metric == &#39;landscape&#39;`` the available arguments are `p`</span>
+<span class="sd">          (float, default: ``2.``), `n_bins` (int, default: ``100``) and</span>
+<span class="sd">          `n_layers` (int, default: ``1``).</span>
+<span class="sd">        - If ``metric == &#39;heat&#39;`` the available arguments are `p` (float,</span>
+<span class="sd">          default: ``2.``), `sigma` (float, default: ``1.``) and `n_bins`</span>
+<span class="sd">          (int, default: ``100``).</span>
+
+<span class="sd">    scaler_function : callable, optional, default: ``numpy.max``</span>
+<span class="sd">        Function used to extract a single positive scalar from the collection</span>
+<span class="sd">        of norms of diagrams.</span>
+
+<span class="sd">    filter_epsilon : float, optional, default: ``0.``</span>
+<span class="sd">        The cutoff value controlling the amount of filtering.</span>
+
+<span class="sd">    n_bins : int, optional, default: ``100``</span>
+<span class="sd">        Length of array used to sample the continuous Betti curves.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1</span>
+<span class="sd">        unless in a :obj:`joblib.parallel_backend` context. ``-1`` means</span>
+<span class="sd">        using all processors.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BettiCurveGenerator.__init__"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">max_edge_length</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                 <span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">scaler_metric</span><span class="o">=</span><span class="s1">&#39;bottleneck&#39;</span><span class="p">,</span>
+                 <span class="n">scaler_metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scaler_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">,</span>
+                 <span class="n">filter_epsilon</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span> <span class="o">=</span> <span class="n">max_edge_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span> <span class="o">=</span> <span class="n">homology_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric_params</span> <span class="o">=</span> <span class="n">scaler_metric_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric</span> <span class="o">=</span> <span class="n">scaler_metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler_function</span> <span class="o">=</span> <span class="n">scaler_function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_epsilon</span> <span class="o">=</span> <span class="n">filter_epsilon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="BettiCurveGenerator.fit"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a :class:`gtda.pipeline.Pipeline` object and fit it. Then,</span>
+<span class="sd">        return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. ``n_samples`` is the number of point clouds,</span>
+<span class="sd">            ``n_points`` is the number of points per point cloud and</span>
+<span class="sd">            ``n_dimensions`` is the number of features for each point of the</span>
+<span class="sd">            point cloud (i.e. the dimension of the point cloud space)</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">&#39;diagram&#39;</span><span class="p">,</span> <span class="n">hl</span><span class="o">.</span><span class="n">VietorisRipsPersistence</span><span class="p">(</span>
+                <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
+                <span class="n">max_edge_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span><span class="p">,</span>
+                <span class="n">homology_dimensions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">,</span>
+                <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">Scaler</span><span class="p">(</span>
+                <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric</span><span class="p">,</span>
+                <span class="n">metric_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric_params</span><span class="p">,</span>
+                <span class="n">function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler_function</span><span class="p">,</span>
+                <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;filter&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">Filtering</span><span class="p">(</span>
+                <span class="n">epsilon</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_epsilon</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;betticurve&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">BettiCurve</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">))]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="BettiCurveGenerator.transform"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extract Betti curves from the sample point clouds in `X`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. ``n_samples`` is the number of point clouds,</span>
+<span class="sd">            ``n_points`` is the number of points per point cloud and</span>
+<span class="sd">            ``n_dimensions`` is the number of features for each point of</span>
+<span class="sd">            the point cloud (i.e. the dimension of the point cloud space).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, \</span>
+<span class="sd">             n_bins)</span>
+<span class="sd">            For each point cloud in `X`, one discretised Betti curve</span>
+<span class="sd">            per homology dimension in `homology_dimensions`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
+
+
+<div class="viewcode-block" id="LandscapeGenerator"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">LandscapeGenerator</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Meta transformer returning persistence landscapes directly from point</span>
+<span class="sd">    clouds.</span>
+
+<span class="sd">    Implements a feature generation pipeline which computes persistence</span>
+<span class="sd">    diagrams, scales and filters them, and then computes their persistence</span>
+<span class="sd">    landscapes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    metric : string or callable, optional, default: ``&#39;euclidean&#39;``</span>
+<span class="sd">        If set to ``&#39;precomputed&#39;``, each entry in `X` along axis 0 is</span>
+<span class="sd">        interpreted to be a distance matrix. Otherwise, entries are</span>
+<span class="sd">        interpreted as feature arrays, and `metric` determines a rule with</span>
+<span class="sd">        which to calculate distances between pairs of instances (i.e. rows)</span>
+<span class="sd">        in these arrays.</span>
+<span class="sd">        If `metric` is a string, it must be one of the options allowed by</span>
+<span class="sd">        :func:`scipy.spatial.distance.pdist` for its metric parameter, or a</span>
+<span class="sd">        metric listed in :obj:`sklearn.pairwise.PAIRWISE_DISTANCE_FUNCTIONS`,</span>
+<span class="sd">        including &quot;euclidean&quot;, &quot;manhattan&quot; or &quot;cosine&quot;.</span>
+<span class="sd">        If `metric` is a callable function, it is called on each pair of</span>
+<span class="sd">        instances and the resulting value recorded. The callable should take</span>
+<span class="sd">        two arrays from the entry in `X` as input, and return a value</span>
+<span class="sd">        indicating the distance between them.</span>
+
+<span class="sd">    max_edge_length : float, optional, default: ``numpy.inf``</span>
+<span class="sd">        Upper bound on the maximum value of the Vietoris-Rips filtration</span>
+<span class="sd">        parameter. Points whose distance is greater than this value will</span>
+<span class="sd">        never be connected by an edge, and topological features at scales</span>
+<span class="sd">        larger than this value will not be detected.</span>
+
+<span class="sd">    homology_dimensions : iterable, optional, default: ``(0, 1)``</span>
+<span class="sd">        Dimensions (non-negative integers) of the topological features to be</span>
+<span class="sd">        detected.</span>
+
+<span class="sd">    scaler_metric : ``&#39;bottleneck&#39;`` | ``&#39;wasserstein&#39;`` | ``&#39;landscape&#39;`` | \</span>
+<span class="sd">                    ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: \</span>
+<span class="sd">                    ``&#39;bottleneck&#39;``</span>
+<span class="sd">        Distance or dissimilarity function used to define the amplitude of</span>
+<span class="sd">        a subdiagram as its distance from the diagonal diagram:</span>
+
+<span class="sd">        - ``&#39;bottleneck&#39;`` and ``&#39;wasserstein&#39;`` refer to the identically named</span>
+<span class="sd">          perfect-matching--based notions of distance.</span>
+<span class="sd">        - ``&#39;landscape&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          persistence landscapes.</span>
+<span class="sd">        - ``&#39;betti&#39;`` refers to the :math:`L^p` distance between Betti curves.</span>
+<span class="sd">        - ``&#39;heat&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          Gaussian-smoothed diagrams.</span>
+
+<span class="sd">    scaler_metric_params : dict or None, optional, default: ``None``</span>
+<span class="sd">        Additional keyword arguments for `scaler_metric`:</span>
+
+<span class="sd">        - If ``metric == &#39;bottleneck&#39;`` there are no available arguments.</span>
+<span class="sd">        - If ``metric == &#39;wasserstein&#39;`` the only argument is `p` (int,</span>
+<span class="sd">          default: ``2``).</span>
+<span class="sd">        - If ``metric == &#39;betti&#39;`` the available arguments are `p` (float,</span>
+<span class="sd">          default: ``2.``) and `n_bins` (int, default: ``100``).</span>
+<span class="sd">        - If ``metric == &#39;landscape&#39;`` the available arguments are `p`</span>
+<span class="sd">          (float, default: ``2.``), `n_bins` (int, default: ``100``) and</span>
+<span class="sd">          `n_layers` (int, default: ``1``).</span>
+<span class="sd">        - If ``metric == &#39;heat&#39;`` the available arguments are `p` (float,</span>
+<span class="sd">          default: ``2.``), `sigma` (float, default: ``1.``) and `n_bins`</span>
+<span class="sd">          (int, default: ``100``).</span>
+
+<span class="sd">    scaler_function : callable, optional, default: ``numpy.max``</span>
+<span class="sd">        Function used to extract a single positive scalar from the collection</span>
+<span class="sd">        of norms of diagrams.</span>
+
+<span class="sd">    filter_epsilon : float, optional, default: ``0.``</span>
+<span class="sd">        The cutoff value controlling the amount of filtering.</span>
+
+<span class="sd">    n_layers : int, optional, default: ``1``</span>
+<span class="sd">        How many layers to consider in the persistence landscape.</span>
+
+<span class="sd">    n_bins : int, optional, default: ``100``</span>
+<span class="sd">        Length of array used to sample the continuous persistence landscapes.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1</span>
+<span class="sd">        unless in a :obj:`joblib.parallel_backend` context. ``-1`` means</span>
+<span class="sd">        using all processors.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="LandscapeGenerator.__init__"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">max_edge_length</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                 <span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">scaler_metric</span><span class="o">=</span><span class="s1">&#39;bottleneck&#39;</span><span class="p">,</span>
+                 <span class="n">scaler_metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scaler_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">,</span>
+                 <span class="n">filter_epsilon</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span> <span class="o">=</span> <span class="n">max_edge_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span> <span class="o">=</span> <span class="n">homology_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric</span> <span class="o">=</span> <span class="n">scaler_metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric_params</span> <span class="o">=</span> <span class="n">scaler_metric_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler_function</span> <span class="o">=</span> <span class="n">scaler_function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_epsilon</span> <span class="o">=</span> <span class="n">filter_epsilon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span> <span class="o">=</span> <span class="n">n_layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="LandscapeGenerator.fit"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a :class:`gtda.pipeline.Pipeline` object and fit it. Then,</span>
+<span class="sd">        return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. ``n_samples`` is the number of point clouds,</span>
+<span class="sd">            ``n_points`` is the number of points per point cloud and</span>
+<span class="sd">            ``n_dimensions`` is the number of features for each point of</span>
+<span class="sd">            the point cloud (i.e. the dimension of the point cloud space).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">&#39;diagram&#39;</span><span class="p">,</span> <span class="n">hl</span><span class="o">.</span><span class="n">VietorisRipsPersistence</span><span class="p">(</span>
+                <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
+                <span class="n">max_edge_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_edge_length</span><span class="p">,</span>
+                <span class="n">homology_dimensions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">,</span>
+                <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">Scaler</span><span class="p">(</span>
+                <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric</span><span class="p">,</span>
+                <span class="n">metric_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler_metric_params</span><span class="p">,</span>
+                <span class="n">function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler_function</span><span class="p">,</span>
+                <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;filter&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">Filtering</span><span class="p">(</span>
+                <span class="n">epsilon</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_epsilon</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s1">&#39;landscape&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">.</span><span class="n">PersistenceLandscape</span><span class="p">(</span>
+                <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">))]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="LandscapeGenerator.transform"><a class="viewcode-back" href="../../../modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extract persistence landscapes from the sample point clouds in `X`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_points, n_dimensions)</span>
+<span class="sd">            Input data. ``n_samples`` is the number of point clouds,</span>
+<span class="sd">            ``n_points`` is the number of points per point cloud and</span>
+<span class="sd">            ``n_dimensions`` is the number of features for each point of</span>
+<span class="sd">            the point cloud (i.e. the dimension of the point cloud space).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, \</span>
+<span class="sd">             n_layers, n_bins)</span>
+<span class="sd">            For each point cloud in `X`, one discretised persistence landscape</span>
+<span class="sd">            per homology dimension in `homology_dimensions`, consisting of</span>
+<span class="sd">            `n_layers` layers.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

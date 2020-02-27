@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Preprocessing &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> giotto-tda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Preprocessing</a></li>
+<li><a class="reference internal" href="#distances">Distances</a></li>
+<li><a class="reference internal" href="#diagram-features">Diagram features</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Preprocessing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/diagrams.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="preprocessing">
+<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension" title="gtda.diagrams.ForgetDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.ForgetDimension</span></code></a>()</p></td>
+<td><p>Replaces all homology dimensions in persistence diagrams with <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/diagrams/preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler" title="gtda.diagrams.Scaler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.Scaler</span></code></a>([metric, metric_params, …])</p></td>
+<td><p>Linear scaling of persistence diagrams.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering" title="gtda.diagrams.Filtering"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.Filtering</span></code></a>([homology_dimensions, …])</p></td>
+<td><p>Filtering of persistence diagrams.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="distances">
+<h1>Distances<a class="headerlink" href="#distances" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.PairwiseDistance</span></code></a>([metric, …])</p></td>
+<td><p><p><a class="reference external" href="https://giotto.ai/theory">Distances</a> between pairs of persistence diagrams, constructed from the distances between their respective subdiagrams with constant homology dimension.</p>
+</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="diagram-features">
+<h1>Diagram features<a class="headerlink" href="#diagram-features" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.Amplitude</span></code></a>([metric, metric_params, …])</p></td>
+<td><p><a class="reference external" href="https://giotto.ai/theory">Amplitudes</a> of persistence diagrams, constructed from the amplitudes of their subdiagrams with constant homology dimension.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html#gtda.diagrams.PersistenceEntropy" title="gtda.diagrams.PersistenceEntropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.PersistenceEntropy</span></code></a>([n_jobs])</p></td>
+<td><p><a class="reference external" href="https://giotto.ai/theory">Persistence entropies</a> of persistence diagrams.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/diagrams/features/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape" title="gtda.diagrams.PersistenceLandscape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.PersistenceLandscape</span></code></a>([n_layers, …])</p></td>
+<td><p><a class="reference external" href="https://giotto.ai/theory">Persistence landscapes</a> of persistence diagrams.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/diagrams/features/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve" title="gtda.diagrams.BettiCurve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.BettiCurve</span></code></a>([n_bins, n_jobs])</p></td>
+<td><p><a class="reference external" href="https://giotto.ai/theory">Betti curves</a> of persistence diagrams.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/diagrams/features/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel" title="gtda.diagrams.HeatKernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams.HeatKernel</span></code></a>([sigma, n_bins, n_jobs])</p></td>
+<td><p>Convolution of persistence diagrams with a Gaussian kernel.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
