@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -91,12 +92,7 @@
 <li><a class="reference internal" href="#mapper-example">Mapper example</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installation">Installation</a><ul>
-<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
-<li><a class="reference internal" href="#user-installation">User installation</a></li>
-<li><a class="reference internal" href="#developer-installation">Developer installation</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#api-reference">API reference</a></li>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 <li><a class="reference internal" href="#theory">Theory</a></li>
@@ -211,32 +207,32 @@ scikit-learn and is distributed under the GNU AGPLv3 license. It is part of the 
 <blockquote>
 <div><ul>
 <li><div class="line-block">
-<div class="line">Seamless integration with widely used ML frameworks: Python + scikit-learn.</div>
+<div class="line"><strong>Seamless integration with widely used ML frameworks: Python + scikit-learn.</strong></div>
 <div class="line">Inherit their strengths and allow for creation of heterogeneous ML pipelines.</div>
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">Code modularity: Algorithms as transformers</div>
+<div class="line"><strong>Code modularity: Algorithms as transformers.</strong></div>
 <div class="line">“Lego blocks” approach.</div>
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">User-friendliness and familiarity to the broad data science community.</div>
+<div class="line"><strong>User-friendliness and familiarity to the broad data science community.</strong></div>
 <div class="line">Strict adherence to scikit-learn API and developer guidelines, “fit-transform” paradigm</div>
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">Standardisation.</div>
+<div class="line"><strong>Standardisation.</strong></div>
 <div class="line">Allow for integration of most available techniques into a generic framework.  Consistency of API across different modules</div>
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">Performance within the language constraints.</div>
+<div class="line"><strong>Performance within the language constraints.</strong></div>
 <div class="line">Vectorized code, parallelism (likely in future: just-in-time compilation and more)</div>
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">Data structures.</div>
+<div class="line"><strong>Data structures.</strong></div>
 <div class="line">Support for time series, graphs, images.</div>
 </div>
 </li>
@@ -256,46 +252,6 @@ by Lewis Tunstall provides a general overview of the library.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<hr class="docutils" />
-<div class="section" id="dependencies">
-<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
-<p>The latest stable version of giotto-tda requires:</p>
-<ul class="simple">
-<li><p>Python (&gt;= 3.6)</p></li>
-<li><p>NumPy (&gt;= 1.17.0)</p></li>
-<li><p>SciPy (&gt;= 0.17.0)</p></li>
-<li><p>joblib (&gt;= 0.13)</p></li>
-<li><p>scikit-learn (&gt;= 0.22.0)</p></li>
-<li><p>python-igraph (&gt;= 0.7.1.post6)</p></li>
-<li><p>matplotlib (&gt;= 3.0.3)</p></li>
-<li><p>plotly (&gt;= 4.4.1)</p></li>
-<li><p>ipywidgets (&gt;= 7.5.1)</p></li>
-</ul>
-<p>To run the examples, jupyter is required.</p>
-</div>
-<div class="section" id="user-installation">
-<h3>User installation<a class="headerlink" href="#user-installation" title="Permalink to this headline">¶</a></h3>
-<p>The simplest way to install giotto-tda is using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span>
-</pre></div>
-</div>
-<p>If necessary, this will also automatically install all the above dependencies. Note: we recommend
-upgrading <code class="docutils literal notranslate"><span class="pre">pip</span></code> to a recent version as the above may fail on very old versions.</p>
-<p>Pre-release, experimental builds containing recently added features, and/or
-bug fixes can be installed by running</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span><span class="o">-</span><span class="n">nightly</span>
-</pre></div>
-</div>
-<p>The main difference between giotto-tda-nightly and the developer installation (see the section
-on contributing, below) is that the former is shipped with pre-compiled wheels (similarly to the stable
-release) and hence does not require any C++ dependencies. As the main library module is called <code class="docutils literal notranslate"><span class="pre">gtda</span></code> in
-both the stable and nightly versions, giotto-tda and giotto-tda-nightly should not be installed in
-the same environment.</p>
-</div>
-<div class="section" id="developer-installation">
-<span id="contributing-section"></span><h3>Developer installation<a class="headerlink" href="#developer-installation" title="Permalink to this headline">¶</a></h3>
-<p>For information about the developer installation, please refer to <a class="reference internal" href="contributing_.html#contrib"><span class="std std-ref">Contributing guidelines</span></a>.</p>
-</div>
 </div>
 <div class="section" id="api-reference">
 <h2>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
@@ -303,8 +259,7 @@ the same environment.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<hr class="docutils" />
-<p>In this folder you can find basic tutorials and examples to get started quickly with giotto-tda. Additionally, <code class="docutils literal notranslate"><span class="pre">plotting.py</span></code> contains utilities for plotting the outputs of several computations you can perform with giotto-tda.</p>
+<p>Please have a look at <a class="reference internal" href="notebooks/notebooks_readme.html"><span class="doc">Examples, tutorials and plotting utilities</span></a>.</p>
 </div>
 <div class="section" id="theory">
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
@@ -424,7 +379,10 @@ answered questions, and were part of inspiring discussions.</p>
   
   
     
+  
+  <a href="#../choose_version.html">Checkout other versions!</a>
    
+
 
 </body>
 </html>
