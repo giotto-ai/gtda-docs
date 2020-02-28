@@ -26,10 +26,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -39,12 +36,18 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+<link href="_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
   <div class="wy-grid-for-nav">
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -53,9 +56,12 @@
           
 
           
-            <a href="#" class="icon icon-home"> giotto-tda
+            <a href="#">
           
 
+          
+            
+            <img src="_static/tda_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -87,12 +93,13 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Giotto-tda documentation</a><ul>
 <li><a class="reference internal" href="#guiding-principles">Guiding principles</a></li>
-<li><a class="reference internal" href="#s-guide-to-giotto-tda">30s guide to giotto-tda</a><ul>
-<li><a class="reference internal" href="#introduction-to-giotto-tda">Introduction to giotto-tda</a></li>
-<li><a class="reference internal" href="#mapper-example">Mapper example</a></li>
+<li><a class="reference internal" href="#s-guide-to-giotto-tda">30s guide to giotto-tda</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#user-installation">User installation</a></li>
+<li><a class="reference internal" href="#developer-installation">Developer installation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#api-reference">API reference</a></li>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 <li><a class="reference internal" href="#theory">Theory</a></li>
@@ -172,31 +179,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="giotto-tda-documentation">
+  <div class="section" id="giotto-tda-documentation">
 <h1>Giotto-tda documentation<a class="headerlink" href="#giotto-tda-documentation" title="Permalink to this headline">¶</a></h1>
 <p><strong>A high performance topological machine learning toolbox in Python.</strong></p>
 <p>Giotto-tda is a high performance topological machine learning toolbox in Python built on top of
@@ -241,17 +224,52 @@ scikit-learn and is distributed under the GNU AGPLv3 license. It is part of the 
 </div>
 <div class="section" id="s-guide-to-giotto-tda">
 <h2>30s guide to giotto-tda<a class="headerlink" href="#s-guide-to-giotto-tda" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="introduction-to-giotto-tda">
-<h3>Introduction to giotto-tda<a class="headerlink" href="#introduction-to-giotto-tda" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://towardsdatascience.com/getting-started-with-giotto-learn-a-python-library-for-topological-machine-learning-451d88d2c4bc">post</a>
 by Lewis Tunstall provides a general overview of the library.</p>
-</div>
-<div class="section" id="mapper-example">
-<h3>Mapper example<a class="headerlink" href="#mapper-example" title="Permalink to this headline">¶</a></h3>
-</div>
+<p>The mapper notebook, <span class="xref std std-doc">included in the documentation</span>,
+provides a comprehensive introduction to mapper.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<p>The latest stable version of giotto-tda requires:</p>
+<ul class="simple">
+<li><p>Python (&gt;= 3.6)</p></li>
+<li><p>NumPy (&gt;= 1.17.0)</p></li>
+<li><p>SciPy (&gt;= 0.17.0)</p></li>
+<li><p>joblib (&gt;= 0.13)</p></li>
+<li><p>scikit-learn (&gt;= 0.22.0)</p></li>
+<li><p>python-igraph (&gt;= 0.7.1.post6)</p></li>
+<li><p>matplotlib (&gt;= 3.0.3)</p></li>
+<li><p>plotly (&gt;= 4.4.1)</p></li>
+<li><p>ipywidgets (&gt;= 7.5.1)</p></li>
+</ul>
+<p>To run the examples, jupyter is required.</p>
+</div>
+<div class="section" id="user-installation">
+<h3>User installation<a class="headerlink" href="#user-installation" title="Permalink to this headline">¶</a></h3>
+<p>The simplest way to install giotto-tda is using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span>
+</pre></div>
+</div>
+<p>If necessary, this will also automatically install all the above dependencies. Note: we recommend
+upgrading <code class="docutils literal notranslate"><span class="pre">pip</span></code> to a recent version as the above may fail on very old versions.</p>
+<p>Pre-release, experimental builds containing recently added features, and/or
+bug fixes can be installed by running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span><span class="o">-</span><span class="n">nightly</span>
+</pre></div>
+</div>
+<p>The main difference between giotto-tda-nightly and the developer installation (see the section
+on contributing, below) is that the former is shipped with pre-compiled wheels (similarly to the stable
+release) and hence does not require any C++ dependencies. As the main library module is called <code class="docutils literal notranslate"><span class="pre">gtda</span></code> in
+both the stable and nightly versions, giotto-tda and giotto-tda-nightly should not be installed in
+the same environment.</p>
+</div>
+<div class="section" id="developer-installation">
+<h3>Developer installation<a class="headerlink" href="#developer-installation" title="Permalink to this headline">¶</a></h3>
+<p>For information about the developer installation, please refer to <a class="reference internal" href="contributing_.html#contrib"><span class="std std-ref">Contributing guidelines</span></a>.</p>
+</div>
 </div>
 <div class="section" id="api-reference">
 <h2>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
@@ -379,10 +397,7 @@ answered questions, and were part of inspiring discussions.</p>
   
   
     
-  
-  <a href="#../choose_version.html">Checkout other versions!</a>
    
-
 
 </body>
 </html>

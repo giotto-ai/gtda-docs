@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Preprocessing &mdash; giotto-tda 0.1.4 documentation</title>
+  <title>gtda.time_series: Time series &mdash; giotto-tda 0.1.4 documentation</title>
   
 
   
@@ -26,10 +26,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -39,12 +36,18 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+<link href="../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
   <div class="wy-grid-for-nav">
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -53,9 +56,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> giotto-tda
+            <a href="../index.html">
           
 
+          
+            
+            <img src="../_static/tda_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -85,11 +91,14 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Preprocessing</a></li>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>: Time series</a><ul>
+<li><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
 <li><a class="reference internal" href="#time-delay-embedding">Time-delay embedding</a></li>
 <li><a class="reference internal" href="#target-preparation">Target preparation</a></li>
 <li><a class="reference internal" href="#dynamical-systems">Dynamical systems</a></li>
 <li><a class="reference internal" href="#multivariate">Multivariate</a></li>
+</ul>
+</li>
 </ul>
 </div>
             
@@ -135,7 +144,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Preprocessing</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>: Time series</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -154,32 +163,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
+  <div class="section" id="module-gtda.time_series">
+<span id="gtda-time-series-time-series"></span><h1><a class="reference internal" href="#module-gtda.time_series" title="gtda.time_series"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code></a>: Time series<a class="headerlink" href="#module-gtda.time_series" title="Permalink to this headline">¶</a></h1>
+<p>The module <a class="reference internal" href="#module-gtda.time_series" title="gtda.time_series"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code></a> implements transformers to
+preprocess time series or embed them in a higher dimensional space for
+persistent homology.</p>
 <div class="section" id="preprocessing">
-<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h1>
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -199,7 +189,7 @@
 </table>
 </div>
 <div class="section" id="time-delay-embedding">
-<h1>Time-delay embedding<a class="headerlink" href="#time-delay-embedding" title="Permalink to this headline">¶</a></h1>
+<h2>Time-delay embedding<a class="headerlink" href="#time-delay-embedding" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -213,7 +203,7 @@
 </table>
 </div>
 <div class="section" id="target-preparation">
-<h1>Target preparation<a class="headerlink" href="#target-preparation" title="Permalink to this headline">¶</a></h1>
+<h2>Target preparation<a class="headerlink" href="#target-preparation" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -227,7 +217,7 @@
 </table>
 </div>
 <div class="section" id="dynamical-systems">
-<h1>Dynamical systems<a class="headerlink" href="#dynamical-systems" title="Permalink to this headline">¶</a></h1>
+<h2>Dynamical systems<a class="headerlink" href="#dynamical-systems" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -241,7 +231,7 @@
 </table>
 </div>
 <div class="section" id="multivariate">
-<h1>Multivariate<a class="headerlink" href="#multivariate" title="Permalink to this headline">¶</a></h1>
+<h2>Multivariate<a class="headerlink" href="#multivariate" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -253,6 +243,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 
 
@@ -292,10 +283,7 @@
   
   
     
-  
-  <a href="../index.html../choose_version.html">Checkout other versions!</a>
    
-
 
 </body>
 </html>

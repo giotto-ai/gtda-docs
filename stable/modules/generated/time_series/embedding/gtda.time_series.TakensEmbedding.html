@@ -26,10 +26,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -39,12 +36,18 @@
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../../search.html" />
+<link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
   <div class="wy-grid-for-nav">
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -53,9 +56,12 @@
           
 
           
-            <a href="../../../../index.html" class="icon icon-home"> giotto-tda
+            <a href="../../../../index.html">
           
 
+          
+            
+            <img src="../../../../_static/tda_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -150,31 +156,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="takensembedding">
+  <div class="section" id="takensembedding">
 <h1>TakensEmbedding<a class="headerlink" href="#takensembedding" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="gtda.time_series.TakensEmbedding">
@@ -186,7 +168,7 @@ Given a discrete time series <span class="math notranslate nohighlight">\((X_0, 
 of evenly sampled times <span class="math notranslate nohighlight">\(t_0, t_1, \ldots\)</span>, one extracts a set
 of <span class="math notranslate nohighlight">\(d\)</span>-dimensional vectors of the form <span class="math notranslate nohighlight">\((X_{t_i}, X_{t_i +
 \tau}, \ldots , X_{t_i + (d-1)\tau})\)</span> for <span class="math notranslate nohighlight">\(i = 0, 1, \ldots\)</span>.
-This set is called the <a class="reference external" href="https://giotto.ai/theory">Takens embedding</a>
+This set is called the <a class="reference internal" href="../../../../theory/glossary.html#takens-embedding"><span class="std std-ref">Takens embedding</span></a>
 of the time series and can be interpreted as a point cloud.</p>
 <p>The difference between <span class="math notranslate nohighlight">\(t_{i+1}\)</span> and <span class="math notranslate nohighlight">\(t_i\)</span> is called the
 stride, <span class="math notranslate nohighlight">\(\tau\)</span> is called the time delay, and <span class="math notranslate nohighlight">\(d\)</span> is called
@@ -527,10 +509,7 @@ and returns a transformed version of <cite>X</cite>.</p>
   
   
     
-  
-  <a href="../../../../index.html../choose_version.html">Checkout other versions!</a>
    
-
 
 </body>
 </html>

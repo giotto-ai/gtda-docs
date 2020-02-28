@@ -26,10 +26,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -39,12 +36,18 @@
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" />
+<link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
   <div class="wy-grid-for-nav">
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -53,9 +56,12 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> giotto-tda
+            <a href="../../../index.html">
           
 
+          
+            
+            <img src="../../../_static/tda_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -158,7 +164,7 @@
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span><span class="p">,</span> <span class="n">check_array</span>
 <span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
 <span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span>
-<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_dilate</span>
+<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_dilate</span><span class="p">,</span> <span class="n">_erode</span>
 
 
 <div class="viewcode-block" id="HeightFiltration"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.HeightFiltration.html#gtda.images.HeightFiltration">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
@@ -223,8 +229,9 @@
         <span class="k">return</span> <span class="n">Xh</span>
 
 <div class="viewcode-block" id="HeightFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.HeightFiltration.html#gtda.images.HeightFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate `direction_`, `n_dimensions_`, &#39;mesh_&#39; and `max_value_`</span>
-<span class="sd">        from a collection of binary images. Then, return the estimator.</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`direction_`, :attr:`n_dimensions_`, :attr:`mesh_`</span>
+<span class="sd">        and :attr:`max_value_` from a collection of binary images. Then,</span>
+<span class="sd">        return the estimator.</span>
 
 <span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
 <span class="sd">        work in pipelines.</span>
@@ -244,7 +251,7 @@
 <span class="sd">        self : object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 
@@ -300,7 +307,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
             <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_height</span><span class="p">)(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
@@ -332,8 +339,8 @@
 <span class="sd">        dimension of the images of the collection.</span>
 
 <span class="sd">    radius : float or None, default: ``None``</span>
-<span class="sd">        The radius of the ball centered in `center` inside which</span>
-<span class="sd">        activated pixels are included in the filtration.</span>
+<span class="sd">        The radius of the ball centered in `center` inside which activated</span>
+<span class="sd">        pixels are included in the filtration.</span>
 
 <span class="sd">    metric : string or callable, optional, default: ``&#39;euclidean&#39;``</span>
 <span class="sd">        If set to ``&#39;precomputed&#39;``, each entry in `X` along axis 0 is</span>
@@ -364,8 +371,9 @@
 <span class="sd">        Effective center of the radial filtration. Set in :meth:`fit`.</span>
 
 <span class="sd">    effective_metric_params_ : dict</span>
-<span class="sd">        Dictionary containing all information present in `metric_params`.</span>
-<span class="sd">        If `metric_params` is ``None``, it is set to the empty dictionary.</span>
+<span class="sd">        Dictionary containing all information present in</span>
+<span class="sd">        `metric_params`. If `metric_params` is ``None``, it is set to</span>
+<span class="sd">        the empty dictionary.</span>
 
 <span class="sd">    n_dimensions_ : ``2`` or ``3``</span>
 <span class="sd">        Dimension of the images. Set in :meth:`fit`.</span>
@@ -405,9 +413,9 @@
         <span class="k">return</span> <span class="n">Xr</span>
 
 <div class="viewcode-block" id="RadialFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.RadialFiltration.html#gtda.images.RadialFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate `center_`, &#39;effective_metric_params_&#39;, `n_dimensions_`,</span>
-<span class="sd">        &#39;mesh_&#39; and `max_value_` from a collection of binary images. Then,</span>
-<span class="sd">        return the estimator.</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`center_`, :attr:&#39;effective_metric_params_&#39;,</span>
+<span class="sd">        :attr:`n_dimensions_`, :attr:&#39;mesh_&#39; and :attr:`max_value_` from a</span>
+<span class="sd">        collection of binary images. Then, return the estimator.</span>
 
 <span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
 <span class="sd">        work in pipelines.</span>
@@ -427,7 +435,7 @@
 <span class="sd">        self : object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 
@@ -489,7 +497,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
             <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_radial</span><span class="p">)(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
@@ -506,8 +514,10 @@
 <span class="sd">    regions.</span>
 
 <span class="sd">    Binary dilation is a morphological operator commonly used in</span>
-<span class="sd">    image processing and relies on the scipy.ndimage module [1]_. This</span>
-<span class="sd">    filtration assigns to each pixel in an image a grayscale value</span>
+<span class="sd">    image processing and relies on the `scipy.ndimage \</span>
+<span class="sd">    &lt;https://docs.scipy.org/doc/scipy/reference/ndimage.html&gt;`_ module.</span>
+
+<span class="sd">    This filtration assigns to each pixel in an image a grayscale value</span>
 <span class="sd">    calculated as follows. If the minimum Manhattan distance between the</span>
 <span class="sd">    pixel and any activated pixel in the image is less than or equal to</span>
 <span class="sd">    the parameter `n_iterations`, the assigned value is this distance –</span>
@@ -544,11 +554,6 @@
 <span class="sd">    --------</span>
 <span class="sd">    gtda.homology.CubicalPersistence, Binarizer</span>
 
-<span class="sd">    References</span>
-<span class="sd">    ----------</span>
-<span class="sd">    [1] &quot;Multi-dimensional image processing (scipy.ndimage)&quot; \</span>
-<span class="sd">        &lt;https://docs.scipy.org/doc/scipy/reference/ndimage.html&gt;`_.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_iterations_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
 
@@ -557,13 +562,16 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
 
     <span class="k">def</span> <span class="nf">_calculate_dilation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="n">Xd</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="mf">1.</span>
+        <span class="n">Xd</span> <span class="o">=</span> <span class="n">_dilate</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations_</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">_dilate</span><span class="p">(</span><span class="n">Xd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span><span class="p">)</span>
+        <span class="n">mask_undilated</span> <span class="o">=</span> <span class="n">Xd</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="n">Xd</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">Xd</span><span class="p">[</span><span class="n">mask_undilated</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span>
+        <span class="k">return</span> <span class="n">Xd</span>
 
 <div class="viewcode-block" id="DilationFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate `n_iterations_` and &#39;max_value_&#39; from a collection of</span>
-<span class="sd">        binary images. Then, return the estimator.</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_iterations_` and :attr:`max_value_` from a</span>
+<span class="sd">        collection of binary images. Then, return the estimator.</span>
 
 <span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
 <span class="sd">        work in pipelines.</span>
@@ -583,7 +591,7 @@
 <span class="sd">        self : object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 
@@ -623,7 +631,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
             <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_dilation</span><span class="p">)(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
@@ -640,8 +648,10 @@
 <span class="sd">    regions.</span>
 
 <span class="sd">    Binary erosion is a morphological operator commonly used in</span>
-<span class="sd">    image processing and relies on the scipy.ndimage module [1]_.This</span>
-<span class="sd">    filtration assigns to each pixel in an image a grayscale value</span>
+<span class="sd">    image processing and relies on the `scipy.ndimage \</span>
+<span class="sd">    &lt;https://docs.scipy.org/doc/scipy/reference/ndimage.html&gt;`_ module.</span>
+
+<span class="sd">    This filtration assigns to each pixel in an image a grayscale value</span>
 <span class="sd">    calculated as follows. If the minimum Manhattan distance between the</span>
 <span class="sd">    pixel and any deactivated pixel in the image is less than or equal to</span>
 <span class="sd">    the parameter `n_iterations`, the assigned value is this distance –</span>
@@ -678,11 +688,6 @@
 <span class="sd">    --------</span>
 <span class="sd">    gtda.homology.CubicalPersistence, Binarizer</span>
 
-<span class="sd">    References</span>
-<span class="sd">    ----------</span>
-<span class="sd">    [1] &quot;Multi-dimensional image processing (scipy.ndimage)&quot; \</span>
-<span class="sd">        &lt;https://docs.scipy.org/doc/scipy/reference/ndimage.html&gt;`_.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_iterations_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
 
@@ -691,13 +696,16 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
 
     <span class="k">def</span> <span class="nf">_calculate_erosion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="n">Xd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.</span>
+        <span class="n">Xe</span> <span class="o">=</span> <span class="n">_erode</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations_</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">_dilate</span><span class="p">(</span><span class="n">Xd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span><span class="p">)</span>
+        <span class="n">mask_uneroded</span> <span class="o">=</span> <span class="n">Xe</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="n">Xe</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">Xe</span><span class="p">[</span><span class="n">mask_uneroded</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span>
+        <span class="k">return</span> <span class="n">Xe</span>
 
 <div class="viewcode-block" id="ErosionFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.ErosionFiltration.html#gtda.images.ErosionFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate `n_iterations_` and &#39;max_value_&#39;from a collection of</span>
-<span class="sd">        binary images. Then, return the estimator.</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_iterations_` and :attr:`max_value_`from a</span>
+<span class="sd">        collection of binary images. Then, return the estimator.</span>
 
 <span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
 <span class="sd">        work in pipelines.</span>
@@ -717,7 +725,7 @@
 <span class="sd">        self : object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 
@@ -757,10 +765,154 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
             <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_erosion</span><span class="p">)(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">Xt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
+
+
+<div class="viewcode-block" id="SignedDistanceFiltration"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html#gtda.images.SignedDistanceFiltration">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">SignedDistanceFiltration</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Filtrations of 2D/3D binary images based on the dilation and the erosion</span>
+<span class="sd">    of activated regions.</span>
+
+<span class="sd">    This filtration assigns to each pixel in an image a grayscale value</span>
+<span class="sd">    calculated as follows. For activated pixels, if the minimum Manhattan</span>
+<span class="sd">    distance between the pixel and any deactivated pixel in the image is less</span>
+<span class="sd">    than or equal to the parameter `n_iterations`, the assigned value is</span>
+<span class="sd">    this distance minus 1. Otherwise, the assigned grayscale value is the sum</span>
+<span class="sd">    of the lengths along all axes of the image – equivalently, it is the</span>
+<span class="sd">    maximum Manhattan distance between any two pixels in the image, minus 1.</span>
+<span class="sd">    For deactivated pixels, if the minimum Manhattan distance between the pixel</span>
+<span class="sd">    and any activated pixel in the image is less than or equal to the parameter</span>
+<span class="sd">    `n_iterations`, the assigned value is the opposite of this distance.</span>
+<span class="sd">    Otherwise, the assigned grayscale value is the opposite of the maximum</span>
+<span class="sd">    Manhattan distance between any two pixels in the image.</span>
+
+<span class="sd">    The name of this filtration comes from the fact that it is a a negatively</span>
+<span class="sd">    signed dilation plus a positively signed erosion, minus 1 on the activated</span>
+<span class="sd">    pixels. Therefore, pixels the activated pixels at the boundary of the</span>
+<span class="sd">    activated regions always have a pixel value of 0.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_iterations : int or None, optional, default: ``None``</span>
+<span class="sd">        Number of iterations in the dilation process. ``None`` means dilation</span>
+<span class="sd">        over the full image.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_iterations_ : int</span>
+<span class="sd">        Effective number of iterations in the dilation process. Set in</span>
+<span class="sd">        :meth:`fit`.</span>
+
+<span class="sd">    max_value_: float</span>
+<span class="sd">        Maximum pixel value among all pixels in all images of the collection.</span>
+<span class="sd">        Set in :meth:`fit`.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    gtda.homology.CubicalPersistence, Binarizer, ErosionFiltration, \</span>
+<span class="sd">    DilationFiltration</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_iterations_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
+
+<div class="viewcode-block" id="SignedDistanceFiltration.__init__"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html#gtda.images.SignedDistanceFiltration.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_iterations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations</span> <span class="o">=</span> <span class="n">n_iterations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+    <span class="k">def</span> <span class="nf">_calculate_signed_distance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">X</span> <span class="o">==</span> <span class="mi">1</span>
+
+        <span class="n">Xd</span> <span class="o">=</span> <span class="o">-</span><span class="n">_dilate</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations_</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span><span class="p">)</span>
+        <span class="n">Xe</span> <span class="o">=</span> <span class="n">_erode</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations_</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span><span class="p">)</span>
+
+        <span class="n">mask_e</span> <span class="o">=</span> <span class="n">Xe</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="n">mask_d</span> <span class="o">=</span> <span class="n">Xd</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="n">Xe</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">mask</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">Xe</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">Xd</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">Xd</span><span class="p">[</span><span class="n">mask_d</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span>
+        <span class="n">Xe</span><span class="p">[</span><span class="n">mask_e</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">Xd</span> <span class="o">+</span> <span class="n">Xe</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SignedDistanceFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html#gtda.images.SignedDistanceFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_iterations_` and :attr:`max_value_` from a</span>
+<span class="sd">        collection of binary images. Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_pixels_x, n_pixels_y [, n_pixels_z])</span>
+<span class="sd">            Input data. Each entry along axis 0 is interpreted as a 2D or 3D</span>
+<span class="sd">            binary image.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need of a target in a transformer, yet the pipeline API</span>
+<span class="sd">            requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations_</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations</span>
+
+        <span class="n">validate_params</span><span class="p">({</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
+                         <span class="s1">&#39;n_iterations_&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iterations_</span><span class="p">},</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="SignedDistanceFiltration.transform"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html#gtda.images.SignedDistanceFiltration.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For each binary image in the collection `X`, calculate a</span>
+<span class="sd">        corresponding grayscale image based on the distance of its pixels to</span>
+<span class="sd">        their closest activated neighboring pixel. Return the collection</span>
+<span class="sd">        of grayscale images.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_pixels_x, n_pixels_y [, n_pixels_z])</span>
+<span class="sd">            Input data. Each entry along axis 0 is interpreted as a 2D or 3D</span>
+<span class="sd">            binary image.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need of a target in a transformer, yet the pipeline API</span>
+<span class="sd">            requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_pixels_x,</span>
+<span class="sd">            n_pixels_y [, n_pixels_z])</span>
+<span class="sd">            Transformed collection of images. Each entry along axis 0 is a</span>
+<span class="sd">            2D or 3D grayscale image.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_signed_distance</span><span class="p">)(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
             <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">Xt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
                                      <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
@@ -804,10 +956,7 @@
   
   
     
-  
-  <a href="../../../index.html../choose_version.html">Checkout other versions!</a>
    
-
 
 </body>
 </html>

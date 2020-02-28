@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gtda.mapper.pipeline.make_mapper_pipeline &mdash; giotto-tda 0.1.4 documentation</title>
+  <title>make_mapper_pipeline &mdash; giotto-tda 0.1.4 documentation</title>
   
 
   
@@ -26,10 +26,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -39,12 +36,18 @@
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../../search.html" />
+<link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
   <div class="wy-grid-for-nav">
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -53,9 +56,12 @@
           
 
           
-            <a href="../../../../index.html" class="icon icon-home"> giotto-tda
+            <a href="../../../../index.html">
           
 
+          
+            
+            <img src="../../../../_static/tda_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -85,7 +91,7 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#"><cite>gtda.mapper.pipeline</cite>.make_mapper_pipeline</a></li>
+<li><a class="reference internal" href="#">make_mapper_pipeline</a></li>
 </ul>
 </div>
             
@@ -131,7 +137,7 @@
     
       <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
-      <li><cite>gtda.mapper.pipeline</cite>.make_mapper_pipeline</li>
+      <li>make_mapper_pipeline</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -150,32 +156,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="gtda-mapper-pipeline-make-mapper-pipeline">
-<h1><cite>gtda.mapper.pipeline</cite>.make_mapper_pipeline<a class="headerlink" href="#gtda-mapper-pipeline-make-mapper-pipeline" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="make-mapper-pipeline">
+<h1>make_mapper_pipeline<a class="headerlink" href="#make-mapper-pipeline" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="gtda.mapper.pipeline.make_mapper_pipeline">
 <code class="sig-prename descclassname">gtda.mapper.pipeline.</code><code class="sig-name descname">make_mapper_pipeline</code><span class="sig-paren">(</span><em class="sig-param">scaler=None</em>, <em class="sig-param">filter_func=None</em>, <em class="sig-param">cover=None</em>, <em class="sig-param">clustering_preprocessing=None</em>, <em class="sig-param">clusterer=None</em>, <em class="sig-param">n_jobs=None</em>, <em class="sig-param">parallel_backend_prefer='threads'</em>, <em class="sig-param">graph_step=True</em>, <em class="sig-param">min_intersection=1</em>, <em class="sig-param">memory=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/pipeline.html#make_mapper_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.pipeline.make_mapper_pipeline" title="Permalink to this definition">¶</a></dt>
@@ -262,8 +244,8 @@ is completed.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Find which points belong to first node of graph</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">node_id</span><span class="p">,</span> <span class="n">node_elements</span> <span class="o">=</span> <span class="n">mapper_graph</span><span class="p">[</span><span class="s1">&#39;node_metadata&#39;</span><span class="p">][</span><span class="s1">&#39;node_id&#39;</span><span class="p">],</span>
 <span class="gp">... </span><span class="n">mapper_graph</span><span class="p">[</span><span class="s1">&#39;node_metadata&#39;</span><span class="p">][</span><span class="s1">&#39;node_elements&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Node Id: </span><span class="si">{}</span><span class="s1">, Node elements: </span><span class="si">{}</span><span class="s1">, Data points: </span><span class="si">{}</span><span class="s1">&#39;</span>
-<span class="go">          .format(node_id[0], node_elements[0], X[node_elements[0]]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Node Id: </span><span class="si">{node_id[0]}</span><span class="s1">, Node elements: </span><span class="si">{node_elements[0]}</span><span class="s1">, &#39;</span>
+<span class="go">          f&#39;Data points: {X[node_elements[0]]}&#39;)</span>
 <span class="go">Node Id: 0,</span>
 <span class="go">Node elements: [8768],</span>
 <span class="go">Data points: [[0.01838998 0.76928754 0.98199244 0.0074299 ]]</span>
@@ -327,7 +309,7 @@ is completed.</p></li>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline" title="gtda.mapper.pipeline.MapperPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">MapperPipeline</span></code></a>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">method_to_transform</span></code></p>
+<p><a class="reference internal" href="gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline" title="gtda.mapper.pipeline.MapperPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">MapperPipeline</span></code></a>, <a class="reference internal" href="../../gtda.mapper.utils.decorators.method_to_transform.html#gtda.mapper.utils.decorators.method_to_transform" title="gtda.mapper.utils.decorators.method_to_transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">method_to_transform</span></code></a></p>
 </div>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
@@ -382,10 +364,7 @@ in <em>SPBG</em>, pp. 91–100, 2007.</p>
   
   
     
-  
-  <a href="../../../../index.html../choose_version.html">Checkout other versions!</a>
    
-
 
 </body>
 </html>

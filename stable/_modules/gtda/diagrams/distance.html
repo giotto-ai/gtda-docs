@@ -26,10 +26,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -39,12 +36,18 @@
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" />
+<link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
   <div class="wy-grid-for-nav">
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -53,9 +56,12 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> giotto-tda
+            <a href="../../../index.html">
           
 
+          
+            
+            <img src="../../../_static/tda_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -162,7 +168,7 @@
 
 <div class="viewcode-block" id="PairwiseDistance"><a class="viewcode-back" href="../../../modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">PairwiseDistance</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;`Distances &lt;https://giotto.ai/theory&gt;`_ between pairs of persistence</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Distances &lt;wasserstein and bottleneck distance&gt;` between pairs of persistence</span>
 <span class="sd">    diagrams, constructed from the distances between their respective</span>
 <span class="sd">    subdiagrams with constant homology dimension.</span>
 
@@ -184,8 +190,8 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    metric : ``&#39;bottleneck&#39;`` | ``&#39;wasserstein&#39;`` | ``&#39;landscape&#39;`` | \</span>
-<span class="sd">        ``&#39;betti&#39;`` | ``&#39;heat&#39;`` | ``&#39;persistence_image&#39;``, optional,</span>
-<span class="sd">        default: ``&#39;landscape&#39;``</span>
+<span class="sd">        ``&#39;betti&#39;`` | ``&#39;heat&#39;`` | ``&#39;persistence_image&#39;``, | \</span>
+<span class="sd">        ``&#39;silhouette&#39;``, optional, default: ``&#39;landscape&#39;``</span>
 <span class="sd">        Distance or dissimilarity function between subdiagrams:</span>
 
 <span class="sd">        - ``&#39;bottleneck&#39;`` and ``&#39;wasserstein&#39;`` refer to the identically named</span>
@@ -195,6 +201,8 @@
 <span class="sd">        - ``&#39;betti&#39;`` refers to the :math:`L^p` distance between Betti curves.</span>
 <span class="sd">        - ``&#39;heat&#39;`` refers to the :math:`L^p` distance between</span>
 <span class="sd">          Gaussian-smoothed diagrams.</span>
+<span class="sd">        - ``&#39;silhouette&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          silhouettes.</span>
 <span class="sd">        - ``&#39;persistence_image&#39;`` refers to the :math:`L^p` distance between</span>
 <span class="sd">          Gaussian-smoothed diagrams represented on birth-persistence axes.</span>
 
@@ -215,6 +223,9 @@
 <span class="sd">          `n_layers` (int, default: ``1``).</span>
 <span class="sd">        - If ``metric == &#39;heat&#39;`` the available arguments are `p`</span>
 <span class="sd">          (float, default: ``2.``), `sigma` (float, default: ``1.``) and</span>
+<span class="sd">          `n_bins` (int, default: ``100``).</span>
+<span class="sd">        - If ``metric == &#39;silhouette&#39;`` the available arguments are `p`</span>
+<span class="sd">          (float, default: ``2.``), `order` (float, default: ``1.``) and</span>
 <span class="sd">          `n_bins` (int, default: ``100``).</span>
 <span class="sd">        - If ``metric == &#39;persistence_image&#39;`` the available arguments are `p`</span>
 <span class="sd">          (float, default: ``2.``), `sigma` (float, default: ``1.``),</span>
@@ -243,7 +254,9 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    Amplitude, BettiCurve, PersistenceLandscape, HeatKernel, \</span>
+<span class="sd">    Amplitude, Scaler, Filtering, \</span>
+<span class="sd">    BettiCurve, PersistenceLandscape, \</span>
+<span class="sd">    HeatKernel, Silhouette, \</span>
 <span class="sd">    gtda.homology.VietorisRipsPersistence</span>
 
 <span class="sd">    Notes</span>
@@ -367,7 +380,7 @@
 
 <div class="viewcode-block" id="Amplitude"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">Amplitude</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;`Amplitudes &lt;https://giotto.ai/theory&gt;`_ of persistence diagrams,</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Amplitudes &lt;amplitude&gt;` of persistence diagrams,</span>
 <span class="sd">    constructed from the amplitudes of their subdiagrams with constant</span>
 <span class="sd">    homology dimension.</span>
 
@@ -386,8 +399,10 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    metric : ``&#39;bottleneck&#39;`` | ``&#39;wasserstein&#39;`` | ``&#39;landscape&#39;`` | \</span>
-<span class="sd">        ``&#39;betti&#39;`` | ``&#39;heat&#39;`` | ``&#39;persistence_image&#39;``, optional,</span>
-<span class="sd">        default: ``&#39;landscape&#39;``</span>
+<span class="sd">        ``&#39;betti&#39;`` | ``&#39;heat&#39;`` | ``&#39;silhouette&#39;``| \</span>
+<span class="sd">        ``&#39;persistence_image&#39;``, optional, default: ``&#39;landscape&#39;``</span>
+<span class="sd">        optional, default: ``&#39;landscape&#39;``</span>
+
 <span class="sd">        Distance or dissimilarity function used to define the amplitude of</span>
 <span class="sd">        a subdiagram as its distance from the diagonal diagram:</span>
 
@@ -398,6 +413,8 @@
 <span class="sd">        - ``&#39;betti&#39;`` refers to the :math:`L^p` distance between Betti curves.</span>
 <span class="sd">        - ``&#39;heat&#39;`` refers to the :math:`L^p` distance between</span>
 <span class="sd">          Gaussian-smoothed diagrams.</span>
+<span class="sd">        - ``&#39;silhouette&#39;`` refers to the :math:`L^p` distance between</span>
+<span class="sd">          silhouettes.</span>
 <span class="sd">        - ``&#39;persistence_image&#39;`` refers to the :math:`L^p` distance between</span>
 <span class="sd">          Gaussian-smoothed diagrams represented on birth-persistence axes.</span>
 
@@ -415,6 +432,9 @@
 <span class="sd">        - If ``metric == &#39;heat&#39;`` the available arguments are `p` (float,</span>
 <span class="sd">          default: ``2.``), `sigma` (float, default: ``1.``) and `n_bins`</span>
 <span class="sd">          (int, default: ``100``).</span>
+<span class="sd">        - If ``metric == &#39;silhouette&#39;`` the available arguments are `p`</span>
+<span class="sd">          (float, default: ``2.``), `order` (float, default: ``1.``) and</span>
+<span class="sd">          `n_bins` (int, default: ``100``).</span>
 <span class="sd">        - If ``metric == &#39;persistence_image&#39;`` the available arguments are `p`</span>
 <span class="sd">          (float, default: ``2.``), `sigma` (float, default: ``1.``),</span>
 <span class="sd">          `n_bins` (int, default: ``100``) and `weight_function`</span>
@@ -444,7 +464,8 @@
 <span class="sd">    --------</span>
 <span class="sd">    PairwiseDistance, Scaler, Filtering, \</span>
 <span class="sd">    BettiCurve, PersistenceLandscape, \</span>
-<span class="sd">    HeatKernel, gtda.homology.VietorisRipsPersistence</span>
+<span class="sd">    HeatKernel, Silhouette, \</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -586,10 +607,7 @@
   
   
     
-  
-  <a href="../../../index.html../choose_version.html">Checkout other versions!</a>
    
-
 
 </body>
 </html>

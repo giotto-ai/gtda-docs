@@ -26,10 +26,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -39,12 +36,18 @@
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" />
+<link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
   <div class="wy-grid-for-nav">
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -53,9 +56,12 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> giotto-tda
+            <a href="../../../index.html">
           
 
+          
+            
+            <img src="../../../_static/tda_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -158,7 +164,8 @@
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">gen_even_slices</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
 
-<span class="kn">from</span> <span class="nn">._metrics</span> <span class="kn">import</span> <span class="n">betti_curves</span><span class="p">,</span> <span class="n">landscapes</span><span class="p">,</span> <span class="n">heats</span><span class="p">,</span> <span class="n">persistence_images</span>
+<span class="kn">from</span> <span class="nn">._metrics</span> <span class="kn">import</span> <span class="n">betti_curves</span><span class="p">,</span> <span class="n">landscapes</span><span class="p">,</span> <span class="n">heats</span><span class="p">,</span>\
+    <span class="n">persistence_images</span><span class="p">,</span> <span class="n">silhouettes</span>
 <span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_subdiagrams</span><span class="p">,</span> <span class="n">_bin</span><span class="p">,</span> <span class="n">_calculate_weights</span>
 <span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
 <span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span><span class="p">,</span> <span class="n">check_diagram</span>
@@ -166,7 +173,7 @@
 
 <div class="viewcode-block" id="PersistenceEntropy"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html#gtda.diagrams.PersistenceEntropy">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">PersistenceEntropy</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;`Persistence entropies &lt;https://giotto.ai/theory&gt;`_ of persistence</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Persistence entropies &lt;persistence entropy&gt;` of persistence</span>
 <span class="sd">    diagrams.</span>
 
 <span class="sd">    Given a persistence diagrams consisting of birth-death-dimension triples</span>
@@ -189,8 +196,10 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    BettiCurve, PersistenceLandscape, HeatKernel, PersistenceImage, \</span>
-<span class="sd">    Amplitude, PairwiseDistance, gtda.homology.VietorisRipsPersistence</span>
+<span class="sd">    BettiCurve, PersistenceLandscape, HeatKernel, Amplitude, \</span>
+<span class="sd">    PersistenceImage, PairwiseDistance, Silhouette, \</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="PersistenceEntropy.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html#gtda.diagrams.PersistenceEntropy.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -268,14 +277,14 @@
         <span class="k">return</span> <span class="n">Xt</span></div></div>
 
 
-<div class="viewcode-block" id="BettiCurve"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<div class="viewcode-block" id="BettiCurve"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">BettiCurve</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;`Betti curves &lt;https://giotto.ai/theory&gt;`_ of persistence diagrams.</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Betti curves &lt;betti curve&gt;` of persistence diagrams.</span>
 
 <span class="sd">    Given a persistence diagram consisting of birth-death-dimension triples</span>
 <span class="sd">    [b, d, q], subdiagrams corresponding to distinct homology dimensions are</span>
 <span class="sd">    considered separately, and their respective Betti curves are obtained by</span>
-<span class="sd">    evenly sampling the `filtration parameter &lt;https://giotto.ai/theory&gt;`_.</span>
+<span class="sd">    evenly sampling the :ref:`filtration parameter &lt;filtered complex&gt;`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -300,8 +309,9 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    PersistenceLandscape, PersistenceEntropy, HeatKernel, PersistenceImage, \</span>
-<span class="sd">    Amplitude, PairwiseDistance, gtda.homology.VietorisRipsPersistence</span>
+<span class="sd">    PersistenceLandscape, PersistenceEntropy, HeatKernel, Amplitude, \</span>
+<span class="sd">    PairwiseDistance, Silhouette, PersistenceImage,\</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -314,11 +324,11 @@
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
 
-<div class="viewcode-block" id="BettiCurve.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="BettiCurve.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
 
-<div class="viewcode-block" id="BettiCurve.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="BettiCurve.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
 <span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
 <span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
@@ -354,7 +364,7 @@
                            <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="BettiCurve.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="BettiCurve.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute the Betti curves of diagrams in `X`.</span>
 
 <span class="sd">        Parameters</span>
@@ -392,16 +402,16 @@
         <span class="k">return</span> <span class="n">Xt</span></div></div>
 
 
-<div class="viewcode-block" id="PersistenceLandscape"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<div class="viewcode-block" id="PersistenceLandscape"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">PersistenceLandscape</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;`Persistence landscapes &lt;https://giotto.ai/theory&gt;`_ of persistence</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Persistence landscapes &lt;persistence landscape&gt;` of persistence</span>
 <span class="sd">    diagrams.</span>
 
 <span class="sd">    Given a persistence diagram consisting of birth-death-dimension triples</span>
 <span class="sd">    [b, d, q], subdiagrams corresponding to distinct homology dimensions are</span>
 <span class="sd">    considered separately, and layers of their respective persistence</span>
-<span class="sd">    landscapes are obtained by evenly sampling the `filtration parameter</span>
-<span class="sd">    &lt;https://giotto.ai/theory&gt;`_.</span>
+<span class="sd">    landscapes are obtained by evenly sampling the :ref:`filtration parameter</span>
+<span class="sd">    &lt;filtered complex&gt;`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -429,8 +439,9 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    BettiCurve, PersistenceEntropy, HeatKernel, PersistenceImage, \</span>
-<span class="sd">    Amplitude, PairwiseDistance, gtda.homology.VietorisRipsPersistence</span>
+<span class="sd">    BettiCurve, PersistenceEntropy, HeatKernel, Amplitude, \</span>
+<span class="sd">    PairwiseDistance, Silhouette, PersistenceImage, \</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -445,12 +456,12 @@
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_layers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)],</span>
                         <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
 
-<div class="viewcode-block" id="PersistenceLandscape.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PersistenceLandscape.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span> <span class="o">=</span> <span class="n">n_layers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
 
-<div class="viewcode-block" id="PersistenceLandscape.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PersistenceLandscape.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
 <span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
 <span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
@@ -487,7 +498,7 @@
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="PersistenceLandscape.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PersistenceLandscape.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute the persistence landscapes of diagrams in `X`.</span>
 
 <span class="sd">        Parameters</span>
@@ -528,7 +539,7 @@
         <span class="k">return</span> <span class="n">Xt</span></div></div>
 
 
-<div class="viewcode-block" id="HeatKernel"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<div class="viewcode-block" id="HeatKernel"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">HeatKernel</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Convolution of persistence diagrams with a Gaussian kernel.</span>
 
@@ -537,7 +548,7 @@
 <span class="sd">    distinct homology dimensions are considered separately and regarded as sums</span>
 <span class="sd">    of Dirac deltas. Then, the convolution with a Gaussian kernel is computed</span>
 <span class="sd">    over a rectangular grid of locations evenly sampled from appropriate</span>
-<span class="sd">    ranges of the `filtration parameter &lt;https://giotto.ai/theory&gt;`_. The</span>
+<span class="sd">    ranges of the :ref:`filtration parameter &lt;filtered complex&gt;`. The</span>
 <span class="sd">    same is done with the reflected images of the subdiagrams about the</span>
 <span class="sd">    diagonal, and the difference between the results of the two convolutions is</span>
 <span class="sd">    computed. The result can be thought of as a raster image.</span>
@@ -568,15 +579,16 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    BettiCurve, PersistenceLandscape, PersistenceEntropy, PersistenceImage, \</span>
-<span class="sd">    Amplitude, PairwiseDistance, gtda.homology.VietorisRipsPersistence</span>
+<span class="sd">    BettiCurve, PersistenceLandscape, PersistenceEntropy, Amplitude, \</span>
+<span class="sd">    PairwiseDistance, Silhouette, PersistenceImage, \</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    The samplings in :attr:`samplings_` are in general different between</span>
-<span class="sd">    different homology dimensions. This means that the (i, j)-th pixel of a</span>
-<span class="sd">    persistence image in homology dimension q typically arises from a different</span>
-<span class="sd">    pair of parameter values to the (i, j)-th pixel of a persistence image in</span>
+<span class="sd">    different homology dimensions. This means that the (i, j)-th pixel</span>
+<span class="sd">    of an image in homology dimension q typically arises from a different</span>
+<span class="sd">    pair of parameter values to the (i, j)-th pixel of an image in</span>
 <span class="sd">    dimension q&#39;.</span>
 
 <span class="sd">    References</span>
@@ -592,12 +604,12 @@
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mf">1e-16</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)],</span>
                         <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
 
-<div class="viewcode-block" id="HeatKernel.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="HeatKernel.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
 
-<div class="viewcode-block" id="HeatKernel.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="HeatKernel.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
 <span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
 <span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
@@ -634,7 +646,7 @@
                            <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="HeatKernel.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/features/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="HeatKernel.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute raster images obtained from diagrams in `X` by convolution</span>
 <span class="sd">        with a Gaussian kernel.</span>
 
@@ -673,9 +685,10 @@
         <span class="k">return</span> <span class="n">Xt</span></div></div>
 
 
-<span class="nd">@adapt_fit_transform_docs</span>
+<div class="viewcode-block" id="PersistenceImage"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">PersistenceImage</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convolution of persistence diagrams with a Gaussian kernel.</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Persistence images &lt;persistence image&gt;` of persistence</span>
+<span class="sd">    diagrams.</span>
 
 <span class="sd">    Based on ideas in [1]_. Given a persistence diagram consisting of</span>
 <span class="sd">    birth-death-dimension triples [b, d, q], the equivalent diagrams of</span>
@@ -684,7 +697,7 @@
 <span class="sd">    separately and regarded as sums of Dirac deltas.</span>
 <span class="sd">    Then, the convolution with a Gaussian kernel is computed over</span>
 <span class="sd">    a rectangular grid of locations evenly sampled from appropriate ranges</span>
-<span class="sd">    of the `filtration parameter &lt;https://giotto.ai/theory&gt;`_.</span>
+<span class="sd">    of the :ref:`filtration parameter &lt;filtered complex&gt;`.</span>
 <span class="sd">    The result can be thought of as a raster image.</span>
 
 <span class="sd">    Parameters</span>
@@ -752,14 +765,14 @@
                         <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)],</span>
                         <span class="s1">&#39;effective_weight_function_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">]}</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">weight_function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="PersistenceImage.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">weight_function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span> <span class="o">=</span> <span class="n">weight_function</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
 
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PersistenceImage.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
 <span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
 <span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
@@ -805,9 +818,9 @@
                            <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span> <span class="o">=</span> <span class="n">_calculate_weights</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">effective_weight_function_</span><span class="p">,</span>
                                            <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
 
-    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PersistenceImage.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute raster images obtained from diagrams in `X` by convolution</span>
 <span class="sd">        with a Gaussian kernel.</span>
 
@@ -825,7 +838,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins, \</span>
-<span class="sd">            n_bins)</span>
+<span class="sd">             n_bins)</span>
 <span class="sd">            Raster images: one image per sample and per homology dimension seen</span>
 <span class="sd">            in :meth:`fit`. Index i along axis 1 corresponds to the i-th</span>
 <span class="sd">            homology dimension in :attr:`homology_dimensions_`.</span>
@@ -848,7 +861,152 @@
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
                                         <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
             <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">Xt</span>
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
+
+
+<div class="viewcode-block" id="Silhouette"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">Silhouette</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Power-weighted silhouettes &lt;weighted silhouette&gt;` of persistence</span>
+<span class="sd">    diagrams.</span>
+
+<span class="sd">    Based on ideas in [1]_. Given a persistence diagram consisting of</span>
+<span class="sd">    birth-death-dimension triples [b, d, q], subdiagrams corresponding to</span>
+<span class="sd">    distinct homology dimensions are considered separately, and their</span>
+<span class="sd">    respective silhouette by sampling the silhouette function over evenly</span>
+<span class="sd">    spaced locations from appropriate ranges</span>
+<span class="sd">    of the :ref:`filtration parameter &lt;filtered&gt;`.</span>
+
+<span class="sd">     Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    order: float, optional, default: ``1.``</span>
+<span class="sd">        The power to which persistence values are raised to define the</span>
+<span class="sd">        :ref:`power-weighted silhouettes &lt;weighted silhouette&gt;`.</span>
+
+<span class="sd">    n_bins : int, optional, default: ``100``</span>
+<span class="sd">        The number of filtration parameter values, per available homology</span>
+<span class="sd">        dimension, to sample during :meth:`fit`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1</span>
+<span class="sd">        unless in a :obj:`joblib.parallel_backend` context. ``-1`` means</span>
+<span class="sd">        using all processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">        Homology dimensions seen in :meth:`fit`, sorted in ascending order.</span>
+
+<span class="sd">    samplings_ : dict</span>
+<span class="sd">        For each number in `homology_dimensions_`, a discrete sampling of</span>
+<span class="sd">        filtration parameters, calculated during :meth:`fit` according to the</span>
+<span class="sd">        minimum birth and maximum death values observed across all samples.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    PersistenceLandscape, PersistenceEntropy, HeatKernel, Amplitude, \</span>
+<span class="sd">    PairwiseDistance, BettiCurve, gtda.homology.VietorisRipsPersistence</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The samplings in :attr:`samplings_` are in general different between</span>
+<span class="sd">    different homology dimensions. This means that the j-th entry of</span>
+<span class="sd">    a silhouette in homology dimension q typically arises from</span>
+<span class="sd">    a different parameter values to the j-th entry of a curve</span>
+<span class="sd">    in dimension q&#39;.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] F. Chazal, B. T. Fasy, F. Lecci, A. Rinaldo, and L. Wasserman,</span>
+<span class="sd">           &quot;Stochastic Convergence of Persistence Landscapes and Silhouettes&quot;;</span>
+<span class="sd">           *In Proceedings of the thirtieth annual symposium on Computational</span>
+<span class="sd">           Geometry*, Kyoto, Japan, 2014, pp. 474–483;</span>
+<span class="sd">           doi: `10.1145/2582112.2582128</span>
+<span class="sd">           &lt;http://dx.doi.org/10.1145/2582112.2582128&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;order&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)],</span>
+                        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]}</span>
+
+<div class="viewcode-block" id="Silhouette.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="n">order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="Silhouette.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
+<span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
+<span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
+<span class="sd">        Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;silhouette&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+                           <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Silhouette.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute silhouettes of diagrams in X.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins)</span>
+<span class="sd">            One silhouette (represented as a one-dimensional array)</span>
+<span class="sd">            per sample and per homology dimension seen</span>
+<span class="sd">            in :meth:`fit`. Index i along axis 1 corresponds to the i-th</span>
+<span class="sd">            homology dimension in :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="p">(</span><span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+              <span class="p">(</span><span class="n">delayed</span><span class="p">(</span><span class="n">silhouettes</span><span class="p">)(</span><span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)</span>
+              <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+              <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                       <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">))))</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span> \
+            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span> \
+            <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">Xt</span></div></div>
 </pre></div>
 
            </div>
@@ -887,10 +1045,7 @@
   
   
     
-  
-  <a href="../../../index.html../choose_version.html">Checkout other versions!</a>
    
-
 
 </body>
 </html>

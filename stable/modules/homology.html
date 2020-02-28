@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; giotto-tda 0.1.4 documentation</title>
+  <title>gtda.homology: Persistent homology &mdash; giotto-tda 0.1.4 documentation</title>
   
 
   
@@ -26,10 +26,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -39,12 +36,18 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+<link href="../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
   <div class="wy-grid-for-nav">
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -53,9 +56,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> giotto-tda
+            <a href="../index.html">
           
 
+          
+            
+            <img src="../_static/tda_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -84,7 +90,10 @@
             
             
               <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a></li>
+</ul>
+</div>
             
           
         </div>
@@ -128,7 +137,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -147,30 +156,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
+  <div class="section" id="module-gtda.homology">
+<span id="gtda-homology-persistent-homology"></span><h1><a class="reference internal" href="#module-gtda.homology" title="gtda.homology"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code></a>: Persistent homology<a class="headerlink" href="#module-gtda.homology" title="Permalink to this headline">¶</a></h1>
+<p>The module <a class="reference internal" href="#module-gtda.homology" title="gtda.homology"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code></a> implements transformers
+to generate persistence diagrams.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -178,13 +167,20 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.VietorisRipsPersistence</span></code></a>([metric, …])</p></td>
-<td><p><a class="reference external" href="https://giotto.ai/theory">Persistence diagrams</a> resulting from <a class="reference external" href="https://giotto.ai/theory">Vietoris-Rips filtrations</a>.</p></td>
+<td><p><a class="reference internal" href="../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from <a class="reference internal" href="../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology"><span class="std std-ref">Vietoris-Rips filtrations</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/homology/gtda.homology.ConsistentRescaling.html#gtda.homology.ConsistentRescaling" title="gtda.homology.ConsistentRescaling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.ConsistentRescaling</span></code></a>([metric, …])</p></td>
-<td><p>Rescaling of distances between pairs of points by the geometric mean of the distances to the respective <span class="math notranslate nohighlight">\(k\)</span>-th nearest neighbours.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence" title="gtda.homology.SparseRipsPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.SparseRipsPersistence</span></code></a>([metric, …])</p></td>
+<td><p><a class="reference internal" href="../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from <a class="reference internal" href="../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology"><span class="std std-ref">Sparse Vietoris-Rips filtrations</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence" title="gtda.homology.EuclideanCechPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.EuclideanCechPersistence</span></code></a>([…])</p></td>
+<td><p><a class="reference internal" href="../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from <a href="#id1"><span class="problematic" id="id2">`Cech filtrations &lt;&gt;`_</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence" title="gtda.homology.CubicalPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.CubicalPersistence</span></code></a>([…])</p></td>
+<td><p><a class="reference internal" href="../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from <a class="reference internal" href="../theory/glossary.html#cubical-complex"><span class="std std-ref">filtered cubical complexes</span></a>.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 
 
            </div>
@@ -223,10 +219,7 @@
   
   
     
-  
-  <a href="../index.html../choose_version.html">Checkout other versions!</a>
    
-
 
 </body>
 </html>

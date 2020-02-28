@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Preprocessing &mdash; giotto-tda 0.1.4 documentation</title>
+  <title>gtda.images: Images &mdash; giotto-tda 0.1.4 documentation</title>
   
 
   
@@ -26,10 +26,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -39,12 +36,18 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+<link href="../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
   <div class="wy-grid-for-nav">
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -53,9 +56,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> giotto-tda
+            <a href="../index.html">
           
 
+          
+            
+            <img src="../_static/tda_logo.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -85,8 +91,11 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Preprocessing</a></li>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
+<li><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
 <li><a class="reference internal" href="#filtrations">Filtrations</a></li>
+</ul>
+</li>
 </ul>
 </div>
             
@@ -132,7 +141,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Preprocessing</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -151,52 +160,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
+  <div class="section" id="module-gtda.images">
+<span id="gtda-images-images"></span><h1><a class="reference internal" href="#module-gtda.images" title="gtda.images"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code></a>: Images<a class="headerlink" href="#module-gtda.images" title="Permalink to this headline">¶</a></h1>
+<p>The module <a class="reference internal" href="#module-gtda.images" title="gtda.images"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code></a> implements techniques
+that can be used to apply Topological Data Analysis to images.</p>
 <div class="section" id="preprocessing">
-<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h1>
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/images/gtda.images.Inverter.html#gtda.images.Inverter" title="gtda.images.Inverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.Inverter</span></code></a>([n_jobs])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer" title="gtda.images.Binarizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.Binarizer</span></code></a>([threshold, normalize, n_jobs])</p></td>
+<td><p>Binarize all 2D/3D grayscale images in a collection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/images/gtda.images.Inverter.html#gtda.images.Inverter" title="gtda.images.Inverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.Inverter</span></code></a>([n_jobs])</p></td>
 <td><p>Invert all 2D/3D binary images in a collection.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/images/gtda.images.Padder.html#gtda.images.Padder" title="gtda.images.Padder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.Padder</span></code></a>([paddings, activated, n_jobs])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/images/gtda.images.Padder.html#gtda.images.Padder" title="gtda.images.Padder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.Padder</span></code></a>([paddings, activated, n_jobs])</p></td>
 <td><p>Pad all 2D/3D binary images in a collection.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/images/gtda.images.ImageToPointCloud.html#gtda.images.ImageToPointCloud" title="gtda.images.ImageToPointCloud"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.ImageToPointCloud</span></code></a>([n_jobs])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/images/gtda.images.ImageToPointCloud.html#gtda.images.ImageToPointCloud" title="gtda.images.ImageToPointCloud"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.ImageToPointCloud</span></code></a>([n_jobs])</p></td>
 <td><p>Represent active pixels in 2D/3D binary images as points in 2D/3D space.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="filtrations">
-<h1>Filtrations<a class="headerlink" href="#filtrations" title="Permalink to this headline">¶</a></h1>
+<h2>Filtrations<a class="headerlink" href="#filtrations" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -215,11 +207,12 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/images/gtda.images.ErosionFiltration.html#gtda.images.ErosionFiltration" title="gtda.images.ErosionFiltration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.ErosionFiltration</span></code></a>([n_iterations, n_jobs])</p></td>
 <td><p>Filtrations of 2D/3D binary images based on the erosion of activated regions.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.SignedDistanceFiltration</span></code></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/images/gtda.images.SignedDistanceFiltration.html#gtda.images.SignedDistanceFiltration" title="gtda.images.SignedDistanceFiltration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">images.SignedDistanceFiltration</span></code></a>([…])</p></td>
+<td><p>Filtrations of 2D/3D binary images based on the dilation and the erosion of activated regions.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 
 
@@ -259,10 +252,7 @@
   
   
     
-  
-  <a href="../index.html../choose_version.html">Checkout other versions!</a>
    
-
 
 </body>
 </html>
