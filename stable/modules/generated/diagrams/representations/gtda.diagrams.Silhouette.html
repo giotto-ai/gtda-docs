@@ -1,0 +1,402 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Silhouette &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+<link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/tda_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Silhouette</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Silhouette</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/modules/generated/diagrams/representations/gtda.diagrams.Silhouette.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="silhouette">
+<h1>Silhouette<a class="headerlink" href="#silhouette" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gtda.diagrams.Silhouette">
+<em class="property">class </em><code class="sig-prename descclassname">gtda.diagrams.</code><code class="sig-name descname">Silhouette</code><span class="sig-paren">(</span><em class="sig-param">order=1.0</em>, <em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/features.html#Silhouette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Silhouette" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../../../../theory/glossary.html#weighted-silhouette"><span class="std std-ref">Power-weighted silhouettes</span></a> of persistence
+diagrams.</p>
+<p>Based on ideas in <a class="footnote-reference brackets" href="#id2" id="id1">1</a>. Given a persistence diagram consisting of
+birth-death-dimension triples [b, d, q], subdiagrams corresponding to
+distinct homology dimensions are considered separately, and their
+respective silhouette by sampling the silhouette function over evenly
+spaced locations from appropriate ranges
+of the <span class="xref std std-ref">filtration parameter</span>.</p>
+<blockquote>
+<div><p>Parameters</p>
+</div></blockquote>
+<dl>
+<dt>order: float, optional, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code></dt><dd><p>The power to which persistence values are raised to define the
+<a class="reference internal" href="../../../../theory/glossary.html#weighted-silhouette"><span class="std std-ref">power-weighted silhouettes</span></a>.</p>
+</dd>
+<dt>n_bins<span class="classifier">int, optional, default: <code class="docutils literal notranslate"><span class="pre">100</span></code></span></dt><dd><p>The number of filtration parameter values, per available homology
+dimension, to sample during <a class="reference internal" href="#gtda.diagrams.Silhouette.fit" title="gtda.diagrams.Silhouette.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
+</dd>
+<dt>n_jobs<span class="classifier">int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
+unless in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means
+using all processors.</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="gtda.diagrams.Silhouette.homology_dimensions_">
+<code class="sig-name descname">homology_dimensions_</code><a class="headerlink" href="#gtda.diagrams.Silhouette.homology_dimensions_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Homology dimensions seen in <a class="reference internal" href="#gtda.diagrams.Silhouette.fit" title="gtda.diagrams.Silhouette.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>, sorted in ascending order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gtda.diagrams.Silhouette.samplings_">
+<code class="sig-name descname">samplings_</code><a class="headerlink" href="#gtda.diagrams.Silhouette.samplings_" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each number in <cite>homology_dimensions_</cite>, a discrete sampling of
+filtration parameters, calculated during <a class="reference internal" href="#gtda.diagrams.Silhouette.fit" title="gtda.diagrams.Silhouette.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> according to the
+minimum birth and maximum death values observed across all samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape" title="gtda.diagrams.PersistenceLandscape"><code class="xref py py-class docutils literal notranslate"><span class="pre">PersistenceLandscape</span></code></a>, <a class="reference internal" href="../features/gtda.diagrams.PersistenceEntropy.html#gtda.diagrams.PersistenceEntropy" title="gtda.diagrams.PersistenceEntropy"><code class="xref py py-class docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a>, <a class="reference internal" href="gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel" title="gtda.diagrams.HeatKernel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeatKernel</span></code></a>, <a class="reference internal" href="../features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">Amplitude</span></code></a>, <a class="reference internal" href="../distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairwiseDistance</span></code></a>, <a class="reference internal" href="gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve" title="gtda.diagrams.BettiCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">BettiCurve</span></code></a>, <a class="reference internal" href="../../homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.homology.VietorisRipsPersistence</span></code></a></p>
+</div>
+<p class="rubric">Notes</p>
+<p>The samplings in <a class="reference internal" href="#gtda.diagrams.Silhouette.samplings_" title="gtda.diagrams.Silhouette.samplings_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">samplings_</span></code></a> are in general different between
+different homology dimensions. This means that the j-th entry of
+a silhouette in homology dimension q typically arises from
+a different parameter values to the j-th entry of a curve
+in dimension q’.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>F. Chazal, B. T. Fasy, F. Lecci, A. Rinaldo, and L. Wasserman,
+“Stochastic Convergence of Persistence Landscapes and Silhouettes”;
+<em>In Proceedings of the thirtieth annual symposium on Computational
+Geometry</em>, Kyoto, Japan, 2014, pp. 474–483;
+doi: <a class="reference external" href="http://dx.doi.org/10.1145/2582112.2582128">10.1145/2582112.2582128</a>.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="gtda.diagrams.Silhouette.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">order=1.0</em>, <em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/features.html#Silhouette.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Silhouette.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Silhouette.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/features.html#Silhouette.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Silhouette.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store all observed homology dimensions in
+<a class="reference internal" href="#gtda.diagrams.Silhouette.homology_dimensions_" title="gtda.diagrams.Silhouette.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a> and, for each dimension separately,
+store evenly sample filtration parameter values in <a class="reference internal" href="#gtda.diagrams.Silhouette.samplings_" title="gtda.diagrams.Silhouette.samplings_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">samplings_</span></code></a>.
+Then, return the estimator.</p>
+<p>This method is here to implement the usual scikit-learn API and hence
+work in pipelines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Input data. Array of persistence diagrams, each a collection of
+triples [b, d, q] representing persistent topological features
+through their birth (b), death (d) and homology dimension (q).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Silhouette.fit_transform">
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.Silhouette.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
+and returns a transformed version of <cite>X</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Input data. Array of persistence diagrams, each a collection of
+triples [b, d, q] representing persistent topological features
+through their birth (b), death (d) and homology dimension (q).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – One silhouette (represented as a one-dimensional array)
+per sample and per homology dimension seen
+in <a class="reference internal" href="#gtda.diagrams.Silhouette.fit" title="gtda.diagrams.Silhouette.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>. Index i along axis 1 corresponds to the i-th
+homology dimension in <a class="reference internal" href="#gtda.diagrams.Silhouette.homology_dimensions_" title="gtda.diagrams.Silhouette.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions, n_bins)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Silhouette.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.Silhouette.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Silhouette.set_params">
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.diagrams.Silhouette.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s possible to update each
+component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.diagrams.Silhouette.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/features.html#Silhouette.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Silhouette.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute silhouettes of diagrams in X.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Input data. Array of persistence diagrams, each a collection of
+triples [b, d, q] representing persistent topological features
+through their birth (b), death (d) and homology dimension (q).</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – One silhouette (represented as a one-dimensional array)
+per sample and per homology dimension seen
+in <a class="reference internal" href="#gtda.diagrams.Silhouette.fit" title="gtda.diagrams.Silhouette.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>. Index i along axis 1 corresponds to the i-th
+homology dimension in <a class="reference internal" href="#gtda.diagrams.Silhouette.homology_dimensions_" title="gtda.diagrams.Silhouette.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions, n_bins)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

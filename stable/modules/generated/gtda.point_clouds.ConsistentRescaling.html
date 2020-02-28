@@ -1,0 +1,406 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ConsistentRescaling &mdash; giotto-tda 0.1.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<link href="../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/tda_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">ConsistentRescaling</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>ConsistentRescaling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/generated/gtda.point_clouds.ConsistentRescaling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="consistentrescaling">
+<h1>ConsistentRescaling<a class="headerlink" href="#consistentrescaling" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="gtda.point_clouds.ConsistentRescaling">
+<em class="property">class </em><code class="sig-prename descclassname">gtda.point_clouds.</code><code class="sig-name descname">ConsistentRescaling</code><span class="sig-paren">(</span><em class="sig-param">metric='euclidean'</em>, <em class="sig-param">metric_params=None</em>, <em class="sig-param">neighbor_rank=1</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gtda/point_clouds/rescaling.html#ConsistentRescaling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.point_clouds.ConsistentRescaling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rescaling of distances between pairs of points by the geometric mean
+of the distances to the respective <span class="math notranslate nohighlight">\(k\)</span>-th nearest neighbours.</p>
+<p>Based on ideas in <a class="footnote-reference brackets" href="#id2" id="id1">1</a>. The computation during <a class="reference internal" href="#gtda.point_clouds.ConsistentRescaling.transform" title="gtda.point_clouds.ConsistentRescaling.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a> depends on
+the nature of the array <cite>X</cite>. If each entry in <cite>X</cite> along axis 0 represents a
+distance matrix <span class="math notranslate nohighlight">\(D\)</span>, then the corresponding entry in the transformed
+array is the distance matrix
+<span class="math notranslate nohighlight">\(D'_{i,j} = D_{i,j}/\sqrt{D_{i,k_i}D_{j,k_j}}\)</span>, where <span class="math notranslate nohighlight">\(k_i\)</span> is
+the index of the <span class="math notranslate nohighlight">\(k\)</span>-th largest value in row <span class="math notranslate nohighlight">\(i\)</span> (and similarly
+for <span class="math notranslate nohighlight">\(j\)</span>). If the entries in <cite>X</cite> represent point clouds, their
+distance matrices are first computed, and then rescaled according to the
+same formula.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metric</strong> (string or callable, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>) – If set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, each entry in <cite>X</cite> along axis 0 is
+interpreted to be a distance matrix. Otherwise, entries are
+interpreted as feature arrays, and <cite>metric</cite> determines a rule with
+which to calculate distances between pairs of instances (i.e. rows)
+in these arrays.
+If <cite>metric</cite> is a string, it must be one of the options allowed by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.spatial.distance.pdist</span></code> for its metric parameter, or a
+metric listed in <code class="xref py py-obj docutils literal notranslate"><span class="pre">sklearn.pairwise.PAIRWISE_DISTANCE_FUNCTIONS</span></code>,
+including “euclidean”, “manhattan” or “cosine”.
+If <cite>metric</cite> is a callable function, it is called on each pair of
+instances and the resulting value recorded. The callable should take
+two arrays from the entry in <cite>X</cite> as input, and return a value
+indicating the distance between them.</p></li>
+<li><p><strong>metric_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Additional keyword arguments for the metric function.</p></li>
+<li><p><strong>neighbor_rank</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Rank of the neighbors used to modify the metric structure according
+to the “consistent rescaling” procedure.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
+unless in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means
+using all processors.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="gtda.point_clouds.ConsistentRescaling.effective_metric_params_">
+<code class="sig-name descname">effective_metric_params_</code><a class="headerlink" href="#gtda.point_clouds.ConsistentRescaling.effective_metric_params_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary containing all information present in <cite>metric_params</cite>.
+If <cite>metric_params</cite> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is set to the empty dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gtda.point_clouds</span> <span class="kn">import</span> <span class="n">ConsistentRescaling</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cr</span> <span class="o">=</span> <span class="n">ConsistentRescaling</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_rescaled</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">X_rescaled</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(1, 3, 3)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling" title="gtda.point_clouds.ConsecutiveRescaling"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConsecutiveRescaling</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>T. Berry and T. Sauer, “Consistent manifold representation for
+topological data analysis”; <em>Foundations of data analysis</em> <strong>1</strong>,
+pp. 1–38, 2019; doi: <a class="reference external" href="http://dx.doi.org/10.3934/fods.2019001">10.3934/fods.2019001</a>.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="gtda.point_clouds.ConsistentRescaling.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">metric='euclidean'</em>, <em class="sig-param">metric_params=None</em>, <em class="sig-param">neighbor_rank=1</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gtda/point_clouds/rescaling.html#ConsistentRescaling.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.point_clouds.ConsistentRescaling.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.point_clouds.ConsistentRescaling.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gtda/point_clouds/rescaling.html#ConsistentRescaling.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.point_clouds.ConsistentRescaling.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate <a class="reference internal" href="#gtda.point_clouds.ConsistentRescaling.effective_metric_params_" title="gtda.point_clouds.ConsistentRescaling.effective_metric_params_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">effective_metric_params_</span></code></a>. Then, return the
+estimator.</p>
+<p>This method is here to implement the usual scikit-learn API and hence
+work in pipelines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_points</em><em>) or </em><em>(</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'precomputed'</span></code>, the input should be an
+ndarray whose each entry along axis 0 is a distance matrix of shape
+<code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code>. Otherwise, each such entry will be
+interpreted as an array of <code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in
+<code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.point_clouds.ConsistentRescaling.fit_transform">
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.point_clouds.ConsistentRescaling.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
+and returns a transformed version of <cite>X</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_points</em><em>) or </em><em>(</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'precomputed'</span></code>, the input should be an
+ndarray whose each entry along axis 0 is a distance matrix of shape
+<code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code>. Otherwise, each such entry will be
+interpreted as an array of <code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in
+<code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Array containing (as entries along axis 0) the distance matrices
+after consistent rescaling.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_points, n_points)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.point_clouds.ConsistentRescaling.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.point_clouds.ConsistentRescaling.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.point_clouds.ConsistentRescaling.set_params">
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.point_clouds.ConsistentRescaling.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s possible to update each
+component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="gtda.point_clouds.ConsistentRescaling.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gtda/point_clouds/rescaling.html#ConsistentRescaling.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.point_clouds.ConsistentRescaling.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each entry in the input data array X, find the metric structure
+after consistent rescaling and encode it as a distance matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_points</em><em>) or </em><em>(</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data. If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'precomputed'</span></code>, the input should be an
+ndarray whose each entry along axis 0 is a distance matrix of shape
+<code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code>. Otherwise, each such entry will be
+interpreted as an array of <code class="docutils literal notranslate"><span class="pre">n_points</span></code> row vectors in
+<code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code>-dimensional space.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Array containing (as entries along axis 0) the distance matrices
+after consistent rescaling.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_points, n_points)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
