@@ -45,8 +45,8 @@ Import libraries
 
 .. parsed-literal::
 
-    There are 4 persistent homology classes in dimension 2 across all samples!
-    There are 4 different point clouds with at least one persistent homology class in dimension 2.
+    There are 3 persistent homology classes in dimension 2 across all samples!
+    There are 3 different point clouds with at least one persistent homology class in dimension 2.
 
 
 We can now plot the edges which exist when these persistent homology
@@ -73,9 +73,5 @@ remind you of?
 
 
 .. image:: voids_on_the_plane_files/voids_on_the_plane_7_2.png
-
-
-
-.. image:: voids_on_the_plane_files/voids_on_the_plane_7_3.png
 
 
