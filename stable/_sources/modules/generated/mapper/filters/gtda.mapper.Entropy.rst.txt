@@ -1,8 +1,5 @@
 Entropy
 =================================
-..
-    :mod:Entropy
-    =================================
 
 .. currentmodule:: gtda.mapper
 
@@ -14,7 +11,7 @@ Entropy
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.mapper.Entropy.examples
+   include:: gtda.mapper.Entropy.
 
 .. raw:: html
 

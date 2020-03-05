@@ -1,8 +1,5 @@
 ConsistentRescaling
 ===================================================
-..
-    :mod:ConsistentRescaling
-    ===================================================
 
 .. currentmodule:: gtda.point_clouds
 
@@ -14,7 +11,7 @@ ConsistentRescaling
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.point_clouds.ConsistentRescaling.examples
+   include:: gtda.point_clouds.ConsistentRescaling.
 
 .. raw:: html
 

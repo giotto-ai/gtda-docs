@@ -1,8 +1,5 @@
 ConsecutiveRescaling
 ====================================================
-..
-    :mod:ConsecutiveRescaling
-    ====================================================
 
 .. currentmodule:: gtda.point_clouds
 
@@ -14,7 +11,7 @@ ConsecutiveRescaling
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.point_clouds.ConsecutiveRescaling.examples
+   include:: gtda.point_clouds.ConsecutiveRescaling.
 
 .. raw:: html
 

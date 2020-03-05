@@ -1,8 +1,5 @@
 Amplitude
 =====================================
-..
-    :mod:Amplitude
-    =====================================
 
 .. currentmodule:: gtda.diagrams
 
@@ -14,7 +11,7 @@ Amplitude
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.diagrams.Amplitude.examples
+   include:: gtda.diagrams.Amplitude.
 
 .. raw:: html
 

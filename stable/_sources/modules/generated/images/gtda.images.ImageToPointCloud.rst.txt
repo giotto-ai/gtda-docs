@@ -1,8 +1,5 @@
 ImageToPointCloud
 ===========================================
-..
-    :mod:ImageToPointCloud
-    ===========================================
 
 .. currentmodule:: gtda.images
 
@@ -14,7 +11,7 @@ ImageToPointCloud
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.images.ImageToPointCloud.examples
+   include:: gtda.images.ImageToPointCloud.
 
 .. raw:: html
 

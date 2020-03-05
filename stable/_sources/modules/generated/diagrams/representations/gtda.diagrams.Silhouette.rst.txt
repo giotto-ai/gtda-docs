@@ -1,8 +1,5 @@
 Silhouette
 ======================================
-..
-    :mod:Silhouette
-    ======================================
 
 .. currentmodule:: gtda.diagrams
 
@@ -14,7 +11,7 @@ Silhouette
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.diagrams.Silhouette.examples
+   include:: gtda.diagrams.Silhouette.
 
 .. raw:: html
 

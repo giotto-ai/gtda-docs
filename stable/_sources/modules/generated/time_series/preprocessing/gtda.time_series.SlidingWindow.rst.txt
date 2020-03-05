@@ -1,8 +1,5 @@
 SlidingWindow
 ============================================
-..
-    :mod:SlidingWindow
-    ============================================
 
 .. currentmodule:: gtda.time_series
 
@@ -14,7 +11,7 @@ SlidingWindow
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.time_series.SlidingWindow.examples
+   include:: gtda.time_series.SlidingWindow.
 
 .. raw:: html
 

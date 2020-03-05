@@ -1,8 +1,5 @@
 SignedDistanceFiltration
 ==================================================
-..
-    :mod:SignedDistanceFiltration
-    ==================================================
 
 .. currentmodule:: gtda.images
 
@@ -14,7 +11,7 @@ SignedDistanceFiltration
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.images.SignedDistanceFiltration.examples
+   include:: gtda.images.SignedDistanceFiltration.
 
 .. raw:: html
 

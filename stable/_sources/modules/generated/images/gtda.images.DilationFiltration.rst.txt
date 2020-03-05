@@ -1,8 +1,5 @@
 DilationFiltration
 ============================================
-..
-    :mod:DilationFiltration
-    ============================================
 
 .. currentmodule:: gtda.images
 
@@ -14,7 +11,7 @@ DilationFiltration
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.images.DilationFiltration.examples
+   include:: gtda.images.DilationFiltration.
 
 .. raw:: html
 

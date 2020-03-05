@@ -1,8 +1,5 @@
 TransitionGraph
 =========================================
-..
-    :mod:TransitionGraph
-    =========================================
 
 .. currentmodule:: gtda.graphs
 
@@ -14,7 +11,7 @@ TransitionGraph
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.graphs.TransitionGraph.examples
+   include:: gtda.graphs.TransitionGraph.
 
 .. raw:: html
 

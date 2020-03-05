@@ -1,8 +1,5 @@
 Filtering
 =====================================
-..
-    :mod:Filtering
-    =====================================
 
 .. currentmodule:: gtda.diagrams
 
@@ -14,7 +11,7 @@ Filtering
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.diagrams.Filtering.examples
+   include:: gtda.diagrams.Filtering.
 
 .. raw:: html
 

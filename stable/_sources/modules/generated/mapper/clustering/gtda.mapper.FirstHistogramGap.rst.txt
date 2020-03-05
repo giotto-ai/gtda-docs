@@ -1,8 +1,5 @@
 FirstHistogramGap
 ===========================================
-..
-    :mod:FirstHistogramGap
-    ===========================================
 
 .. currentmodule:: gtda.mapper
 
@@ -14,7 +11,7 @@ FirstHistogramGap
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.mapper.FirstHistogramGap.examples
+   include:: gtda.mapper.FirstHistogramGap.
 
 .. raw:: html
 

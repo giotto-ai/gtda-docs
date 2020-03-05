@@ -1,8 +1,5 @@
 OneDimensionalCover
 =============================================
-..
-    :mod:OneDimensionalCover
-    =============================================
 
 .. currentmodule:: gtda.mapper
 
@@ -14,7 +11,7 @@ OneDimensionalCover
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.mapper.OneDimensionalCover.examples
+   include:: gtda.mapper.OneDimensionalCover.
 
 .. raw:: html
 

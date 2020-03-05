@@ -1,8 +1,5 @@
 LandscapeGenerator
 =======================================================
-..
-    :mod:LandscapeGenerator
-    =======================================================
 
 .. currentmodule:: gtda.meta_transformers
 
@@ -14,7 +11,7 @@ LandscapeGenerator
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.meta_transformers.LandscapeGenerator.examples
+   include:: gtda.meta_transformers.LandscapeGenerator.
 
 .. raw:: html
 

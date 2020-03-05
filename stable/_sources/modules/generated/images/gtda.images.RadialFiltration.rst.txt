@@ -1,8 +1,5 @@
 RadialFiltration
 ==========================================
-..
-    :mod:RadialFiltration
-    ==========================================
 
 .. currentmodule:: gtda.images
 
@@ -14,7 +11,7 @@ RadialFiltration
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.images.RadialFiltration.examples
+   include:: gtda.images.RadialFiltration.
 
 .. raw:: html
 

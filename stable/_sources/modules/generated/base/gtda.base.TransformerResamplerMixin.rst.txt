@@ -1,8 +1,5 @@
 TransformerResamplerMixin
 =================================================
-..
-    :mod:TransformerResamplerMixin
-    =================================================
 
 .. currentmodule:: gtda.base
 
@@ -14,7 +11,7 @@ TransformerResamplerMixin
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.base.TransformerResamplerMixin.examples
+   include:: gtda.base.TransformerResamplerMixin.
 
 .. raw:: html
 

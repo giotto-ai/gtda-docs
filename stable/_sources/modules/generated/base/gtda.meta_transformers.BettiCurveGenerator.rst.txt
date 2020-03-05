@@ -1,8 +1,5 @@
 BettiCurveGenerator
 ========================================================
-..
-    :mod:BettiCurveGenerator
-    ========================================================
 
 .. currentmodule:: gtda.meta_transformers
 
@@ -14,7 +11,7 @@ BettiCurveGenerator
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.meta_transformers.BettiCurveGenerator.examples
+   include:: gtda.meta_transformers.BettiCurveGenerator.
 
 .. raw:: html
 

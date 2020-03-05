@@ -1,8 +1,5 @@
 PersistenceEntropy
 ==============================================
-..
-    :mod:PersistenceEntropy
-    ==============================================
 
 .. currentmodule:: gtda.diagrams
 
@@ -14,7 +11,7 @@ PersistenceEntropy
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.diagrams.PersistenceEntropy.examples
+   include:: gtda.diagrams.PersistenceEntropy.
 
 .. raw:: html
 

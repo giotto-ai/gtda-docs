@@ -1,8 +1,5 @@
 VietorisRipsPersistence
 ===================================================
-..
-    :mod:VietorisRipsPersistence
-    ===================================================
 
 .. currentmodule:: gtda.homology
 
@@ -14,7 +11,7 @@ VietorisRipsPersistence
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.homology.VietorisRipsPersistence.examples
+   include:: gtda.homology.VietorisRipsPersistence.
 
 .. raw:: html
 

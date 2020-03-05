@@ -1,8 +1,5 @@
 Projection
 ====================================
-..
-    :mod:Projection
-    ====================================
 
 .. currentmodule:: gtda.mapper
 
@@ -14,7 +11,7 @@ Projection
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.mapper.Projection.examples
+   include:: gtda.mapper.Projection.
 
 .. raw:: html
 

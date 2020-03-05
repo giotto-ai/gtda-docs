@@ -1,8 +1,5 @@
 PersistenceImage
 ============================================
-..
-    :mod:PersistenceImage
-    ============================================
 
 .. currentmodule:: gtda.diagrams
 
@@ -14,7 +11,7 @@ PersistenceImage
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.diagrams.PersistenceImage.examples
+   include:: gtda.diagrams.PersistenceImage.
 
 .. raw:: html
 

@@ -1,8 +1,5 @@
 PersistenceLandscape
 ================================================
-..
-    :mod:PersistenceLandscape
-    ================================================
 
 .. currentmodule:: gtda.diagrams
 
@@ -14,7 +11,7 @@ PersistenceLandscape
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.diagrams.PersistenceLandscape.examples
+   include:: gtda.diagrams.PersistenceLandscape.
 
 .. raw:: html
 

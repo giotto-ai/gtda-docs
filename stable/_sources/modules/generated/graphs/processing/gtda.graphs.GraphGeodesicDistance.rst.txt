@@ -1,8 +1,5 @@
 GraphGeodesicDistance
 ===============================================
-..
-    :mod:GraphGeodesicDistance
-    ===============================================
 
 .. currentmodule:: gtda.graphs
 
@@ -14,7 +11,7 @@ GraphGeodesicDistance
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.graphs.GraphGeodesicDistance.examples
+   include:: gtda.graphs.GraphGeodesicDistance.
 
 .. raw:: html
 

@@ -1,8 +1,5 @@
 Inverter
 ==================================
-..
-    :mod:Inverter
-    ==================================
 
 .. currentmodule:: gtda.images
 
@@ -14,7 +11,7 @@ Inverter
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.images.Inverter.examples
+   include:: gtda.images.Inverter.
 
 .. raw:: html
 

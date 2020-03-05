@@ -1,8 +1,5 @@
 ForgetDimension
 ===========================================
-..
-    :mod:ForgetDimension
-    ===========================================
 
 .. currentmodule:: gtda.diagrams
 
@@ -14,7 +11,7 @@ ForgetDimension
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.diagrams.ForgetDimension.examples
+   include:: gtda.diagrams.ForgetDimension.
 
 .. raw:: html
 

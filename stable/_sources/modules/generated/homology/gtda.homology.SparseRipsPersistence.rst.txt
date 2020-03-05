@@ -1,8 +1,5 @@
 SparseRipsPersistence
 =================================================
-..
-    :mod:SparseRipsPersistence
-    =================================================
 
 .. currentmodule:: gtda.homology
 
@@ -14,7 +11,7 @@ SparseRipsPersistence
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.homology.SparseRipsPersistence.examples
+   include:: gtda.homology.SparseRipsPersistence.
 
 .. raw:: html
 

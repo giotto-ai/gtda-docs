@@ -1,8 +1,5 @@
 Eccentricity
 ======================================
-..
-    :mod:Eccentricity
-    ======================================
 
 .. currentmodule:: gtda.mapper
 
@@ -14,7 +11,7 @@ Eccentricity
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.mapper.Eccentricity.examples
+   include:: gtda.mapper.Eccentricity.
 
 .. raw:: html
 

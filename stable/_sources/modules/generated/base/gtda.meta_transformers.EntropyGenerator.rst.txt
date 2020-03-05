@@ -1,8 +1,5 @@
 EntropyGenerator
 =====================================================
-..
-    :mod:EntropyGenerator
-    =====================================================
 
 .. currentmodule:: gtda.meta_transformers
 
@@ -14,7 +11,7 @@ EntropyGenerator
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.meta_transformers.EntropyGenerator.examples
+   include:: gtda.meta_transformers.EntropyGenerator.
 
 .. raw:: html
 

@@ -1,8 +1,5 @@
 MapperPipeline
 =================================================
-..
-    :mod:MapperPipeline
-    =================================================
 
 .. currentmodule:: gtda.mapper.pipeline
 
@@ -14,7 +11,7 @@ MapperPipeline
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.mapper.pipeline.MapperPipeline.examples
+   include:: gtda.mapper.pipeline.MapperPipeline.
 
 .. raw:: html
 

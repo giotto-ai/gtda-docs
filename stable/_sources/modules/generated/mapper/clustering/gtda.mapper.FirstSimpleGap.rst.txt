@@ -1,8 +1,5 @@
 FirstSimpleGap
 ========================================
-..
-    :mod:FirstSimpleGap
-    ========================================
 
 .. currentmodule:: gtda.mapper
 
@@ -14,7 +11,7 @@ FirstSimpleGap
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.mapper.FirstSimpleGap.examples
+   include:: gtda.mapper.FirstSimpleGap.
 
 .. raw:: html
 

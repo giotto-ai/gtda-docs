@@ -1,8 +1,5 @@
 CubicalPersistence
 ==============================================
-..
-    :mod:CubicalPersistence
-    ==============================================
 
 .. currentmodule:: gtda.homology
 
@@ -14,7 +11,7 @@ CubicalPersistence
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.homology.CubicalPersistence.examples
+   include:: gtda.homology.CubicalPersistence.
 
 .. raw:: html
 

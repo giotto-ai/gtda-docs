@@ -1,8 +1,5 @@
 KNeighborsGraph
 =========================================
-..
-    :mod:KNeighborsGraph
-    =========================================
 
 .. currentmodule:: gtda.graphs
 
@@ -14,7 +11,7 @@ KNeighborsGraph
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.graphs.KNeighborsGraph.examples
+   include:: gtda.graphs.KNeighborsGraph.
 
 .. raw:: html
 

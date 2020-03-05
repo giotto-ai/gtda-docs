@@ -1,8 +1,5 @@
 HeatKernel
 ======================================
-..
-    :mod:HeatKernel
-    ======================================
 
 .. currentmodule:: gtda.diagrams
 
@@ -14,7 +11,7 @@ HeatKernel
 
 ..
    Exclude sphinx-gallery generated examples since we use binder for now
-   include:: gtda.diagrams.HeatKernel.examples
+   include:: gtda.diagrams.HeatKernel.
 
 .. raw:: html
 
