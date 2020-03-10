@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -529,7 +529,7 @@ are searched for during <a class="reference internal" href="#gtda.time_series.Ta
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>parameters_type</strong> (<code class="docutils literal notranslate"><span class="pre">'search'</span></code> | <code class="docutils literal notranslate"><span class="pre">'fixed'</span></code>, optional, default:                       <code class="docutils literal notranslate"><span class="pre">'search'</span></code>) – If set to <code class="docutils literal notranslate"><span class="pre">'fixed'</span></code>, the values of <cite>time_delay</cite> and <cite>dimension</cite>
+<li><p><strong>parameters_type</strong> (<code class="docutils literal notranslate"><span class="pre">'search'</span></code> | <code class="docutils literal notranslate"><span class="pre">'fixed'</span></code>, optional, default:         <code class="docutils literal notranslate"><span class="pre">'search'</span></code>) – If set to <code class="docutils literal notranslate"><span class="pre">'fixed'</span></code>, the values of <cite>time_delay</cite> and <cite>dimension</cite>
 are used directly in <a class="reference internal" href="#gtda.time_series.TakensEmbedding.transform" title="gtda.time_series.TakensEmbedding.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a>. If set to <code class="docutils literal notranslate"><span class="pre">'search'</span></code>,
 those values are only used as upper bounds in a search as follows:
 first, an optimal time delay is found by minimising the time delayed
@@ -699,7 +699,7 @@ and returns a transformed version of X ans a resampled version of y.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>..</em><em>)</em>) – Input data.</p></li>
-<li><p><strong>y</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>)</em>) – Target data.</p></li>
+<li><p><strong>y</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) – Target data.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -807,7 +807,7 @@ and returns a transformed version of <cite>X</cite>.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>..</em><em>)</em>) – Input data.</p></li>
-<li><p><strong>y</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>)</em>) – Target data.</p></li>
+<li><p><strong>y</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) – Target data.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -864,19 +864,16 @@ and returns a transformed version of <cite>X</cite>.</p>
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../../-->
+<dd><a href="../../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

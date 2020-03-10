@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -513,17 +513,18 @@
 <dt id="gtda.diagrams.Filtering">
 <em class="property">class </em><code class="sig-prename descclassname">gtda.diagrams.</code><code class="sig-name descname">Filtering</code><span class="sig-paren">(</span><em class="sig-param">homology_dimensions=None</em>, <em class="sig-param">epsilon=0.01</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/preprocessing.html#Filtering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Filtering" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filtering of persistence diagrams.</p>
-<p>Filtering a diagram means removing all points whose distance from the
-diagonal is less than or equal to a certain cutoff value which can be
-interpreted as (<span class="math notranslate nohighlight">\(1/\sqrt{2}\)</span> times) the “minimum amount of
-persistence” required from points in the filtered diagram.</p>
+<p>Filtering a diagram means discarding all points [b, d, q] representing
+topological features whose lifetime d - b is less than or equal to a
+cutoff value. Technically, discarded points are replaced by points on the
+diagonal (i.e. whose birth and death values coincide), which carry no
+information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>homology_dimensions</strong> (iterable or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – When set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, subdiagrams corresponding to all homology
+<li><p><strong>homology_dimensions</strong> (list, tuple, or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – When set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, subdiagrams corresponding to all homology
 dimensions seen in <a class="reference internal" href="#gtda.diagrams.Filtering.fit" title="gtda.diagrams.Filtering.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> will be filtered.
-Otherwise, it contains the homology dimensions at which filtering
-should occur.</p></li>
+Otherwise, it contains the homology dimensions (as non-negative
+integers) at which filtering should occur.</p></li>
 <li><p><strong>epsilon</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">0.01</span></code>) – The cutoff value controlling the amount of filtering.</p></li>
 </ul>
 </dd>
@@ -544,7 +545,7 @@ order. Otherwise, it is a similarly sorted version of
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Scaling</span></code>, <a class="reference internal" href="../features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">Amplitude</span></code></a>, <a class="reference internal" href="../distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairwiseDistance</span></code></a>, <a class="reference internal" href="../../homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.homology.VietorisRipsPersistence</span></code></a></p>
+<p><a class="reference internal" href="../distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairwiseDistance</span></code></a>, <a class="reference internal" href="gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension" title="gtda.diagrams.ForgetDimension"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForgetDimension</span></code></a>, <a class="reference internal" href="gtda.diagrams.Scaler.html#gtda.diagrams.Scaler" title="gtda.diagrams.Scaler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scaler</span></code></a>, <a class="reference internal" href="../features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">Amplitude</span></code></a></p>
 </div>
 <dl class="method">
 <dt id="gtda.diagrams.Filtering.__init__">
@@ -714,19 +715,16 @@ Discarded points are replaced by points on the diagonal.</p>
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: dev
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../../-->
+<dd><a href="../../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

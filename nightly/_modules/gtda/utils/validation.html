@@ -253,7 +253,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -313,7 +312,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -503,39 +503,14 @@
 <span></span><span class="sd">&quot;&quot;&quot;Utilities for input validation.&quot;&quot;&quot;</span>
 <span class="c1"># License: GNU AGPLv3</span>
 
-<span class="kn">import</span> <span class="nn">numbers</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">types</span>
-
-<span class="n">available_metrics</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;bottleneck&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))],</span>
-    <span class="s1">&#39;wasserstein&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-                    <span class="p">(</span><span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mf">1e-16</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))],</span>
-    <span class="s1">&#39;betti&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-              <span class="p">(</span><span class="s1">&#39;n_bins&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">))],</span>
-    <span class="s1">&#39;landscape&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-                  <span class="p">(</span><span class="s1">&#39;n_bins&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-                  <span class="p">(</span><span class="s1">&#39;n_layers&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">))],</span>
-    <span class="s1">&#39;heat&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-             <span class="p">(</span><span class="s1">&#39;n_bins&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-             <span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">))],</span>
-    <span class="s1">&#39;persistence_image&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-                          <span class="p">(</span><span class="s1">&#39;n_bins&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-                          <span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-                          <span class="p">(</span><span class="s1">&#39;weight_function&#39;</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">,</span>
-                           <span class="kc">None</span><span class="p">)],</span>
-    <span class="s1">&#39;silhouette&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)),</span>
-                   <span class="p">(</span><span class="s1">&#39;n_bins&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">))]}</span>
-
-<span class="n">available_metric_params</span> <span class="o">=</span> <span class="p">{</span><span class="n">metric</span><span class="p">:</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">param_lst</span><span class="p">]</span>
-                           <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">param_lst</span> <span class="ow">in</span> <span class="n">available_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
 
 <div class="viewcode-block" id="check_diagram"><a class="viewcode-back" href="../../../modules/generated/utils/gtda.utils.check_diagram.html#gtda.utils.check_diagram">[docs]</a><span class="k">def</span> <span class="nf">check_diagram</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Input validation on a persistence diagram.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X should be a 3d np.array: X.shape = </span><span class="si">{X.shape}</span><span class="s2">.&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -578,146 +553,109 @@
     <span class="k">return</span> <span class="n">X</span>
 
 
-<span class="c1"># Check the type and range of numerical parameters</span>
-<div class="viewcode-block" id="validate_params"><a class="viewcode-back" href="../../../modules/generated/utils/gtda.utils.validate_params.html#gtda.utils.validate_params">[docs]</a><span class="k">def</span> <span class="nf">validate_params</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">references</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Function to automate the validation of hyperparameters.</span>
+<span class="k">def</span> <span class="nf">_validate_params_single</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">reference</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">ref_type</span> <span class="o">=</span> <span class="n">reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="c1"># Check that parameter has the correct type</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ref_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">ref_type</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Parameter `</span><span class="si">{name}</span><span class="s2">` is of type {type(parameter)} while &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;it should be of type </span><span class="si">{ref_type}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># If the reference type parameter is not list, tuple, np.ndarray or dict,</span>
+    <span class="c1"># the checks are performed on the parameter object directly.</span>
+    <span class="k">elif</span> <span class="n">ref_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+        <span class="n">ref_in</span> <span class="o">=</span> <span class="n">reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">ref_other</span> <span class="o">=</span> <span class="n">reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;other&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parameter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ref_in</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">parameter</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ref_in</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Parameter `</span><span class="si">{name}</span><span class="s2">` is </span><span class="si">{parameter}</span><span class="s2">, which is not in &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{ref_in}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="c1"># Perform any other checks via the callable ref_others</span>
+        <span class="k">if</span> <span class="n">ref_other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ref_other</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+
+    <span class="c1"># Explicitly return the type of reference if one of list, tuple, np.ndarray</span>
+    <span class="c1"># or dict.</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ref_type</span>
+
+
+<span class="k">def</span> <span class="nf">_validate_params</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">references</span><span class="p">,</span> <span class="n">rec_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">parameter</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">references</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">name_extras</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="n">rec_name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot; in `</span><span class="si">{rec_name}</span><span class="s2">`&quot;</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{name}</span><span class="s2">`</span><span class="si">{name_extras}</span><span class="s2"> is not an available parameter. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Available parameters are in {list(references.keys())}.&quot;</span><span class="p">)</span>
+
+        <span class="n">reference</span> <span class="o">=</span> <span class="n">references</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">ref_type</span> <span class="o">=</span> <span class="n">_validate_params_single</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ref_type</span><span class="p">:</span>
+            <span class="n">ref_of</span> <span class="o">=</span> <span class="n">reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;of&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ref_type</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+                <span class="n">_validate_params</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">ref_of</span><span class="p">,</span> <span class="n">rec_name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># List, tuple or ndarray type</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">parameter_elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">parameter</span><span class="p">):</span>
+                    <span class="n">_validate_params_single</span><span class="p">(</span>
+                        <span class="n">parameter_elem</span><span class="p">,</span> <span class="n">ref_of</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">[</span><span class="si">{i}</span><span class="s2">]&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="validate_params"><a class="viewcode-back" href="../../../modules/generated/utils/gtda.utils.validate_params.html#gtda.utils.validate_params">[docs]</a><span class="k">def</span> <span class="nf">validate_params</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">references</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to automate the validation of (hyper)parameters.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    parameters : dict, required</span>
-<span class="sd">        Dictionary in which the keys are hyperparameter names and the</span>
-<span class="sd">        corresponding values are hyperparameter values.</span>
+<span class="sd">        Dictionary in which the keys parameter names (as strings) and the</span>
+<span class="sd">        corresponding values are parameter values. Unless `exclude` (see</span>
+<span class="sd">        below) contains some of the keys in this dictionary, all parameters</span>
+<span class="sd">        are checked against `references`.</span>
 
 <span class="sd">    references : dict, required</span>
-<span class="sd">        Dictionary in which the keys are hyperparameter names and the</span>
-<span class="sd">        corresponding values are lists. The first element of that list is a</span>
-<span class="sd">        type. If that type is not an iterable, the second element can be one</span>
-<span class="sd">        of:</span>
+<span class="sd">        Dictionary in which the keys are parameter names (as strings). Let</span>
+<span class="sd">        ``name`` and ``parameter`` denote a key-value pair in `parameters`.</span>
+<span class="sd">        Since ``name`` should also be a key in `references`, let ``reference``</span>
+<span class="sd">        be the corresponding value there. Then, ``reference`` must be a</span>
+<span class="sd">        dictionary containing any of the following keys:</span>
 
-<span class="sd">        - ``None``, when only the type should be checked.</span>
-<span class="sd">        - A tuple of two numbers, when the type is numerical. In this case,</span>
-<span class="sd">          the first (resp. second) entry in the tuple defines a lower</span>
-<span class="sd">          (resp. upper) bound constraining the value of the corresponding</span>
-<span class="sd">          hyperparameter.</span>
-<span class="sd">        - A list containing all possible allowed values for the</span>
-<span class="sd">          corresponding hyperparameter.</span>
+<span class="sd">        - ``&#39;type&#39;``, mapping to a class or tuple of classes. ``parameter``</span>
+<span class="sd">          is checked to be an instance of this class or tuple of classes.</span>
 
-<span class="sd">        If that type is an iterable, the second element is a list that provides</span>
-<span class="sd">        information to validate each element of that iterable. The first</span>
-<span class="sd">        element of that list is the type of the elements of the iterable and</span>
-<span class="sd">        the second element of that list can be one of:</span>
+<span class="sd">        - ``&#39;in&#39;``, mapping to a dictionary, when the value of ``&#39;type&#39;`` is</span>
+<span class="sd">          not one of ``list``, ``tuple``, ``numpy.ndarray`` or ``dict``.</span>
+<span class="sd">          Letting ``ref_in`` denote that dictionary, the following check is</span>
+<span class="sd">          performed: ``parameter in ref_in``.</span>
 
-<span class="sd">        - ``None``, when only the type of the iterable elements should be</span>
-<span class="sd">          checked.</span>
-<span class="sd">        - A tuple of two numbers, when the type is numerical. In this case,</span>
-<span class="sd">          the first (resp. second) entry in the tuple defines a lower</span>
-<span class="sd">          (resp. upper) bound constraining the value of the corresponding</span>
-<span class="sd">          iterable element.</span>
-<span class="sd">        - A list containing all possible allowed values for the</span>
-<span class="sd">          corresponding iterable element.</span>
+<span class="sd">        - ``&#39;of&#39;``, mapping to a dictionary, when the value of ``&#39;type&#39;``</span>
+<span class="sd">          is one of ``list``, ``tuple``, ``numpy.ndarray`` or ``dict``.</span>
+<span class="sd">          Let ``ref_of`` denote that dictionary. Then:</span>
+
+<span class="sd">          a) If ``reference[&#39;type&#39;] == dict`` – meaning that ``parameter``</span>
+<span class="sd">             should be a dictionary – ``ref_of`` should have a similar</span>
+<span class="sd">             structure as `references`, and :func:`validate_params` is called</span>
+<span class="sd">             recursively on ``(parameter, ref_of)``.</span>
+<span class="sd">          b) Otherwise, ``ref_of`` should have a similar structure as</span>
+<span class="sd">             ``reference`` and each entry in ``parameter`` is checked to</span>
+<span class="sd">             satisfy the constraints in ``ref_of``.</span>
+
+<span class="sd">        - ``&#39;other&#39;``, which should map to a callable defining custom checks on</span>
+<span class="sd">          ``parameter``.</span>
+
+<span class="sd">    exclude : list of str, or None, optional, default: ``None``</span>
+<span class="sd">        List of parameter names which are among the keys in `parameters` but</span>
+<span class="sd">        should be excluded from validation. ``None`` is equivalent to</span>
+<span class="sd">        passing the empty list.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">references</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="c1"># Check type</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{key}</span><span class="s2"> is of type {type(parameters[key])} while it &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;should be of type </span><span class="si">{references[key][0]}</span><span class="s2">.&quot;</span><span class="p">)</span>
-
-        <span class="c1"># If the key is a list, tuple, or numpy array, check element by element</span>
-        <span class="k">if</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">list</span> <span class="ow">or</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">tuple</span> <span class="ow">or</span> \
-           <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">parameter</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
-                <span class="c1"># If an element has to be an int, it can be passed as a float</span>
-                <span class="c1"># that has no decimals, else we check the type of the element</span>
-                <span class="k">if</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">):</span>
-                        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                            <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{key}</span><span class="s2"> is a {type(parameters[key])} of &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{references[key][1][0]}</span><span class="s2"> but contains an &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;element of type {type(parameter)}.&quot;</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">float</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
-                        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                            <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{key}</span><span class="s2"> is a {type(parameters[key])} of &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;int but contains an element of type &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;{type(parameter)} that is not an integer.&quot;</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="c1"># Otherwise just check for the type</span>
-                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]):</span>
-                        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                            <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{key}</span><span class="s2"> is a {type(parameters[key])} of &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{references[key][1][0]}</span><span class="s2">  but contains an &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;element of type {type(parameter)}.&quot;</span><span class="p">)</span>
-
-                <span class="c1"># If there is no parameter range to check, continue</span>
-                <span class="k">if</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="c1"># Check element range indicated by a tuple of 2 values</span>
-                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">):</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="n">parameter</span> <span class="o">&lt;</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span>
-                            <span class="n">parameter</span> <span class="o">&gt;</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span>
-                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                            <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{key}</span><span class="s2"> is a {type(parameters[key])} &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;containing </span><span class="si">{parameter}</span><span class="s2"> which should be in the &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;range [</span><span class="si">{references[key][1][1][0]}</span><span class="s2">, &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{references[key][1][1][1]}</span><span class="s2">].&quot;</span><span class="p">)</span>
-                <span class="c1"># Check if element is in a list</span>
-                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
-                    <span class="k">if</span> <span class="n">parameter</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
-                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                            <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{key}</span><span class="s2"> is a {type(parameters[key])} &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;containing </span><span class="si">{parameter}</span><span class="s2">, while it should only &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;contain one of the following: &quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{references[key][1][1]}</span><span class="s2">.&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># If only the type should be checked, continue</span>
-            <span class="k">if</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">continue</span>
-
-            <span class="c1"># Check parameter range indicated by a tuple of 2 values</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">):</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span>
-                        <span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{key}</span><span class="s2"> is </span><span class="si">{parameters[key]}</span><span class="s2">, while it  &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;should be in the range [</span><span class="si">{references[key][1][0]}</span><span class="s2">, &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{references[key][1][1]}</span><span class="s2">].&quot;</span><span class="p">)</span>
-            <span class="c1"># Check if parameter is in a list</span>
-            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">references</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{key}</span><span class="s2"> is </span><span class="si">{parameters[key]}</span><span class="s2">, while it &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;should be one of the following: &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{references[key][1]}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="validate_metric_params"><a class="viewcode-back" href="../../../modules/generated/utils/gtda.utils.validate_metric_params.html#gtda.utils.validate_metric_params">[docs]</a><span class="k">def</span> <span class="nf">validate_metric_params</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">metric_params</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">metric</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">available_metrics</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;No metric called </span><span class="si">{metric}</span><span class="s2">. Available metrics are &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;{list(available_metrics.keys())}.&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">param_type</span><span class="p">,</span> <span class="n">param_values</span><span class="p">)</span> <span class="ow">in</span> <span class="n">available_metrics</span><span class="p">[</span><span class="n">metric</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">metric_params</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">input_param</span> <span class="o">=</span> <span class="n">metric_params</span><span class="p">[</span><span class="n">param</span><span class="p">]</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_param</span><span class="p">,</span> <span class="n">param_type</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{param}</span><span class="s2"> in params_metric is of type {type(input_param)} &quot;</span>
-                    <span class="sa">f</span><span class="s2">&quot; but must be an </span><span class="si">{param_type}</span><span class="s2">.&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">param_values</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">input_param</span> <span class="o">&lt;</span> <span class="n">param_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> \
-                   <span class="n">input_param</span> <span class="o">&gt;</span> <span class="n">param_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{param}</span><span class="s2"> in param_metric should be between &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{param_values[0]}</span><span class="s2"> and </span><span class="si">{param_values[1]}</span><span class="s2"> but has &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;been set to </span><span class="si">{input_param}</span><span class="s2">.&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">metric_params</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">param</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">available_metric_params</span><span class="p">[</span><span class="n">metric</span><span class="p">]:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{param}</span><span class="s2"> in metric_param is not an available parameter. &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;Available metric_params are: &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{available_metric_params[metric]}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+    <span class="n">exclude_</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">exclude</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">exclude</span>
+    <span class="n">parameters_</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                   <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">exclude_</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">_validate_params</span><span class="p">(</span><span class="n">parameters_</span><span class="p">,</span> <span class="n">references</span><span class="p">)</span></div>
 </pre></div>
 
            </div>
@@ -751,19 +689,16 @@
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

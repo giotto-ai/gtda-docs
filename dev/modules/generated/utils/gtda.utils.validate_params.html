@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="validate_metric_params" href="gtda.utils.validate_metric_params.html" />
+    <link rel="next" title="gtda.images: Images" href="../../images.html" />
     <link rel="prev" title="check_diagram" href="gtda.utils.check_diagram.html" />
 <link href="../../../_static/style.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
@@ -255,7 +255,6 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -511,41 +511,47 @@
 <h1>validate_params<a class="headerlink" href="#validate-params" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="gtda.utils.validate_params">
-<code class="sig-prename descclassname">gtda.utils.</code><code class="sig-name descname">validate_params</code><span class="sig-paren">(</span><em class="sig-param">parameters</em>, <em class="sig-param">references</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/utils/validation.html#validate_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.utils.validate_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function to automate the validation of hyperparameters.</p>
+<code class="sig-prename descclassname">gtda.utils.</code><code class="sig-name descname">validate_params</code><span class="sig-paren">(</span><em class="sig-param">parameters</em>, <em class="sig-param">references</em>, <em class="sig-param">exclude=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/utils/validation.html#validate_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.utils.validate_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to automate the validation of (hyper)parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>parameters</strong> (<em>dict</em><em>, </em><em>required</em>) – Dictionary in which the keys are hyperparameter names and the
-corresponding values are hyperparameter values.</p></li>
-<li><p><strong>references</strong> (<em>dict</em><em>, </em><em>required</em>) – <p>Dictionary in which the keys are hyperparameter names and the
-corresponding values are lists. The first element of that list is a
-type. If that type is not an iterable, the second element can be one
-of:</p>
+<li><p><strong>parameters</strong> (<em>dict</em><em>, </em><em>required</em>) – Dictionary in which the keys parameter names (as strings) and the
+corresponding values are parameter values. Unless <cite>exclude</cite> (see
+below) contains some of the keys in this dictionary, all parameters
+are checked against <cite>references</cite>.</p></li>
+<li><p><strong>references</strong> (<em>dict</em><em>, </em><em>required</em>) – <p>Dictionary in which the keys are parameter names (as strings). Let
+<code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">parameter</span></code> denote a key-value pair in <cite>parameters</cite>.
+Since <code class="docutils literal notranslate"><span class="pre">name</span></code> should also be a key in <cite>references</cite>, let <code class="docutils literal notranslate"><span class="pre">reference</span></code>
+be the corresponding value there. Then, <code class="docutils literal notranslate"><span class="pre">reference</span></code> must be a
+dictionary containing any of the following keys:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>, when only the type should be checked.</p></li>
-<li><p>A tuple of two numbers, when the type is numerical. In this case,
-the first (resp. second) entry in the tuple defines a lower
-(resp. upper) bound constraining the value of the corresponding
-hyperparameter.</p></li>
-<li><p>A list containing all possible allowed values for the
-corresponding hyperparameter.</p></li>
-</ul>
-<p>If that type is an iterable, the second element is a list that provides
-information to validate each element of that iterable. The first
-element of that list is the type of the elements of the iterable and
-the second element of that list can be one of:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>, when only the type of the iterable elements should be
-checked.</p></li>
-<li><p>A tuple of two numbers, when the type is numerical. In this case,
-the first (resp. second) entry in the tuple defines a lower
-(resp. upper) bound constraining the value of the corresponding
-iterable element.</p></li>
-<li><p>A list containing all possible allowed values for the
-corresponding iterable element.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'type'</span></code>, mapping to a class or tuple of classes. <code class="docutils literal notranslate"><span class="pre">parameter</span></code>
+is checked to be an instance of this class or tuple of classes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'in'</span></code>, mapping to a dictionary, when the value of <code class="docutils literal notranslate"><span class="pre">'type'</span></code> is
+not one of <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> or <code class="docutils literal notranslate"><span class="pre">dict</span></code>.
+Letting <code class="docutils literal notranslate"><span class="pre">ref_in</span></code> denote that dictionary, the following check is
+performed: <code class="docutils literal notranslate"><span class="pre">parameter</span> <span class="pre">in</span> <span class="pre">ref_in</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'of'</span></code>, mapping to a dictionary, when the value of <code class="docutils literal notranslate"><span class="pre">'type'</span></code>
+is one of <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> or <code class="docutils literal notranslate"><span class="pre">dict</span></code>.
+Let <code class="docutils literal notranslate"><span class="pre">ref_of</span></code> denote that dictionary. Then:</p>
+<ol class="loweralpha simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">reference['type']</span> <span class="pre">==</span> <span class="pre">dict</span></code> – meaning that <code class="docutils literal notranslate"><span class="pre">parameter</span></code>
+should be a dictionary – <code class="docutils literal notranslate"><span class="pre">ref_of</span></code> should have a similar
+structure as <cite>references</cite>, and <a class="reference internal" href="#gtda.utils.validate_params" title="gtda.utils.validate_params"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_params</span></code></a> is called
+recursively on <code class="docutils literal notranslate"><span class="pre">(parameter,</span> <span class="pre">ref_of)</span></code>.</p></li>
+<li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">ref_of</span></code> should have a similar structure as
+<code class="docutils literal notranslate"><span class="pre">reference</span></code> and each entry in <code class="docutils literal notranslate"><span class="pre">parameter</span></code> is checked to
+satisfy the constraints in <code class="docutils literal notranslate"><span class="pre">ref_of</span></code>.</p></li>
+</ol>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'other'</span></code>, which should map to a callable defining custom checks on
+<code class="docutils literal notranslate"><span class="pre">parameter</span></code>.</p></li>
 </ul>
 </p></li>
+<li><p><strong>exclude</strong> (list of str, or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – List of parameter names which are among the keys in <cite>parameters</cite> but
+should be excluded from validation. <code class="docutils literal notranslate"><span class="pre">None</span></code> is equivalent to
+passing the empty list.</p></li>
 </ul>
 </dd>
 </dl>
@@ -561,7 +567,7 @@ corresponding iterable element.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gtda.utils.validate_metric_params.html" class="btn btn-neutral float-right" title="validate_metric_params" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../images.html" class="btn btn-neutral float-right" title="gtda.images: Images" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="gtda.utils.check_diagram.html" class="btn btn-neutral float-left" title="check_diagram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -594,19 +600,16 @@ corresponding iterable element.</p></li>
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: dev
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

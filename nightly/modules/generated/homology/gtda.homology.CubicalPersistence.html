@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -514,25 +514,25 @@
 <em class="property">class </em><code class="sig-prename descclassname">gtda.homology.</code><code class="sig-name descname">CubicalPersistence</code><span class="sig-paren">(</span><em class="sig-param">homology_dimensions=(0</em>, <em class="sig-param">1)</em>, <em class="sig-param">coeff=2</em>, <em class="sig-param">periodic_dimensions=None</em>, <em class="sig-param">infinity_values=None</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/cubical.html#CubicalPersistence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.CubicalPersistence" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from
 <a class="reference internal" href="../../../theory/glossary.html#cubical-complex"><span class="std std-ref">filtered cubical complexes</span></a>.</p>
-<p>Given a <a class="reference internal" href="../../../theory/glossary.html#cubical-chains-and-cubical-homology"><span class="std std-ref">grayscale image</span></a>, information
-about the appearance and disappearance of topological features
+<p>Given a <a class="reference internal" href="../../../theory/glossary.html#cubical-chains-and-cubical-homology"><span class="std std-ref">grayscale image</span></a>,
+information about the appearance and disappearance of topological features
 (technically, <a class="reference internal" href="../../../theory/glossary.html#homology-and-cohomology"><span class="std std-ref">homology classes</span></a>) of various
 dimensions and at different scales is summarised in the corresponding
 persistence diagram.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>homology_dimensions</strong> (iterable, optional, default: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>) – Dimensions (non-negative integers) of the topological features to be
+<li><p><strong>homology_dimensions</strong> (list or tuple, optional, default: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>) – Dimensions (non-negative integers) of the topological features to be
 detected.</p></li>
 <li><p><strong>coeff</strong> (int prime, optional, default: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Compute homology with coefficients in the prime field
 <span class="math notranslate nohighlight">\(\mathbb{F}_p = \{ 0, \ldots, p - 1 \}\)</span> where
 <span class="math notranslate nohighlight">\(p\)</span> equals <cite>coeff</cite>.</p></li>
-<li><p><strong>periodic_dimensions</strong> (<em>boolean ndarray of shape</em><em> (</em><em>n_dimensions</em><em>, </em><em>)</em><em>, </em><em>optional</em><em>,</em>) – default: <code class="docutils literal notranslate"><span class="pre">np.zeros((n_dimensions,</span> <span class="pre">),</span> <span class="pre">dtype=np.bool)</span></code>
-Periodicity of the boundaries along each of the axis, where
+<li><p><strong>periodic_dimensions</strong> (boolean ndarray of shape (n_dimensions,) or None,         optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Periodicity of the boundaries along each of the axis, where
 <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code> is the dimension of the images of the collection. The
-boolean in the <cite>d</cite>-th position expresses whether the boundaries along
-the <a href="#id1"><span class="problematic" id="id2">`</span></a>d`th axis are periodic. By default, none of the boundaries are
-periodic.</p></li>
+boolean in the <cite>d`th position expresses whether the boundaries along
+the `d`th axis are periodic. The default ``None`</cite> is equivalent to
+passing <code class="docutils literal notranslate"><span class="pre">numpy.zeros((n_dimensions,),</span> <span class="pre">dtype=np.bool)</span></code>, i.e. none of
+the boundaries are periodic.</p></li>
 <li><p><strong>infinity_values</strong> (float or None, default : <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Which death value to assign to features which are still alive at
 filtration value <cite>np.inf</cite>. <code class="docutils literal notranslate"><span class="pre">None</span></code> assigns the maximum pixel
 values within all images passed to <a class="reference internal" href="#gtda.homology.CubicalPersistence.fit" title="gtda.homology.CubicalPersistence.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p></li>
@@ -549,7 +549,7 @@ processors.</p></li>
 Set in <a class="reference internal" href="#gtda.homology.CubicalPersistence.fit" title="gtda.homology.CubicalPersistence.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>boolean ndarray of shape (n_dimensions, )</p>
+<dd class="field-odd"><p>boolean ndarray of shape (n_dimensions,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -568,7 +568,7 @@ persistence. Set in <a class="reference internal" href="#gtda.homology.CubicalPe
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code></a></p>
+<p><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence" title="gtda.homology.SparseRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence" title="gtda.homology.EuclideanCechPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">EuclideanCechPersistence</span></code></a></p>
 </div>
 <p class="rubric">Notes</p>
 <p><a class="reference external" href="https://github.com/GUDHI/gudhi-devel">GUDHI</a> is used as a C++ backend
@@ -749,19 +749,16 @@ topological features in dimension <span class="math notranslate nohighlight">\(q
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

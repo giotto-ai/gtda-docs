@@ -253,7 +253,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -313,7 +312,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -548,8 +548,7 @@
 <span class="sd">        detected.</span>
 
 <span class="sd">    scaler_metric : ``&#39;bottleneck&#39;`` | ``&#39;wasserstein&#39;`` | ``&#39;landscape&#39;`` | \</span>
-<span class="sd">                    ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: \</span>
-<span class="sd">                    ``&#39;bottleneck&#39;``</span>
+<span class="sd">        ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: ``&#39;bottleneck&#39;``</span>
 <span class="sd">        Distance or dissimilarity function used to define the amplitude of</span>
 <span class="sd">        a subdiagram as its distance from the diagonal diagram:</span>
 
@@ -716,8 +715,7 @@
 <span class="sd">        detected.</span>
 
 <span class="sd">    scaler_metric : ``&#39;bottleneck&#39;`` | ``&#39;wasserstein&#39;`` | ``&#39;landscape&#39;`` | \</span>
-<span class="sd">                    ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: \</span>
-<span class="sd">                    ``&#39;bottleneck&#39;``</span>
+<span class="sd">        ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: ``&#39;bottleneck&#39;``</span>
 <span class="sd">        Distance or dissimilarity function used to define the amplitude of</span>
 <span class="sd">        a subdiagram as its distance from the diagonal diagram:</span>
 
@@ -834,7 +832,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, \</span>
-<span class="sd">             n_bins)</span>
+<span class="sd">            n_bins)</span>
 <span class="sd">            For each point cloud in `X`, one discretised Betti curve</span>
 <span class="sd">            per homology dimension in `homology_dimensions`.</span>
 
@@ -880,8 +878,7 @@
 <span class="sd">        detected.</span>
 
 <span class="sd">    scaler_metric : ``&#39;bottleneck&#39;`` | ``&#39;wasserstein&#39;`` | ``&#39;landscape&#39;`` | \</span>
-<span class="sd">                    ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: \</span>
-<span class="sd">                    ``&#39;bottleneck&#39;``</span>
+<span class="sd">        ``&#39;betti&#39;`` | ``&#39;heat&#39;``, optional, default: ``&#39;bottleneck&#39;``</span>
 <span class="sd">        Distance or dissimilarity function used to define the amplitude of</span>
 <span class="sd">        a subdiagram as its distance from the diagonal diagram:</span>
 
@@ -1003,7 +1000,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, \</span>
-<span class="sd">             n_layers, n_bins)</span>
+<span class="sd">            n_layers, n_bins)</span>
 <span class="sd">            For each point cloud in `X`, one discretised persistence landscape</span>
 <span class="sd">            per homology dimension in `homology_dimensions`, consisting of</span>
 <span class="sd">            `n_layers` layers.</span>
@@ -1044,19 +1041,16 @@
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

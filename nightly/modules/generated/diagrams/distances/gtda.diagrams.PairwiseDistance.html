@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -512,9 +512,8 @@
 <dl class="class">
 <dt id="gtda.diagrams.PairwiseDistance">
 <em class="property">class </em><code class="sig-prename descclassname">gtda.diagrams.</code><code class="sig-name descname">PairwiseDistance</code><span class="sig-paren">(</span><em class="sig-param">metric='landscape'</em>, <em class="sig-param">metric_params=None</em>, <em class="sig-param">order=2.0</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/distance.html#PairwiseDistance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.PairwiseDistance" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance"><span class="std std-ref">Distances</span></a> between pairs of persistence
-diagrams, constructed from the distances between their respective
-subdiagrams with constant homology dimension.</p>
+<dd><p><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance"><span class="std std-ref">Distances</span></a> between pairs
+of persistence diagrams.</p>
 <p>Given two collections of persistence diagrams consisting of
 birth-death-dimension triples [b, d, q], a collection of distance
 matrices or a single distance matrix between pairs of diagrams is
@@ -550,13 +549,14 @@ silhouettes.</p></li>
 Gaussian-smoothed diagrams represented on birth-persistence axes.</p></li>
 </ul>
 </p></li>
-<li><p><strong>metric_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>Additional keyword arguments for the metric function:</p>
+<li><p><strong>metric_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>Additional keyword arguments for the metric function (passing
+<code class="docutils literal notranslate"><span class="pre">None</span></code> is equivalent to passing the defaults described below):</p>
 <ul>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'bottleneck'</span></code> the only argument is <cite>delta</cite> (float,
 default: <code class="docutils literal notranslate"><span class="pre">0.01</span></code>). When equal to <code class="docutils literal notranslate"><span class="pre">0.</span></code>, an exact algorithm is
 used; otherwise, a faster approximate algorithm is used.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'wasserstein'</span></code> the available arguments are <cite>p</cite>
-(int, default: <code class="docutils literal notranslate"><span class="pre">2</span></code>) and <cite>delta</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">0.01</span></code>).
+(float, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>) and <cite>delta</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">0.01</span></code>).
 Unlike the case of <code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code>, <cite>delta</cite> cannot be set to
 <code class="docutils literal notranslate"><span class="pre">0.</span></code> and an exact algorithm is not available.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'betti'</span></code> the available arguments are <cite>p</cite> (float,
@@ -573,7 +573,7 @@ default: <code class="docutils literal notranslate"><span class="pre">2.</span><
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'persistence_image'</span></code> the available arguments are <cite>p</cite>
 (float, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>sigma</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>),
 <cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) and <cite>weight_function</cite>
-(func, default x -&gt; x).</p></li>
+(callable or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
 </ul>
 </p></li>
 <li><p><strong>order</strong> (float or None, optional, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>) – If <code class="docutils literal notranslate"><span class="pre">None</span></code>, <a class="reference internal" href="#gtda.diagrams.PairwiseDistance.transform" title="gtda.diagrams.PairwiseDistance.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a> returns for each pair of diagrams a
@@ -677,7 +677,7 @@ second case, index i along axis 2 corresponds to the i-th
 homology dimension in <a class="reference internal" href="#gtda.diagrams.PairwiseDistance.homology_dimensions_" title="gtda.diagrams.PairwiseDistance.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray of shape (n_samples_fit, n_samples,              n_homology_dimensions) if <cite>order</cite> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else              (n_samples_fit, n_samples)</p>
+<dd class="field-odd"><p>ndarray of shape (n_samples_fit, n_samples,             n_homology_dimensions) if <cite>order</cite> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else             (n_samples_fit, n_samples)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -743,7 +743,7 @@ second case, index i along axis 2 corresponds to the i-th
 homology dimension in <a class="reference internal" href="#gtda.diagrams.PairwiseDistance.homology_dimensions_" title="gtda.diagrams.PairwiseDistance.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray of shape (n_samples_fit, n_samples,              n_homology_dimensions) if <cite>order</cite> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else              (n_samples_fit, n_samples)</p>
+<dd class="field-odd"><p>ndarray of shape (n_samples_fit, n_samples,             n_homology_dimensions) if <cite>order</cite> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else             (n_samples_fit, n_samples)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -793,19 +793,16 @@ homology dimension in <a class="reference internal" href="#gtda.diagrams.Pairwis
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../../-->
+<dd><a href="../../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

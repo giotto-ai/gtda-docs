@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -511,8 +511,8 @@
 <h1>Silhouette<a class="headerlink" href="#silhouette" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="gtda.diagrams.Silhouette">
-<em class="property">class </em><code class="sig-prename descclassname">gtda.diagrams.</code><code class="sig-name descname">Silhouette</code><span class="sig-paren">(</span><em class="sig-param">order=1.0</em>, <em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/features.html#Silhouette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Silhouette" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../../../../theory/glossary.html#weighted-silhouette"><span class="std std-ref">Power-weighted silhouettes</span></a> of persistence
+<em class="property">class </em><code class="sig-prename descclassname">gtda.diagrams.</code><code class="sig-name descname">Silhouette</code><span class="sig-paren">(</span><em class="sig-param">power=1.0</em>, <em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/features.html#Silhouette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Silhouette" title="Permalink to this definition">¶</a></dt>
+<dd><p><span class="xref std std-ref">Power-weighted silhouettes</span> of persistence
 diagrams.</p>
 <p>Based on ideas in <a class="footnote-reference brackets" href="#id2" id="id1">1</a>. Given a persistence diagram consisting of
 birth-death-dimension triples [b, d, q], subdiagrams corresponding to
@@ -523,8 +523,8 @@ of the <span class="xref std std-ref">filtration parameter</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>order</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>) – The power to which persistence values are raised to define the
-<a class="reference internal" href="../../../../theory/glossary.html#weighted-silhouette"><span class="std std-ref">power-weighted silhouettes</span></a>.</p></li>
+<li><p><strong>power</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>) – The power to which persistence values are raised to define the
+<span class="xref std std-ref">power-weighted silhouettes</span>.</p></li>
 <li><p><strong>n_bins</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) – The number of filtration parameter values, per available homology
 dimension, to sample during <a class="reference internal" href="#gtda.diagrams.Silhouette.fit" title="gtda.diagrams.Silhouette.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p></li>
 <li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
@@ -579,7 +579,7 @@ doi: <a class="reference external" href="http://dx.doi.org/10.1145/2582112.25821
 </dl>
 <dl class="method">
 <dt id="gtda.diagrams.Silhouette.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">order=1.0</em>, <em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/features.html#Silhouette.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Silhouette.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">power=1.0</em>, <em class="sig-param">n_bins=100</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/features.html#Silhouette.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Silhouette.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -749,19 +749,16 @@ homology dimension in <a class="reference internal" href="#gtda.diagrams.Silhoue
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../../-->
+<dd><a href="../../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

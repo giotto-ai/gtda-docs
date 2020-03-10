@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -518,19 +518,19 @@ diagrams.</p>
 birth-death-dimension triples [b, d, q], the equivalent diagrams of
 birth-persistence-dimension [b, d-b, q] triples are computed and
 subdiagrams corresponding to distinct homology dimensions are considered
-separately and regarded as sums of Dirac deltas.
-Then, the convolution with a Gaussian kernel is computed over
-a rectangular grid of locations evenly sampled from appropriate ranges
-of the <a class="reference internal" href="../../../../theory/glossary.html#filtered-complex"><span class="std std-ref">filtration parameter</span></a>.
-The result can be thought of as a raster image.</p>
+separately and regarded as sums of Dirac deltas. Then, the convolution
+with a Gaussian kernel is computed over a rectangular grid of locations
+evenly sampled from appropriate ranges of the <a class="reference external" href="https://giotto.ai/theory">filtration parameter</a>. The result can be thought of as a raster
+image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sigma</strong> (float, optional default <code class="docutils literal notranslate"><span class="pre">1.0</span></code>) – Standard deviation for Gaussian kernel.</p></li>
+<li><p><strong>sigma</strong> (float, optional default <code class="docutils literal notranslate"><span class="pre">1.</span></code>) – Standard deviation for Gaussian kernel.</p></li>
 <li><p><strong>n_bins</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) – The number of filtration parameter values, per available homology
 dimension, to sample during <a class="reference internal" href="#gtda.diagrams.PersistenceImage.fit" title="gtda.diagrams.PersistenceImage.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p></li>
-<li><p><strong>weight_function</strong> (fct 1d array -&gt; 1d array, default: <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">p:</span> <span class="pre">p</span></code>) – Function mapping a 1d-array of persistence of the points of a diagram
-to a 1d array of their weight.</p></li>
+<li><p><strong>weight_function</strong> (callable or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Function mapping the 1D array of persistence values of the points of an
+input diagram to a 1D array of weights. <code class="docutils literal notranslate"><span class="pre">None</span></code> is equivalent to
+passing the identity function.</p></li>
 <li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless
 in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all
 processors.</p></li>
@@ -540,11 +540,11 @@ processors.</p></li>
 <dl class="attribute">
 <dt id="gtda.diagrams.PersistenceImage.effective_weight_function_">
 <code class="sig-name descname">effective_weight_function_</code><a class="headerlink" href="#gtda.diagrams.PersistenceImage.effective_weight_function_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Effective function mapping a 1d-array of persistence of the points of a
-diagram to a 1d array of their weight.</p>
+<dd><p>Effective function corresponding to <cite>weight_function</cite>. Set in
+<a class="reference internal" href="#gtda.diagrams.PersistenceImage.fit" title="gtda.diagrams.PersistenceImage.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>fct 1d array -&gt; 1d array</p>
+<dd class="field-odd"><p>callable</p>
 </dd>
 </dl>
 </dd></dl>
@@ -777,19 +777,16 @@ homology dimension in <a class="reference internal" href="#gtda.diagrams.Persist
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: dev
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../../-->
+<dd><a href="../../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

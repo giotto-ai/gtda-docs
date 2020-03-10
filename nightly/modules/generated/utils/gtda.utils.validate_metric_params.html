@@ -38,8 +38,6 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="gtda.images: Images" href="../../images.html" />
-    <link rel="prev" title="validate_params" href="gtda.utils.validate_params.html" />
 <link href="../../../_static/style.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script>require=requirejs;</script>
@@ -93,7 +91,7 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../library.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../library.html#guiding-principles">Guiding principles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../library.html#s-guide-to-giotto-tda">30s guide to Giotto-TDA</a></li>
@@ -127,7 +125,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API reference</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">API reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../mapper.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>: Mapper</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../mapper.html#filters">Filters</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../mapper/filters/gtda.mapper.Projection.html">Projection</a></li>
@@ -252,10 +250,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../base/gtda.meta_transformers.LandscapeGenerator.html">LandscapeGenerator</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +312,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -484,10 +482,6 @@
     
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../../index.html">API reference</a> &raquo;</li>
-        
-          <li><a href="../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a> &raquo;</li>
-        
       <li>validate_metric_params</li>
     
     
@@ -509,11 +503,6 @@
             
   <div class="section" id="validate-metric-params">
 <h1>validate_metric_params<a class="headerlink" href="#validate-metric-params" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="gtda.utils.validate_metric_params">
-<code class="sig-prename descclassname">gtda.utils.</code><code class="sig-name descname">validate_metric_params</code><span class="sig-paren">(</span><em class="sig-param">metric</em>, <em class="sig-param">metric_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/utils/validation.html#validate_metric_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.utils.validate_metric_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <div class="clearer"></div></div>
 
 
@@ -521,15 +510,6 @@
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../images.html" class="btn btn-neutral float-right" title="gtda.images: Images" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="gtda.utils.validate_params.html" class="btn btn-neutral float-left" title="validate_params" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -557,19 +537,16 @@
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

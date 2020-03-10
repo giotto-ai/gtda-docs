@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -515,26 +515,25 @@
 <dd><p><span class="xref std std-ref">Amplitudes</span> of persistence diagrams,
 constructed from the amplitudes of their subdiagrams with constant
 homology dimension.</p>
-<p>Given a single persistence diagram consisting of birth-death-dimension
-triples [b, d, q], a vector of amplitudes or a single scalar amplitude is
-calculated according to the following steps:</p>
+<p>For each persistence diagram in a collection, a vector of amplitudes or a
+single scalar amplitude is calculated according to the following steps:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p>All diagrams are partitioned into subdiagrams corresponding to
-distinct homology dimensions.</p></li>
+<li><p>The diagram is partitioned into subdiagrams according to homology
+dimension.</p></li>
 <li><p>The amplitude of each subdiagram is calculated according to the
 parameters <cite>metric</cite> and <cite>metric_params</cite>. This gives a vector of
-amplitudes, <span class="math notranslate nohighlight">\(\mathbf{a} = (a_{q_1}, \ldots, a_{q_n})\)</span>.</p></li>
+amplitudes, <span class="math notranslate nohighlight">\(\mathbf{a} = (a_{q_1}, \ldots, a_{q_n})\)</span> where
+the <span class="math notranslate nohighlight">\(q_i\)</span> range over the available homology dimensions.</p></li>
 <li><p>The final result is either <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> itself or
-a norm of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>.</p></li>
+a norm of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>, specified by the parameter <cite>order</cite>.</p></li>
 </ol>
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>metric</strong> (<code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> | <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> | <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> |         <code class="docutils literal notranslate"><span class="pre">'betti'</span></code> | <code class="docutils literal notranslate"><span class="pre">'heat'</span></code> | <code class="docutils literal notranslate"><span class="pre">'silhouette'``|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">``'persistence_image'</span></code>, optional, default: <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code>) – <p>optional, default: <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code></p>
-<p>Distance or dissimilarity function used to define the amplitude of
-a subdiagram as its distance from the diagonal diagram:</p>
+<li><p><strong>metric</strong> (<code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> | <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> | <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> |         <code class="docutils literal notranslate"><span class="pre">'betti'</span></code> | <code class="docutils literal notranslate"><span class="pre">'heat'</span></code> | <code class="docutils literal notranslate"><span class="pre">'silhouette'</span></code> |         <code class="docutils literal notranslate"><span class="pre">'persistence_image'</span></code>, optional, default: <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code>) – <p>Distance or dissimilarity function used to define the amplitude of
+a subdiagram as its distance from the (trivial) diagonal diagram:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> and <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> refer to the identically named
 perfect-matching–based notions of distance.</p></li>
@@ -549,16 +548,17 @@ silhouettes.</p></li>
 Gaussian-smoothed diagrams represented on birth-persistence axes.</p></li>
 </ul>
 </p></li>
-<li><p><strong>metric_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>Additional keyword arguments for the metric function:</p>
+<li><p><strong>metric_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>Additional keyword arguments for the metric function (passing
+<code class="docutils literal notranslate"><span class="pre">None</span></code> is equivalent to passing the defaults described below):</p>
 <ul>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'bottleneck'</span></code> there are no available arguments.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'wasserstein'</span></code> the only argument is <cite>p</cite> (int,
-default: <code class="docutils literal notranslate"><span class="pre">2</span></code>).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'betti'</span></code> the available arguments are <cite>p</cite> (float,
-default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>) and <cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'wasserstein'</span></code> the only argument is <cite>p</cite> (float,
+default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>).</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'landscape'</span></code> the available arguments are <cite>p</cite>
 (float, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) and
 <cite>n_layers</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>).</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'betti'</span></code> the available arguments are <cite>p</cite> (float,
+default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>) and <cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'heat'</span></code> the available arguments are <cite>p</cite> (float,
 default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>sigma</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>) and <cite>n_bins</cite>
 (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
@@ -568,7 +568,7 @@ default: <code class="docutils literal notranslate"><span class="pre">2.</span><
 <li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'persistence_image'</span></code> the available arguments are <cite>p</cite>
 (float, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>sigma</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>),
 <cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) and <cite>weight_function</cite>
-(func, default x -&gt; x).</p></li>
+(callable or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
 </ul>
 </p></li>
 <li><p><strong>order</strong> (float or None, optional, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>) – If <code class="docutils literal notranslate"><span class="pre">None</span></code>, <a class="reference internal" href="#gtda.diagrams.Amplitude.transform" title="gtda.diagrams.Amplitude.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a> returns for each diagram a vector of
@@ -667,7 +667,7 @@ second case, index i along axis 1 corresponds to the i-th
 homology dimension in <a class="reference internal" href="#gtda.diagrams.Amplitude.homology_dimensions_" title="gtda.diagrams.Amplitude.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions) if <cite>order</cite>              is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else (n_samples, 1)</p>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions) if <cite>order</cite>             is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else (n_samples, 1)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -731,7 +731,7 @@ second case, index i along axis 1 corresponds to the i-th
 homology dimension in <a class="reference internal" href="#gtda.diagrams.Amplitude.homology_dimensions_" title="gtda.diagrams.Amplitude.homology_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">homology_dimensions_</span></code></a>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions) if <cite>order</cite>              is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else (n_samples, 1)</p>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions) if <cite>order</cite>             is <code class="docutils literal notranslate"><span class="pre">None</span></code>, else (n_samples, 1)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -781,19 +781,16 @@ homology dimension in <a class="reference internal" href="#gtda.diagrams.Amplitu
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../../-->
+<dd><a href="../../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

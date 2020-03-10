@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -513,10 +513,11 @@
 <dt id="gtda.diagrams.Scaler">
 <em class="property">class </em><code class="sig-prename descclassname">gtda.diagrams.</code><code class="sig-name descname">Scaler</code><span class="sig-paren">(</span><em class="sig-param">metric='bottleneck'</em>, <em class="sig-param">metric_params=None</em>, <em class="sig-param">function=&lt;function amax&gt;</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/diagrams/preprocessing.html#Scaler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.diagrams.Scaler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear scaling of persistence diagrams.</p>
-<p>A positive scale factor is calculated during <a class="reference internal" href="#gtda.diagrams.Scaler.fit" title="gtda.diagrams.Scaler.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> by considering all
-available persistence diagrams and homology dimensions. During
-<a class="reference internal" href="#gtda.diagrams.Scaler.transform" title="gtda.diagrams.Scaler.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a>, all birth-death pairs are divided by this factor.</p>
-<p>The value of the scale factor depends on two things:</p>
+<p>A positive scale factor <a class="reference internal" href="#gtda.diagrams.Scaler.scale_" title="gtda.diagrams.Scaler.scale_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">scale_</span></code></a> is calculated during <a class="reference internal" href="#gtda.diagrams.Scaler.fit" title="gtda.diagrams.Scaler.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> by
+considering all available persistence diagrams partitioned according to
+homology dimensions. During <a class="reference internal" href="#gtda.diagrams.Scaler.transform" title="gtda.diagrams.Scaler.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a>, all birth-death pairs are
+divided by <a class="reference internal" href="#gtda.diagrams.Scaler.scale_" title="gtda.diagrams.Scaler.scale_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">scale_</span></code></a>.</p>
+<p>The value of <a class="reference internal" href="#gtda.diagrams.Scaler.scale_" title="gtda.diagrams.Scaler.scale_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">scale_</span></code></a> depends on two things:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>A way of computing, for each homology dimension, the <span class="xref std std-ref">amplitude</span> in that dimension of a persistence
@@ -524,53 +525,21 @@ diagram consisting of birth-death-dimension triples [b, d, q].
 Together, <cite>metric</cite> and <cite>metric_params</cite> define this in the same way as
 in <a class="reference internal" href="../features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">Amplitude</span></code></a>.</p></li>
 <li><p>A scalar-valued function which is applied to the resulting
-two-dimensional array of amplitudes.</p></li>
+two-dimensional array of amplitudes (one per diagram and homology
+dimension) to obtain <a class="reference internal" href="#gtda.diagrams.Scaler.scale_" title="gtda.diagrams.Scaler.scale_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">scale_</span></code></a>.</p></li>
 </ul>
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>metric</strong> (<code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> | <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> | <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> |         <code class="docutils literal notranslate"><span class="pre">'betti'</span></code> | <code class="docutils literal notranslate"><span class="pre">'heat'</span></code>, optional, default: <code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code>) – <p>Distance or dissimilarity function used to define the amplitude of
-a subdiagram as its distance from the diagonal diagram:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> and <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> refer to the identically named
-perfect-matching–based notions of distance.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> refers to the <span class="math notranslate nohighlight">\(L^p\)</span> distance between
-persistence landscapes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'betti'</span></code> refers to the <span class="math notranslate nohighlight">\(L^p\)</span> distance between Betti curves.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'heat'</span></code> refers to the <span class="math notranslate nohighlight">\(L^p\)</span> distance between
-Gaussian-smoothed diagrams.</p></li>
-</ul>
-</p></li>
-<li><p><strong>metric_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>Additional keyword arguments for the metric function:</p>
-<ul>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'bottleneck'</span></code> there are no available arguments.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'wasserstein'</span></code> the only argument is <cite>p</cite> (int,
-default: <code class="docutils literal notranslate"><span class="pre">2</span></code>).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'betti'</span></code> the available arguments are <cite>p</cite> (float,
-default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>) and <cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'landscape'</span></code> the available arguments are <cite>p</cite>
-(float, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) and
-<cite>n_layers</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'heat'</span></code> the available arguments are <cite>p</cite> (float,
-default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>sigma</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>) and <cite>n_bins</cite>
-(int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">metric</span> <span class="pre">==</span> <span class="pre">'persistence_image'</span></code> the available arguments are <cite>p</cite>
-(float, default: <code class="docutils literal notranslate"><span class="pre">2.</span></code>), <cite>sigma</cite> (float, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>),
-<cite>n_bins</cite> (int, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) and <cite>weight_function</cite>
-(func, default x -&gt; x).</p></li>
-</ul>
-</p></li>
-</ul>
-</dd>
-</dl>
-<dl>
-<dt>function<span class="classifier">callable, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.max</span></code></span></dt><dd><p>Function used to extract a positive scalar from the collection of
-amplitude vectors in <a class="reference internal" href="#gtda.diagrams.Scaler.fit" title="gtda.diagrams.Scaler.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
-</dd>
-<dt>n_jobs<span class="classifier">int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
+<li><p><strong>metric</strong> (<code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> | <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> | <code class="docutils literal notranslate"><span class="pre">'betti'</span></code> |         <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> | <code class="docutils literal notranslate"><span class="pre">'heat'</span></code> | <code class="docutils literal notranslate"><span class="pre">'persistence_image'</span></code> |         <code class="docutils literal notranslate"><span class="pre">'silhouette'</span></code>, optional, default: <code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code>) – See the corresponding parameter in <a class="reference internal" href="../features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">Amplitude</span></code></a>.</p></li>
+<li><p><strong>metric_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – See the corresponding parameter in <a class="reference internal" href="../features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">Amplitude</span></code></a>.</p></li>
+<li><p><strong>function</strong> (callable, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.max</span></code>) – Function used to extract a positive scalar from the collection of
+amplitude vectors in <a class="reference internal" href="#gtda.diagrams.Scaler.fit" title="gtda.diagrams.Scaler.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>. Must map 2D arrays to scalars.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1
 unless in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means
-using all processors.</p>
+using all processors.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="attribute">
@@ -609,9 +578,12 @@ well as on any relevant quantities computed in <a class="reference internal" hre
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="gtda.diagrams.Filtering.html#gtda.diagrams.Filtering" title="gtda.diagrams.Filtering"><code class="xref py py-class docutils literal notranslate"><span class="pre">Filtering</span></code></a>, <a class="reference internal" href="../features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">Amplitude</span></code></a>, <a class="reference internal" href="../distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairwiseDistance</span></code></a>, <a class="reference internal" href="../../homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.homology.VietorisRipsPersistence</span></code></a></p>
+<p><a class="reference internal" href="../distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance" title="gtda.diagrams.PairwiseDistance"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairwiseDistance</span></code></a>, <a class="reference internal" href="gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension" title="gtda.diagrams.ForgetDimension"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForgetDimension</span></code></a>, <a class="reference internal" href="gtda.diagrams.Filtering.html#gtda.diagrams.Filtering" title="gtda.diagrams.Filtering"><code class="xref py py-class docutils literal notranslate"><span class="pre">Filtering</span></code></a>, <a class="reference internal" href="../features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude" title="gtda.diagrams.Amplitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">Amplitude</span></code></a></p>
 </div>
 <p class="rubric">Notes</p>
+<p>When <cite>metric</cite> is <code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> and <cite>function</cite> is <code class="docutils literal notranslate"><span class="pre">numpy.max</span></code>,
+<a class="reference internal" href="#gtda.diagrams.Scaler.fit_transform" title="gtda.diagrams.Scaler.fit_transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit_transform</span></code></a> has the effect of making the lifetime of the most
+persistent point across all diagrams and homology dimensions equal to 2.</p>
 <p>To compute scaling factors without first splitting the computation between
 different homology dimensions, data should be first transformed by an
 instance of <a class="reference internal" href="gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension" title="gtda.diagrams.ForgetDimension"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForgetDimension</span></code></a>.</p>
@@ -796,19 +768,16 @@ API requires this parameter.</p></li>
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../../-->
+<dd><a href="../../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

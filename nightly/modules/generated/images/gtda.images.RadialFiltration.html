@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul class="current">
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -524,9 +524,9 @@ pixel, plus one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>center</strong> (<em>ndarray of shape</em><em> (</em><em>n_dimensions</em><em>, </em><em>)</em><em>, </em><em>optional</em><em>, </em><em>default:</em>) – <code class="docutils literal notranslate"><span class="pre">np.zeros(n_dimensions,</span> <span class="pre">)</span></code>
-Coordinates of the center pixel, where <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code> is the
-dimension of the images of the collection.</p></li>
+<li><p><strong>center</strong> (ndarray of shape (n_dimensions,) or None, optional, default:         <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Coordinates of the center pixel, where <code class="docutils literal notranslate"><span class="pre">n_dimensions</span></code> is the
+dimension of the images of the collection (2 or 3). <code class="docutils literal notranslate"><span class="pre">None</span></code> is
+equivalent to passing <code class="docutils literal notranslate"><span class="pre">np.zeros(n_dimensions,)</span></code>.</p></li>
 <li><p><strong>radius</strong> (float or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The radius of the ball centered in <cite>center</cite> inside which activated
 pixels are included in the filtration.</p></li>
 <li><p><strong>metric</strong> (string or callable, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>) – If set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, each entry in <cite>X</cite> along axis 0 is
@@ -550,12 +550,23 @@ processors.</p></li>
 </dd>
 </dl>
 <dl class="attribute">
+<dt id="gtda.images.RadialFiltration.n_dimensions_">
+<code class="sig-name descname">n_dimensions_</code><a class="headerlink" href="#gtda.images.RadialFiltration.n_dimensions_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dimension of the images. Set in <a class="reference internal" href="#gtda.images.RadialFiltration.fit" title="gtda.images.RadialFiltration.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">2</span></code> or <code class="docutils literal notranslate"><span class="pre">3</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="gtda.images.RadialFiltration.center_">
 <code class="sig-name descname">center_</code><a class="headerlink" href="#gtda.images.RadialFiltration.center_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effective center of the radial filtration. Set in <a class="reference internal" href="#gtda.images.RadialFiltration.fit" title="gtda.images.RadialFiltration.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>ndarray of shape (<a href="#id1"><span class="problematic" id="id2">n_dimensions_</span></a>, 1)</p>
+<dd class="field-odd"><p>ndarray of shape (<a href="#id1"><span class="problematic" id="id2">n_dimensions_</span></a>,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -569,17 +580,6 @@ the empty dictionary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="gtda.images.RadialFiltration.n_dimensions_">
-<code class="sig-name descname">n_dimensions_</code><a class="headerlink" href="#gtda.images.RadialFiltration.n_dimensions_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dimension of the images. Set in <a class="reference internal" href="#gtda.images.RadialFiltration.fit" title="gtda.images.RadialFiltration.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">2</span></code> or <code class="docutils literal notranslate"><span class="pre">3</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -621,8 +621,8 @@ Set in <a class="reference internal" href="#gtda.images.RadialFiltration.fit" ti
 <dl class="method">
 <dt id="gtda.images.RadialFiltration.fit">
 <code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/images/filtrations.html#RadialFiltration.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.images.RadialFiltration.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate <a class="reference internal" href="#gtda.images.RadialFiltration.center_" title="gtda.images.RadialFiltration.center_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">center_</span></code></a>, :attr:’<a href="#id3"><span class="problematic" id="id4">effective_metric_params_</span></a>’,
-<a class="reference internal" href="#gtda.images.RadialFiltration.n_dimensions_" title="gtda.images.RadialFiltration.n_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_dimensions_</span></code></a>, :attr:’<a href="#id5"><span class="problematic" id="id6">mesh_</span></a>’ and <a class="reference internal" href="#gtda.images.RadialFiltration.max_value_" title="gtda.images.RadialFiltration.max_value_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">max_value_</span></code></a> from a
+<dd><p>Calculate <a class="reference internal" href="#gtda.images.RadialFiltration.center_" title="gtda.images.RadialFiltration.center_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">center_</span></code></a>, <a class="reference internal" href="#gtda.images.RadialFiltration.effective_metric_params_" title="gtda.images.RadialFiltration.effective_metric_params_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">effective_metric_params_</span></code></a>,
+<a class="reference internal" href="#gtda.images.RadialFiltration.n_dimensions_" title="gtda.images.RadialFiltration.n_dimensions_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_dimensions_</span></code></a>, <a class="reference internal" href="#gtda.images.RadialFiltration.mesh_" title="gtda.images.RadialFiltration.mesh_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mesh_</span></code></a> and <a class="reference internal" href="#gtda.images.RadialFiltration.max_value_" title="gtda.images.RadialFiltration.max_value_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">max_value_</span></code></a> from a
 collection of binary images. Then, return the estimator.</p>
 <p>This method is here to implement the usual scikit-learn API and hence
 work in pipelines.</p>
@@ -780,19 +780,16 @@ Transformed collection of images. Each entry along axis 0 is a
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

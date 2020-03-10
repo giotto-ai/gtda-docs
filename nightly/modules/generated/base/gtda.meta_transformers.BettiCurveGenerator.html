@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -537,7 +537,7 @@ never be connected by an edge, and topological features at scales
 larger than this value will not be detected.</p></li>
 <li><p><strong>homology_dimensions</strong> (iterable, optional, default: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>) – Dimensions (non-negative integers) of the topological features to be
 detected.</p></li>
-<li><p><strong>scaler_metric</strong> (<code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> | <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> | <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> |                     <code class="docutils literal notranslate"><span class="pre">'betti'</span></code> | <code class="docutils literal notranslate"><span class="pre">'heat'</span></code>, optional, default:                     <code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code>) – <p>Distance or dissimilarity function used to define the amplitude of
+<li><p><strong>scaler_metric</strong> (<code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> | <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> | <code class="docutils literal notranslate"><span class="pre">'landscape'</span></code> |         <code class="docutils literal notranslate"><span class="pre">'betti'</span></code> | <code class="docutils literal notranslate"><span class="pre">'heat'</span></code>, optional, default: <code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code>) – <p>Distance or dissimilarity function used to define the amplitude of
 a subdiagram as its distance from the diagonal diagram:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">'bottleneck'</span></code> and <code class="docutils literal notranslate"><span class="pre">'wasserstein'</span></code> refer to the identically named
@@ -627,7 +627,7 @@ point cloud (i.e. the dimension of the point cloud space)</p></li>
 per homology dimension in <cite>homology_dimensions</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions,              n_bins)</p>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions,             n_bins)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -691,7 +691,7 @@ API requires this parameter.</p></li>
 per homology dimension in <cite>homology_dimensions</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions,              n_bins)</p>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_homology_dimensions,             n_bins)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -741,19 +741,16 @@ per homology dimension in <cite>homology_dimensions</cite>.</p>
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: nightly
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

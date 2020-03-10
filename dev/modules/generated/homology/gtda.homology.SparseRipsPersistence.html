@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -511,14 +511,15 @@
 <h1>SparseRipsPersistence<a class="headerlink" href="#sparseripspersistence" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="gtda.homology.SparseRipsPersistence">
-<em class="property">class </em><code class="sig-prename descclassname">gtda.homology.</code><code class="sig-name descname">SparseRipsPersistence</code><span class="sig-paren">(</span><em class="sig-param">metric='euclidean'</em>, <em class="sig-param">max_edge_length=inf</em>, <em class="sig-param">homology_dimensions=(0</em>, <em class="sig-param">1)</em>, <em class="sig-param">coeff=2</em>, <em class="sig-param">epsilon=0.1</em>, <em class="sig-param">infinity_values=None</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#SparseRipsPersistence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.SparseRipsPersistence" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">gtda.homology.</code><code class="sig-name descname">SparseRipsPersistence</code><span class="sig-paren">(</span><em class="sig-param">metric='euclidean'</em>, <em class="sig-param">homology_dimensions=(0</em>, <em class="sig-param">1)</em>, <em class="sig-param">coeff=2</em>, <em class="sig-param">epsilon=0.1</em>, <em class="sig-param">max_edge_length=inf</em>, <em class="sig-param">infinity_values=None</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#SparseRipsPersistence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.SparseRipsPersistence" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from
-<a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology"><span class="std std-ref">Sparse Vietoris-Rips filtrations</span></a>.</p>
-<p>Given a <a class="reference internal" href="../../../theory/glossary.html#finite-metric-spaces-and-point-clouds"><span class="std std-ref">point cloud</span></a> in Euclidean space,
-or an abstract <a class="reference internal" href="../../../theory/glossary.html#finite-metric-spaces-and-point-clouds"><span class="std std-ref">metric space</span></a> encoded by a
-distance matrix, information about the appearance and disappearance of
-topological features (technically, <a class="reference internal" href="../../../theory/glossary.html#homology-and-cohomology"><span class="std std-ref">homology classes</span></a>) of various dimensions and at different
-scales is summarised in the corresponding persistence diagram.</p>
+<span class="xref std std-ref">Sparse Vietoris-Rips filtrations</span>.</p>
+<p>Given a <a class="reference internal" href="../../../theory/glossary.html#finite-metric-spaces-and-point-clouds"><span class="std std-ref">point cloud</span></a> in
+Euclidean space, or an abstract <a class="reference internal" href="../../../theory/glossary.html#finite-metric-spaces-and-point-clouds"><span class="std std-ref">metric space</span></a> encoded by a distance matrix, information about the
+appearance and disappearance of topological features (technically,
+<a class="reference internal" href="../../../theory/glossary.html#homology-and-cohomology"><span class="std std-ref">homology classes</span></a>) of various dimensions
+and at different scales is summarised in the corresponding persistence
+diagram.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -535,7 +536,7 @@ If <cite>metric</cite> is a callable function, it is called on each pair of
 instances and the resulting value recorded. The callable should take
 two arrays from the entry in <cite>X</cite> as input, and return a value
 indicating the distance between them.</p></li>
-<li><p><strong>homology_dimensions</strong> (iterable, optional, default: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>) – Dimensions (non-negative integers) of the topological features to be
+<li><p><strong>homology_dimensions</strong> (list or tuple, optional, default: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>) – Dimensions (non-negative integers) of the topological features to be
 detected.</p></li>
 <li><p><strong>coeff</strong> (int prime, optional, default: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Compute homology with coefficients in the prime field
 <span class="math notranslate nohighlight">\(\mathbb{F}_p = \{ 0, \ldots, p - 1 \}\)</span> where
@@ -570,7 +571,7 @@ filtration value <cite>max_edge_length</cite>. Set in <a class="reference intern
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code></a></p>
+<p><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence" title="gtda.homology.EuclideanCechPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">EuclideanCechPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence" title="gtda.homology.CubicalPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubicalPersistence</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ConsistentRescaling</span></code></p>
 </div>
 <p class="rubric">Notes</p>
 <p><a class="reference external" href="https://github.com/GUDHI/gudhi-devel">GUDHI</a> is used as a C++ backend
@@ -583,7 +584,7 @@ See <a class="reference internal" href="#gtda.homology.SparseRipsPersistence.tra
 <p>[1] C. Maria, “Persistent Cohomology”, 2020; <a class="reference external" href="http://gudhi.gforge.inria.fr/doc/3.1.0/group__persistent_cohomology.html">GUDHI User and Reference         Manual</a>.</p>
 <dl class="method">
 <dt id="gtda.homology.SparseRipsPersistence.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">metric='euclidean'</em>, <em class="sig-param">max_edge_length=inf</em>, <em class="sig-param">homology_dimensions=(0</em>, <em class="sig-param">1)</em>, <em class="sig-param">coeff=2</em>, <em class="sig-param">epsilon=0.1</em>, <em class="sig-param">infinity_values=None</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#SparseRipsPersistence.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.SparseRipsPersistence.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">metric='euclidean'</em>, <em class="sig-param">homology_dimensions=(0</em>, <em class="sig-param">1)</em>, <em class="sig-param">coeff=2</em>, <em class="sig-param">epsilon=0.1</em>, <em class="sig-param">max_edge_length=inf</em>, <em class="sig-param">infinity_values=None</em>, <em class="sig-param">n_jobs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#SparseRipsPersistence.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.SparseRipsPersistence.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -767,19 +768,16 @@ topological features in dimension <span class="math notranslate nohighlight">\(q
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: dev
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

@@ -255,7 +255,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -315,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -514,14 +514,15 @@
 <code class="sig-prename descclassname">gtda.mapper.pipeline.</code><code class="sig-name descname">make_mapper_pipeline</code><span class="sig-paren">(</span><em class="sig-param">scaler=None</em>, <em class="sig-param">filter_func=None</em>, <em class="sig-param">cover=None</em>, <em class="sig-param">clustering_preprocessing=None</em>, <em class="sig-param">clusterer=None</em>, <em class="sig-param">n_jobs=None</em>, <em class="sig-param">parallel_backend_prefer='threads'</em>, <em class="sig-param">graph_step=True</em>, <em class="sig-param">min_intersection=1</em>, <em class="sig-param">memory=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/pipeline.html#make_mapper_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.pipeline.make_mapper_pipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a MapperPipeline object according to the specified Mapper
 steps. <a class="footnote-reference brackets" href="#id3" id="id1">1</a></p>
-<p>The role of this function’s key parameters is illustrated in <a class="reference external" href="/mapper_pipeline.svg">this diagram</a>. All computational steps may be arbitrary
-scikit-learn Pipeline objects. The scaling and cover steps must be
-transformers implementing a <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> method. The filter
-function step may be a transformer implementing a <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code>,
-or a callable acting on one-dimensional arrays – in the latter case,
-a transformer is internally created whose <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> applies this
-callable independently on each row of the data. The clustering step need
-only implement a <code class="docutils literal notranslate"><span class="pre">fit</span></code> method storing clustering labels.</p>
+<p>The role of this function’s key parameters is illustrated in <a class="reference external" href="../../../../_images/mapper_pipeline_object.svg">this diagram</a>. All computational
+steps may be arbitrary scikit-learn Pipeline objects. The scaling and cover
+steps must be transformers implementing a <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> method.
+The filter function step may be a transformer implementing
+a <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code>, or a callable acting on one-dimensional arrays.
+In the latter case, a transformer is internally created whose
+<code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> applies this callable independently on each row of the
+data. The clustering step need only implement a <code class="docutils literal notranslate"><span class="pre">fit</span></code> method storing
+clustering labels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -719,19 +720,16 @@ in <em>SPBG</em>, pp. 91–100, 2007.</p>
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: dev
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../../-->
+<dd><a href="../../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>

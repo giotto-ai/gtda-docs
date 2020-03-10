@@ -253,7 +253,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_metric_params.html">validate_metric_params</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
@@ -313,7 +312,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-homology">Vietoris-Rips complex and Vietoris-Rips homology:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
@@ -503,30 +503,32 @@
 <span></span><span class="sd">&quot;&quot;&quot;Persistent homology on grids.&quot;&quot;&quot;</span>
 <span class="c1"># License: GNU AGPLv3</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numbers</span>
-<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
-<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">check_is_fitted</span>
-<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_pad_diagram</span>
-<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span>
+<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">check_is_fitted</span>
+
+<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_pad_diagram</span>
 <span class="kn">from</span> <span class="nn">..externals.python</span> <span class="kn">import</span> <span class="n">CubicalComplex</span><span class="p">,</span> <span class="n">PeriodicCubicalComplex</span>
+<span class="kn">from</span> <span class="nn">..utils.intervals</span> <span class="kn">import</span> <span class="n">Interval</span>
+<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span>
 
 
 <div class="viewcode-block" id="CubicalPersistence"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence">[docs]</a><span class="k">class</span> <span class="nc">CubicalPersistence</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;:ref:`Persistence diagrams &lt;persistence diagram&gt;` resulting from</span>
 <span class="sd">    :ref:`filtered cubical complexes &lt;cubical complex&gt;`.</span>
 
-<span class="sd">    Given a :ref:`grayscale image &lt;cubical chains and cubical homology&gt;`, information</span>
-<span class="sd">    about the appearance and disappearance of topological features</span>
+<span class="sd">    Given a :ref:`grayscale image &lt;cubical chains and cubical homology&gt;`,</span>
+<span class="sd">    information about the appearance and disappearance of topological features</span>
 <span class="sd">    (technically, :ref:`homology classes &lt;homology and cohomology&gt;`) of various</span>
 <span class="sd">    dimensions and at different scales is summarised in the corresponding</span>
 <span class="sd">    persistence diagram.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    homology_dimensions : iterable, optional, default: ``(0, 1)``</span>
+<span class="sd">    homology_dimensions : list or tuple, optional, default: ``(0, 1)``</span>
 <span class="sd">        Dimensions (non-negative integers) of the topological features to be</span>
 <span class="sd">        detected.</span>
 
@@ -535,13 +537,14 @@
 <span class="sd">        :math:`\\mathbb{F}_p = \\{ 0, \\ldots, p - 1 \\}` where</span>
 <span class="sd">        :math:`p` equals `coeff`.</span>
 
-<span class="sd">    periodic_dimensions : boolean ndarray of shape (n_dimensions, ), optional,</span>
-<span class="sd">        default: ``np.zeros((n_dimensions, ), dtype=np.bool)``</span>
+<span class="sd">    periodic_dimensions : boolean ndarray of shape (n_dimensions,) or None, \</span>
+<span class="sd">        optional, default: ``None``</span>
 <span class="sd">        Periodicity of the boundaries along each of the axis, where</span>
 <span class="sd">        ``n_dimensions`` is the dimension of the images of the collection. The</span>
-<span class="sd">        boolean in the `d`-th position expresses whether the boundaries along</span>
-<span class="sd">        the `d`th axis are periodic. By default, none of the boundaries are</span>
-<span class="sd">        periodic.</span>
+<span class="sd">        boolean in the `d`th position expresses whether the boundaries along</span>
+<span class="sd">        the `d`th axis are periodic. The default ``None`` is equivalent to</span>
+<span class="sd">        passing ``numpy.zeros((n_dimensions,), dtype=np.bool)``, i.e. none of</span>
+<span class="sd">        the boundaries are periodic.</span>
 
 <span class="sd">    infinity_values : float or None, default : ``None``</span>
 <span class="sd">        Which death value to assign to features which are still alive at</span>
@@ -555,7 +558,7 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    periodic_dimensions_ : boolean ndarray of shape (n_dimensions, )</span>
+<span class="sd">    periodic_dimensions_ : boolean ndarray of shape (n_dimensions,)</span>
 <span class="sd">       Effective periodicity of the boundaries along each of the axis.</span>
 <span class="sd">       Set in :meth:`fit`.</span>
 
@@ -565,7 +568,7 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    VietorisRipsPersistence</span>
+<span class="sd">    VietorisRipsPersistence, SparseRipsPersistence, EuclideanCechPersistence</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -583,10 +586,16 @@
 <span class="sd">    &lt;http://gudhi.gforge.inria.fr/doc/latest/group__cubical__complex.html&gt;`_.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;_homology_dimensions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]],</span>
-                        <span class="s1">&#39;coeff&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)],</span>
-                        <span class="s1">&#39;periodic_dimensions_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
-                        <span class="s1">&#39;infinity_values_&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="kc">None</span><span class="p">]}</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;homology_dimensions&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">),</span> <span class="s1">&#39;of&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}},</span>
+        <span class="s1">&#39;coeff&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;periodic_dimensions&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)),</span>
+            <span class="s1">&#39;of&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">}},</span>
+        <span class="s1">&#39;infinity_values&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))}}</span>
 
 <div class="viewcode-block" id="CubicalPersistence.__init__"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">coeff</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                  <span class="n">periodic_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">infinity_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -636,11 +645,15 @@
 <span class="sd">        self : object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_filtration_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">periodic_dimensions</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> \
            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">periodic_dimensions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_filtration</span> <span class="o">=</span> <span class="n">CubicalComplex</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">periodic_dimensions_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">periodic_dimensions_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_filtration</span> <span class="o">=</span> <span class="n">PeriodicCubicalComplex</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">periodic_dimensions_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">periodic_dimensions</span><span class="p">,</span>
@@ -654,14 +667,6 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">)</span>
-
-        <span class="n">validate_params</span><span class="p">({</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
-                         <span class="s1">&#39;periodic_dimensions_&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">periodic_dimensions_</span><span class="p">,</span>
-                         <span class="s1">&#39;infinity_values_&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span><span class="p">,</span>
-                         <span class="s1">&#39;_homology_dimensions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">},</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
-        <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_homology_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -750,19 +755,16 @@
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="fa fa-book"> Versions</span>
-    v: 
+    current: dev
     <span class="fa fa-caret-down"></span>
   </span>
   <div class="rst-other-versions">
     <dl>
       <dt>Versions</dt>
-      
-      <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../../../nightly/library.html">nightly</a></dd><dd><a href="../../../../dev/library.html">dev</a></dd>
+      <!--end_versions_tag-->
     </dl>
   </div>
 </div>
