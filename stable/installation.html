@@ -126,7 +126,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#already-installed-boost-version">Already installed boost version</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Source code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#to-install">To install:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
 </ul>
@@ -168,13 +168,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/diagrams.html#preprocessing">Preprocessing</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html">ForgetDimension</a></li>
@@ -252,12 +246,7 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/meta_transformers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html">EntropyGenerator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html">BettiCurveGenerator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html">LandscapeGenerator</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/meta_transformers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
@@ -601,23 +590,26 @@ in your system. In the
 this documentation, the most recent version of boost is <cite>1.72.0</cite>. If you go
 into the folder, you’ll find different executables - choose the version
 corresponding to your system (32, 64 bits). In our case, we downloaded <cite>boost_1_72_0-msvc-14.2-64.exe</cite>.
-Follow the installation instructions, and when prompted to specify the folder to install boost, go for <a href="#id3"><span class="problematic" id="id4">`</span></a>C:local`.</p>
+Follow the installation instructions, and when prompted to specify the folder to install boost, go for <cite>C:\local\</cite>.</p>
 </div>
 <div class="section" id="source-code">
 <h4>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h4>
 <p>Boost proposes to <a class="reference external" href="https://www.boost.org/users/download/">download</a> directly the source code of boost.
 You can choose from different sources (compressed in <cite>.7z</cite> or <cite>.zip</cite>).
-Download one and uncompress it in <cite>C:local`, so you should have something like `C:localboost_x_y_z&lt;boost_files&gt;</cite>.</p>
+Download one and uncompress it in <cite>C:\local\</cite>, so you should have something like <cite>C:\local\boost_x_y_z\&lt;boost_files&gt;</cite>.</p>
 </div>
 <div class="section" id="already-installed-boost-version">
 <h4>Already installed boost version<a class="headerlink" href="#already-installed-boost-version" title="Permalink to this headline">¶</a></h4>
 <p>If by some obscure reason, you have boost installed in your system but the installation procedure cannot find it (can happen, no control on cmake …).
-You can help the installation script by adding the path to your installation in the following place <cite>gtda/cmake/HelperBoost.cmake</cite>.
-In <cite>HelperBoost.cmake</cite> file, line 7, you can add your path between the quotation marks (e.g. <cite>list(APPEND BOOST_ROOT “C:&lt;path_to_your_boost_installation&gt;”)</cite>).</p>
+You can help the installation script by adding the path to your installation in the following place <cite>gtda\cmake\HelperBoost.cmake</cite>.
+In <cite>HelperBoost.cmake</cite> file, line 7, you can add your path between the quotation marks, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">APPEND</span> <span class="n">BOOST_ROOT</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">&lt;path_to_your_boost_installation&gt;&quot;</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>Source code<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id3">
+<h3>Source code<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>You can obtain the latest state of the source code with the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">giotto</span><span class="o">-</span><span class="n">ai</span><span class="o">/</span><span class="n">giotto</span><span class="o">-</span><span class="n">tda</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
@@ -697,11 +689,11 @@ source directory:</p>
       
       <dd><a href="./../nightly/index.html">nightly</a></dd>
       
-      <dd><a href="./../stable/index.html">stable</a></dd>
-      
       <dd><a href="./../0.1.4/index.html">0.1.4</a></dd>
       
       <dd><a href="./../stables/index.html">stables</a></dd>
+      
+      <dd><a href="./../stable/index.html">stable</a></dd>
       
       <!--end_versions_tag-->
     </dl>

@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="VietorisRipsPersistence" href="generated/homology/gtda.homology.VietorisRipsPersistence.html" />
+    <link rel="next" title="gtda.diagrams: Persistence diagrams" href="diagrams.html" />
     <link rel="prev" title="transformer_from_callable_on_rows" href="generated/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html" />
 <link href="../_static/style.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
@@ -126,7 +126,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../installation.html#already-installed-boost-version">Already installed boost version</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../installation.html#id5">Source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#id3">Source code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#to-install">To install:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#testing">Testing</a></li>
 </ul>
@@ -168,13 +168,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="diagrams.html#preprocessing">Preprocessing</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html">ForgetDimension</a></li>
@@ -252,12 +246,7 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="meta_transformers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/base/gtda.meta_transformers.EntropyGenerator.html">EntropyGenerator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/base/gtda.meta_transformers.BettiCurveGenerator.html">BettiCurveGenerator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/base/gtda.meta_transformers.LandscapeGenerator.html">LandscapeGenerator</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="meta_transformers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
@@ -511,27 +500,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-gtda.homology">
-<span id="gtda-homology-persistent-homology"></span><h1><a class="reference internal" href="#module-gtda.homology" title="gtda.homology"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code></a>: Persistent homology<a class="headerlink" href="#module-gtda.homology" title="Permalink to this headline">¶</a></h1>
-<p>The module <a class="reference internal" href="#module-gtda.homology" title="gtda.homology"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code></a> implements transformers
-to generate persistence diagrams.</p>
+  <div class="section" id="gtda-homology-persistent-homology">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology<a class="headerlink" href="#gtda-homology-persistent-homology" title="Permalink to this headline">¶</a></h1>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.VietorisRipsPersistence</span></code></a>([metric, …])</p></td>
-<td><p><a class="reference internal" href="../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from <span class="xref std std-ref">Vietoris-Rips filtrations</span>.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.VietorisRipsPersistence</span></code></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence" title="gtda.homology.SparseRipsPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.SparseRipsPersistence</span></code></a>([metric, …])</p></td>
-<td><p><a class="reference internal" href="../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from <span class="xref std std-ref">Sparse Vietoris-Rips filtrations</span>.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.SparseRipsPersistence</span></code></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence" title="gtda.homology.EuclideanCechPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.EuclideanCechPersistence</span></code></a>([…])</p></td>
-<td><p><a class="reference internal" href="../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from <a href="#id1"><span class="problematic" id="id2">`Cech filtrations &lt;&gt;`_</span></a>.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.EuclideanCechPersistence</span></code></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence" title="gtda.homology.CubicalPersistence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.CubicalPersistence</span></code></a>([…])</p></td>
-<td><p><a class="reference internal" href="../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from <a class="reference internal" href="../theory/glossary.html#cubical-complex"><span class="std std-ref">filtered cubical complexes</span></a>.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">homology.CubicalPersistence</span></code></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -545,7 +532,7 @@ to generate persistence diagrams.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="generated/homology/gtda.homology.VietorisRipsPersistence.html" class="btn btn-neutral float-right" title="VietorisRipsPersistence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="diagrams.html" class="btn btn-neutral float-right" title="gtda.diagrams: Persistence diagrams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="generated/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html" class="btn btn-neutral float-left" title="transformer_from_callable_on_rows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -591,11 +578,11 @@ to generate persistence diagrams.</p>
       
       <dd><a href="../../nightly/index.html">nightly</a></dd>
       
-      <dd><a href="../../stable/index.html">stable</a></dd>
-      
       <dd><a href="../../0.1.4/index.html">0.1.4</a></dd>
       
       <dd><a href="../../stables/index.html">stables</a></dd>
+      
+      <dd><a href="../../stable/index.html">stable</a></dd>
       
       <!--end_versions_tag-->
     </dl>

@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="EntropyGenerator" href="generated/base/gtda.meta_transformers.EntropyGenerator.html" />
+    <link rel="next" title="gtda.utils: Validation" href="validation.html" />
     <link rel="prev" title="make_pipeline" href="generated/gtda.pipeline.make_pipeline.html" />
 <link href="../_static/style.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
@@ -126,7 +126,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../installation.html#already-installed-boost-version">Already installed boost version</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../installation.html#id5">Source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#id3">Source code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#to-install">To install:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#testing">Testing</a></li>
 </ul>
@@ -168,13 +168,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="diagrams.html#preprocessing">Preprocessing</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html">ForgetDimension</a></li>
@@ -252,12 +246,7 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/base/gtda.meta_transformers.EntropyGenerator.html">EntropyGenerator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/base/gtda.meta_transformers.BettiCurveGenerator.html">BettiCurveGenerator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/base/gtda.meta_transformers.LandscapeGenerator.html">LandscapeGenerator</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
@@ -511,25 +500,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-gtda.meta_transformers">
-<span id="gtda-meta-transformers-convenience-pipelines"></span><h1><a class="reference internal" href="#module-gtda.meta_transformers" title="gtda.meta_transformers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code></a>: Convenience pipelines<a class="headerlink" href="#module-gtda.meta_transformers" title="Permalink to this headline">¶</a></h1>
-<p>The module <a class="reference internal" href="#module-gtda.meta_transformers" title="gtda.meta_transformers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code></a> implements convenience
-<a class="reference internal" href="generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline" title="gtda.pipeline.Pipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.pipeline.Pipeline</span></code></a> transformers for direct topological feature
-generation.</p>
+  <div class="section" id="gtda-meta-transformers-convenience-pipelines">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines<a class="headerlink" href="#gtda-meta-transformers-convenience-pipelines" title="Permalink to this headline">¶</a></h1>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator" title="gtda.meta_transformers.EntropyGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">meta_transformers.EntropyGenerator</span></code></a>([metric, …])</p></td>
-<td><p>Persistence entropies directly from point clouds.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">meta_transformers.EntropyGenerator</span></code></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator" title="gtda.meta_transformers.BettiCurveGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">meta_transformers.BettiCurveGenerator</span></code></a>([…])</p></td>
-<td><p>Meta transformer returning Betti curves directly from point clouds.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">meta_transformers.BettiCurveGenerator</span></code></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator" title="gtda.meta_transformers.LandscapeGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">meta_transformers.LandscapeGenerator</span></code></a>([…])</p></td>
-<td><p>Meta transformer returning persistence landscapes directly from point clouds.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">meta_transformers.LandscapeGenerator</span></code></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -543,7 +529,7 @@ generation.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="generated/base/gtda.meta_transformers.EntropyGenerator.html" class="btn btn-neutral float-right" title="EntropyGenerator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="validation.html" class="btn btn-neutral float-right" title="gtda.utils: Validation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="generated/gtda.pipeline.make_pipeline.html" class="btn btn-neutral float-left" title="make_pipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -589,11 +575,11 @@ generation.</p>
       
       <dd><a href="../../nightly/index.html">nightly</a></dd>
       
-      <dd><a href="../../stable/index.html">stable</a></dd>
-      
       <dd><a href="../../0.1.4/index.html">0.1.4</a></dd>
       
       <dd><a href="../../stables/index.html">stables</a></dd>
+      
+      <dd><a href="../../stable/index.html">stable</a></dd>
       
       <!--end_versions_tag-->
     </dl>

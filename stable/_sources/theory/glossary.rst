@@ -410,7 +410,7 @@ The *:math:`p`-Wasserstein distance* between two persistence diagrams
 :math:`D_1` and :math:`D_2` is the infimum over all bijections
 :math:`\gamma: D_1 \cup \Delta \to D_2 \cup \Delta` of
 
-.. math:: \sum_{x \in D_1 \cup \Delta} \Big(||x - \gamma(x)||_\infty^p \Big)^{1/p}
+.. math:: \Big(\sum_{x \in D_1 \cup \Delta} ||x - \gamma(x)||_\infty^p \Big)^{1/p}
 
 where :math:`||-||_\infty` is defined for :math:`(x,y) \in \mathbb R^2`
 by :math:`\max\{|x|, |y|\}`.
