@@ -1,0 +1,18 @@
+BettiCurveGenerator
+========================================================
+
+.. currentmodule:: gtda.meta_transformers
+
+.. autoclass:: BettiCurveGenerator
+
+   
+   .. automethod:: __init__
+   
+
+..
+   Exclude sphinx-gallery generated examples since we use binder for now
+   include:: gtda.meta_transformers.BettiCurveGenerator.
+
+.. raw:: html
+
+    <div class="clearer"></div>
