@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Advanced &mdash; giotto-tda 0.1.4 documentation</title>
+  <title>Examples &mdash; giotto-tda 0.1.4 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Theory Glossary" href="../theory/glossary.html" />
-    <link rel="prev" title="Basic" href="basic.html" />
+    <link rel="next" title="Case study: Classification of shapes" href="classifying_shapes.html" />
+    <link rel="prev" title="Getting Started with Mapper" href="mapper_quickstart.html" />
 <link href="../_static/style.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script>require=requirejs;</script>
@@ -285,19 +285,71 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples, tutorials and plotting utilities</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="basic.html">Basic</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="basic.html#topological-feature-extraction-using-vietorisrips-and-persistenceentropy">Topological feature extraction using VietorisRips and PersistenceEntropy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="basic.html#getting-started-with-mapper">Getting Started with Mapper</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="basic.html#useful-references">Useful references</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials and examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vietoris_rips_quickstart.html">Topological feature extraction using VietorisRips and PersistenceEntropy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mapper_quickstart.html">Getting Started with Mapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#generate-and-visualise-data">Generate and visualise data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#configure-the-mapper-pipeline">Configure the Mapper pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#visualise-the-mapper-graph">Visualise the Mapper graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively">Visualise the 2D Mapper graph interactively</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Advanced</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#case-study-lorenz-attractor">Case study: Lorenz attractor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#case-study-classification-of-shapes">Case study: Classification of shapes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#can-two-dimensional-topological-voids-exist-in-two-dimensions">Can two-dimensional topological voids exist in two dimensions?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html">Case study: Classification of shapes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classifying_shapes.html#import-libraries">Import libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html#sampling-orientable-surfaces">Sampling orientable surfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html#computing-persistent-homology">Computing persistent homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html#conclusion-of-the-first-part">Conclusion of the first part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html#classification-of-noisy-orientable-surfaces">Classification of noisy orientable surfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="classifying_shapes.html#extract-and-plot-persistent-entropies">Extract and plot persistent entropies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html#generating-non-orientable-surfaces">Generating non-orientable surfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html#id1">Computing persistent homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html#id2">Persistence diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html#conclusion">Conclusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html">Case study: Lorenz attractor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lorenz_attractor.html#import-libraries">Import libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#setting-up-the-lorenz-attractor-simulation">Setting up the Lorenz attractor simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#resampling-the-time-series">Resampling the time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#takens-embedding">Takens Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#scikit-learn-pipeline">Scikit-learn <em>Pipeline</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#rescaling-the-diagram">Rescaling the diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#filtering-diagrams">Filtering diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#persistence-entropy">Persistence entropy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#betti-curves">Betti Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#new-distance-in-the-embedding-space-permutations-and-graphs">New distance in the embedding space: permutations and graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#geodesic-distance-on-graphs">Geodesic distance on graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lorenz_attractor.html#synthetic-features-extracted-from-topology">Synthetic features extracted from topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="voids_on_the_plane.html#import-libraries">Import libraries</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -482,15 +534,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">Examples, tutorials and plotting utilities</a> &raquo;</li>
+          <li><a href="index.html">Tutorials and examples</a> &raquo;</li>
         
-      <li>Advanced</li>
+      <li>Examples</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/notebooks/advanced.rst" rel="nofollow"> View page source</a>
+            <a href="../_sources/notebooks/examples.rst" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -503,36 +555,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="advanced">
-<h1>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h1>
-<p>This page contains advanced examples</p>
-<div class="section" id="case-study-lorenz-attractor">
-<h2>Case study: Lorenz attractor<a class="headerlink" href="#case-study-lorenz-attractor" title="Permalink to this headline">¶</a></h2>
-<p>This notebook contains a full TDA pipeline to analyse the transitions of
-the Lorenz system to a chaotic regime from the stable one and viceversa.</p>
-<p><strong>License: AGPLv3</strong></p>
-<p>Try it on <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/examples/lorenz_attractor.ipynb">github</a> for full interactivity,
-or check <a class="reference external" href="lorenz_attractor.html">the static version</a>.</p>
-</div>
-<div class="section" id="case-study-classification-of-shapes">
-<h2>Case study: Classification of shapes<a class="headerlink" href="#case-study-classification-of-shapes" title="Permalink to this headline">¶</a></h2>
-<p>The following notebook explains how to use giotto-tda to be able to
-classify topologically different high-dimensional spaces.</p>
-<p><strong>License: AGPLv3</strong></p>
-<p>Try it on <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/examples/classifying_shapes.ipynb">github</a> for full interactivity,
-or check <a class="reference external" href="classifying_shapes.html">the static version</a>.</p>
-</div>
-<div class="section" id="can-two-dimensional-topological-voids-exist-in-two-dimensions">
-<h2>Can two-dimensional topological voids exist in two dimensions?<a class="headerlink" href="#can-two-dimensional-topological-voids-exist-in-two-dimensions" title="Permalink to this headline">¶</a></h2>
-<p>The classic example of a two-dimensional homology class is the “void”
-surrounded by a sphere in three-dimensional space. Challenge question:
-<strong>Can two-dimensional topological voids arise from point clouds in
-two-dimensional space?</strong> We will answer this question programmatically
-by computing Vietoris-Rips persistence homology of random point clouds
-in the square <span class="math notranslate nohighlight">\([0, 1] \times [0, 1] \subset \mathbb{R}^2\)</span>.</p>
-<p><strong>License: AGPLv3</strong></p>
-<p>Try it on <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/examples/voids_on_the_plane.ipynb">github</a> for full interactivity,
-or check <a class="reference external" href="voids_on_the_plane.html">the static version</a>.</p>
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>This page contains examples of use of <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html">Case study: Classification of shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html#sampling-orientable-surfaces">Sampling orientable surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html#computing-persistent-homology">Computing persistent homology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html#conclusion-of-the-first-part">Conclusion of the first part</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html#classification-of-noisy-orientable-surfaces">Classification of noisy orientable surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html#generating-non-orientable-surfaces">Generating non-orientable surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html#id1">Computing persistent homology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html#id2">Persistence diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying_shapes.html#conclusion">Conclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html">Case study: Lorenz attractor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#setting-up-the-lorenz-attractor-simulation">Setting up the Lorenz attractor simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#resampling-the-time-series">Resampling the time series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#takens-embedding">Takens Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#scikit-learn-pipeline">Scikit-learn <em>Pipeline</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#rescaling-the-diagram">Rescaling the diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#filtering-diagrams">Filtering diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#persistence-entropy">Persistence entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#betti-curves">Betti Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#new-distance-in-the-embedding-space-permutations-and-graphs">New distance in the embedding space: permutations and graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#geodesic-distance-on-graphs">Geodesic distance on graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lorenz_attractor.html#synthetic-features-extracted-from-topology">Synthetic features extracted from topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a></li>
+</ul>
 </div>
 </div>
 
@@ -544,10 +597,10 @@ or check <a class="reference external" href="voids_on_the_plane.html">the static
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../theory/glossary.html" class="btn btn-neutral float-right" title="Theory Glossary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="classifying_shapes.html" class="btn btn-neutral float-right" title="Case study: Classification of shapes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="basic.html" class="btn btn-neutral float-left" title="Basic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mapper_quickstart.html" class="btn btn-neutral float-left" title="Getting Started with Mapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -585,11 +638,7 @@ or check <a class="reference external" href="voids_on_the_plane.html">the static
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:../-->
-      
-      <dd><a href="../../stable/index.html">stable</a></dd>
-      
-      <dd><a href="../../dev/index.html">dev</a></dd>
-      
+<dd><a href="../../stable/library.html">stable</a></dd><dd><a href="../../dev/library.html">dev</a></dd>
       <!--end_versions_tag-->
     </dl>
   </div>
