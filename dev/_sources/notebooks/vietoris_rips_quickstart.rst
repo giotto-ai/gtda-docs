@@ -7,6 +7,11 @@ vectorisation methods. We first list steps in a typical,
 topological-feature extraction routine and then show to encapsulate them
 with a standard ``scikit-learn``–like pipeline.
 
+If you are looking at the static version in the documentation, try it
+out on
+`github <https://github.com/giotto-ai/giotto-tda/blob/master/examples/vietoris_rips_quickstart.ipynb>`__
+for full interactivity.
+
 Import libraries
 ----------------
 
@@ -71,7 +76,7 @@ split and score the features.
 
 .. parsed-literal::
 
-    0.98
+    1.0
 
 
 

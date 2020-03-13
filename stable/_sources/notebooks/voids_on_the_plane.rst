@@ -8,6 +8,11 @@ two-dimensional space?** We will answer this question programmatically
 by computing Vietoris-Rips persistence homology of random point clouds
 in the square :math:`[0, 1] \times [0, 1] \subset \mathbb{R}^2`.
 
+If you are looking at the static version in the documentation, try it
+out on
+`github <https://github.com/giotto-ai/giotto-tda/blob/master/examples/voids_on_the_plane.ipynb>`__
+for full interactivity.
+
 **License: AGPLv3**
 
 Import libraries
@@ -45,8 +50,8 @@ Import libraries
 
 .. parsed-literal::
 
-    There are 3 persistent homology classes in dimension 2 across all samples!
-    There are 3 different point clouds with at least one persistent homology class in dimension 2.
+    There are 2 persistent homology classes in dimension 2 across all samples!
+    There are 2 different point clouds with at least one persistent homology class in dimension 2.
 
 
 We can now plot the edges which exist when these persistent homology
@@ -69,9 +74,5 @@ remind you of?
 
 
 .. image:: voids_on_the_plane_files/voids_on_the_plane_7_1.png
-
-
-
-.. image:: voids_on_the_plane_files/voids_on_the_plane_7_2.png
 
 
