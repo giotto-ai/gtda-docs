@@ -124,6 +124,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#source-code">Source code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#id3">Source code</a></li>
@@ -168,7 +169,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../diagrams.html#preprocessing">Preprocessing</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../diagrams/preprocessing/gtda.diagrams.ForgetDimension.html">ForgetDimension</a></li>
@@ -239,6 +246,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>: Base</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../base/gtda.base.TransformerResamplerMixin.html">TransformerResamplerMixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../base/gtda.base.PlotterMixin.html">PlotterMixin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>: Pipeline</a><ul>
@@ -246,7 +254,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../meta_transformers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../meta_transformers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../base/gtda.meta_transformers.EntropyGenerator.html">EntropyGenerator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../base/gtda.meta_transformers.BettiCurveGenerator.html">BettiCurveGenerator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../base/gtda.meta_transformers.LandscapeGenerator.html">LandscapeGenerator</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
@@ -289,7 +302,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../theory/glossary.html">Glossary</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../theory/glossary.html">Theory Glossary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../theory/glossary.html#symbols">Symbols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../theory/glossary.html#homology">Homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cubical-complex">Cubical complex</a><ul>
@@ -297,60 +310,60 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#simplicial-complex">Simplicial complex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#abstract-simplicial-complex">Abstract simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#ordered-simplicial-complex">Ordered simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#directed-simplicial-complex">Directed simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#clique-or-flag-complexes">Clique or flag complexes:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#chain-complex">Chain complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#homology-and-cohomology">Homology and cohomology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cubical-chains-and-cubical-homology">Cubical chains and cubical homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#filtered-complex">Filtered complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#abstract-simplicial-complex">Abstract simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#ordered-simplicial-complex">Ordered simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#directed-simplicial-complex">Directed simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#clique-or-flag-complexes">Clique or flag complexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#chain-complex">Chain complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#homology-and-cohomology">Homology and cohomology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cubical-chains-and-cubical-homology">Cubical chains and cubical homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#filtered-complex">Filtered complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cellwise-filtration">Cellwise filtration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-module">Persistence module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#multiset">Multiset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../theory/glossary.html#reference-1">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-landscape">Persistence landscape:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-landscape">Persistence landscape</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../theory/glossary.html#reference-2">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-landscape-norm">Persistence landscape norm:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-landscape-norm">Persistence landscape norm</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../theory/glossary.html#references">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#weighted-silhouette">Weighted silhouette:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#weighted-silhouette">Weighted silhouette</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../theory/glossary.html#references-1">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#amplitude">Amplitude:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-entropy">Persistence entropy:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#amplitude">Amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#persistence-entropy">Persistence entropy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../theory/glossary.html#references-2">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#betti-curve">Betti curve:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#metric-space">Metric space:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#euclidean-distance-and-norm">Euclidean distance and norm:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#betti-curve">Betti curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#metric-space">Metric space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#euclidean-distance-and-norm">Euclidean distance and norm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../theory/glossary.html#time-series">Time series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#id29">Time series:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#takens-embedding">Takens embedding:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#id29">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#takens-embedding">Takens embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../theory/glossary.html#reference-3">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#manifold">Manifold:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#manifold">Manifold</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../theory/glossary.html#references-3">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#compact-subset">Compact subset:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../theory/glossary.html#compact-subset">Compact subset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../theory/glossary.html#bibliography">Bibliography</a></li>
@@ -358,10 +371,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../contributing/index.html">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../contributing/index.html#guidelines">Guidelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../contributing/index.html#pull-request-checklist">Pull Request Checklist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../contributing/index.html#how-to-become-a-contributor-and-submit-your-own-code">How to become a contributor and submit your own code</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#contributor-license-agreements">Contributor License Agreements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#contributing-code">Contributing code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../contributing/index.html#essentials-for-contributing">Essentials for contributing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#contributor-license-agreement">Contributor License Agreement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#pull-requests">Pull requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#issues">Issues</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../contributing/index.html#contribution-guidelines-and-standards">Contribution guidelines and standards</a><ul>
@@ -370,15 +383,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#python-coding-style">Python coding style</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#git-pre-commit-hook">Git pre-commit hook</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#running-unit-tests">Running unit tests</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../contributing/index.html#documentation">Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../contributing/index.html#description-of-the-infrastructure">Description of the infrastructure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../contributing/index.html#how-to-build">How to build</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#basic-instructions">Basic instructions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../contributing/index.html#step-by-step-instructions">Step-by-step instructions</a></li>
 </ul>
 </li>
 </ul>
@@ -427,10 +431,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">FAQ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../faq.html#how-to-cite">How to cite?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../faq.html#i-am-a-researcher-can-i-use-the-giotto-tda-in-my-project">I am a researcher. Can I use the giotto-tda in my project?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../faq.html#i-cannot-install-giotto-tda-on-windows">I cannot install <cite>giotto-tda</cite> on Windows.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../faq.html#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA-libraries available. How is <cite>giotto-tda</cite> different?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq.html#i-am-a-researcher-can-i-use-giotto-tda-in-my-project">I am a researcher. Can I use giotto-tda in my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq.html#i-cannot-install-giotto-tda">I cannot install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../faq.html#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA libraries available. How is <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> different?</a></li>
 </ul>
 </li>
 </ul>
@@ -509,30 +512,32 @@
 <code class="sig-prename descclassname">gtda.mapper.pipeline.</code><code class="sig-name descname">make_mapper_pipeline</code><span class="sig-paren">(</span><em class="sig-param">scaler=None</em>, <em class="sig-param">filter_func=None</em>, <em class="sig-param">cover=None</em>, <em class="sig-param">clustering_preprocessing=None</em>, <em class="sig-param">clusterer=None</em>, <em class="sig-param">n_jobs=None</em>, <em class="sig-param">parallel_backend_prefer='threads'</em>, <em class="sig-param">graph_step=True</em>, <em class="sig-param">min_intersection=1</em>, <em class="sig-param">memory=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/pipeline.html#make_mapper_pipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.pipeline.make_mapper_pipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a MapperPipeline object according to the specified Mapper
 steps. <a class="footnote-reference brackets" href="#id3" id="id1">1</a></p>
-<p>The role of this function’s key parameters is illustrated in <a class="reference external" href="../../../../_images/mapper_pipeline_object.svg">this diagram</a>. All computational
-steps may be arbitrary scikit-learn Pipeline objects. The scaling and cover
-steps must be transformers implementing a <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> method.
-The filter function step may be a transformer implementing
-a <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code>, or a callable acting on one-dimensional arrays.
-In the latter case, a transformer is internally created whose
-<code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> applies this callable independently on each row of the
-data. The clustering step need only implement a <code class="docutils literal notranslate"><span class="pre">fit</span></code> method storing
-clustering labels.</p>
+<p>The role of this function’s main parameters is illustrated in <a class="reference external" href="../../../../_images/mapper_pipeline.svg">this diagram</a>. All computational steps may
+be scikit-learn estimators, including Pipeline objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>scaler</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Scaling transformer. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, no scaling is performed.</p></li>
-<li><p><strong>filter_func</strong> (object, callable or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Filter function to apply to the scaled data. <code class="docutils literal notranslate"><span class="pre">None</span></code> means using PCA
-(<code class="xref py py-meth docutils literal notranslate"><span class="pre">sklearn.decomposition.PCA</span></code>) with 2 components.</p></li>
-<li><p><strong>cover</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Covering transformer. <code class="docutils literal notranslate"><span class="pre">None</span></code> means using a cubical cover
-(<a class="reference internal" href="../covers/gtda.mapper.CubicalCover.html#gtda.mapper.CubicalCover" title="gtda.mapper.CubicalCover"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CubicalCover</span></code></a>) with its default parameters.</p></li>
+<li><p><strong>scaler</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If <code class="docutils literal notranslate"><span class="pre">None</span></code>, no scaling is performed. Otherwise, it must be an
+object with a <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> method.</p></li>
+<li><p><strong>filter_func</strong> (object, callable or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If <cite>None`</cite>, PCA (<code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.decomposition.PCA</span></code>) with 2
+components and default parameters is used as a default filter
+function. Otherwise, it may be an object with a <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code>
+method, or a callable acting on one-dimensional arrays – in which
+case the callable is applied independently to each row of the
+(scaled) data.</p></li>
+<li><p><strong>cover</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Covering transformer, e.g. an instance of
+<a class="reference internal" href="../covers/gtda.mapper.OneDimensionalCover.html#gtda.mapper.OneDimensionalCover" title="gtda.mapper.OneDimensionalCover"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneDimensionalCover</span></code></a> or of
+<a class="reference internal" href="../covers/gtda.mapper.CubicalCover.html#gtda.mapper.CubicalCover" title="gtda.mapper.CubicalCover"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubicalCover</span></code></a>. <code class="docutils literal notranslate"><span class="pre">None</span></code> is equivalent to passing
+an instance of <a class="reference internal" href="../covers/gtda.mapper.CubicalCover.html#gtda.mapper.CubicalCover" title="gtda.mapper.CubicalCover"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubicalCover</span></code></a> with its default
+parameters.</p></li>
 <li><p><strong>clustering_preprocessing</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is a transformer which is applied to the
 data independently to the <cite>scaler</cite> -&gt; <cite>filter_func</cite> -&gt; <cite>cover</cite>
 pipeline. Clustering is then performed on portions (determined by
-the <cite>scaler</cite> -&gt; <cite>filter_func</cite> -&gt; <cite>cover</cite> pipeline) of the
-transformed data.</p></li>
-<li><p><strong>clusterer</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Clustering object. <code class="docutils literal notranslate"><span class="pre">None</span></code> means using DBSCAN
-(<code class="xref py py-meth docutils literal notranslate"><span class="pre">sklearn.cluster.DBSCAN</span></code>) with its default parameters.</p></li>
+the <cite>scaler</cite> -&gt; <cite>filter_func</cite> -&gt; <cite>cover</cite> pipeline) of the transformed
+data.</p></li>
+<li><p><strong>clusterer</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Clustering object with a <code class="docutils literal notranslate"><span class="pre">fit</span></code> method which stores cluster labels.
+<code class="docutils literal notranslate"><span class="pre">None</span></code> is equivalent to passing an instance of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.cluster.DBSCAN</span></code> with its default parameters.</p></li>
 <li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use in a joblib-parallel application of the
 clustering step across pullback cover sets. To be used in
 conjunction with <cite>parallel_backend_prefer</cite>. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless
@@ -723,17 +728,7 @@ in <em>SPBG</em>, pp. 91–100, 2007.</p>
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:../../../../-->
-      
-      <dd><a href="../../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="../../../../../0.1.4/index.html">0.1.4</a></dd>
-      
-      <dd><a href="../../../../../stables/index.html">stables</a></dd>
-      
-      <dd><a href="../../../../../stable/index.html">stable</a></dd>
-      
+<dd><a href="../../../../../stable/library.html">stable</a></dd><dd><a href="../../../../../nightly/library.html">nightly</a></dd>
       <!--end_versions_tag-->
     </dl>
   </div>

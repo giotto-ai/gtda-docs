@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Glossary &mdash; giotto-tda 0.1.4 documentation</title>
+  <title>Theory Glossary &mdash; giotto-tda 0.1.4 documentation</title>
   
 
   
@@ -119,8 +119,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#developer-installation">Developer installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#linux">Linux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#macos">macOS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../installation.html#windows">Windows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../installation.html#source-code">Source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#windows">Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../installation.html#id2">Boost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../installation.html#pre-built-binaries">Pre-built binaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../installation.html#source-code">Source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#id3">Source code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#to-install">To install:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#testing">Testing</a></li>
 </ul>
@@ -239,6 +246,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>: Base</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/base/gtda.base.TransformerResamplerMixin.html">TransformerResamplerMixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/generated/base/gtda.base.PlotterMixin.html">PlotterMixin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules/pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>: Pipeline</a><ul>
@@ -294,7 +302,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Theory Glossary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#symbols">Symbols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#homology">Homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cubical-complex">Cubical complex</a><ul>
@@ -302,60 +310,60 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#simplicial-complex">Simplicial complex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#abstract-simplicial-complex">Abstract simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ordered-simplicial-complex">Ordered simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#directed-simplicial-complex">Directed simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#clique-or-flag-complexes">Clique or flag complexes:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#chain-complex">Chain complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#homology-and-cohomology">Homology and cohomology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cubical-chains-and-cubical-homology">Cubical chains and cubical homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filtered-complex">Filtered complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cellwise-filtration">Cellwise filtration:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#persistence-module">Persistence module:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#multiset">Multiset:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#persistence-diagram">Persistence diagram:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#abstract-simplicial-complex">Abstract simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ordered-simplicial-complex">Ordered simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directed-simplicial-complex">Directed simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clique-or-flag-complexes">Clique or flag complexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chain-complex">Chain complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#homology-and-cohomology">Homology and cohomology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cubical-chains-and-cubical-homology">Cubical chains and cubical homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtered-complex">Filtered complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cellwise-filtration">Cellwise filtration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#persistence-module">Persistence module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#persistent-simplicial-co-homology">Persistent simplicial (co)homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cech-complex-and-cech-persistence">Čech complex and Čech persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiset">Multiset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#reference-1">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#persistence-landscape">Persistence landscape:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#persistence-landscape">Persistence landscape</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#reference-2">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#persistence-landscape-norm">Persistence landscape norm:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#persistence-landscape-norm">Persistence landscape norm</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#references">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#weighted-silhouette">Weighted silhouette:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#weighted-silhouette">Weighted silhouette</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#references-1">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#amplitude">Amplitude:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#persistence-entropy">Persistence entropy:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#amplitude">Amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#persistence-entropy">Persistence entropy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#references-2">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#betti-curve">Betti curve:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#metric-space">Metric space:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#euclidean-distance-and-norm">Euclidean distance and norm:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#betti-curve">Betti curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metric-space">Metric space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#euclidean-distance-and-norm">Euclidean distance and norm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#time-series">Time series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id29">Time series:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#takens-embedding">Takens embedding:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#takens-embedding">Takens embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#reference-3">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#manifold">Manifold:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manifold">Manifold</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#references-3">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#compact-subset">Compact subset:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compact-subset">Compact subset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#bibliography">Bibliography</a></li>
@@ -363,10 +371,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/index.html#guidelines">Guidelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../contributing/index.html#pull-request-checklist">Pull Request Checklist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../contributing/index.html#how-to-become-a-contributor-and-submit-your-own-code">How to become a contributor and submit your own code</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#contributor-license-agreements">Contributor License Agreements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#contributing-code">Contributing code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing/index.html#essentials-for-contributing">Essentials for contributing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#contributor-license-agreement">Contributor License Agreement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#pull-requests">Pull requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#issues">Issues</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../contributing/index.html#contribution-guidelines-and-standards">Contribution guidelines and standards</a><ul>
@@ -375,15 +383,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#python-coding-style">Python coding style</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#git-pre-commit-hook">Git pre-commit hook</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#running-unit-tests">Running unit tests</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../contributing/index.html#documentation">Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../contributing/index.html#description-of-the-infrastructure">Description of the infrastructure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../contributing/index.html#how-to-build">How to build</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#basic-instructions">Basic instructions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../contributing/index.html#step-by-step-instructions">Step-by-step instructions</a></li>
 </ul>
 </li>
 </ul>
@@ -432,10 +431,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../faq.html#how-to-cite">How to cite?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../faq.html#i-am-a-researcher-can-i-use-the-giotto-tda-in-my-project">I am a researcher. Can I use the giotto-tda in my project?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../faq.html#i-cannot-install-giotto-tda-on-windows">I cannot install <cite>giotto-tda</cite> on Windows.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../faq.html#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA-libraries available. How is <cite>giotto-tda</cite> different?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#i-am-a-researcher-can-i-use-giotto-tda-in-my-project">I am a researcher. Can I use giotto-tda in my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#i-cannot-install-giotto-tda">I cannot install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA libraries available. How is <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> different?</a></li>
 </ul>
 </li>
 </ul>
@@ -484,13 +482,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Glossary</li>
+      <li>Theory Glossary</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/theory/glossary.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/theory/glossary.rst" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -503,52 +501,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="glossary">
-<h1><a class="toc-backref" href="#id35">Glossary</a><a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="theory-glossary">
+<h1><a class="toc-backref" href="#id35">Theory Glossary</a><a class="headerlink" href="#theory-glossary" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#glossary" id="id35">Glossary</a></p>
+<li><p><a class="reference internal" href="#theory-glossary" id="id35">Theory Glossary</a></p>
 <ul>
 <li><p><a class="reference internal" href="#symbols" id="id36">Symbols</a></p></li>
 <li><p><a class="reference internal" href="#homology" id="id37">Homology</a></p>
 <ul>
 <li><p><a class="reference internal" href="#cubical-complex" id="id38">Cubical complex</a></p></li>
 <li><p><a class="reference internal" href="#simplicial-complex" id="id39">Simplicial complex</a></p></li>
-<li><p><a class="reference internal" href="#abstract-simplicial-complex" id="id40">Abstract simplicial complex:</a></p></li>
-<li><p><a class="reference internal" href="#ordered-simplicial-complex" id="id41">Ordered simplicial complex:</a></p></li>
-<li><p><a class="reference internal" href="#directed-simplicial-complex" id="id42">Directed simplicial complex:</a></p></li>
-<li><p><a class="reference internal" href="#clique-or-flag-complexes" id="id43">Clique or flag complexes:</a></p></li>
-<li><p><a class="reference internal" href="#chain-complex" id="id44">Chain complex:</a></p></li>
-<li><p><a class="reference internal" href="#homology-and-cohomology" id="id45">Homology and cohomology:</a></p></li>
-<li><p><a class="reference internal" href="#simplicial-chains-and-simplicial-homology" id="id46">Simplicial chains and simplicial homology:</a></p></li>
-<li><p><a class="reference internal" href="#cubical-chains-and-cubical-homology" id="id47">Cubical chains and cubical homology:</a></p></li>
-<li><p><a class="reference internal" href="#filtered-complex" id="id48">Filtered complex:</a></p></li>
-<li><p><a class="reference internal" href="#cellwise-filtration" id="id49">Cellwise filtration:</a></p></li>
-<li><p><a class="reference internal" href="#persistence-module" id="id50">Persistence module:</a></p></li>
-<li><p><a class="reference internal" href="#persistent-simplicial-co-homology" id="id51">Persistent simplicial (co)homology:</a></p></li>
-<li><p><a class="reference internal" href="#vietoris-rips-complex-and-vietoris-rips-persistence" id="id52">Vietoris-Rips complex and Vietoris-Rips persistence:</a></p></li>
-<li><p><a class="reference internal" href="#cech-complex-and-cech-persistence" id="id53">Čech complex and Čech persistence:</a></p></li>
-<li><p><a class="reference internal" href="#multiset" id="id54">Multiset:</a></p></li>
-<li><p><a class="reference internal" href="#persistence-diagram" id="id55">Persistence diagram:</a></p></li>
-<li><p><a class="reference internal" href="#wasserstein-and-bottleneck-distance" id="id56">Wasserstein and bottleneck distance:</a></p></li>
-<li><p><a class="reference internal" href="#persistence-landscape" id="id57">Persistence landscape:</a></p></li>
-<li><p><a class="reference internal" href="#persistence-landscape-norm" id="id58">Persistence landscape norm:</a></p></li>
-<li><p><a class="reference internal" href="#weighted-silhouette" id="id59">Weighted silhouette:</a></p></li>
-<li><p><a class="reference internal" href="#amplitude" id="id60">Amplitude:</a></p></li>
-<li><p><a class="reference internal" href="#persistence-entropy" id="id61">Persistence entropy:</a></p></li>
-<li><p><a class="reference internal" href="#betti-curve" id="id62">Betti curve:</a></p></li>
-<li><p><a class="reference internal" href="#metric-space" id="id63">Metric space:</a></p></li>
-<li><p><a class="reference internal" href="#euclidean-distance-and-norm" id="id64">Euclidean distance and norm:</a></p></li>
-<li><p><a class="reference internal" href="#finite-metric-spaces-and-point-clouds" id="id65">Finite metric spaces and point clouds:</a></p></li>
+<li><p><a class="reference internal" href="#abstract-simplicial-complex" id="id40">Abstract simplicial complex</a></p></li>
+<li><p><a class="reference internal" href="#ordered-simplicial-complex" id="id41">Ordered simplicial complex</a></p></li>
+<li><p><a class="reference internal" href="#directed-simplicial-complex" id="id42">Directed simplicial complex</a></p></li>
+<li><p><a class="reference internal" href="#clique-or-flag-complexes" id="id43">Clique or flag complexes</a></p></li>
+<li><p><a class="reference internal" href="#chain-complex" id="id44">Chain complex</a></p></li>
+<li><p><a class="reference internal" href="#homology-and-cohomology" id="id45">Homology and cohomology</a></p></li>
+<li><p><a class="reference internal" href="#simplicial-chains-and-simplicial-homology" id="id46">Simplicial chains and simplicial homology</a></p></li>
+<li><p><a class="reference internal" href="#cubical-chains-and-cubical-homology" id="id47">Cubical chains and cubical homology</a></p></li>
+<li><p><a class="reference internal" href="#filtered-complex" id="id48">Filtered complex</a></p></li>
+<li><p><a class="reference internal" href="#cellwise-filtration" id="id49">Cellwise filtration</a></p></li>
+<li><p><a class="reference internal" href="#persistence-module" id="id50">Persistence module</a></p></li>
+<li><p><a class="reference internal" href="#persistent-simplicial-co-homology" id="id51">Persistent simplicial (co)homology</a></p></li>
+<li><p><a class="reference internal" href="#vietoris-rips-complex-and-vietoris-rips-persistence" id="id52">Vietoris-Rips complex and Vietoris-Rips persistence</a></p></li>
+<li><p><a class="reference internal" href="#cech-complex-and-cech-persistence" id="id53">Čech complex and Čech persistence</a></p></li>
+<li><p><a class="reference internal" href="#multiset" id="id54">Multiset</a></p></li>
+<li><p><a class="reference internal" href="#persistence-diagram" id="id55">Persistence diagram</a></p></li>
+<li><p><a class="reference internal" href="#wasserstein-and-bottleneck-distance" id="id56">Wasserstein and bottleneck distance</a></p></li>
+<li><p><a class="reference internal" href="#persistence-landscape" id="id57">Persistence landscape</a></p></li>
+<li><p><a class="reference internal" href="#persistence-landscape-norm" id="id58">Persistence landscape norm</a></p></li>
+<li><p><a class="reference internal" href="#weighted-silhouette" id="id59">Weighted silhouette</a></p></li>
+<li><p><a class="reference internal" href="#amplitude" id="id60">Amplitude</a></p></li>
+<li><p><a class="reference internal" href="#persistence-entropy" id="id61">Persistence entropy</a></p></li>
+<li><p><a class="reference internal" href="#betti-curve" id="id62">Betti curve</a></p></li>
+<li><p><a class="reference internal" href="#metric-space" id="id63">Metric space</a></p></li>
+<li><p><a class="reference internal" href="#euclidean-distance-and-norm" id="id64">Euclidean distance and norm</a></p></li>
+<li><p><a class="reference internal" href="#finite-metric-spaces-and-point-clouds" id="id65">Finite metric spaces and point clouds</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#time-series" id="id66">Time series</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id29" id="id67">Time series:</a></p></li>
-<li><p><a class="reference internal" href="#takens-embedding" id="id68">Takens embedding:</a></p></li>
-<li><p><a class="reference internal" href="#manifold" id="id69">Manifold:</a></p></li>
-<li><p><a class="reference internal" href="#compact-subset" id="id70">Compact subset:</a></p></li>
+<li><p><a class="reference internal" href="#id29" id="id67">Time series</a></p></li>
+<li><p><a class="reference internal" href="#takens-embedding" id="id68">Takens embedding</a></p></li>
+<li><p><a class="reference internal" href="#manifold" id="id69">Manifold</a></p></li>
+<li><p><a class="reference internal" href="#compact-subset" id="id70">Compact subset</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#bibliography" id="id71">Bibliography</a></p></li>
@@ -646,7 +644,7 @@ simplices in <span class="math notranslate nohighlight">\(X\)</span> is a face o
 defines an .</p>
 </div>
 <div class="section" id="abstract-simplicial-complex">
-<span id="id3"></span><h3><a class="toc-backref" href="#id40">Abstract simplicial complex:</a><a class="headerlink" href="#abstract-simplicial-complex" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3><a class="toc-backref" href="#id40">Abstract simplicial complex</a><a class="headerlink" href="#abstract-simplicial-complex" title="Permalink to this headline">¶</a></h3>
 <p>An <em>abstract simplicial complex</em> is a pair of sets <span class="math notranslate nohighlight">\((V, X)\)</span> with
 the elements of <span class="math notranslate nohighlight">\(X\)</span> being subsets of <span class="math notranslate nohighlight">\(V\)</span> such that:</p>
 <ol class="arabic simple">
@@ -678,7 +676,7 @@ of <span class="math notranslate nohighlight">\(\mathbb R^N\)</span> and associa
 <em>geometric realization</em>.</p>
 </div>
 <div class="section" id="ordered-simplicial-complex">
-<span id="ordered-simplical-complex"></span><h3><a class="toc-backref" href="#id41">Ordered simplicial complex:</a><a class="headerlink" href="#ordered-simplicial-complex" title="Permalink to this headline">¶</a></h3>
+<span id="ordered-simplical-complex"></span><h3><a class="toc-backref" href="#id41">Ordered simplicial complex</a><a class="headerlink" href="#ordered-simplicial-complex" title="Permalink to this headline">¶</a></h3>
 <p>An <em>ordered simplicial complex</em> is an where the set of vertices is
 equipped with a partial order such that the restriction of this partial
 order to any simplex is a total order. We denote an <span class="math notranslate nohighlight">\(n\)</span>-simplex
@@ -688,7 +686,7 @@ map <span class="math notranslate nohighlight">\(f\)</span> between their underl
 the order, i.e., <span class="math notranslate nohighlight">\(v \leq w\)</span> implies <span class="math notranslate nohighlight">\(f(v) \leq f(w)\)</span>.</p>
 </div>
 <div class="section" id="directed-simplicial-complex">
-<span id="id4"></span><h3><a class="toc-backref" href="#id42">Directed simplicial complex:</a><a class="headerlink" href="#directed-simplicial-complex" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3><a class="toc-backref" href="#id42">Directed simplicial complex</a><a class="headerlink" href="#directed-simplicial-complex" title="Permalink to this headline">¶</a></h3>
 <p>A <em>directed simplicial complex</em> is a pair of sets <span class="math notranslate nohighlight">\((V, X)\)</span> with
 the elements of <span class="math notranslate nohighlight">\(X\)</span> being tuples of elements of <span class="math notranslate nohighlight">\(V\)</span>, i.e.,
 elements in <span class="math notranslate nohighlight">\(\bigcup_{n\geq1} V^{\times n}\)</span> such that:</p>
@@ -702,7 +700,7 @@ and</p></li>
 introduced for applies to directed simplicial complex.</p>
 </div>
 <div class="section" id="clique-or-flag-complexes">
-<span id="id5"></span><h3><a class="toc-backref" href="#id43">Clique or flag complexes:</a><a class="headerlink" href="#clique-or-flag-complexes" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3><a class="toc-backref" href="#id43">Clique or flag complexes</a><a class="headerlink" href="#clique-or-flag-complexes" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(G\)</span> be a <span class="math notranslate nohighlight">\(1\)</span>-dimensional simplicial complex, abstract or
 otherwise. The complex <span class="math notranslate nohighlight">\(\langle G \rangle\)</span> has the same set of
 vertices as <span class="math notranslate nohighlight">\(G\)</span> and <span class="math notranslate nohighlight">\(\{v_0, \dots, v_n\}\)</span> is a simplex in
@@ -718,7 +716,7 @@ each pair of vertices <span class="math notranslate nohighlight">\(v_i, v_j\)</s
 the <span class="math notranslate nohighlight">\(1\)</span>-skeleton of <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </div>
 <div class="section" id="chain-complex">
-<span id="id6"></span><h3><a class="toc-backref" href="#id44">Chain complex:</a><a class="headerlink" href="#chain-complex" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3><a class="toc-backref" href="#id44">Chain complex</a><a class="headerlink" href="#chain-complex" title="Permalink to this headline">¶</a></h3>
 <p>A <em>chain complex</em> of is a pair <span class="math notranslate nohighlight">\((C_*, \partial)\)</span> where</p>
 <div class="math notranslate nohighlight">
 \[C_* = \bigoplus_{n \in \mathbb Z} C_n \quad \mathrm{and} \quad \partial = \bigoplus_{n \in \mathbb Z} \partial_n\]</div>
@@ -742,7 +740,7 @@ chain complexes such that <span class="math notranslate nohighlight">\(f(C_n) \s
 for any <span class="math notranslate nohighlight">\(\alpha \in C^*\)</span> and <span class="math notranslate nohighlight">\(c \in C_*\)</span>.</p>
 </div>
 <div class="section" id="homology-and-cohomology">
-<span id="id7"></span><h3><a class="toc-backref" href="#id45">Homology and cohomology:</a><a class="headerlink" href="#homology-and-cohomology" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3><a class="toc-backref" href="#id45">Homology and cohomology</a><a class="headerlink" href="#homology-and-cohomology" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\((C_*, \partial)\)</span> be a . Its <em>:math:`n`-th homology group</em> is
 the quotient of the subspace of <span class="math notranslate nohighlight">\(n\)</span>-cycles by the subspace of
 <span class="math notranslate nohighlight">\(n\)</span>-boundaries, that is,
@@ -756,7 +754,7 @@ predual complex and write <span class="math notranslate nohighlight">\(H^n\)</sp
 homologies.</p>
 </div>
 <div class="section" id="simplicial-chains-and-simplicial-homology">
-<span id="id8"></span><h3><a class="toc-backref" href="#id46">Simplicial chains and simplicial homology:</a><a class="headerlink" href="#simplicial-chains-and-simplicial-homology" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3><a class="toc-backref" href="#id46">Simplicial chains and simplicial homology</a><a class="headerlink" href="#simplicial-chains-and-simplicial-homology" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be an ordered or directed simplicial complex. Define its
 <em>simplicial chain complex with :math:`Bbbk`-coefficients</em>
 <span class="math notranslate nohighlight">\(C_*(X; \Bbbk)\)</span> by</p>
@@ -769,7 +767,7 @@ of this chain complex. We use the notation <span class="math notranslate nohighl
 therefore, between the associated simplicial (co)homologies.</p>
 </div>
 <div class="section" id="cubical-chains-and-cubical-homology">
-<span id="id9"></span><h3><a class="toc-backref" href="#id47">Cubical chains and cubical homology:</a><a class="headerlink" href="#cubical-chains-and-cubical-homology" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3><a class="toc-backref" href="#id47">Cubical chains and cubical homology</a><a class="headerlink" href="#cubical-chains-and-cubical-homology" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a cubical complex. Define its <em>cubical chain complex
 with :math:`Bbbk`-coefficients</em> <span class="math notranslate nohighlight">\(C_*(X; \Bbbk)\)</span> by</p>
 <div class="math notranslate nohighlight">
@@ -781,13 +779,13 @@ complex. We use the notation <span class="math notranslate nohighlight">\(H_*(X;
 <span class="math notranslate nohighlight">\(H^*(X; \Bbbk)\)</span> for these.</p>
 </div>
 <div class="section" id="filtered-complex">
-<span id="id10"></span><h3><a class="toc-backref" href="#id48">Filtered complex:</a><a class="headerlink" href="#filtered-complex" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3><a class="toc-backref" href="#id48">Filtered complex</a><a class="headerlink" href="#filtered-complex" title="Permalink to this headline">¶</a></h3>
 <p>A <em>filtered complex</em> is a collection of simplicial or cubical complexes
 <span class="math notranslate nohighlight">\(\{X_s\}_{s \in \mathbb R}\)</span> such that <span class="math notranslate nohighlight">\(X_s\)</span> is a subcomplex
 of <span class="math notranslate nohighlight">\(X_t\)</span> for each <span class="math notranslate nohighlight">\(s \leq t\)</span>.</p>
 </div>
 <div class="section" id="cellwise-filtration">
-<span id="id11"></span><h3><a class="toc-backref" href="#id49">Cellwise filtration:</a><a class="headerlink" href="#cellwise-filtration" title="Permalink to this headline">¶</a></h3>
+<span id="id11"></span><h3><a class="toc-backref" href="#id49">Cellwise filtration</a><a class="headerlink" href="#cellwise-filtration" title="Permalink to this headline">¶</a></h3>
 <p>A <em>cellwise filtration</em> is a complex <span class="math notranslate nohighlight">\(X\)</span> together with a total
 order <span class="math notranslate nohighlight">\(\leq\)</span> on its simplices or elementary cubes such that for
 each <span class="math notranslate nohighlight">\(y \in X\)</span> the set <span class="math notranslate nohighlight">\(\{x \in X\ :\ x \leq y\}\)</span> is a
@@ -795,7 +793,7 @@ subcomplex of <span class="math notranslate nohighlight">\(X\)</span>. A cellwis
 of as a .</p>
 </div>
 <div class="section" id="persistence-module">
-<span id="id12"></span><h3><a class="toc-backref" href="#id50">Persistence module:</a><a class="headerlink" href="#persistence-module" title="Permalink to this headline">¶</a></h3>
+<span id="id12"></span><h3><a class="toc-backref" href="#id50">Persistence module</a><a class="headerlink" href="#persistence-module" title="Permalink to this headline">¶</a></h3>
 <p>A <em>persistence module</em> is a collection containing a <span class="math notranslate nohighlight">\(\Bbbk\)</span>-vector
 spaces <span class="math notranslate nohighlight">\(V(s)\)</span> for each real number <span class="math notranslate nohighlight">\(s\)</span> together with
 <span class="math notranslate nohighlight">\(\Bbbk\)</span>-linear maps <span class="math notranslate nohighlight">\(f_{st} : V(s) \to V(t)\)</span>, referred to as
@@ -810,7 +808,7 @@ of linear maps <span class="math notranslate nohighlight">\(F(s) : V(s) \to W(s)
 <span class="math notranslate nohighlight">\(F(s)\)</span> is.</p>
 </div>
 <div class="section" id="persistent-simplicial-co-homology">
-<span id="id13"></span><h3><a class="toc-backref" href="#id51">Persistent simplicial (co)homology:</a><a class="headerlink" href="#persistent-simplicial-co-homology" title="Permalink to this headline">¶</a></h3>
+<span id="id13"></span><h3><a class="toc-backref" href="#id51">Persistent simplicial (co)homology</a><a class="headerlink" href="#persistent-simplicial-co-homology" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\{X(s)\}_{s \in \mathbb R}\)</span> be a set of ordered or directed
 simplicial complexes together with simplicial maps
 <span class="math notranslate nohighlight">\(f_{st} : X(s) \to X(t)\)</span> for each pair <span class="math notranslate nohighlight">\(s \leq t\)</span>, such that</p>
@@ -828,7 +826,7 @@ attention to the cases where it does. Its <em>persistence simplicial
 cohomology with :math:`Bbbk`-coefficients</em> is defined analogously.</p>
 </div>
 <div class="section" id="vietoris-rips-complex-and-vietoris-rips-persistence">
-<span id="id14"></span><h3><a class="toc-backref" href="#id52">Vietoris-Rips complex and Vietoris-Rips persistence:</a><a class="headerlink" href="#vietoris-rips-complex-and-vietoris-rips-persistence" title="Permalink to this headline">¶</a></h3>
+<span id="id14"></span><h3><a class="toc-backref" href="#id52">Vietoris-Rips complex and Vietoris-Rips persistence</a><a class="headerlink" href="#vietoris-rips-complex-and-vietoris-rips-persistence" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\((X, d)\)</span> be a . Define the Vietoris-Rips complex of <span class="math notranslate nohighlight">\(X\)</span>
 as the <span class="math notranslate nohighlight">\(VR_s(X)\)</span> that contains a subset of <span class="math notranslate nohighlight">\(X\)</span> as a simplex
 if all pairwise distances in the subset are less than or equal to
@@ -839,7 +837,7 @@ if all pairwise distances in the subset are less than or equal to
 <span class="math notranslate nohighlight">\(VR_s(X)\)</span>.</p>
 </div>
 <div class="section" id="cech-complex-and-cech-persistence">
-<span id="id15"></span><h3><a class="toc-backref" href="#id53">Čech complex and Čech persistence:</a><a class="headerlink" href="#cech-complex-and-cech-persistence" title="Permalink to this headline">¶</a></h3>
+<span id="id15"></span><h3><a class="toc-backref" href="#id53">Čech complex and Čech persistence</a><a class="headerlink" href="#cech-complex-and-cech-persistence" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\((X, d)\)</span> be a . Define the Čech complex of <span class="math notranslate nohighlight">\(X\)</span> as the
 <span class="math notranslate nohighlight">\(\check{C}_s(X)\)</span> that is empty if <span class="math notranslate nohighlight">\(s&lt;0\)</span> and, if
 <span class="math notranslate nohighlight">\(s \geq 0\)</span>, contains a subset of <span class="math notranslate nohighlight">\(X\)</span> as a simplex if the
@@ -851,7 +849,7 @@ intersection, explicitly</p>
 <span class="math notranslate nohighlight">\(\check{C}_s(X)\)</span>.</p>
 </div>
 <div class="section" id="multiset">
-<h3><a class="toc-backref" href="#id54">Multiset:</a><a class="headerlink" href="#multiset" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id54">Multiset</a><a class="headerlink" href="#multiset" title="Permalink to this headline">¶</a></h3>
 <p>A <em>multiset</em> is a pair <span class="math notranslate nohighlight">\((S, \phi)\)</span> where <span class="math notranslate nohighlight">\(S\)</span> is a set and
 <span class="math notranslate nohighlight">\(\phi : S \to \mathbb N \cup \{+\infty\}\)</span> is a function attaining
 positive values. For <span class="math notranslate nohighlight">\(s \in S\)</span> we refer to <span class="math notranslate nohighlight">\(\phi(s)\)</span> as its
@@ -867,7 +865,7 @@ positive values. For <span class="math notranslate nohighlight">\(s \in S\)</spa
     \end{cases}\end{split}\]</div>
 </div>
 <div class="section" id="persistence-diagram">
-<span id="id16"></span><h3><a class="toc-backref" href="#id55">Persistence diagram:</a><a class="headerlink" href="#persistence-diagram" title="Permalink to this headline">¶</a></h3>
+<span id="id16"></span><h3><a class="toc-backref" href="#id55">Persistence diagram</a><a class="headerlink" href="#persistence-diagram" title="Permalink to this headline">¶</a></h3>
 <p>A <em>persistence diagram</em> is a of points in</p>
 <div class="math notranslate nohighlight">
 \[\mathbb R \times \big( \mathbb{R} \cup \{+\infty\} \big).\]</div>
@@ -880,12 +878,12 @@ two persistence module if and only if their persistence diagrams are
 equal.</p>
 </div>
 <div class="section" id="wasserstein-and-bottleneck-distance">
-<span id="id17"></span><h3><a class="toc-backref" href="#id56">Wasserstein and bottleneck distance:</a><a class="headerlink" href="#wasserstein-and-bottleneck-distance" title="Permalink to this headline">¶</a></h3>
+<span id="id17"></span><h3><a class="toc-backref" href="#id56">Wasserstein and bottleneck distance</a><a class="headerlink" href="#wasserstein-and-bottleneck-distance" title="Permalink to this headline">¶</a></h3>
 <p>The <em>:math:`p`-Wasserstein distance</em> between two persistence diagrams
 <span class="math notranslate nohighlight">\(D_1\)</span> and <span class="math notranslate nohighlight">\(D_2\)</span> is the infimum over all bijections
 <span class="math notranslate nohighlight">\(\gamma: D_1 \cup \Delta \to D_2 \cup \Delta\)</span> of</p>
 <div class="math notranslate nohighlight">
-\[\sum_{x \in D_1 \cup \Delta} \Big(||x - \gamma(x)||_\infty^p \Big)^{1/p}\]</div>
+\[\Big(\sum_{x \in D_1 \cup \Delta} ||x - \gamma(x)||_\infty^p \Big)^{1/p}\]</div>
 <p>where <span class="math notranslate nohighlight">\(||-||_\infty\)</span> is defined for <span class="math notranslate nohighlight">\((x,y) \in \mathbb R^2\)</span>
 by <span class="math notranslate nohighlight">\(\max\{|x|, |y|\}\)</span>.</p>
 <p>The limit <span class="math notranslate nohighlight">\(p \to \infty\)</span> defines the <em>bottleneck distance</em>. More
@@ -899,7 +897,7 @@ value</p>
 </div>
 </div>
 <div class="section" id="persistence-landscape">
-<span id="id19"></span><h3><a class="toc-backref" href="#id57">Persistence landscape:</a><a class="headerlink" href="#persistence-landscape" title="Permalink to this headline">¶</a></h3>
+<span id="id19"></span><h3><a class="toc-backref" href="#id57">Persistence landscape</a><a class="headerlink" href="#persistence-landscape" title="Permalink to this headline">¶</a></h3>
 <p>A <em>persistence landscape</em> is a continuous function</p>
 <div class="math notranslate nohighlight">
 \[\lambda : \mathbb N \times \mathbb R \to \mathbb R \cup \{+\infty\}\]</div>
@@ -922,7 +920,7 @@ degrees clockwise, and rescaling by <span class="math notranslate nohighlight">\
 </div>
 </div>
 <div class="section" id="persistence-landscape-norm">
-<span id="id21"></span><h3><a class="toc-backref" href="#id58">Persistence landscape norm:</a><a class="headerlink" href="#persistence-landscape-norm" title="Permalink to this headline">¶</a></h3>
+<span id="id21"></span><h3><a class="toc-backref" href="#id58">Persistence landscape norm</a><a class="headerlink" href="#persistence-landscape-norm" title="Permalink to this headline">¶</a></h3>
 <p>Given a function
 <span class="math notranslate nohighlight">\(f : \mathbb R \to \overline{\mathbb R} = [-\infty, +\infty]\)</span>
 define</p>
@@ -941,7 +939,7 @@ defined to be</p>
 </div>
 </div>
 <div class="section" id="weighted-silhouette">
-<span id="weighted-silhouettes"></span><h3><a class="toc-backref" href="#id59">Weighted silhouette:</a><a class="headerlink" href="#weighted-silhouette" title="Permalink to this headline">¶</a></h3>
+<span id="weighted-silhouettes"></span><h3><a class="toc-backref" href="#id59">Weighted silhouette</a><a class="headerlink" href="#weighted-silhouette" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(D = {(b_i, d_i)}_{i \in I}\)</span> be a . A <em>weighted silhouette</em>
 associated to <span class="math notranslate nohighlight">\(D\)</span> is a continuous function
 <span class="math notranslate nohighlight">\(\phi : \mathbb R \to \mathbb R\)</span> of the form</p>
@@ -960,14 +958,14 @@ referred to as <em>power-weighted silhouettes</em>.</p>
 </div>
 </div>
 <div class="section" id="amplitude">
-<h3><a class="toc-backref" href="#id60">Amplitude:</a><a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id60">Amplitude</a><a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h3>
 <p>Given a function assigning a real number to a pair of persistence
 diagrams, we define the <em>amplitude</em> of a persistence diagram <span class="math notranslate nohighlight">\(D\)</span>
 to be the value assigned to the pair <span class="math notranslate nohighlight">\((D \cup \Delta, \Delta)\)</span>.
 Important examples of such functions are: and .</p>
 </div>
 <div class="section" id="persistence-entropy">
-<span id="id23"></span><h3><a class="toc-backref" href="#id61">Persistence entropy:</a><a class="headerlink" href="#persistence-entropy" title="Permalink to this headline">¶</a></h3>
+<span id="id23"></span><h3><a class="toc-backref" href="#id61">Persistence entropy</a><a class="headerlink" href="#persistence-entropy" title="Permalink to this headline">¶</a></h3>
 <p>Intuitively, this is a measure of the entropy of the points in a .
 Precisely, let <span class="math notranslate nohighlight">\(D = \{(b_i, d_i)\}_{i \in I}\)</span> be a persistence
 diagram with each <span class="math notranslate nohighlight">\(d_i &lt; +\infty\)</span>. The <em>persistence entropy</em> of
@@ -983,7 +981,7 @@ diagram with each <span class="math notranslate nohighlight">\(d_i &lt; +\infty\
 </div>
 </div>
 <div class="section" id="betti-curve">
-<span id="id25"></span><h3><a class="toc-backref" href="#id62">Betti curve:</a><a class="headerlink" href="#betti-curve" title="Permalink to this headline">¶</a></h3>
+<span id="id25"></span><h3><a class="toc-backref" href="#id62">Betti curve</a><a class="headerlink" href="#betti-curve" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(D\)</span> be a . Its <em>Betti curve</em> is the function
 <span class="math notranslate nohighlight">\(\beta_D : \mathbb R \to \mathbb N\)</span> whose value on
 <span class="math notranslate nohighlight">\(s \in \mathbb R\)</span> is the number, counted with multiplicity, of
@@ -992,7 +990,7 @@ points <span class="math notranslate nohighlight">\((b_i,d_i)\)</span> in <span 
 from persistent homology.</p>
 </div>
 <div class="section" id="metric-space">
-<span id="id26"></span><h3><a class="toc-backref" href="#id63">Metric space:</a><a class="headerlink" href="#metric-space" title="Permalink to this headline">¶</a></h3>
+<span id="id26"></span><h3><a class="toc-backref" href="#id63">Metric space</a><a class="headerlink" href="#metric-space" title="Permalink to this headline">¶</a></h3>
 <p>A pair <span class="math notranslate nohighlight">\((X, d)\)</span> where <span class="math notranslate nohighlight">\(X\)</span> is a set and <span class="math notranslate nohighlight">\(d\)</span> is a
 function</p>
 <div class="math notranslate nohighlight">
@@ -1009,7 +1007,7 @@ value <span class="math notranslate nohighlight">\(d(x,y)\)</span> is called the
 <span class="math notranslate nohighlight">\(y\)</span>.</p>
 </div>
 <div class="section" id="euclidean-distance-and-norm">
-<span id="id27"></span><h3><a class="toc-backref" href="#id64">Euclidean distance and norm:</a><a class="headerlink" href="#euclidean-distance-and-norm" title="Permalink to this headline">¶</a></h3>
+<span id="id27"></span><h3><a class="toc-backref" href="#id64">Euclidean distance and norm</a><a class="headerlink" href="#euclidean-distance-and-norm" title="Permalink to this headline">¶</a></h3>
 <p>The set <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> defines a metric space with euclidean
 distance</p>
 <div class="math notranslate nohighlight">
@@ -1018,7 +1016,7 @@ distance</p>
 to the <span class="math notranslate nohighlight">\(0\)</span> vector.</p>
 </div>
 <div class="section" id="finite-metric-spaces-and-point-clouds">
-<span id="id28"></span><h3><a class="toc-backref" href="#id65">Finite metric spaces and point clouds:</a><a class="headerlink" href="#finite-metric-spaces-and-point-clouds" title="Permalink to this headline">¶</a></h3>
+<span id="id28"></span><h3><a class="toc-backref" href="#id65">Finite metric spaces and point clouds</a><a class="headerlink" href="#finite-metric-spaces-and-point-clouds" title="Permalink to this headline">¶</a></h3>
 <p>A <em>finite metric space</em> is a finite set together with a . A <em>distance
 matrix</em> associated to a finite metric space is obtained by choosing a
 total order on the finite set and setting the <span class="math notranslate nohighlight">\((i,j)\)</span>-entry to be
@@ -1031,7 +1029,7 @@ elements.</p>
 <div class="section" id="time-series">
 <h2><a class="toc-backref" href="#id66">Time series</a><a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id29">
-<span id="id30"></span><h3><a class="toc-backref" href="#id67">Time series:</a><a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<span id="id30"></span><h3><a class="toc-backref" href="#id67">Time series</a><a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
 <p>A <em>time series</em> is a sequence <span class="math notranslate nohighlight">\(\{y_i\}_{i = 0}^n\)</span> of real numbers.</p>
 <p>A common construction of a times series <span class="math notranslate nohighlight">\(\{x_i\}_{i = 0}^n\)</span> is
 given by choosing <span class="math notranslate nohighlight">\(x_0\)</span> arbitrarily as well as a step parameter
@@ -1055,7 +1053,7 @@ then</p>
 <p>for an arbitrarily chosen <span class="math notranslate nohighlight">\(m \in M\)</span>.</p>
 </div>
 <div class="section" id="takens-embedding">
-<span id="id31"></span><h3><a class="toc-backref" href="#id68">Takens embedding:</a><a class="headerlink" href="#takens-embedding" title="Permalink to this headline">¶</a></h3>
+<span id="id31"></span><h3><a class="toc-backref" href="#id68">Takens embedding</a><a class="headerlink" href="#takens-embedding" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(M \subset \mathbb R^d\)</span> be a of dimension <span class="math notranslate nohighlight">\(n\)</span>. Let</p>
 <div class="math notranslate nohighlight">
 \[\varphi : \mathbb R \times M \to M\]</div>
@@ -1078,7 +1076,7 @@ then</p>
 </div>
 </div>
 <div class="section" id="manifold">
-<h3><a class="toc-backref" href="#id69">Manifold:</a><a class="headerlink" href="#manifold" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id69">Manifold</a><a class="headerlink" href="#manifold" title="Permalink to this headline">¶</a></h3>
 <p>Intuitively, a manifold of dimension <span class="math notranslate nohighlight">\(n\)</span> is a space locally
 equivalent to <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. Formally, a subset <span class="math notranslate nohighlight">\(M\)</span> of
 <span class="math notranslate nohighlight">\(\mathbb R^d\)</span> is an <span class="math notranslate nohighlight">\(n\)</span>-dimensional manifold if for each
@@ -1093,7 +1091,7 @@ with smooth inverse</p>
 </div>
 </div>
 <div class="section" id="compact-subset">
-<span id="id34"></span><h3><a class="toc-backref" href="#id70">Compact subset:</a><a class="headerlink" href="#compact-subset" title="Permalink to this headline">¶</a></h3>
+<span id="id34"></span><h3><a class="toc-backref" href="#id70">Compact subset</a><a class="headerlink" href="#compact-subset" title="Permalink to this headline">¶</a></h3>
 <p>A subset <span class="math notranslate nohighlight">\(K\)</span> of a metric space <span class="math notranslate nohighlight">\((X,d)\)</span> is said to be
 <em>bounded</em> if there exist a real number <span class="math notranslate nohighlight">\(D\)</span> such that for each pair
 of elements in <span class="math notranslate nohighlight">\(K\)</span> the distance between them is less than
@@ -1207,7 +1205,11 @@ Turbulence.” In <em>Dynamical Systems and Turbulence, Warwick 1980</em>,
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:../-->
-<dd><a href="../../stable/library.html">stable</a></dd><dd><a href="../../0.1.4/library.html">0.1.4</a></dd><dd><a href="../../stables/library.html">stables</a></dd><dd><a href="../../nightly/library.html">nightly</a></dd><dd><a href="../../dev/library.html">dev</a></dd>
+      
+      <dd><a href="../../nightly/index.html">nightly</a></dd>
+      
+      <dd><a href="../../stable/index.html">stable</a></dd>
+      
       <!--end_versions_tag-->
     </dl>
   </div>

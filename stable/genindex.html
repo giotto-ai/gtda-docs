@@ -123,6 +123,7 @@
 <li class="toctree-l4"><a class="reference internal" href="installation.html#pre-built-binaries">Pre-built binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="installation.html#source-code">Source code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="installation.html#id3">Source code</a></li>
@@ -167,7 +168,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/diagrams.html#preprocessing">Preprocessing</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html">ForgetDimension</a></li>
@@ -238,6 +245,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>: Base</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.base.TransformerResamplerMixin.html">TransformerResamplerMixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.base.PlotterMixin.html">PlotterMixin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>: Pipeline</a><ul>
@@ -245,7 +253,12 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/meta_transformers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/meta_transformers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.meta_transformers</span></code>: Convenience pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html">EntropyGenerator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html">BettiCurveGenerator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html">LandscapeGenerator</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_diagram.html">check_diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
@@ -288,7 +301,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="theory/glossary.html">Glossary</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="theory/glossary.html">Theory Glossary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="theory/glossary.html#symbols">Symbols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="theory/glossary.html#homology">Homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cubical-complex">Cubical complex</a><ul>
@@ -296,60 +309,60 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#simplicial-complex">Simplicial complex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#abstract-simplicial-complex">Abstract simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#ordered-simplicial-complex">Ordered simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#directed-simplicial-complex">Directed simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#clique-or-flag-complexes">Clique or flag complexes:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#chain-complex">Chain complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#homology-and-cohomology">Homology and cohomology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cubical-chains-and-cubical-homology">Cubical chains and cubical homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#filtered-complex">Filtered complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-module">Persistence module:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#multiset">Multiset:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#abstract-simplicial-complex">Abstract simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#ordered-simplicial-complex">Ordered simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#directed-simplicial-complex">Directed simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#clique-or-flag-complexes">Clique or flag complexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#chain-complex">Chain complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#homology-and-cohomology">Homology and cohomology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cubical-chains-and-cubical-homology">Cubical chains and cubical homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#filtered-complex">Filtered complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cellwise-filtration">Cellwise filtration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-module">Persistence module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#multiset">Multiset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#reference-1">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-landscape">Persistence landscape:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-landscape">Persistence landscape</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#reference-2">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-landscape-norm">Persistence landscape norm:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-landscape-norm">Persistence landscape norm</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#references">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#weighted-silhouette">Weighted silhouette:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#weighted-silhouette">Weighted silhouette</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#references-1">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#amplitude">Amplitude:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-entropy">Persistence entropy:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#amplitude">Amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-entropy">Persistence entropy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#references-2">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#betti-curve">Betti curve:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#metric-space">Metric space:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#euclidean-distance-and-norm">Euclidean distance and norm:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#betti-curve">Betti curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#metric-space">Metric space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#euclidean-distance-and-norm">Euclidean distance and norm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="theory/glossary.html#time-series">Time series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#id29">Time series:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#takens-embedding">Takens embedding:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#id29">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#takens-embedding">Takens embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#reference-3">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#manifold">Manifold:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#manifold">Manifold</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#references-3">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#compact-subset">Compact subset:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#compact-subset">Compact subset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="theory/glossary.html#bibliography">Bibliography</a></li>
@@ -357,10 +370,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing/index.html">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing/index.html#guidelines">Guidelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#pull-request-checklist">Pull Request Checklist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#how-to-become-a-contributor-and-submit-your-own-code">How to become a contributor and submit your own code</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#contributor-license-agreements">Contributor License Agreements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#contributing-code">Contributing code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#essentials-for-contributing">Essentials for contributing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#contributor-license-agreement">Contributor License Agreement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#pull-requests">Pull requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#issues">Issues</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="contributing/index.html#contribution-guidelines-and-standards">Contribution guidelines and standards</a><ul>
@@ -369,15 +382,6 @@
 <li class="toctree-l4"><a class="reference internal" href="contributing/index.html#python-coding-style">Python coding style</a></li>
 <li class="toctree-l4"><a class="reference internal" href="contributing/index.html#git-pre-commit-hook">Git pre-commit hook</a></li>
 <li class="toctree-l4"><a class="reference internal" href="contributing/index.html#running-unit-tests">Running unit tests</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="contributing/index.html#documentation">Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#description-of-the-infrastructure">Description of the infrastructure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#how-to-build">How to build</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#basic-instructions">Basic instructions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#step-by-step-instructions">Step-by-step instructions</a></li>
 </ul>
 </li>
 </ul>
@@ -426,10 +430,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-cite">How to cite?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#i-am-a-researcher-can-i-use-the-giotto-tda-in-my-project">I am a researcher. Can I use the giotto-tda in my project?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#i-cannot-install-giotto-tda-on-windows">I cannot install <cite>giotto-tda</cite> on Windows.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA-libraries available. How is <cite>giotto-tda</cite> different?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#i-am-a-researcher-can-i-use-giotto-tda-in-my-project">I am a researcher. Can I use giotto-tda in my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#i-cannot-install-giotto-tda">I cannot install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA libraries available. How is <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> different?</a></li>
 </ul>
 </li>
 </ul>
@@ -525,9 +528,11 @@
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/generated/base/gtda.base.TransformerResamplerMixin.html#gtda.base.TransformerResamplerMixin.__init__">__init__() (gtda.base.TransformerResamplerMixin method)</a>
+      <li><a href="modules/generated/base/gtda.base.PlotterMixin.html#gtda.base.PlotterMixin.__init__">__init__() (gtda.base.PlotterMixin method)</a>
 
       <ul>
+        <li><a href="modules/generated/base/gtda.base.TransformerResamplerMixin.html#gtda.base.TransformerResamplerMixin.__init__">(gtda.base.TransformerResamplerMixin method)</a>
+</li>
         <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.__init__">(gtda.diagrams.Amplitude method)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.__init__">(gtda.diagrams.BettiCurve method)</a>
@@ -555,6 +560,14 @@
         <li><a href="modules/generated/graphs/creation/gtda.graphs.KNeighborsGraph.html#gtda.graphs.KNeighborsGraph.__init__">(gtda.graphs.KNeighborsGraph method)</a>
 </li>
         <li><a href="modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.__init__">(gtda.graphs.TransitionGraph method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.__init__">(gtda.homology.CubicalPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence.__init__">(gtda.homology.EuclideanCechPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence.__init__">(gtda.homology.SparseRipsPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.__init__">(gtda.homology.VietorisRipsPersistence method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.__init__">(gtda.images.Binarizer method)</a>
 </li>
@@ -589,6 +602,12 @@
         <li><a href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline.__init__">(gtda.mapper.pipeline.MapperPipeline method)</a>
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.__init__">(gtda.mapper.Projection method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator.__init__">(gtda.meta_transformers.BettiCurveGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator.__init__">(gtda.meta_transformers.EntropyGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator.__init__">(gtda.meta_transformers.LandscapeGenerator method)</a>
 </li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.__init__">(gtda.pipeline.Pipeline method)</a>
 </li>
@@ -629,6 +648,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator">BettiCurveGenerator (class in gtda.meta_transformers)</a>
+</li>
       <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer">Binarizer (class in gtda.images)</a>
 </li>
   </ul></td>
@@ -654,6 +675,8 @@
       <li><a href="modules/generated/gtda.point_clouds.ConsistentRescaling.html#gtda.point_clouds.ConsistentRescaling">ConsistentRescaling (class in gtda.point_clouds)</a>
 </li>
       <li><a href="modules/generated/mapper/covers/gtda.mapper.CubicalCover.html#gtda.mapper.CubicalCover">CubicalCover (class in gtda.mapper)</a>
+</li>
+      <li><a href="modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence">CubicalPersistence (class in gtda.homology)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -711,7 +734,11 @@
 </li>
       <li><a href="modules/generated/mapper/filters/gtda.mapper.Entropy.html#gtda.mapper.Entropy">Entropy (class in gtda.mapper)</a>
 </li>
+      <li><a href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator">EntropyGenerator (class in gtda.meta_transformers)</a>
+</li>
       <li><a href="modules/generated/images/gtda.images.ErosionFiltration.html#gtda.images.ErosionFiltration">ErosionFiltration (class in gtda.images)</a>
+</li>
+      <li><a href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence">EuclideanCechPersistence (class in gtda.homology)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -754,6 +781,14 @@
 </li>
         <li><a href="modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.fit">(gtda.graphs.TransitionGraph method)</a>
 </li>
+        <li><a href="modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.fit">(gtda.homology.CubicalPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence.fit">(gtda.homology.EuclideanCechPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence.fit">(gtda.homology.SparseRipsPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.fit">(gtda.homology.VietorisRipsPersistence method)</a>
+</li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.fit">(gtda.images.Binarizer method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.fit">(gtda.images.DilationFiltration method)</a>
@@ -788,6 +823,12 @@
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.fit">(gtda.mapper.Projection method)</a>
 </li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator.fit">(gtda.meta_transformers.BettiCurveGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator.fit">(gtda.meta_transformers.EntropyGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator.fit">(gtda.meta_transformers.LandscapeGenerator method)</a>
+</li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.fit">(gtda.pipeline.Pipeline method)</a>
 </li>
         <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling.fit">(gtda.point_clouds.ConsecutiveRescaling method)</a>
@@ -819,8 +860,6 @@
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.fit_predict">(gtda.pipeline.Pipeline method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/base/gtda.base.TransformerResamplerMixin.html#gtda.base.TransformerResamplerMixin.fit_transform">fit_transform() (gtda.base.TransformerResamplerMixin method)</a>
 
       <ul>
@@ -852,6 +891,14 @@
 </li>
         <li><a href="modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.fit_transform">(gtda.graphs.TransitionGraph method)</a>
 </li>
+        <li><a href="modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.fit_transform">(gtda.homology.CubicalPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence.fit_transform">(gtda.homology.EuclideanCechPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence.fit_transform">(gtda.homology.SparseRipsPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.fit_transform">(gtda.homology.VietorisRipsPersistence method)</a>
+</li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.fit_transform">(gtda.images.Binarizer method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.fit_transform">(gtda.images.DilationFiltration method)</a>
@@ -882,6 +929,12 @@
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.fit_transform">(gtda.mapper.Projection method)</a>
 </li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator.fit_transform">(gtda.meta_transformers.BettiCurveGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator.fit_transform">(gtda.meta_transformers.EntropyGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator.fit_transform">(gtda.meta_transformers.LandscapeGenerator method)</a>
+</li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.fit_transform">(gtda.pipeline.Pipeline method)</a>
 </li>
         <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling.fit_transform">(gtda.point_clouds.ConsecutiveRescaling method)</a>
@@ -901,6 +954,14 @@
         <li><a href="modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html#gtda.time_series.Stationarizer.fit_transform">(gtda.time_series.Stationarizer method)</a>
 </li>
         <li><a href="modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding.fit_transform">(gtda.time_series.TakensEmbedding method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/base/gtda.base.PlotterMixin.html#gtda.base.PlotterMixin.fit_transform_plot">fit_transform_plot() (gtda.base.PlotterMixin method)</a>
+
+      <ul>
+        <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.fit_transform_plot">(gtda.homology.VietorisRipsPersistence method)</a>
 </li>
       </ul></li>
       <li><a href="modules/generated/base/gtda.base.TransformerResamplerMixin.html#gtda.base.TransformerResamplerMixin.fit_transform_resample">fit_transform_resample() (gtda.base.TransformerResamplerMixin method)</a>
@@ -960,6 +1021,14 @@
 </li>
         <li><a href="modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.get_params">(gtda.graphs.TransitionGraph method)</a>
 </li>
+        <li><a href="modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.get_params">(gtda.homology.CubicalPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence.get_params">(gtda.homology.EuclideanCechPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence.get_params">(gtda.homology.SparseRipsPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.get_params">(gtda.homology.VietorisRipsPersistence method)</a>
+</li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.get_params">(gtda.images.Binarizer method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.get_params">(gtda.images.DilationFiltration method)</a>
@@ -994,6 +1063,12 @@
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.get_params">(gtda.mapper.Projection method)</a>
 </li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator.get_params">(gtda.meta_transformers.BettiCurveGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator.get_params">(gtda.meta_transformers.EntropyGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator.get_params">(gtda.meta_transformers.LandscapeGenerator method)</a>
+</li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.get_params">(gtda.pipeline.Pipeline method)</a>
 </li>
         <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling.get_params">(gtda.point_clouds.ConsecutiveRescaling method)</a>
@@ -1025,9 +1100,13 @@
 </li>
       <li><a href="modules/graphs.html#module-gtda.graphs">gtda.graphs (module)</a>
 </li>
+      <li><a href="modules/homology.html#module-gtda.homology">gtda.homology (module)</a>
+</li>
       <li><a href="modules/images.html#module-gtda.images">gtda.images (module)</a>
 </li>
       <li><a href="modules/mapper.html#module-gtda.mapper">gtda.mapper (module)</a>
+</li>
+      <li><a href="modules/meta_transformers.html#module-gtda.meta_transformers">gtda.meta_transformers (module)</a>
 </li>
       <li><a href="modules/pipeline.html#module-gtda.pipeline">gtda.pipeline (module)</a>
 </li>
@@ -1077,6 +1156,18 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/images/gtda.images.ImageToPointCloud.html#gtda.images.ImageToPointCloud">ImageToPointCloud (class in gtda.images)</a>
 </li>
+      <li><a href="modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.infinity_values_">infinity_values_ (gtda.homology.CubicalPersistence attribute)</a>
+
+      <ul>
+        <li><a href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence.infinity_values_">(gtda.homology.EuclideanCechPersistence attribute)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence.infinity_values_">(gtda.homology.SparseRipsPersistence attribute)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.infinity_values_">(gtda.homology.VietorisRipsPersistence attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler.inverse_transform">inverse_transform() (gtda.diagrams.Scaler method)</a>
 
       <ul>
@@ -1085,8 +1176,6 @@
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.inverse_transform">(gtda.pipeline.Pipeline property)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/images/gtda.images.Inverter.html#gtda.images.Inverter">Inverter (class in gtda.images)</a>
 </li>
   </ul></td>
@@ -1113,6 +1202,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator">LandscapeGenerator (class in gtda.meta_transformers)</a>
+</li>
       <li><a href="modules/generated/mapper/covers/gtda.mapper.OneDimensionalCover.html#gtda.mapper.OneDimensionalCover.left_limits_">left_limits_ (gtda.mapper.OneDimensionalCover attribute)</a>
 </li>
   </ul></td>
@@ -1213,6 +1304,8 @@
 </li>
       <li><a href="modules/generated/time_series/multivariate/gtda.time_series.PearsonDissimilarity.html#gtda.time_series.PearsonDissimilarity">PearsonDissimilarity (class in gtda.time_series)</a>
 </li>
+      <li><a href="modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.periodic_dimensions_">periodic_dimensions_ (gtda.homology.CubicalPersistence attribute)</a>
+</li>
       <li><a href="modules/generated/time_series/dynamical_system/gtda.time_series.PermutationEntropy.html#gtda.time_series.PermutationEntropy">PermutationEntropy (class in gtda.time_series)</a>
 </li>
       <li><a href="modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html#gtda.diagrams.PersistenceEntropy">PersistenceEntropy (class in gtda.diagrams)</a>
@@ -1225,9 +1318,13 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.plot">plot() (gtda.homology.VietorisRipsPersistence method)</a>
+</li>
       <li><a href="modules/generated/mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html#gtda.mapper.visualization.plot_interactive_mapper_graph">plot_interactive_mapper_graph() (in module gtda.mapper.visualization)</a>
 </li>
       <li><a href="modules/generated/mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html#gtda.mapper.visualization.plot_static_mapper_graph">plot_static_mapper_graph() (in module gtda.mapper.visualization)</a>
+</li>
+      <li><a href="modules/generated/base/gtda.base.PlotterMixin.html#gtda.base.PlotterMixin">PlotterMixin (class in gtda.base)</a>
 </li>
       <li><a href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline.predict">predict() (gtda.mapper.pipeline.MapperPipeline method)</a>
 
@@ -1340,6 +1437,14 @@
 </li>
         <li><a href="modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.set_params">(gtda.graphs.TransitionGraph method)</a>
 </li>
+        <li><a href="modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.set_params">(gtda.homology.CubicalPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence.set_params">(gtda.homology.EuclideanCechPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence.set_params">(gtda.homology.SparseRipsPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.set_params">(gtda.homology.VietorisRipsPersistence method)</a>
+</li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.set_params">(gtda.images.Binarizer method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.set_params">(gtda.images.DilationFiltration method)</a>
@@ -1374,6 +1479,12 @@
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.set_params">(gtda.mapper.Projection method)</a>
 </li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator.set_params">(gtda.meta_transformers.BettiCurveGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator.set_params">(gtda.meta_transformers.EntropyGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator.set_params">(gtda.meta_transformers.LandscapeGenerator method)</a>
+</li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.set_params">(gtda.pipeline.Pipeline method)</a>
 </li>
         <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling.set_params">(gtda.point_clouds.ConsecutiveRescaling method)</a>
@@ -1402,6 +1513,8 @@
       <li><a href="modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette">Silhouette (class in gtda.diagrams)</a>
 </li>
       <li><a href="modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow">SlidingWindow (class in gtda.time_series)</a>
+</li>
+      <li><a href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence">SparseRipsPersistence (class in gtda.homology)</a>
 </li>
       <li><a href="modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html#gtda.time_series.Stationarizer">Stationarizer (class in gtda.time_series)</a>
 </li>
@@ -1446,6 +1559,14 @@
 </li>
         <li><a href="modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.transform">(gtda.graphs.TransitionGraph method)</a>
 </li>
+        <li><a href="modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.transform">(gtda.homology.CubicalPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence.transform">(gtda.homology.EuclideanCechPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence.transform">(gtda.homology.SparseRipsPersistence method)</a>
+</li>
+        <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.transform">(gtda.homology.VietorisRipsPersistence method)</a>
+</li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.transform">(gtda.images.Binarizer method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.transform">(gtda.images.DilationFiltration method)</a>
@@ -1476,6 +1597,12 @@
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.transform">(gtda.mapper.Projection method)</a>
 </li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.BettiCurveGenerator.html#gtda.meta_transformers.BettiCurveGenerator.transform">(gtda.meta_transformers.BettiCurveGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.EntropyGenerator.html#gtda.meta_transformers.EntropyGenerator.transform">(gtda.meta_transformers.EntropyGenerator method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.meta_transformers.LandscapeGenerator.html#gtda.meta_transformers.LandscapeGenerator.transform">(gtda.meta_transformers.LandscapeGenerator method)</a>
+</li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.transform">(gtda.pipeline.Pipeline property)</a>
 </li>
         <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling.transform">(gtda.point_clouds.ConsecutiveRescaling method)</a>
@@ -1499,6 +1626,12 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/base/gtda.base.PlotterMixin.html#gtda.base.PlotterMixin.transform_plot">transform_plot() (gtda.base.PlotterMixin method)</a>
+
+      <ul>
+        <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.transform_plot">(gtda.homology.VietorisRipsPersistence method)</a>
+</li>
+      </ul></li>
       <li><a href="modules/generated/base/gtda.base.TransformerResamplerMixin.html#gtda.base.TransformerResamplerMixin.transform_resample">transform_resample() (gtda.base.TransformerResamplerMixin method)</a>
 
       <ul>
@@ -1528,6 +1661,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/utils/gtda.utils.validate_params.html#gtda.utils.validate_params">validate_params() (in module gtda.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence">VietorisRipsPersistence (class in gtda.homology)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1581,17 +1718,7 @@
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:./-->
-      
-      <dd><a href="./../dev/index.html">dev</a></dd>
-      
-      <dd><a href="./../nightly/index.html">nightly</a></dd>
-      
-      <dd><a href="./../0.1.4/index.html">0.1.4</a></dd>
-      
-      <dd><a href="./../stables/index.html">stables</a></dd>
-      
-      <dd><a href="./../stable/index.html">stable</a></dd>
-      
+<dd><a href="./../stable/library.html">stable</a></dd><dd><a href="./../nightly/library.html">nightly</a></dd>
       <!--end_versions_tag-->
     </dl>
   </div>

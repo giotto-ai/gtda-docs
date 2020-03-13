@@ -118,8 +118,15 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html#developer-installation">Developer installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="installation.html#linux">Linux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation.html#macos">macOS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation.html#windows">Windows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation.html#source-code">Source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#windows">Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#id2">Boost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#pre-built-binaries">Pre-built binaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#source-code">Source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#id3">Source code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation.html#to-install">To install:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation.html#testing">Testing</a></li>
 </ul>
@@ -238,6 +245,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>: Base</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.base.TransformerResamplerMixin.html">TransformerResamplerMixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.base.PlotterMixin.html">PlotterMixin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>: Pipeline</a><ul>
@@ -293,7 +301,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="theory/glossary.html">Glossary</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="theory/glossary.html">Theory Glossary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="theory/glossary.html#symbols">Symbols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="theory/glossary.html#homology">Homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cubical-complex">Cubical complex</a><ul>
@@ -301,60 +309,60 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#simplicial-complex">Simplicial complex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#abstract-simplicial-complex">Abstract simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#ordered-simplicial-complex">Ordered simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#directed-simplicial-complex">Directed simplicial complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#clique-or-flag-complexes">Clique or flag complexes:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#chain-complex">Chain complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#homology-and-cohomology">Homology and cohomology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cubical-chains-and-cubical-homology">Cubical chains and cubical homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#filtered-complex">Filtered complex:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cellwise-filtration">Cellwise filtration:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-module">Persistence module:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#multiset">Multiset:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-diagram">Persistence diagram:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#abstract-simplicial-complex">Abstract simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#ordered-simplicial-complex">Ordered simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#directed-simplicial-complex">Directed simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#clique-or-flag-complexes">Clique or flag complexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#chain-complex">Chain complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#homology-and-cohomology">Homology and cohomology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cubical-chains-and-cubical-homology">Cubical chains and cubical homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#filtered-complex">Filtered complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cellwise-filtration">Cellwise filtration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-module">Persistence module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#multiset">Multiset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#reference-1">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-landscape">Persistence landscape:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-landscape">Persistence landscape</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#reference-2">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-landscape-norm">Persistence landscape norm:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-landscape-norm">Persistence landscape norm</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#references">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#weighted-silhouette">Weighted silhouette:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#weighted-silhouette">Weighted silhouette</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#references-1">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#amplitude">Amplitude:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-entropy">Persistence entropy:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#amplitude">Amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#persistence-entropy">Persistence entropy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#references-2">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#betti-curve">Betti curve:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#metric-space">Metric space:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#euclidean-distance-and-norm">Euclidean distance and norm:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#betti-curve">Betti curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#metric-space">Metric space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#euclidean-distance-and-norm">Euclidean distance and norm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="theory/glossary.html#time-series">Time series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#id29">Time series:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#takens-embedding">Takens embedding:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#id29">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#takens-embedding">Takens embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#reference-3">Reference:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#manifold">Manifold:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#manifold">Manifold</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#references-3">References:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#compact-subset">Compact subset:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#compact-subset">Compact subset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="theory/glossary.html#bibliography">Bibliography</a></li>
@@ -362,10 +370,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing/index.html">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing/index.html#guidelines">Guidelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#pull-request-checklist">Pull Request Checklist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#how-to-become-a-contributor-and-submit-your-own-code">How to become a contributor and submit your own code</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#contributor-license-agreements">Contributor License Agreements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#contributing-code">Contributing code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#essentials-for-contributing">Essentials for contributing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#contributor-license-agreement">Contributor License Agreement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#pull-requests">Pull requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#issues">Issues</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="contributing/index.html#contribution-guidelines-and-standards">Contribution guidelines and standards</a><ul>
@@ -374,15 +382,6 @@
 <li class="toctree-l4"><a class="reference internal" href="contributing/index.html#python-coding-style">Python coding style</a></li>
 <li class="toctree-l4"><a class="reference internal" href="contributing/index.html#git-pre-commit-hook">Git pre-commit hook</a></li>
 <li class="toctree-l4"><a class="reference internal" href="contributing/index.html#running-unit-tests">Running unit tests</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="contributing/index.html#documentation">Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#description-of-the-infrastructure">Description of the infrastructure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contributing/index.html#how-to-build">How to build</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#basic-instructions">Basic instructions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="contributing/index.html#step-by-step-instructions">Step-by-step instructions</a></li>
 </ul>
 </li>
 </ul>
@@ -431,10 +430,9 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-cite">How to cite?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#i-am-a-researcher-can-i-use-the-giotto-tda-in-my-project">I am a researcher. Can I use the giotto-tda in my project?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#i-cannot-install-giotto-tda-on-windows">I cannot install <cite>giotto-tda</cite> on Windows.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA-libraries available. How is <cite>giotto-tda</cite> different?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-am-a-researcher-can-i-use-giotto-tda-in-my-project">I am a researcher. Can I use giotto-tda in my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-cannot-install-giotto-tda">I cannot install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA libraries available. How is <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> different?</a></li>
 </ul>
 </li>
 </ul>
@@ -489,7 +487,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/faq.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/faq.rst" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -504,44 +502,26 @@
             
   <div class="section" id="faq">
 <h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="how-to-cite">
-<h2>How to cite?<a class="headerlink" href="#how-to-cite" title="Permalink to this headline">¶</a></h2>
-<p>Cite the paper!</p>
-<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span>@inproceedings<span class="nb">{</span>whatever<span class="nb">_</span>2014,
-     address = <span class="nb">{</span>Moon<span class="nb">}</span>,
-     series = <span class="nb">{{</span>ABC<span class="nb">}</span>&#39;14<span class="nb">}</span>,
-     title = <span class="nb">{</span>A fancy paper<span class="nb">}</span>,
-     isbn = <span class="nb">{</span>978-1-4503-2594-3<span class="nb">}</span>,
-     url = <span class="nb">{</span>https://doi.org/10.123/abs<span class="nb">}</span>,
-     doi = <span class="nb">{</span>123.12345<span class="nb">}</span>,
-     booktitle = <span class="nb">{</span>A fancy book<span class="nb">}</span>,
-     publisher = <span class="nb">{</span>Association for Computing Machinery<span class="nb">}</span>,
-     author = <span class="nb">{</span>Author, Well-Known<span class="nb">}</span>,
-     month = jun,
-     year = <span class="nb">{</span>2014<span class="nb">}</span>,
-     keywords = <span class="nb">{</span>giotto<span class="nb">}</span>,
-     pages = <span class="nb">{</span>-1-4<span class="nb">}</span>
-<span class="nb">}</span>
-</pre></div>
+<div class="section" id="i-am-a-researcher-can-i-use-giotto-tda-in-my-project">
+<h2>I am a researcher. Can I use giotto-tda in my project?<a class="headerlink" href="#i-am-a-researcher-can-i-use-giotto-tda-in-my-project" title="Permalink to this headline">¶</a></h2>
+<p>Of course! The <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/LICENSE">license</a> is very permissive.
+For more information, please contact the <a class="reference external" href="mailto:business&#37;&#52;&#48;l2f&#46;ch">L2F team</a>.</p>
 </div>
-</div>
-<div class="section" id="i-am-a-researcher-can-i-use-the-giotto-tda-in-my-project">
-<h2>I am a researcher. Can I use the giotto-tda in my project?<a class="headerlink" href="#i-am-a-researcher-can-i-use-the-giotto-tda-in-my-project" title="Permalink to this headline">¶</a></h2>
-<p>Of course, the license is very permissive. For more information, please contact the L2F team at
-<a class="reference external" href="mailto:business&#37;&#52;&#48;l2f&#46;ch">business<span>&#64;</span>l2f<span>&#46;</span>ch</a>.</p>
-</div>
-<div class="section" id="i-cannot-install-giotto-tda-on-windows">
-<h2>I cannot install <cite>giotto-tda</cite> on Windows.<a class="headerlink" href="#i-cannot-install-giotto-tda-on-windows" title="Permalink to this headline">¶</a></h2>
-<p>We are trying our best to support a variety of most-used operating systems.
-If you experience any trouble, it is likely that others already have and reported it.
+<div class="section" id="i-cannot-install-giotto-tda">
+<h2>I cannot install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code><a class="headerlink" href="#i-cannot-install-giotto-tda" title="Permalink to this headline">¶</a></h2>
+<p>We are trying our best to support a variety of widely-used operating systems. Please navigate to
+<a class="reference internal" href="installation.html#id1"><span class="std std-ref">Installation</span></a> and review the steps outlined there. Take care of the differences
+between a simple user installation and a more involved developer installation from sources.
+If you still experience issues, it is possible others also have encountered and reported them.
 Please consult the list of <a class="reference external" href="https://github.com/giotto-ai/giotto-tda/issues?q=is%3Aissue">issues</a>,
 including the closed ones, and open a new one in case you did not find help.</p>
 </div>
 <div class="section" id="there-are-many-tda-libraries-available-how-is-giotto-tda-different">
-<h2>There are many TDA-libraries available. How is <cite>giotto-tda</cite> different?<a class="headerlink" href="#there-are-many-tda-libraries-available-how-is-giotto-tda-different" title="Permalink to this headline">¶</a></h2>
-<p>Giotto-tda is oriented towards machine learning (for details, see the <a class="reference internal" href="library.html#guiding-principles"><span class="std std-ref">guiding principles</span></a>).
-This philosophy is in contrast with other reference librairies, like <a class="reference external" href="https://gudhi.inria.fr/doc/latest/index.html">GUDHI</a>,
-which provide more functionality, at the expense of being less adapted to, f.ex. batch processing, or having no unified API.</p>
+<h2>There are many TDA libraries available. How is <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> different?<a class="headerlink" href="#there-are-many-tda-libraries-available-how-is-giotto-tda-different" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Giotto-tda</span></code> is oriented towards machine learning (for details, see the <a class="reference internal" href="library.html#guiding-principles"><span class="std std-ref">guiding principles</span></a>).
+This philosophy is in contrast with other reference libraries, like <a class="reference external" href="https://gudhi.inria.fr/doc/latest/index.html">GUDHI</a>,
+which provide more low-level functionality at the expense of being less adapted to e.g. batch processing, or of
+being tightly integrated with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p>
 </div>
 </div>
 
@@ -592,7 +572,11 @@ which provide more functionality, at the expense of being less adapted to, f.ex.
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:./-->
-<dd><a href="./../stable/library.html">stable</a></dd><dd><a href="./../0.1.4/library.html">0.1.4</a></dd><dd><a href="./../stables/library.html">stables</a></dd><dd><a href="./../nightly/library.html">nightly</a></dd><dd><a href="./../dev/library.html">dev</a></dd>
+      
+      <dd><a href="./../nightly/index.html">nightly</a></dd>
+      
+      <dd><a href="./../stable/index.html">stable</a></dd>
+      
       <!--end_versions_tag-->
     </dl>
   </div>
