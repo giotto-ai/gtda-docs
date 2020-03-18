@@ -87,10 +87,10 @@ case, we refer to their convex closure as a *simplex*, explicitly
 
 .. math:: = \left\{ \sum c_i (v_0 - v_i)\ \big|\ c_1+\dots+c_n = 1,\ c_i \geq 0 \right\}
 
-and to :math:`n` as its *dimension*. The *:math:`i`-th face* of
+and to :math:`n` as its *dimension*. The :math:`i`\ *-th face* of
 :math:`[v_0, \dots, v_n]` is defined by
 
-.. math:: d_i[v_0, \dots, v_n] = [v_0, \dots, \widehat{v}_i, \dots, v_n]
+.. math:: d_i[v_0, \ldots, v_n] = [v_0, \dots, \widehat{v}_i, \dots, v_n]
 
 where :math:`\widehat{v}_i` denotes the absence of :math:`v_i` from the
 set.
@@ -125,10 +125,10 @@ dimension :math:`d` are called :math:`d`-simplices. We abuse terminology
 and refer to the elements of :math:`V` and to their associated
 :math:`0`-simplices both as *vertices*.
 
-The *:math:`k`-skeleton* :math:`X_k` of a simplicial complex :math:`X`
+The :math:`k`\ *-skeleton* :math:`X_k` of a simplicial complex :math:`X`
 is the subcomplex containing all simplices of dimension at most
-:math:`k`. A simplicial complex is said to be *:math:`d`-dimensional* if
-:math:`d` is the smallest integer satisfying :math:`X = X_d`.
+:math:`k`. A simplicial complex is said to be :math:`d`\ *-dimensional*
+if :math:`d` is the smallest integer satisfying :math:`X = X_d`.
 
 A *simplicial map* between simplicial complexes is a function between
 their vertices such that the image of any simplex via the induced map is
@@ -210,8 +210,8 @@ for any :math:`\alpha \in C^*` and :math:`c \in C_*`.
 Homology and cohomology
 -----------------------
 
-Let :math:`(C_*, \partial)` be a . Its *:math:`n`-th homology group* is
-the quotient of the subspace of :math:`n`-cycles by the subspace of
+Let :math:`(C_*, \partial)` be a . Its :math:`n`\ *-th homology group*
+is the quotient of the subspace of :math:`n`-cycles by the subspace of
 :math:`n`-boundaries, that is,
 :math:`H_n(C_*) = \mathrm{ker}(\partial_n)/ \mathrm{im}(\partial_{n+1})`.
 The *homology* of :math:`(C, \partial)` is defined by
@@ -230,13 +230,13 @@ Simplicial chains and simplicial homology
 -----------------------------------------
 
 Let :math:`X` be an ordered or directed simplicial complex. Define its
-*simplicial chain complex with :math:`\Bbbk`-coefficients*
+*simplicial chain complex with* :math:`\Bbbk`\ *-coefficients*
 :math:`C_*(X; \Bbbk)` by
 
 .. math:: C_n(X; \Bbbk) = \Bbbk\{X_n\} \qquad \partial_n(x) = \sum_{i=0}^{n} (-1)^i d_ix
 
-and its *homology and cohomology with :math:`\Bbbk`-coefficients* as the
-of this chain complex. We use the notation :math:`H_*(X; \Bbbk)` and
+and its *homology and cohomology with* :math:`\Bbbk`\ *-coefficients* as
+the of this chain complex. We use the notation :math:`H_*(X; \Bbbk)` and
 :math:`H^*(X; \Bbbk)` for these.
 
 A induces a between the associated simplicial chain complexes and,
@@ -248,13 +248,13 @@ Cubical chains and cubical homology
 -----------------------------------
 
 Let :math:`X` be a cubical complex. Define its *cubical chain complex
-with :math:`\Bbbk`-coefficients* :math:`C_*(X; \Bbbk)` by
+with* :math:`\Bbbk`\ *-coefficients* :math:`C_*(X; \Bbbk)` by
 
 .. math:: C_n(X; \Bbbk) = \Bbbk\{X_n\} \qquad \partial_n x = \sum_{i = 1}^{n} (-1)^{i-1}(d^+_i x - d^-_i x)
 
 where :math:`x = I_1 \times \cdots \times I_N` and :math:`s(i)` is the
 dimension of :math:`I_1 \times \cdots \times I_i`. Its *homology and
-cohomology with :math:`\Bbbk`-coefficients* is the of this chain
+cohomology with* :math:`\Bbbk`\ *-coefficients* is the of this chain
 complex. We use the notation :math:`H_*(X; \Bbbk)` and
 :math:`H^*(X; \Bbbk)` for these.
 
@@ -292,7 +292,7 @@ simplex in :math:`\langle G \rangle` if an only if :math:`\{v_i, v_j\}`
 :math:`v_i, v_j`.
 
 An abstract (resp. directed) simplicial complex :math:`X` is a *clique
-(resp. flag) complex* if :math:`X = \langle G \rangle` for some
+(resp. flag) complex* if :math:`X = \langle G \rangle` for some
 :math:`G`.
 
 Given a function
@@ -317,7 +317,7 @@ and define the :math:`\{\langle G \rangle_{s}\}_{s \in \mathbb R}` by
 .. math:: \langle G \rangle_s = \{\sigma \in \langle G \rangle\ |\ w(\sigma) \leq s\}.
 
 A filtered complex :math:`\{X_s\}_{s \in \mathbb R}` is a *filtered
-clique (resp. flag) complex* if :math:`X_s = \langle G \rangle_s` for
+clique (resp. flag) complex* if :math:`X_s = \langle G \rangle_s` for
 some :math:`(G,w)`.
 
 .. _persistence module:
@@ -350,8 +350,8 @@ simplicial complexes together with simplicial maps
 
 .. math:: r \leq s \leq t\ \quad\text{implies} \quad f_{rt} = f_{st} \circ f_{rs}
 
-for example, a . Its *persistent simplicial homology with
-:math:`\Bbbk`-coefficients* is the persistence module
+for example, a . Its *persistent simplicial homology with*
+:math:`\Bbbk`\ *-coefficients* is the persistence module
 
 .. math:: H_*(X(s); \Bbbk)
 
@@ -360,7 +360,7 @@ with structure maps
 the maps :math:`f_{st.}` In general, the collection constructed this way
 needs not satisfy the tameness condition of a , but we restrict
 attention to the cases where it does. Its *persistence simplicial
-cohomology with :math:`\Bbbk`-coefficients* is defined analogously.
+cohomology with* :math:`\Bbbk`\ *-coefficients* is defined analogously.
 
 .. _vietoris-rips complex and vietoris-rips persistence:
 
@@ -443,7 +443,7 @@ equal.
 Wasserstein and bottleneck distance
 -----------------------------------
 
-The *:math:`p`-Wasserstein distance* between two persistence diagrams
+The :math:`p`\ *-Wasserstein distance* between two persistence diagrams
 :math:`D_1` and :math:`D_2` is the infimum over all bijections
 :math:`\gamma: D_1 \cup \Delta \to D_2 \cup \Delta` of
 
@@ -475,7 +475,7 @@ A *persistence landscape* is a set
 
 .. math:: \lambda : \mathbb R \to \overline{\mathbb R}
 
-where :math:`\lambda_k` is referred to as the *:math:`k`-layer of the
+where :math:`\lambda_k` is referred to as the :math:`k`\ *-layer of the
 persistence landscape*.
 
 Let :math:`\{(b_i, d_i)\}_{i \in I}` be a . Its *associated persistence
@@ -510,7 +510,7 @@ Given a function :math:`f : \mathbb R \to \overline{\mathbb R}` define
 
 whenever the right hand side exists and is finite.
 
-The *:math:`p`-norm* of a
+The :math:`p`\ *-norm* of a
 :math:`\lambda = \{\lambda_k\}_{k \in \mathbb N}` is defined to be
 
 .. math:: ||\lambda||_p = \left( \sum_{i \in \mathbb N} ||\lambda_i||^p_p \right)^{1/p}
@@ -656,8 +656,8 @@ The vector space :math:`\mathbb R^n` is an with inner product
 
 .. math:: \langle x, y \rangle = (x_1-y_1)^2 + \cdots + (x_n-y_n)^2.
 
-The associated norm and distance function are referred to as *euclidean
-norm* and *euclidean distance*.
+The associated norm and distance function are referred to as *Euclidean
+norm* and *Euclidean distance*.
 
 .. _finite metric spaces and point clouds:
 

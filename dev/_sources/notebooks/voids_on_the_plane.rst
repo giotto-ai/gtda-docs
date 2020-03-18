@@ -49,8 +49,8 @@ Import libraries
 
 .. parsed-literal::
 
-    There are 2 persistent homology classes in dimension 2 across all samples!
-    There are 2 different point clouds with at least one persistent homology class in dimension 2.
+    There are 0 persistent homology classes in dimension 2 across all samples!
+    There are 0 different point clouds with at least one persistent homology class in dimension 2.
 
 
 We can now plot the edges which exist when these persistent homology
@@ -65,13 +65,4 @@ remind you of?
                 edge = np.stack([e[0], e[1]])
                 plt.plot(edge[:, 0], edge[:, 1])
         plt.show()
-
-
-
-.. image:: voids_on_the_plane_files/voids_on_the_plane_7_0.png
-
-
-
-.. image:: voids_on_the_plane_files/voids_on_the_plane_7_1.png
-
 

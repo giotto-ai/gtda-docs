@@ -79,7 +79,7 @@ split and score the features.
 
 .. parsed-literal::
 
-    0.98
+    1.0
 
 
 
