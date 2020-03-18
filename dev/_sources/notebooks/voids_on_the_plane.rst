@@ -5,13 +5,12 @@ The classic example of a two-dimensional homology class is the “void”
 surrounded by a sphere in three-dimensional space. Challenge question:
 **Can two-dimensional topological voids arise from point clouds in
 two-dimensional space?** We will answer this question programmatically
-by computing Vietoris-Rips persistence homology of random point clouds
+by computing Vietoris–Rips persistence homology of random point clouds
 in the square :math:`[0, 1] \times [0, 1] \subset \mathbb{R}^2`.
 
-If you are looking at the static version in the documentation, try it
-out on
-`github <https://github.com/giotto-ai/giotto-tda/blob/master/examples/voids_on_the_plane.ipynb>`__
-for full interactivity.
+If you are looking at a static version of this notebook and would like
+to run its contents, head over to
+`github <https://github.com/giotto-ai/giotto-tda/blob/master/examples/voids_on_the_plane.ipynb>`__.
 
 **License: AGPLv3**
 
@@ -28,7 +27,7 @@ Import libraries
 
 .. code:: ipython3
 
-    # Initializing the Vietoris-Rips transformer
+    # Initializing the Vietoris–Rips transformer
     vr = VR(homology_dimensions=(2,), max_edge_length=np.inf)
     n_samples = 15000
     n_points = 6
@@ -50,8 +49,8 @@ Import libraries
 
 .. parsed-literal::
 
-    There are 0 persistent homology classes in dimension 2 across all samples!
-    There are 0 different point clouds with at least one persistent homology class in dimension 2.
+    There are 2 persistent homology classes in dimension 2 across all samples!
+    There are 2 different point clouds with at least one persistent homology class in dimension 2.
 
 
 We can now plot the edges which exist when these persistent homology
@@ -66,4 +65,13 @@ remind you of?
                 edge = np.stack([e[0], e[1]])
                 plt.plot(edge[:, 0], edge[:, 1])
         plt.show()
+
+
+
+.. image:: voids_on_the_plane_files/voids_on_the_plane_7_0.png
+
+
+
+.. image:: voids_on_the_plane_files/voids_on_the_plane_7_1.png
+
 

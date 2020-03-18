@@ -1,13 +1,13 @@
-check_diagram
-============================================
+check_diagrams
+=============================================
 
 .. currentmodule:: gtda.utils
 
-.. autofunction:: check_diagram
+.. autofunction:: check_diagrams
 
 ..
     Exclude sphinx-gallery generated examples since we use binder for now
-    include:: gtda.utils.check_diagram.examples
+    include:: gtda.utils.check_diagrams.examples
 
 .. raw:: html
 

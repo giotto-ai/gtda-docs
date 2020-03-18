@@ -9,23 +9,31 @@ Theory Glossary
 Symbols
 =======
 
-+---------------------+---+------------------------------------------+
-| :math:`\Bbbk`       | : | An arbitrary field.                      |
-+---------------------+---+------------------------------------------+
-| :math:`\mathbb R`   | : | The field of real numbers.               |
-+---------------------+---+------------------------------------------+
-| :math:`\mathbb N`   | : | The counting numbers                     |
-|                     |   | :math:`0,1,2, \ldots` as a subset of     |
-|                     |   | :math:`\mathbb R`.                       |
-+---------------------+---+------------------------------------------+
-| :math:`\mathbb R^d` | : | The vector space of :math:`d`-tuples of  |
-|                     |   | real numbers.                            |
-+---------------------+---+------------------------------------------+
-| :math:`\Delta`      | : | The                                      |
-|                     |   | :math:`\{(s,s)\,;\ s \in \mathbb R\}`    |
-|                     |   | with multiplicity                        |
-|                     |   | :math:`(s,s) \mapsto +\infty`.           |
-+---------------------+---+------------------------------------------+
++------------------------------+---+-------------------------------+
+| :math:`\Bbbk`                | : | An arbitrary field.           |
++------------------------------+---+-------------------------------+
+| :math:`\mathbb R`            | : | The field of real numbers.    |
++------------------------------+---+-------------------------------+
+| :math:`\overline{\mathbb R}` | : | The two point                 |
+|                              |   | compactification              |
+|                              |   | :math:`[-\infty, +\infty]` of |
+|                              |   | the real numbers.             |
++------------------------------+---+-------------------------------+
+| :math:`\mathbb N`            | : | The counting numbers          |
+|                              |   | :math:`0,1,2, \ldots` as a    |
+|                              |   | subset of :math:`\mathbb R`.  |
++------------------------------+---+-------------------------------+
+| :math:`\mathbb R^d`          | : | The vector space of           |
+|                              |   | :math:`d`-tuples of real      |
+|                              |   | numbers.                      |
++------------------------------+---+-------------------------------+
+| :math:`\Delta`               | : | The                           |
+|                              |   | :math:`\                      |
+|                              |   | {(s,s)\,;\ s \in \mathbb R\}` |
+|                              |   | with multiplicity             |
+|                              |   | :                             |
+|                              |   | math:`(s,s) \mapsto +\infty`. |
++------------------------------+---+-------------------------------+
 
 Homology
 ========
@@ -166,27 +174,6 @@ elements in :math:`\bigcup_{n\geq1} V^{\times n}` such that:
 With appropriate modifications the same terminology and notation
 introduced for applies to directed simplicial complex.
 
-.. _clique or flag complexes:
-
-Clique or flag complexes
-------------------------
-
-Let :math:`G` be a :math:`1`-dimensional simplicial complex, abstract or
-otherwise. The complex :math:`\langle G \rangle` has the same set of
-vertices as :math:`G` and :math:`\{v_0, \dots, v_n\}` is a simplex in
-:math:`\langle G \rangle` if an only if :math:`\{v_i, v_j\} \in G` for
-each pair of vertices :math:`v_i, v_j`.
-
-Let :math:`G` be a :math:`1`-dimensional directed simplicial complex.
-The directed simplicial complex :math:`\langle G \rangle` has the same
-set of vertices as :math:`G` and :math:`(v_0, \dots, v_n)` is a simplex
-in :math:`\langle G \rangle` if an only if :math:`(v_i, v_j) \in G` for
-each pair of vertices :math:`v_i, v_j` with :math:`i < j`.
-
-A (directed) simplicial complex :math:`X` is a *clique complex* a.k.a.
-*flag complex* if :math:`X = \langle X_1 \rangle` where :math:`X_1` is
-the :math:`1`-skeleton of :math:`X`.
-
 .. _chain complex:
 
 Chain complex
@@ -285,11 +272,53 @@ of :math:`X_t` for each :math:`s \leq t`.
 Cellwise filtration
 -------------------
 
-A *cellwise filtration* is a complex :math:`X` together with a total
-order :math:`\leq` on its simplices or elementary cubes such that for
-each :math:`y \in X` the set :math:`\{x \in X\ :\ x \leq y\}` is a
-subcomplex of :math:`X`. A cellwise filtration can be naturally thought
-of as a .
+A *cellwise filtration* is a simplicial or cubical complex :math:`X`
+together with a total order :math:`\leq` on its simplices or elementary
+cubes such that for each :math:`y \in X` the set
+:math:`\{x \in X\ :\ x \leq y\}` is a subcomplex of :math:`X`. A
+cellwise filtration can be naturally thought of as a .
+
+.. _clique and flag complexes:
+
+Clique and flag complexes
+-------------------------
+
+Let :math:`G` be a :math:`1`-dimensional abstract (resp. directed)
+simplicial complex. The abstract (resp. directed) simplicial complex
+:math:`\langle G \rangle` has the same set of vertices as :math:`G` and
+:math:`\{v_0, \dots, v_n\}` (resp. :math:`(v_0, \dots, v_n)`) is a
+simplex in :math:`\langle G \rangle` if an only if :math:`\{v_i, v_j\}`
+(resp. :math:`(v_i, v_j)`) is in :math:`G` for each pair of vertices
+:math:`v_i, v_j`.
+
+An abstract (resp. directed) simplicial complex :math:`X` is a *clique
+(resp. flag) complex* if :math:`X = \langle G \rangle` for some
+:math:`G`.
+
+Given a function
+
+.. math:: w : G \to \mathbb R \cup \{\infty\}
+
+consider the extension
+
+.. math:: w : \langle G \rangle \to \mathbb R \cup \{\infty\}
+
+defined respectively by
+
+.. math::
+
+   \begin{aligned}
+       w\{v_0, \dots, v_n\} & = \max\{ w\{v_i, v_j\}\ |\ i \neq j\} \\
+       w(v_0, \dots, v_n) & = \max\{ w(v_i, v_j)\ |\ i < j\}
+       \end{aligned}
+
+and define the :math:`\{\langle G \rangle_{s}\}_{s \in \mathbb R}` by
+
+.. math:: \langle G \rangle_s = \{\sigma \in \langle G \rangle\ |\ w(\sigma) \leq s\}.
+
+A filtered complex :math:`\{X_s\}_{s \in \mathbb R}` is a *filtered
+clique (resp. flag) complex* if :math:`X_s = \langle G \rangle_s` for
+some :math:`(G,w)`.
 
 .. _persistence module:
 
@@ -347,6 +376,14 @@ if all pairwise distances in the subset are less than or equal to
 
 The *Vietoris-Rips persistence* of :math:`(X, d)` is the of
 :math:`VR_s(X)`.
+
+A more general version is obtained by replacing the distance function
+with an arbitrary function
+
+.. math:: w : X \times X \to \mathbb R \cup \{\infty\}
+
+and defining :math:`VR_s(X)` as the associated to
+:math:`(X \times X ,w)`.
 
 .. _cech complex and cech persistence:
 
@@ -433,15 +470,16 @@ Reference:
 Persistence landscape
 ---------------------
 
-A *persistence landscape* is a continuous function
+A *persistence landscape* is a set
+:math:`\{\lambda_k\}_{k \in \mathbb N}` of functions
 
-.. math:: \lambda : \mathbb N \times \mathbb R \to \mathbb R \cup \{+\infty\}
+.. math:: \lambda : \mathbb R \to \overline{\mathbb R}
 
-and the function :math:`\lambda_k(s) = \lambda(k,s)` is refered to as
-the *:math:`k`-layer of the persistence diagram*.
+where :math:`\lambda_k` is referred to as the *:math:`k`-layer of the
+persistence landscape*.
 
-Let :math:`{(b_i, d_i)}{i \in I}` be a . Its *associated persistence
-landscape* :math:`\lambda` is defined by letting :math:`\lambda_k(t)` be
+Let :math:`\{(b_i, d_i)\}_{i \in I}` be a . Its *associated persistence
+landscape* :math:`\lambda` is defined by letting :math:`\lambda_k` be
 the :math:`k`-th largest value of the set
 :math:`\{\Lambda_i(t)\}_ {i \in I}` where
 
@@ -449,10 +487,10 @@ the :math:`k`-th largest value of the set
 
 and :math:`c_+ := \max(c,0)`.
 
-Intuitively, we can describe the graph of this persistence landscape by
-first joining each of the points in the multiset to the diagonal via a
-horizontal as well as a vertical line, then rotating the figure 45
-degrees clockwise, and rescaling by :math:`1/\sqrt{2}`.
+Intuitively, we can describe the set of graphs of a persistence
+landscape by first joining each of the points in the multiset to the
+diagonal via a horizontal as well as a vertical line, then clockwise
+rotating the figure 45 degrees and rescaling it by :math:`1/\sqrt{2}`.
 
 .. _reference-2:
 
@@ -466,17 +504,14 @@ Reference:
 Persistence landscape norm
 --------------------------
 
-Given a function
-:math:`f : \mathbb R \to \overline{\mathbb R} = [-\infty, +\infty]`
-define
+Given a function :math:`f : \mathbb R \to \overline{\mathbb R}` define
 
 .. math:: ||f||_p = \left( \int_{\mathbb R} f^p(x)\, dx \right)^{1/p}
 
 whenever the right hand side exists and is finite.
 
-The *persistence landscape :math:`p`-norm* of a
-:math:`\lambda : \mathbb N \times \mathbb R \to \overline{\mathbb R}` is
-defined to be
+The *:math:`p`-norm* of a
+:math:`\lambda = \{\lambda_k\}_{k \in \mathbb N}` is defined to be
 
 .. math:: ||\lambda||_p = \left( \sum_{i \in \mathbb N} ||\lambda_i||^p_p \right)^{1/p}
 
@@ -505,7 +540,7 @@ where :math:`\{w_i\}_{i \in I}` is a set of positive real numbers and
    \label{equation: lambda for persistence landscapes}
        \Lambda_i(t) = \left[ \min \{t-b_i, d_i-t\}\right]_+
 
-and :math:`c_+ := \max(c,0)`. The particular choice
+with :math:`c_+ := \max(c,0)`. The particular choice
 :math:`w_i = \vert d_i - b_i \vert^p` for :math:`0 < p \leq \infty` is
 referred to as *power-weighted silhouettes*.
 
@@ -560,40 +595,69 @@ points :math:`(b_i,d_i)` in :math:`D` such that :math:`b_i \leq s <d_i`.
 The name is inspired from the case when the persistence diagram comes
 from persistent homology.
 
-.. _metric space:
+.. _metric, inner product and kernel:
 
-Metric space
-------------
+Distances, inner products and kernels
+-------------------------------------
 
-A pair :math:`(X, d)` where :math:`X` is a set and :math:`d` is a
-function
+A set :math:`X` with a function
 
 .. math:: d : X \times X \to \mathbb R
 
-attaining non-negative values is called a *metric space* if
+is called a *metric space* if the values of :math:`d` are all
+non-negative and for all :math:`x,y,z \in X`
 
 .. math:: d(x,y) = 0\ \Leftrightarrow\ x = y
 
 .. math:: d(x,y) = d(y,x)
 
-.. math:: d(x,z) \leq d(x,y) + d(y, z)
+.. math:: d(x,z) \leq d(x,y) + d(y, z).
 
-In this case, the function :math:`d` is refer to as the *metric* and the
-value :math:`d(x,y)` is called the *distance* between :math:`x` and
-:math:`y`.
+In this case the :math:`d` is referred to as the *metric* or the
+*distance function*.
+
+A vector space :math:`V` together with a function
+
+.. math:: \langle -, - \rangle : V \times V \to \mathbb R
+
+is called and *inner product space* if for all :math:`u,v,w \in V`
+
+.. math:: u \neq 0\ \Rightarrow\ \langle u, u \rangle > 0
+
+.. math:: \langle u, v\rangle = \langle v, u\rangle
+
+.. math:: \langle au+v, w \rangle = a\langle u, w \rangle + \langle v, w \rangle.
+
+In this case the function :math:`\langle -, - \rangle` is referred to as
+the *inner product* and the function given by
+
+.. math:: ||u|| = \sqrt{\langle u, u \rangle}
+
+as its associated *norm*. An inner product space is naturally a metric
+space with distance function
+
+.. math:: d(u,v) = ||u-v||.
+
+A *kernel* on a set :math:`X` is a function
+
+.. math:: k : X \times X
+
+for which there exists a function :math:`\phi : X \to V` to an inner
+product space such that
+
+.. math:: k(x, y) = \langle \phi(x), \phi(y) \rangle.
 
 .. _euclidean distance and norm:
 
 Euclidean distance and norm
 ---------------------------
 
-The set :math:`\mathbb R^n` defines a metric space with euclidean
-distance
+The vector space :math:`\mathbb R^n` is an with inner product
 
-.. math:: d(x,y) = \sqrt{(x_1-y_1)^2 + \cdots + (x_n-y_n)^2}.
+.. math:: \langle x, y \rangle = (x_1-y_1)^2 + \cdots + (x_n-y_n)^2.
 
-The norm :math:`||x||` of a vector :math:`x` is defined as its distance
-to the :math:`0` vector.
+The associated norm and distance function are referred to as *euclidean
+norm* and *euclidean distance*.
 
 .. _finite metric spaces and point clouds:
 

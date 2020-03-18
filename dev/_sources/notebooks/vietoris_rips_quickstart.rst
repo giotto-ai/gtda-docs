@@ -1,16 +1,17 @@
-Topological feature extraction using VietorisRips and PersistenceEntropy
-========================================================================
+Topological feature extraction using ``VietorisRipsPersistence`` and ``PersistenceEntropy``
+===========================================================================================
 
 In this notebook, we showcase the ease of use of one of the core
-components of ``giotto-tda``: VietorisRipsPersistence, alongwith
+components of ``giotto-tda``: ``VietorisRipsPersistence``, along with
 vectorisation methods. We first list steps in a typical,
 topological-feature extraction routine and then show to encapsulate them
 with a standard ``scikit-learn``–like pipeline.
 
-If you are looking at the static version in the documentation, try it
-out on
-`github <https://github.com/giotto-ai/giotto-tda/blob/master/examples/vietoris_rips_quickstart.ipynb>`__
-for full interactivity.
+If you are looking at a static version of this notebook and would like
+to run its contents, head over to
+`github <https://github.com/giotto-ai/giotto-tda/blob/master/examples/vietoris_rips_quickstart.ipynb>`__.
+
+**License: AGPLv3**
 
 Import libraries
 ----------------
@@ -21,8 +22,6 @@ Import libraries
     from gtda.homology import VietorisRipsPersistence
     from sklearn.ensemble import RandomForestClassifier
     from sklearn.model_selection import train_test_split
-    
-    from datasets import generate_point_clouds
 
 Generate data
 -------------
@@ -30,16 +29,20 @@ Generate data
 Let’s begin by generating 3D point clouds of spheres and tori, along
 with a label of 0 (1) for each sphere (torus). We also add noise to each
 point cloud, whose effect is to displace the points sampling the
-surfaces by a random amount in a random direction:
+surfaces by a random amount in a random direction. **Note**: You will
+need the auxiliary module
+```datasets.py`` <https://github.com/giotto-ai/giotto-tda/blob/master/examples/datasets.py>`__
+to run this cell.
 
 .. code:: ipython3
 
+    from datasets import generate_point_clouds
     point_clouds, labels = generate_point_clouds(100, 10, 0.1)
 
 Calculate persistent homology
 -----------------------------
 
-Instantiate a VietorisRipsPersistence transformer and calculate
+Instantiate a ``VietorisRipsPersistence`` transformer and calculate
 persistence diagrams for this collection of point clouds.
 
 .. code:: ipython3
@@ -50,8 +53,8 @@ persistence diagrams for this collection of point clouds.
 Extract features
 ----------------
 
-Instantiate a PersistenceEntropy transformer and extract features from
-the persistence diagrams.
+Instantiate a ``PersistenceEntropy`` transformer and extract features
+from the persistence diagrams.
 
 .. code:: ipython3
 
@@ -61,7 +64,7 @@ the persistence diagrams.
 Use the new features in a standard classifier
 ---------------------------------------------
 
-Leverage the compatibility with scikit-learn to perform a train-test
+Leverage the compatibility with ``scikit-learn`` to perform a train-test
 split and score the features.
 
 .. code:: ipython3
@@ -76,7 +79,7 @@ split and score the features.
 
 .. parsed-literal::
 
-    1.0
+    0.98
 
 
 
@@ -92,7 +95,7 @@ Subdivide into train-validation first, and use the pipeline.
 Define the pipeline
 -------------------
 
-Chain transformers from giotto-tda with scikit-learn ones.
+Chain transformers from ``giotto-tda`` with ``scikit-learn`` ones.
 
 .. code:: ipython3
 
@@ -124,7 +127,7 @@ Train and score
 
 .. parsed-literal::
 
-    1.0
+    0.98
 
 
 
