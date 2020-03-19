@@ -85,7 +85,7 @@ A set :math:`\{v_0, \dots, v_n\} \subset \mathbb{R}^N` is said to be
 :math:`\{v_0-v_1, \dots, v_0-v_n\}` are linearly independent. In this
 case, we refer to their convex closure as a *simplex*, explicitly
 
-.. math:: = \left\{ \sum c_i (v_0 - v_i)\ \big|\ c_1+\dots+c_n = 1,\ c_i \geq 0 \right\}
+.. math:: \lbrack v_0, \ldots , v_n \rbrack = \left\{ \sum c_i (v_0 - v_i)\ \big|\ c_1+\dots+c_n = 1,\ c_i \geq 0 \right\}
 
 and to :math:`n` as its *dimension*. The :math:`i`\ *-th face* of
 :math:`[v_0, \dots, v_n]` is defined by
@@ -522,7 +522,7 @@ References:
 
 (Stein and Shakarchi 2011; Bubenik 2015)
 
-.. _weighted silhouettes:
+.. _weighted silhouette:
 
 Weighted silhouette
 -------------------

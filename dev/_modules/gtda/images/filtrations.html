@@ -161,8 +161,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -406,7 +406,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#time-series">Time series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#id30">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#id31">Time series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#takens-embedding">Takens embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference-3">Reference:</a></li>
 </ul>
@@ -581,9 +581,9 @@
 <span class="sd">    The height filtration assigns to each activated pixel of a binary image a</span>
 <span class="sd">    greyscale value equal to the distance between the pixel and the hyperplane</span>
 <span class="sd">    defined by a direction vector and the first seen edge of the image</span>
-<span class="sd">    following that direction. Deactivated pixels are assigned the value of the</span>
-<span class="sd">    maximum distance between any pixel of the image and the hyperplane, plus</span>
-<span class="sd">    one.</span>
+<span class="sd">    following that direction [1]_. Deactivated pixels are assigned the value of</span>
+<span class="sd">    the maximum distance between any pixel of the image and the hyperplane,</span>
+<span class="sd">    plus one.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -605,7 +605,7 @@
 <span class="sd">    n_dimensions_ : ``2`` or ``3``</span>
 <span class="sd">        Dimension of the images. Set in :meth:`fit`.</span>
 
-<span class="sd">    direction_ : ndarray of shape (n_dimensions_,)</span>
+<span class="sd">    direction_ : ndarray of shape (`n_dimensions_`,)</span>
 <span class="sd">        Effective direction of the height filtration. Set in :meth:`fit`.</span>
 
 <span class="sd">    mesh_ : ndarray of shape ( n_pixels_x, n_pixels_y [, n_pixels_z])</span>
@@ -770,8 +770,8 @@
 <span class="sd">    value computed as follows in terms of a reference pixel, called the</span>
 <span class="sd">    &quot;center&quot;, and of a &quot;radius&quot;: if the binary pixel is active and lies</span>
 <span class="sd">    within a ball defined by this center and this radius, then the assigned</span>
-<span class="sd">    value equals this distance. In all other cases, the assigned value equals</span>
-<span class="sd">    the maximum distance between any pixel of the image and the center</span>
+<span class="sd">    value equals this distance [1]_. In all other cases, the assigned value</span>
+<span class="sd">    equals the maximum distance between any pixel of the image and the center</span>
 <span class="sd">    pixel, plus one.</span>
 
 <span class="sd">    Parameters</span>
@@ -814,7 +814,7 @@
 <span class="sd">    n_dimensions_ : ``2`` or ``3``</span>
 <span class="sd">        Dimension of the images. Set in :meth:`fit`.</span>
 
-<span class="sd">    center_ : ndarray of shape (n_dimensions_,)</span>
+<span class="sd">    center_ : ndarray of shape (`n_dimensions_`,)</span>
 <span class="sd">        Effective center of the radial filtration. Set in :meth:`fit`.</span>
 
 <span class="sd">    effective_metric_params_ : dict</span>
@@ -998,7 +998,7 @@
 <span class="sd">    &lt;https://docs.scipy.org/doc/scipy/reference/ndimage.html&gt;`_ module.</span>
 
 <span class="sd">    This filtration assigns to each pixel in an image a greyscale value</span>
-<span class="sd">    calculated as follows. If the minimum Manhattan distance between the</span>
+<span class="sd">    calculated as follows [1]_. If the minimum Manhattan distance between the</span>
 <span class="sd">    pixel and any activated pixel in the image is less than or equal to</span>
 <span class="sd">    the parameter `n_iterations`, the assigned value is this distance –</span>
 <span class="sd">    in particular, activated pixels are assigned a value of 0.</span>
@@ -1171,7 +1171,7 @@
 <span class="sd">    &lt;https://docs.scipy.org/doc/scipy/reference/ndimage.html&gt;`_ module.</span>
 
 <span class="sd">    This filtration assigns to each pixel in an image a greyscale value</span>
-<span class="sd">    calculated as follows. If the minimum Manhattan distance between the</span>
+<span class="sd">    calculated as follows [1]_. If the minimum Manhattan distance between the</span>
 <span class="sd">    pixel and any deactivated pixel in the image is less than or equal to</span>
 <span class="sd">    the parameter `n_iterations`, the assigned value is this distance –</span>
 <span class="sd">    in particular, deactivated pixels are assigned a value of 0.</span>
@@ -1340,7 +1340,7 @@
 <span class="sd">    of activated regions.</span>
 
 <span class="sd">    This filtration assigns to each pixel in an image a greyscale value</span>
-<span class="sd">    calculated as follows. For activated pixels, if the minimum Manhattan</span>
+<span class="sd">    calculated as follows [1]_. For activated pixels, if the minimum Manhattan</span>
 <span class="sd">    distance between the pixel and any deactivated pixel in the image is less</span>
 <span class="sd">    than or equal to the parameter `n_iterations`, the assigned value is</span>
 <span class="sd">    this distance minus 1. Otherwise, the assigned greyscale value is the sum</span>

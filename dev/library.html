@@ -163,8 +163,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modules/mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/generated/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/generated/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -408,7 +408,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="theory/glossary.html#time-series">Time series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#id30">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#id31">Time series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="theory/glossary.html#takens-embedding">Takens embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="theory/glossary.html#reference-3">Reference:</a></li>
 </ul>
@@ -610,7 +610,7 @@ This allows you to jump in the familiar way of generating features from your dat
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">diagrams</span> <span class="o">=</span> <span class="n">VR</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">point_clouds</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You can create features from the persistence diagrams in a similar way, using, for example, the <span class="xref std std-ref">BettiCurve</span> transformer.</p>
+<p>You can create features from the persistence diagrams in a similar way, using, for example, the <code class="xref py py-class docutils literal notranslate"><span class="pre">BettiCurve</span></code> transformer.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gtda.diagrams</span> <span class="kn">import</span> <span class="n">PersistenceEntropy</span>
 <span class="n">PR</span> <span class="o">=</span> <span class="n">PersistenceEntropy</span><span class="p">()</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">PE</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">diagrams</span><span class="p">)</span>

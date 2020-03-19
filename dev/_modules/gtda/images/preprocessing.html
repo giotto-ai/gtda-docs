@@ -161,8 +161,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -406,7 +406,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#time-series">Time series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#id30">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#id31">Time series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#takens-embedding">Takens embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference-3">Reference:</a></li>
 </ul>
@@ -575,6 +575,8 @@
 <span class="k">class</span> <span class="nc">Binarizer</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Binarize all 2D/3D greyscale images in a collection.</span>
 
+<span class="sd">    Used in [1]_.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    threshold : float, default: 0.5</span>
@@ -724,6 +726,8 @@
 <span class="k">class</span> <span class="nc">Inverter</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Invert all 2D/3D binary images in a collection.</span>
 
+<span class="sd">    Used in [1]_.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
@@ -832,6 +836,8 @@
 <div class="viewcode-block" id="Padder"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.Padder.html#gtda.images.Padder">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">Padder</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Pad all 2D/3D binary images in a collection.</span>
+
+<span class="sd">    Used in [1]_.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -986,12 +992,12 @@
 <span class="k">class</span> <span class="nc">ImageToPointCloud</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Represent active pixels in 2D/3D binary images as points in 2D/3D space.</span>
 
-<span class="sd">    The coordinates of each point is calculated as follows. For each activated</span>
-<span class="sd">    pixel, assign coordinates that are the pixel position on this image. All</span>
-<span class="sd">    deactivated pixels are given infinite coordinates in that space.</span>
-<span class="sd">    This transformer is meant to transform a collection of images to a point</span>
-<span class="sd">    cloud so that collection of point clouds-based persistent homology module</span>
-<span class="sd">    can be applied.</span>
+<span class="sd">    Used in [1]_. The coordinates of each point is calculated as follows.</span>
+<span class="sd">    For each activated pixel, assign coordinates that are the pixel position</span>
+<span class="sd">    on this image. All deactivated pixels are given infinite coordinates in</span>
+<span class="sd">    that space. This transformer is meant to transform a collection of images</span>
+<span class="sd">    to a point cloud so that collection of point clouds-based persistent</span>
+<span class="sd">    homology module can be applied.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
