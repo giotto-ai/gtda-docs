@@ -127,7 +127,7 @@ Train and score
 
 .. parsed-literal::
 
-    0.98
+    1.0
 
 
 

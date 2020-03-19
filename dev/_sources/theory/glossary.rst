@@ -28,8 +28,8 @@ Symbols
 |                              |   | numbers.                      |
 +------------------------------+---+-------------------------------+
 | :math:`\Delta`               | : | The                           |
-|                              |   | :math:`\                      |
-|                              |   | {(s,s)\,;\ s \in \mathbb R\}` |
+|                              |   | :math:`\{(s,                  |
+|                              |   |  s) \, : \ s \in \mathbb R\}` |
 |                              |   | with multiplicity             |
 |                              |   | :                             |
 |                              |   | math:`(s,s) \mapsto +\infty`. |
