@@ -20,36 +20,39 @@ Import libraries
 .. code:: ipython3
 
     import numpy as np
-    from gtda.homology import VietorisRipsPersistence as VR
+    from gtda.homology import VietorisRipsPersistence
     import itertools
     
     import matplotlib.pyplot as plt
+    
+    np.random.seed(1)  # Set numpy's random seed
 
 .. code:: ipython3
 
-    # Initializing the Vietoris–Rips transformer
-    vr = VR(homology_dimensions=(2,), max_edge_length=np.inf)
-    n_samples = 15000
-    n_points = 6
+    # Initialize the Vietoris–Rips transformer
+    VR = VietorisRipsPersistence(homology_dimensions=(2,), max_edge_length=np.inf)
 
 .. code:: ipython3
 
     # Create n_samples point clouds of n_points points
-    PCS = np.random.random((n_samples, n_points, 2))  
+    n_samples = 15000
+    n_points = 6
+    point_clouds = np.random.random((n_samples, n_points, 2))
+    
     # Compute persistence diagrams of all point clouds
-    DGMS = vr.fit_transform(PCS)  
+    diags = VR.fit_transform(point_clouds)  
 
 .. code:: ipython3
 
-    diffs = np.nan_to_num(DGMS[:, :, 1] - DGMS[:, :, 0])  # Compute lifetimes
+    diffs = np.nan_to_num(diags[:, :, 1] - diags[:, :, 0])  # Compute lifetimes
     indices = np.argwhere(diffs != 0)  # Indices with non-zero lifetime
-    print('There are {} persistent homology classes in dimension 2 across all samples!'.format(len(indices[:, 0])))
-    print('There are {} different point clouds with at least one persistent homology class in dimension 2.'.format(len(np.unique(indices[:, 0]))))
+    print(f'There are {len(indices[:, 0])} persistent homology classes in dimension 2 across all samples.')
+    print(f'There are {len(np.unique(indices[:, 0]))} different point clouds with at least one persistent homology class in dimension 2.')
 
 
 .. parsed-literal::
 
-    There are 2 persistent homology classes in dimension 2 across all samples!
+    There are 2 persistent homology classes in dimension 2 across all samples.
     There are 2 different point clouds with at least one persistent homology class in dimension 2.
 
 
@@ -60,8 +63,8 @@ remind you of?
 .. code:: ipython3
 
     for i in indices[:, 0]:
-        for e in itertools.combinations(PCS[i], 2):
-            if np.linalg.norm(e[0] - e[1]) < DGMS[i, 0, 1] - 0.00001:
+        for e in itertools.combinations(point_clouds[i], 2):
+            if np.linalg.norm(e[0] - e[1]) < diags[i, 0, 1] - 0.00001:
                 edge = np.stack([e[0], e[1]])
                 plt.plot(edge[:, 0], edge[:, 1])
         plt.show()
@@ -73,5 +76,4 @@ remind you of?
 
 
 .. image:: voids_on_the_plane_files/voids_on_the_plane_7_1.png
-
 

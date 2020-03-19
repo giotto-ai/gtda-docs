@@ -31,7 +31,7 @@ with a label of 0 (1) for each sphere (torus). We also add noise to each
 point cloud, whose effect is to displace the points sampling the
 surfaces by a random amount in a random direction. **Note**: You will
 need the auxiliary module
-```datasets.py`` <https://github.com/giotto-ai/giotto-tda/blob/master/examples/datasets.py>`__
+`datasets.py <https://github.com/giotto-ai/giotto-tda/blob/master/examples/datasets.py>`__
 to run this cell.
 
 .. code:: ipython3
@@ -79,7 +79,7 @@ split and score the features.
 
 .. parsed-literal::
 
-    1.0
+    0.98
 
 
 
@@ -127,7 +127,7 @@ Train and score
 
 .. parsed-literal::
 
-    1.0
+    0.96
 
 
 

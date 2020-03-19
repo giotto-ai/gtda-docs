@@ -314,7 +314,7 @@
 <li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#visualise-the-mapper-graph">Visualise the Mapper graph</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively">Visualise the 2D Mapper graph interactively</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
 </ul>
 </li>
 </ul>
@@ -586,7 +586,7 @@ with a label of 0 (1) for each sphere (torus). We also add noise to each
 point cloud, whose effect is to displace the points sampling the
 surfaces by a random amount in a random direction. <strong>Note</strong>: You will
 need the auxiliary module
-<code class="docutils literal notranslate"><span class="pre">`datasets.py</span></code> &lt;<a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/examples/datasets.py">https://github.com/giotto-ai/giotto-tda/blob/master/examples/datasets.py</a>&gt;`__
+<a class="reference external" href="https://github.com/giotto-ai/giotto-tda/blob/master/examples/datasets.py">datasets.py</a>
 to run this cell.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">generate_point_clouds</span>
 <span class="n">point_clouds</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">generate_point_clouds</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
@@ -621,7 +621,7 @@ split and score the features.</p>
 <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.98</span>
 </pre></div>
 </div>
 </div>
@@ -656,7 +656,7 @@ split and score the features.</p>
 <span class="n">pipeline</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">pcs_valid</span><span class="p">,</span> <span class="n">labels_valid</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.96</span>
 </pre></div>
 </div>
 </div>
@@ -712,11 +712,11 @@ split and score the features.</p>
       <!--start_versions_tag-->
       <!--path_to_root:../-->
       
+      <dd><a href="../../dev/index.html">dev</a></dd>
+      
       <dd><a href="../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../stable/index.html">stable</a></dd>
-      
-      <dd><a href="../../dev/index.html">dev</a></dd>
       
       <!--end_versions_tag-->
     </dl>

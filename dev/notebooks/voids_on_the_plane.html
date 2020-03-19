@@ -314,7 +314,7 @@
 <li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#visualise-the-mapper-graph">Visualise the Mapper graph</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively">Visualise the 2D Mapper graph interactively</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
 </ul>
 </li>
 </ul>
@@ -574,40 +574,43 @@ to run its contents, head over to
 <div class="section" id="import-libraries">
 <h2>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">gtda.homology</span> <span class="kn">import</span> <span class="n">VietorisRipsPersistence</span> <span class="k">as</span> <span class="n">VR</span>
+<span class="kn">from</span> <span class="nn">gtda.homology</span> <span class="kn">import</span> <span class="n">VietorisRipsPersistence</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Set numpy&#39;s random seed</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initializing the Vietoris–Rips transformer</span>
-<span class="n">vr</span> <span class="o">=</span> <span class="n">VR</span><span class="p">(</span><span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">max_edge_length</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">15000</span>
-<span class="n">n_points</span> <span class="o">=</span> <span class="mi">6</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the Vietoris–Rips transformer</span>
+<span class="n">VR</span> <span class="o">=</span> <span class="n">VietorisRipsPersistence</span><span class="p">(</span><span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">max_edge_length</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create n_samples point clouds of n_points points</span>
-<span class="n">PCS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">15000</span>
+<span class="n">n_points</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">point_clouds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
 <span class="c1"># Compute persistence diagrams of all point clouds</span>
-<span class="n">DGMS</span> <span class="o">=</span> <span class="n">vr</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">PCS</span><span class="p">)</span>
+<span class="n">diags</span> <span class="o">=</span> <span class="n">VR</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">point_clouds</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">DGMS</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">DGMS</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Compute lifetimes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">diags</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">diags</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Compute lifetimes</span>
 <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">diffs</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Indices with non-zero lifetime</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{}</span><span class="s1"> persistent homology classes in dimension 2 across all samples!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{}</span><span class="s1"> different point clouds with at least one persistent homology class in dimension 2.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are {len(indices[:, 0])} persistent homology classes in dimension 2 across all samples.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are {len(np.unique(indices[:, 0]))} different point clouds with at least one persistent homology class in dimension 2.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>There are 2 persistent homology classes in dimension 2 across all samples!
-There are 2 different point clouds with at least one persistent homology class in dimension 2.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">There</span> <span class="n">are</span> <span class="mi">2</span> <span class="n">persistent</span> <span class="n">homology</span> <span class="n">classes</span> <span class="ow">in</span> <span class="n">dimension</span> <span class="mi">2</span> <span class="n">across</span> <span class="nb">all</span> <span class="n">samples</span><span class="o">.</span>
+<span class="n">There</span> <span class="n">are</span> <span class="mi">2</span> <span class="n">different</span> <span class="n">point</span> <span class="n">clouds</span> <span class="k">with</span> <span class="n">at</span> <span class="n">least</span> <span class="n">one</span> <span class="n">persistent</span> <span class="n">homology</span> <span class="k">class</span> <span class="nc">in</span> <span class="n">dimension</span> <span class="mf">2.</span>
 </pre></div>
 </div>
 <p>We can now plot the edges which exist when these persistent homology
 classes are born. What do the clique complexes of the resulting graphs
 remind you of?</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]:</span>
-    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">PCS</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">DGMS</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.00001</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">point_clouds</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">diags</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.00001</span><span class="p">:</span>
             <span class="n">edge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edge</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">edge</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -668,11 +671,11 @@ remind you of?</p>
       <!--start_versions_tag-->
       <!--path_to_root:../-->
       
+      <dd><a href="../../dev/index.html">dev</a></dd>
+      
       <dd><a href="../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../stable/index.html">stable</a></dd>
-      
-      <dd><a href="../../dev/index.html">dev</a></dd>
       
       <!--end_versions_tag-->
     </dl>
