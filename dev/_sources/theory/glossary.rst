@@ -9,31 +9,28 @@ Theory Glossary
 Symbols
 =======
 
-+------------------------------+---+-------------------------------+
-| :math:`\Bbbk`                | : | An arbitrary field.           |
-+------------------------------+---+-------------------------------+
-| :math:`\mathbb R`            | : | The field of real numbers.    |
-+------------------------------+---+-------------------------------+
-| :math:`\overline{\mathbb R}` | : | The two point                 |
-|                              |   | compactification              |
-|                              |   | :math:`[-\infty, +\infty]` of |
-|                              |   | the real numbers.             |
-+------------------------------+---+-------------------------------+
-| :math:`\mathbb N`            | : | The counting numbers          |
-|                              |   | :math:`0,1,2, \ldots` as a    |
-|                              |   | subset of :math:`\mathbb R`.  |
-+------------------------------+---+-------------------------------+
-| :math:`\mathbb R^d`          | : | The vector space of           |
-|                              |   | :math:`d`-tuples of real      |
-|                              |   | numbers.                      |
-+------------------------------+---+-------------------------------+
-| :math:`\Delta`               | : | The multiset                  |
-|                              |   | :math:`\lbrace (s, s) \m      |
-|                              |   | id  s \in \mathbb{R} \rbrace` |
-|                              |   | with multiplicity             |
-|                              |   | :ma                           |
-|                              |   | th:`( s,s ) \mapsto +\infty`. |
-+------------------------------+---+-------------------------------+
++------------------------------+--------------------------------------+
+| :math:`\Bbbk`                | An arbitrary field.                  |
++------------------------------+--------------------------------------+
+| :math:`\mathbb R`            | The field of real numbers.           |
++------------------------------+--------------------------------------+
+| :math:`\overline{\mathbb R}` | The two point compactification       |
+|                              | :math:`[-\infty, +\infty]` of the    |
+|                              | real numbers.                        |
++------------------------------+--------------------------------------+
+| :math:`\mathbb N`            | The counting numbers                 |
+|                              | :math:`0,1,2, \ldots` as a subset of |
+|                              | :math:`\mathbb R`.                   |
++------------------------------+--------------------------------------+
+| :math:`\mathbb R^d`          | The vector space of :math:`d`-tuples |
+|                              | of real numbers.                     |
++------------------------------+--------------------------------------+
+| :math:`\Delta`               | The multiset                         |
+|                              | :math:`\lbrace (s                    |
+|                              | , s) \mid  s \in \mathbb{R} \rbrace` |
+|                              | with multiplicity                    |
+|                              | :math:`( s,s ) \mapsto +\infty`.     |
++------------------------------+--------------------------------------+
 
 Homology
 ========
