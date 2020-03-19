@@ -406,7 +406,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#time-series">Time series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#id31">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#id29">Time series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#takens-embedding">Takens embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference-3">Reference:</a></li>
 </ul>
@@ -582,12 +582,12 @@
 
 <div class="viewcode-block" id="BettiCurve"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">BettiCurve</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;:ref:`Betti curves &lt;betti curve&gt;` of persistence diagrams.</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Betti curves &lt;betti_curve&gt;` of persistence diagrams.</span>
 
 <span class="sd">    Given a persistence diagram consisting of birth-death-dimension triples</span>
 <span class="sd">    [b, d, q], subdiagrams corresponding to distinct homology dimensions are</span>
 <span class="sd">    considered separately, and their respective Betti curves are obtained by</span>
-<span class="sd">    evenly sampling the :ref:`filtration parameter &lt;filtered complex&gt;`.</span>
+<span class="sd">    evenly sampling the :ref:`filtration parameter &lt;filtered_complex&gt;`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -784,14 +784,14 @@
 
 <div class="viewcode-block" id="PersistenceLandscape"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">PersistenceLandscape</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;:ref:`Persistence landscapes &lt;persistence landscape&gt;` of persistence</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Persistence landscapes &lt;persistence_landscape&gt;` of persistence</span>
 <span class="sd">    diagrams.</span>
 
 <span class="sd">    Given a persistence diagram consisting of birth-death-dimension triples</span>
 <span class="sd">    [b, d, q], subdiagrams corresponding to distinct homology dimensions are</span>
 <span class="sd">    considered separately, and layers of their respective persistence</span>
 <span class="sd">    landscapes are obtained by evenly sampling the :ref:`filtration parameter</span>
-<span class="sd">    &lt;filtered complex&gt;`.</span>
+<span class="sd">    &lt;filtered_complex&gt;`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1014,7 +1014,7 @@
 <span class="sd">    distinct homology dimensions are considered separately and regarded as sums</span>
 <span class="sd">    of Dirac deltas. Then, the convolution with a Gaussian kernel is computed</span>
 <span class="sd">    over a rectangular grid of locations evenly sampled from appropriate</span>
-<span class="sd">    ranges of the :ref:`filtration parameter &lt;filtered complex&gt;`. The</span>
+<span class="sd">    ranges of the :ref:`filtration parameter &lt;filtered_complex&gt;`. The</span>
 <span class="sd">    same is done with the reflected images of the subdiagrams about the</span>
 <span class="sd">    diagonal, and the difference between the results of the two convolutions is</span>
 <span class="sd">    computed. The result can be thought of as a (multi-channel) raster image.</span>
@@ -1188,7 +1188,7 @@
 
 <div class="viewcode-block" id="PersistenceImage"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">PersistenceImage</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;:ref:`Persistence images &lt;persistence image&gt;` of persistence</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Persistence images &lt;persistence_image&gt;` of persistence</span>
 <span class="sd">    diagrams.</span>
 
 <span class="sd">    Based on ideas in [1]_. Given a persistence diagram consisting of</span>
@@ -1198,7 +1198,7 @@
 <span class="sd">    separately and regarded as sums of Dirac deltas. Then, the convolution</span>
 <span class="sd">    with a Gaussian kernel is computed over a rectangular grid of locations</span>
 <span class="sd">    evenly sampled from appropriate ranges of the :ref:`filtration parameter</span>
-<span class="sd">    &lt;filtered complex&gt;`. The result can be thought of as a (multi-channel)</span>
+<span class="sd">    &lt;filtered_complex&gt;`. The result can be thought of as a (multi-channel)</span>
 <span class="sd">    raster image.</span>
 
 <span class="sd">    Parameters</span>
@@ -1400,7 +1400,7 @@
 
 <div class="viewcode-block" id="Silhouette"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">Silhouette</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;:ref:`Power-weighted silhouettes &lt;weighted silhouette&gt;` of persistence</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Power-weighted silhouettes &lt;weighted_silhouette&gt;` of persistence</span>
 <span class="sd">    diagrams.</span>
 
 <span class="sd">    Based on ideas in [1]_. Given a persistence diagram consisting of</span>
@@ -1408,13 +1408,13 @@
 <span class="sd">    distinct homology dimensions are considered separately, and their</span>
 <span class="sd">    respective silhouette by sampling the silhouette function over evenly</span>
 <span class="sd">    spaced locations from appropriate ranges of the :ref:`filtration parameter</span>
-<span class="sd">    &lt;filtered complex&gt;`.</span>
+<span class="sd">    &lt;filtered_complex&gt;`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    power: float, optional, default: ``1.``</span>
 <span class="sd">        The power to which persistence values are raised to define the</span>
-<span class="sd">        :ref:`power-weighted silhouettes &lt;weighted silhouette&gt;`.</span>
+<span class="sd">        :ref:`power-weighted silhouettes &lt;weighted_silhouette&gt;`.</span>
 
 <span class="sd">    n_bins : int, optional, default: ``100``</span>
 <span class="sd">        The number of filtration parameter values, per available homology</span>
@@ -1660,11 +1660,11 @@
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
       
+      <dd><a href="../../../../stable/index.html">stable</a></dd>
+      
       <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../dev/index.html">dev</a></dd>
-      
-      <dd><a href="../../../../stable/index.html">stable</a></dd>
       
       <!--end_versions_tag-->
     </dl>

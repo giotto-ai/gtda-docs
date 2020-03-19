@@ -27,18 +27,18 @@ Symbols
 |                              |   | :math:`d`-tuples of real      |
 |                              |   | numbers.                      |
 +------------------------------+---+-------------------------------+
-| :math:`\Delta`               | : | The                           |
-|                              |   | :math:`\{(s,                  |
-|                              |   |  s) \, : \ s \in \mathbb R\}` |
+| :math:`\Delta`               | : | The multiset                  |
+|                              |   | :math:`\lbrace (s, s) \m      |
+|                              |   | id  s \in \mathbb{R} \rbrace` |
 |                              |   | with multiplicity             |
-|                              |   | :                             |
-|                              |   | math:`(s,s) \mapsto +\infty`. |
+|                              |   | :ma                           |
+|                              |   | th:`( s,s ) \mapsto +\infty`. |
 +------------------------------+---+-------------------------------+
 
 Homology
 ========
 
-.. _cubical complex:
+.. _cubical_complex:
 
 Cubical complex
 ---------------
@@ -75,7 +75,7 @@ Reference:
 
 (Kaczynski, Mischaikow, and Mrozek 2004)
 
-.. _simplicial complex:
+.. _simplicial_complex:
 
 Simplicial complex
 ------------------
@@ -99,9 +99,9 @@ A *simplicial complex* :math:`X` is a finite union of simplices in
 :math:`\mathbb{R}^N` satisfying that every face of a simplex in
 :math:`X` is in :math:`X` and that the non-empty intersection of two
 simplices in :math:`X` is a face of each. Every simplicial complex
-defines an .
+defines an abstract simplicial complex.
 
-.. _abstract simplicial complex:
+.. _abstract_simplicial_complex:
 
 Abstract simplicial complex
 ---------------------------
@@ -139,24 +139,25 @@ A simplicial complex :math:`X` is a *subcomplex* of a simplicial complex
 
 Given a finite abstract simplicial complex :math:`X = (V, X)` we can
 choose a bijection from :math:`V` to a geometrically independent subset
-of :math:`\mathbb R^N` and associate a to :math:`X` called its
-*geometric realization*.
+of :math:`\mathbb R^N` and associate a simplicial complex to :math:`X`
+called its *geometric realization*.
 
-.. _ordered simplical complex:
+.. _ordered_simplical_complex:
 
 Ordered simplicial complex
 --------------------------
 
-An *ordered simplicial complex* is an where the set of vertices is
-equipped with a partial order such that the restriction of this partial
-order to any simplex is a total order. We denote an :math:`n`-simplex
-using its ordered vertices by :math:`[v_0, \dots, v_n]`.
+An *ordered simplicial complex* is an abstract simplicial complex where
+the set of vertices is equipped with a partial order such that the
+restriction of this partial order to any simplex is a total order. We
+denote an :math:`n`-simplex using its ordered vertices by
+:math:`[v_0, \dots, v_n]`.
 
 A *simplicial map* between ordered simplicial complexes is a simplicial
 map :math:`f` between their underlying simplicial complexes preserving
 the order, i.e., :math:`v \leq w` implies :math:`f(v) \leq f(w)`.
 
-.. _directed simplicial complex:
+.. _directed_simplicial_complex:
 
 Directed simplicial complex
 ---------------------------
@@ -166,15 +167,15 @@ the elements of :math:`X` being tuples of elements of :math:`V`, i.e.,
 elements in :math:`\bigcup_{n\geq1} V^{\times n}` such that:
 
 #. for every :math:`v` in :math:`V`, the tuple :math:`v` is in :math:`X`
-   and
 
 #. if :math:`x` is in :math:`X` and :math:`y` is a subtuple of
    :math:`x`, then :math:`y` is in :math:`X`.
 
 With appropriate modifications the same terminology and notation
-introduced for applies to directed simplicial complex.
+introduced for ordered simplicial complex applies to directed simplicial
+complex.
 
-.. _chain complex:
+.. _chain_complex:
 
 Chain complex
 -------------
@@ -193,7 +194,7 @@ we say its *degree* is :math:`n` or simply that it is an
 :math:`n`-chain. Elements in the kernel of :math:`\partial` are called
 *cycles*, and elements in the image of :math:`\partial` are called
 *boundaries*. Notice that every boundary is a cycle. This fact is
-central to the definition of .
+central to the definition of homology.
 
 A *chain map* is a :math:`\Bbbk`-linear map :math:`f : C \to C'` between
 chain complexes such that :math:`f(C_n) \subseteq C'_n` and
@@ -205,14 +206,14 @@ Given a chain complex :math:`(C_*, \partial)`, its linear dual
 :math:`\delta` defined by :math:`\delta(\alpha)(c) = \alpha(\partial c)`
 for any :math:`\alpha \in C^*` and :math:`c \in C_*`.
 
-.. _homology and cohomology:
+.. _homology_and_cohomology:
 
 Homology and cohomology
 -----------------------
 
-Let :math:`(C_*, \partial)` be a . Its :math:`n`\ *-th homology group*
-is the quotient of the subspace of :math:`n`-cycles by the subspace of
-:math:`n`-boundaries, that is,
+Let :math:`(C_*, \partial)` be a chain complex. Its :math:`n`\ *-th
+homology group* is the quotient of the subspace of :math:`n`-cycles by
+the subspace of :math:`n`-boundaries, that is,
 :math:`H_n(C_*) = \mathrm{ker}(\partial_n)/ \mathrm{im}(\partial_{n+1})`.
 The *homology* of :math:`(C, \partial)` is defined by
 :math:`H_*(C) = \bigoplus_{n \in \mathbb Z} H_n(C)`.
@@ -224,7 +225,7 @@ predual complex and write :math:`H^n` for :math:`H_{-n}`.
 A chain map :math:`f : C \to C'` induces a map between the associated
 homologies.
 
-.. _simplicial chains and simplicial homology:
+.. _simplicial_chains_and_simplicial_homology:
 
 Simplicial chains and simplicial homology
 -----------------------------------------
@@ -233,16 +234,17 @@ Let :math:`X` be an ordered or directed simplicial complex. Define its
 *simplicial chain complex with* :math:`\Bbbk`\ *-coefficients*
 :math:`C_*(X; \Bbbk)` by
 
-.. math:: C_n(X; \Bbbk) = \Bbbk\{X_n\} \qquad \partial_n(x) = \sum_{i=0}^{n} (-1)^i d_ix
+.. math:: C_n(X; \Bbbk) = \Bbbk\{X_n\}, \qquad \partial_n(x) = \sum_{i=0}^{n} (-1)^i d_ix
 
 and its *homology and cohomology with* :math:`\Bbbk`\ *-coefficients* as
-the of this chain complex. We use the notation :math:`H_*(X; \Bbbk)` and
-:math:`H^*(X; \Bbbk)` for these.
+the homology and cohomology of this chain complex. We use the notation
+:math:`H_*(X; \Bbbk)` and :math:`H^*(X; \Bbbk)` for these.
 
-A induces a between the associated simplicial chain complexes and,
-therefore, between the associated simplicial (co)homologies.
+A simplicial map induces a chain map between the associated simplicial
+chain complexes and, therefore, between the associated simplicial
+(co)homologies.
 
-.. _cubical chains and cubical homology:
+.. _cubical_chains_and_cubical_homology:
 
 Cubical chains and cubical homology
 -----------------------------------
@@ -250,15 +252,15 @@ Cubical chains and cubical homology
 Let :math:`X` be a cubical complex. Define its *cubical chain complex
 with* :math:`\Bbbk`\ *-coefficients* :math:`C_*(X; \Bbbk)` by
 
-.. math:: C_n(X; \Bbbk) = \Bbbk\{X_n\} \qquad \partial_n x = \sum_{i = 1}^{n} (-1)^{i-1}(d^+_i x - d^-_i x)
+.. math:: C_n(X; \Bbbk) = \Bbbk\{X_n\}, \qquad \partial_n x = \sum_{i = 1}^{n} (-1)^{i-1}(d^+_i x - d^-_i x)
 
 where :math:`x = I_1 \times \cdots \times I_N` and :math:`s(i)` is the
 dimension of :math:`I_1 \times \cdots \times I_i`. Its *homology and
-cohomology with* :math:`\Bbbk`\ *-coefficients* is the of this chain
-complex. We use the notation :math:`H_*(X; \Bbbk)` and
-:math:`H^*(X; \Bbbk)` for these.
+cohomology with* :math:`\Bbbk`\ *-coefficients* is the homology and
+cohomology of this chain complex. We use the notation
+:math:`H_*(X; \Bbbk)` and :math:`H^*(X; \Bbbk)` for these.
 
-.. _filtered complex:
+.. _filtered_complex:
 
 Filtered complex
 ----------------
@@ -267,7 +269,7 @@ A *filtered complex* is a collection of simplicial or cubical complexes
 :math:`\{X_s\}_{s \in \mathbb R}` such that :math:`X_s` is a subcomplex
 of :math:`X_t` for each :math:`s \leq t`.
 
-.. _cellwise filtration:
+.. _cellwise_filtration:
 
 Cellwise filtration
 -------------------
@@ -276,9 +278,9 @@ A *cellwise filtration* is a simplicial or cubical complex :math:`X`
 together with a total order :math:`\leq` on its simplices or elementary
 cubes such that for each :math:`y \in X` the set
 :math:`\{x \in X\ :\ x \leq y\}` is a subcomplex of :math:`X`. A
-cellwise filtration can be naturally thought of as a .
+cellwise filtration can be naturally thought of as a filtered complex.
 
-.. _clique and flag complexes:
+.. _clique_and_flag_complexes:
 
 Clique and flag complexes
 -------------------------
@@ -312,7 +314,8 @@ defined respectively by
        w(v_0, \dots, v_n) & = \max\{ w(v_i, v_j)\ |\ i < j\}
        \end{aligned}
 
-and define the :math:`\{\langle G \rangle_{s}\}_{s \in \mathbb R}` by
+and define the filtered complex
+:math:`\{\langle G \rangle_{s}\}_{s \in \mathbb R}` by
 
 .. math:: \langle G \rangle_s = \{\sigma \in \langle G \rangle\ |\ w(\sigma) \leq s\}.
 
@@ -320,7 +323,7 @@ A filtered complex :math:`\{X_s\}_{s \in \mathbb R}` is a *filtered
 clique (resp. flag) complex* if :math:`X_s = \langle G \rangle_s` for
 some :math:`(G,w)`.
 
-.. _persistence module:
+.. _persistence_module:
 
 Persistence module
 ------------------
@@ -339,7 +342,7 @@ of linear maps :math:`F(s) : V(s) \to W(s)` such that
 :math:`s \leq t`. We say that :math:`F` is an *isomorphisms* if each
 :math:`F(s)` is.
 
-.. _persistent simplicial (co)homology:
+.. _persistent_simplicial_(co)homology:
 
 Persistent simplicial (co)homology
 ----------------------------------
@@ -350,56 +353,57 @@ simplicial complexes together with simplicial maps
 
 .. math:: r \leq s \leq t\ \quad\text{implies} \quad f_{rt} = f_{st} \circ f_{rs}
 
-for example, a . Its *persistent simplicial homology with*
-:math:`\Bbbk`\ *-coefficients* is the persistence module
+for example, a filtered complex. Its *persistent simplicial homology
+with* :math:`\Bbbk`\ *-coefficients* is the persistence module
 
 .. math:: H_*(X(s); \Bbbk)
 
 with structure maps
 :math:`H_*(f_{st}) : H_*(X(s); \Bbbk) \to H_*(X(t); \Bbbk)` induced form
 the maps :math:`f_{st.}` In general, the collection constructed this way
-needs not satisfy the tameness condition of a , but we restrict
-attention to the cases where it does. Its *persistence simplicial
-cohomology with* :math:`\Bbbk`\ *-coefficients* is defined analogously.
+needs not satisfy the tameness condition of a persistence module, but we
+restrict attention to the cases where it does. Its *persistence
+simplicial cohomology with* :math:`\Bbbk`\ *-coefficients* is defined
+analogously.
 
-.. _vietoris-rips complex and vietoris-rips persistence:
+.. _vietoris-rips_complex_and_vietoris-rips_persistence:
 
 Vietoris-Rips complex and Vietoris-Rips persistence
 ---------------------------------------------------
 
-Let :math:`(X, d)` be a . Define the Vietoris-Rips complex of :math:`X`
-as the :math:`VR_s(X)` that contains a subset of :math:`X` as a simplex
-if all pairwise distances in the subset are less than or equal to
-:math:`s`, explicitly
+Let :math:`(X, d)` be a finite metric space. Define the Vietoris-Rips
+complex of :math:`X` as the filtered complex :math:`VR_s(X)` that
+contains a subset of :math:`X` as a simplex if all pairwise distances in
+the subset are less than or equal to :math:`s`, explicitly
 
 .. math:: VR_s(X) = \Big\{ [v_0,\dots,v_n]\ \Big|\ \forall i,j\ \,d(v_i, v_j) \leq s \Big\}.
 
-The *Vietoris-Rips persistence* of :math:`(X, d)` is the of
-:math:`VR_s(X)`.
+The *Vietoris-Rips persistence* of :math:`(X, d)` is the persistent
+simplicial (co)homology of :math:`VR_s(X)`.
 
 A more general version is obtained by replacing the distance function
 with an arbitrary function
 
 .. math:: w : X \times X \to \mathbb R \cup \{\infty\}
 
-and defining :math:`VR_s(X)` as the associated to
-:math:`(X \times X ,w)`.
+and defining :math:`VR_s(X)` as the filtered clique complex associated
+to :math:`(X \times X ,w)`.
 
-.. _cech complex and cech persistence:
+.. _cech_complex_and_cech_persistence:
 
 Čech complex and Čech persistence
 ---------------------------------
 
-Let :math:`(X, d)` be a . Define the Čech complex of :math:`X` as the
-:math:`\check{C}_s(X)` that is empty if :math:`s<0` and, if
-:math:`s \geq 0`, contains a subset of :math:`X` as a simplex if the
-balls of radius :math:`s` with centers in the subset have a non-empty
-intersection, explicitly
+Let :math:`(X, d)` be a point cloud. Define the Čech complex of
+:math:`X` as the filtered complex :math:`\check{C}_s(X)` that is empty
+if :math:`s<0` and, if :math:`s \geq 0`, contains a subset of :math:`X`
+as a simplex if the balls of radius :math:`s` with centers in the subset
+have a non-empty intersection, explicitly
 
 .. math:: \check{C}_s(X) = \Big\{ [v_0,\dots,v_n]\ \Big|\ \bigcap_{i=0}^n B_s(x_i) \neq \emptyset \Big\}.
 
-The *Čech persistence (co)homology* of :math:`(X,d)` is the of
-:math:`\check{C}_s(X)`.
+The *Čech persistence (co)homology* of :math:`(X,d)` is the persistent
+simplicial (co)homo-logy of :math:`\check{C}_s(X)`.
 
 Multiset
 --------
@@ -420,25 +424,26 @@ positive values. For :math:`s \in S` we refer to :math:`\phi(s)` as its
        \phi_1(s) + \phi_2(s) & s \in S_1, s \in S_2. \\
        \end{cases}
 
-.. _persistence diagram:
+.. _persistence_diagram:
 
 Persistence diagram
 -------------------
 
-A *persistence diagram* is a of points in
+A *persistence diagram* is a multiset of points in
 
 .. math:: \mathbb R \times \big( \mathbb{R} \cup \{+\infty\} \big).
 
-Given a its associated persistence diagram is determined by the
-following condition: for each pair :math:`s,t` the number counted with
-multiplicity of points :math:`(b,d)` in the multiset, satisfying
-:math:`b \leq s \leq t < d` is equal to the rank of :math:`f_{st.}`
+Given a persistence module, its associated persistence diagram is
+determined by the following condition: for each pair :math:`s,t` the
+number counted with multiplicity of points :math:`(b,d)` in the
+multiset, satisfying :math:`b \leq s \leq t < d` is equal to the rank of
+:math:`f_{st.}`
 
 A well known result establishes that there exists an isomorphism between
 two persistence module if and only if their persistence diagrams are
 equal.
 
-.. _wasserstein and bottleneck distance:
+.. _wasserstein_and_bottleneck_distance:
 
 Wasserstein and bottleneck distance
 -----------------------------------
@@ -465,7 +470,7 @@ Reference:
 
 (Kerber, Morozov, and Nigmetov 2017)
 
-.. _persistence landscape:
+.. _persistence_landscape:
 
 Persistence landscape
 ---------------------
@@ -478,9 +483,9 @@ A *persistence landscape* is a set
 where :math:`\lambda_k` is referred to as the :math:`k`\ *-layer of the
 persistence landscape*.
 
-Let :math:`\{(b_i, d_i)\}_{i \in I}` be a . Its *associated persistence
-landscape* :math:`\lambda` is defined by letting :math:`\lambda_k` be
-the :math:`k`-th largest value of the set
+Let :math:`\{(b_i, d_i)\}_{i \in I}` be a persistence diagram. Its
+*associated persistence landscape* :math:`\lambda` is defined by letting
+:math:`\lambda_k` be the :math:`k`-th largest value of the set
 :math:`\{\Lambda_i(t)\}_ {i \in I}` where
 
 .. math:: \Lambda_i(t) = \left[ \min \{t-b_i, d_i-t\}\right]_+
@@ -499,7 +504,7 @@ Reference:
 
 (Bubenik 2015)
 
-.. _persistence landscape norm:
+.. _persistence_landscape_norm:
 
 Persistence landscape norm
 --------------------------
@@ -510,7 +515,7 @@ Given a function :math:`f : \mathbb R \to \overline{\mathbb R}` define
 
 whenever the right hand side exists and is finite.
 
-The :math:`p`\ *-norm* of a
+The :math:`p`\ *-norm* of a persistence landscape
 :math:`\lambda = \{\lambda_k\}_{k \in \mathbb N}` is defined to be
 
 .. math:: ||\lambda||_p = \left( \sum_{i \in \mathbb N} ||\lambda_i||^p_p \right)^{1/p}
@@ -522,13 +527,13 @@ References:
 
 (Stein and Shakarchi 2011; Bubenik 2015)
 
-.. _weighted silhouette:
+.. _weighted_silhouette:
 
 Weighted silhouette
 -------------------
 
-Let :math:`D = {(b_i, d_i)}_{i \in I}` be a . A *weighted silhouette*
-associated to :math:`D` is a continuous function
+Let :math:`D = {(b_i, d_i)}_{i \in I}` be a persistence diagram. A
+*weighted silhouette* associated to :math:`D` is a continuous function
 :math:`\phi : \mathbb R \to \mathbb R` of the form
 
 .. math:: \phi(t) = \frac{\sum_{i \in I}w_i \Lambda_i(t)}{\sum_{i \in I}w_i},
@@ -537,7 +542,7 @@ where :math:`\{w_i\}_{i \in I}` is a set of positive real numbers and
 
 .. math::
 
-   \label{equation: lambda for persistence landscapes}
+   \label{equation:lambda_for_persistence_landscapes}
        \Lambda_i(t) = \left[ \min \{t-b_i, d_i-t\}\right]_+
 
 with :math:`c_+ := \max(c,0)`. The particular choice
@@ -557,17 +562,18 @@ Amplitude
 Given a function assigning a real number to a pair of persistence
 diagrams, we define the *amplitude* of a persistence diagram :math:`D`
 to be the value assigned to the pair :math:`(D \cup \Delta, \Delta)`.
-Important examples of such functions are: and .
+Important examples of such functions are: Wasserstein and bottleneck
+distances and landscape distance.
 
-.. _persistence entropy:
+.. _persistence_entropy:
 
 Persistence entropy
 -------------------
 
-Intuitively, this is a measure of the entropy of the points in a .
-Precisely, let :math:`D = \{(b_i, d_i)\}_{i \in I}` be a persistence
-diagram with each :math:`d_i < +\infty`. The *persistence entropy* of
-:math:`D` is defined by
+Intuitively, this is a measure of the entropy of the points in a
+persistence diagram. Precisely, let :math:`D = \{(b_i, d_i)\}_{i \in I}`
+be a persistence diagram with each :math:`d_i < +\infty`. The
+*persistence entropy* of :math:`D` is defined by
 
 .. math:: E(D) = - \sum_{i \in I} p_i \log(p_i)
 
@@ -582,20 +588,20 @@ References:
 
 (Rucco et al. 2016)
 
-.. _betti curve:
+.. _betti_curve:
 
 Betti curve
 -----------
 
-Let :math:`D` be a . Its *Betti curve* is the function
-:math:`\beta_D : \mathbb R \to \mathbb N` whose value on
+Let :math:`D` be a persistence diagram. Its *Betti curve* is the
+function :math:`\beta_D : \mathbb R \to \mathbb N` whose value on
 :math:`s \in \mathbb R` is the number, counted with multiplicity, of
 points :math:`(b_i,d_i)` in :math:`D` such that :math:`b_i \leq s <d_i`.
 
 The name is inspired from the case when the persistence diagram comes
 from persistent homology.
 
-.. _metric, inner product and kernel:
+.. _metric_inner_product_and_kernel:
 
 Distances, inner products and kernels
 -------------------------------------
@@ -647,36 +653,37 @@ product space such that
 
 .. math:: k(x, y) = \langle \phi(x), \phi(y) \rangle.
 
-.. _euclidean distance and norm:
+.. _euclidean_distance_and_norm:
 
 Euclidean distance and norm
 ---------------------------
 
-The vector space :math:`\mathbb R^n` is an with inner product
+The vector space :math:`\mathbb R^n` is an inner product space with
+inner product
 
 .. math:: \langle x, y \rangle = (x_1-y_1)^2 + \cdots + (x_n-y_n)^2.
 
 The associated norm and distance function are referred to as *Euclidean
 norm* and *Euclidean distance*.
 
-.. _finite metric spaces and point clouds:
+.. _finite_metric_spaces_and_point_clouds:
 
 Finite metric spaces and point clouds
 -------------------------------------
 
-A *finite metric space* is a finite set together with a . A *distance
-matrix* associated to a finite metric space is obtained by choosing a
-total order on the finite set and setting the :math:`(i,j)`-entry to be
-equal to the distance between the :math:`i`-th and :math:`j`-th
-elements.
+A *finite metric space* is a finite set together with a metric. A
+*distance matrix* associated to a finite metric space is obtained by
+choosing a total order on the finite set and setting the
+:math:`(i,j)`-entry to be equal to the distance between the :math:`i`-th
+and :math:`j`-th elements.
 
 A *point cloud* is a finite subset of :math:`\mathbb{R}^n` (for some
-:math:`n`) together with the metric induced from the .
+:math:`n`) together with the metric induced from the euclidean distance.
 
 Time series
 ===========
 
-.. _time series:
+.. _time_series:
 
 Time series
 -----------
@@ -705,16 +712,17 @@ using a function :math:`f : M \to \mathbb R` as follows: let
 :math:`\{t_i\}_{i=0}^n` be a time series taking values in :math:`U`,
 then
 
-.. math:: \{f(\varphi(t_i, m))\}_{i=0}^n.
+.. math:: \{f(\varphi(t_i, m))\}_{i=0}^n
 
 for an arbitrarily chosen :math:`m \in M`.
 
-.. _takens embedding:
+.. _takens_embedding:
 
 Takens embedding
 ----------------
 
-Let :math:`M \subset \mathbb R^d` be a of dimension :math:`n`. Let
+Let :math:`M \subset \mathbb R^d` be a compact manifold of dimension
+:math:`n`. Let
 
 .. math:: \varphi : \mathbb R \times M \to M
 
@@ -762,7 +770,7 @@ References:
 
 (Milnor and Weaver 1997; Guillemin and Pollack 2010)
 
-.. _compact subset:
+.. _compact_subset:
 
 Compact subset
 --------------
