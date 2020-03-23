@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Release Notes &mdash; giotto-tda 0.1.4 documentation</title>
+  <title>Release Notes &mdash; giotto-tda 0.2.0 documentation</title>
   
 
   
@@ -103,9 +103,17 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="library.html#what-s-new">What’s new</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="library.html#library-name-change">Library name change</a></li>
-<li class="toctree-l3"><a class="reference internal" href="library.html#change-of-license">Change of license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="library.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="library.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#new-point-clouds-subpackage">New <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#list-of-point-cloud-input">List of point cloud input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#changes-and-additions-to-gtda-diagrams">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#changes-and-additions-to-gtda-utils">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="library.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
@@ -282,6 +290,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
 </ul>
 </li>
@@ -445,41 +454,58 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#release-0-1-4">Release 0.1.4</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#library-name-change">Library name change</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#change-of-license">Change of license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-0-2-0">Release 0.2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-point-clouds-subpackage">New <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-of-point-cloud-input">List of point cloud input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changes-and-additions-to-gtda-diagrams">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changes-and-additions-to-gtda-utils">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#thanks-to-our-contributors">Thanks to our Contributors</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#release-0-1-3">Release 0.1.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-0-1-4">Release 0.1.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#library-name-change">Library name change</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-of-license">Change of license</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Major Features and Improvements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Thanks to our Contributors</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#release-0-1-2">Release 0.1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Thanks to our Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#release-0-1-3">Release 0.1.3</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id5">Major Features and Improvements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id6">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id7">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id8">Thanks to our Contributors</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#release-0-1-1">Release 0.1.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-0-1-2">Release 0.1.2</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id9">Major Features and Improvements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id10">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id11">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id12">Thanks to our Contributors</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#release-0-1-0">Release 0.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-0-1-1">Release 0.1.1</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id13">Major Features and Improvements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id14">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id15">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id16">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-0-1-0">Release 0.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-0-1a-0">Release 0.1a.0</a></li>
@@ -558,8 +584,134 @@
             
   <div class="section" id="release-notes">
 <h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="release-0-2-0">
+<span id="stable"></span><h2>Release 0.2.0<a class="headerlink" href="#release-0-2-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="major-features-and-improvements">
+<h3>Major Features and Improvements<a class="headerlink" href="#major-features-and-improvements" title="Permalink to this headline">¶</a></h3>
+<p>This is a major release which substantially broadens the scope of <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> and introduces several improvements.
+The library’s documentation has been greatly improved and is now hosted <a class="reference external" href="giotto-ai.github.io/gtda-docs/">via GitHub pages</a>.
+It includes rendered jupyter notebooks from the repository’s <code class="docutils literal notranslate"><span class="pre">examples</span></code> folder, as well as an improved theory glossary,
+more detailed installation instructions, improved guidelines for contributing, and an FAQ.</p>
+<div class="section" id="plotting-functions-and-plotting-api">
+<h4>Plotting functions and plotting API<a class="headerlink" href="#plotting-functions-and-plotting-api" title="Permalink to this headline">¶</a></h4>
+<p>This version introduces built-in plotting capabilities to <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>. These come in the form of:</p>
+<ul class="simple">
+<li><p>a new <code class="docutils literal notranslate"><span class="pre">plotting</span></code> subpackage populated with plotting functions for common data structures;</p></li>
+<li><p>a new <code class="docutils literal notranslate"><span class="pre">PlotterMixin</span></code> and a class-level plotting API based on newly introduced <code class="docutils literal notranslate"><span class="pre">plot</span></code>, <code class="docutils literal notranslate"><span class="pre">transform_plot</span></code> and
+<code class="docutils literal notranslate"><span class="pre">fit_transform_plot</span></code> methods which are now available in several of <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>’s transformers.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-and-additions-to-gtda-homology">
+<h4>Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code><a class="headerlink" href="#changes-and-additions-to-gtda-homology" title="Permalink to this headline">¶</a></h4>
+<p>The internal structure of this subpackage has been changed. <code class="docutils literal notranslate"><span class="pre">ConsistentRescaling</span></code> has been moved to a new <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code>
+subpackage (see below), and <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code> no longer contains a <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> submodule. Instead, it contains two
+submodules, <code class="docutils literal notranslate"><span class="pre">simplicial</span></code> and <code class="docutils literal notranslate"><span class="pre">cubical</span></code>. <code class="docutils literal notranslate"><span class="pre">simplicial</span></code> contains the <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> class as well as the
+following new classes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EuclideanCechPersistence</span></code>.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">cubical</span></code> submodule contains <code class="docutils literal notranslate"><span class="pre">CubicalPersistence</span></code>, a new class for computing persistent homology of filtered cubical
+complexes such as those coming from 2D or 3D greyscale images.</p>
+</div>
+<div class="section" id="new-images-subpackage">
+<h4>New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage<a class="headerlink" href="#new-images-subpackage" title="Permalink to this headline">¶</a></h4>
+<p>The new <code class="docutils literal notranslate"><span class="pre">gtda.images</span></code> subpackage contains classes which, together with <code class="docutils literal notranslate"><span class="pre">gtda.homology.CubicalPersistence</span></code>, extend
+the capabilities of <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> to computer vision, by handling input representing binary or greyscale 2D/3D images
+represented as arrays.</p>
+<p>The classes in <code class="docutils literal notranslate"><span class="pre">gtda.images.filtrations</span></code> are responsible for converting binary image input into greyscale images in a
+variety of ways. The greyscale output can then be fed to <code class="docutils literal notranslate"><span class="pre">gtda.homology.CubicalPersistence</span></code> to extract topological
+signatures in the form of persistence diagrams. These classes are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HeightFiltration</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RadialFiltration</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DilationFiltration</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ErosionFiltration</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SignedDistanceFiltration</span></code>.</p></li>
+</ul>
+<p>The classes in <code class="docutils literal notranslate"><span class="pre">gtda.images.preprocessing</span></code> perform a variety of preprocessing steps on either binary or greyscale image
+input, as well as conversion to point cloud format. They are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Binarizer</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Inverter</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Padder</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ImageToPointCloud</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="new-point-clouds-subpackage">
+<h4>New <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> subpackage<a class="headerlink" href="#new-point-clouds-subpackage" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">ConsistentRescaling</span></code> is no longer placed in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code>. Instead, it is now in a <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> subpackage
+containing classes which process or modify the geometry of point cloud data. <code class="docutils literal notranslate"><span class="pre">gtda.point_clouds</span></code> also contains the new
+class <code class="docutils literal notranslate"><span class="pre">ConsecutiveRescaling</span></code>, written with time series applications in mind.</p>
+</div>
+<div class="section" id="list-of-point-cloud-input">
+<h4>List of point cloud input<a class="headerlink" href="#list-of-point-cloud-input" title="Permalink to this headline">¶</a></h4>
+<p>All classes in the <code class="docutils literal notranslate"><span class="pre">homology</span></code> subpackage (<code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code>, <code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code>, and <code class="docutils literal notranslate"><span class="pre">EuclideanCechPersistence</span></code>)
+can now take as inputs to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> and <code class="docutils literal notranslate"><span class="pre">transform</span></code> methods lists of 2D arrays instead of simply 3D arrays. In this
+way, collections of point clouds with varying numbers of points can be processed.</p>
+</div>
+<div class="section" id="changes-and-additions-to-gtda-diagrams">
+<h4>Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code><a class="headerlink" href="#changes-and-additions-to-gtda-diagrams" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">diagrams</span></code> subpackage contains the following new classes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PersistenceImage</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Silhouette</span></code></p></li>
+</ul>
+<p>Additionally, the subpackage has been reorganised as follows:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">features</span></code> submodule now only contains the <em>scalar</em> feature generation classes <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> (moved there from <code class="docutils literal notranslate"><span class="pre">distance</span></code>) and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code>.</p></li>
+<li><p>Classes which produce <em>vector</em> representations from persistence diagrams have been moved to the new <code class="docutils literal notranslate"><span class="pre">representations</span></code> submodule.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-and-additions-to-gtda-utils">
+<h4>Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.utils</span></code><a class="headerlink" href="#changes-and-additions-to-gtda-utils" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">validate_params</span></code> has been thoroughly refactored, documented and exposed for the benefit of developers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check_diagrams</span></code> has been modified, documented and exposed for the benefit of developers.</p></li>
+<li><p>The new <code class="docutils literal notranslate"><span class="pre">check_point_clouds</span></code> performs validation of inputs consisting of collections of point clouds of distance matrices. It accepts both lists of 2D ndarrays and 3D ndarrays, and is used in the <code class="docutils literal notranslate"><span class="pre">fit</span></code> and <code class="docutils literal notranslate"><span class="pre">transform</span></code> methods of classes in <code class="docutils literal notranslate"><span class="pre">gtda.homology.simplicial</span></code> to allow for list input (see above).</p></li>
+</ul>
+</div>
+<div class="section" id="external-modules-and-hpc-improvements">
+<h4>External modules and HPC improvements<a class="headerlink" href="#external-modules-and-hpc-improvements" title="Permalink to this headline">¶</a></h4>
+<p>A substantial effort has been put in improving the quality of the high-performance components contained in <code class="docutils literal notranslate"><span class="pre">gtda.externals</span></code>.
+The end result is a cleaner packaging as well as faster execution of C++ functions due to improved bindings. In particular:</p>
+<ul class="simple">
+<li><p>Two binaries are now shipped for <code class="docutils literal notranslate"><span class="pre">ripser</span></code>, one of them being optimised for calculations with mod 2 coefficients.</p></li>
+<li><p>Recent improvements by the authors of the <code class="docutils literal notranslate"><span class="pre">hera</span></code> C++ library have been integrated in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>.</p></li>
+<li><p>Compiler optimisations for Windows-based systems have been added.</p></li>
+<li><p>The integration of <code class="docutils literal notranslate"><span class="pre">pybind11</span></code> has been improved and several issues arising with <code class="docutils literal notranslate"><span class="pre">CMake</span></code> and <code class="docutils literal notranslate"><span class="pre">boost</span></code> during developer installations have been addressed.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="bug-fixes">
+<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fixed a bug with <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code>’s algorithm for search of optimal parameters.</p></li>
+<li><p>Inconsistencies in between the meaning of “bottleneck amplitude” in the theory and in the code have been ironed out. The code has been modified to agree with the theory glossary. The outputs of the <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code> classes <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>, <code class="docutils literal notranslate"><span class="pre">Scaler</span></code> and <code class="docutils literal notranslate"><span class="pre">Filtering</span></code> is affected.</p></li>
+<li><p>Fixed bugs affecting color normalization in Mapper graph plots.</p></li>
+</ul>
+</div>
+<div class="section" id="backwards-incompatible-changes">
+<h3>Backwards-Incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Python 3.5 is no longer supported.</p></li>
+<li><p>Mac OS X versions below 10.14 are no longer supported by the wheels shipped via PyPI.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ConsistentRescaling</span></code> is no longer found in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code> and is now part of <code class="docutils literal notranslate"><span class="pre">gtda.point_clouds</span></code>.</p></li>
+<li><p>The outputs of the <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code> classes <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>, <code class="docutils literal notranslate"><span class="pre">Scaler</span></code> and <code class="docutils literal notranslate"><span class="pre">Filtering</span></code> have changed due to sqrt(2) factors (see Bug Fixes).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">meta_transformers</span></code> module has been removed.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">plotting</span></code> module has been removed from the <code class="docutils literal notranslate"><span class="pre">examples</span></code> folder of the repository.</p></li>
+</ul>
+</div>
+<div class="section" id="thanks-to-our-contributors">
+<h3>Thanks to our Contributors<a class="headerlink" href="#thanks-to-our-contributors" title="Permalink to this headline">¶</a></h3>
+<p>This release contains contributions from many people:</p>
+<p>Umberto Lupo, Guillaume Tauzin, Wojciech Reise, Julian Burella Pérez, Lewis Tunstall, Anibal Medina-Mardones, and Adélie Garin.</p>
+<p>We are also grateful to all who filed issues or helped resolve them, asked and answered questions, and were part of
+inspiring discussions.</p>
+</div>
+</div>
 <div class="section" id="release-0-1-4">
-<span id="stable"></span><h2>Release 0.1.4<a class="headerlink" href="#release-0-1-4" title="Permalink to this headline">¶</a></h2>
+<h2>Release 0.1.4<a class="headerlink" href="#release-0-1-4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="library-name-change">
 <h3>Library name change<a class="headerlink" href="#library-name-change" title="Permalink to this headline">¶</a></h3>
 <p>The library and GitHub repository have been renamed to <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>! While the
@@ -580,8 +732,8 @@ package <code class="docutils literal notranslate"><span class="pre">giotto-tda<
 <h3>Change of license<a class="headerlink" href="#change-of-license" title="Permalink to this headline">¶</a></h3>
 <p>The license changes from Apache 2.0 to GNU AGPLv3 from this release on.</p>
 </div>
-<div class="section" id="major-features-and-improvements">
-<h3>Major Features and Improvements<a class="headerlink" href="#major-features-and-improvements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Major Features and Improvements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Added a <code class="docutils literal notranslate"><span class="pre">mapper</span></code> submodule implementing the Mapper algorithm of Singh, Mémoli and Carlsson. The main tools are the
 functions <code class="docutils literal notranslate"><span class="pre">make_mapper_pipeline</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_static_mapper_graph</span></code> and <code class="docutils literal notranslate"><span class="pre">plot_interactive_mapper_graph</span></code>. The first
@@ -605,23 +757,23 @@ clustering steps are supported. The ability to fine-tune other hyperparameters w
 <li><p>Added support for Python 3.8.</p></li>
 </ul>
 </div>
-<div class="section" id="bug-fixes">
-<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Bug Fixes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Fixed consistently incorrect documentation for the <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> methods. This has been achieved by introducing a
 class decorator <code class="docutils literal notranslate"><span class="pre">adapt_fit_transform_docs</span></code> which is defined in the newly introduced <code class="docutils literal notranslate"><span class="pre">gtda.utils._docs.py</span></code>.</p></li>
 </ul>
 </div>
-<div class="section" id="backwards-incompatible-changes">
-<h3>Backwards-Incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Backwards-Incompatible Changes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The library name change and the change in the name of the main module <code class="docutils literal notranslate"><span class="pre">giotto</span></code>
 are important major changes.</p></li>
 <li><p>There are now additional dependencies in the <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">plotly</span></code>, and <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> libraries.</p></li>
 </ul>
 </div>
-<div class="section" id="thanks-to-our-contributors">
-<h3>Thanks to our Contributors<a class="headerlink" href="#thanks-to-our-contributors" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Thanks to our Contributors<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>This release contains contributions from many people:</p>
 <p>Umberto Lupo, Lewis Tunstall, Guillaume Tauzin, Philipp Weiler, Julian Burella Pérez.</p>
 <p>We are also grateful to all who filed issues or helped resolve them, asked and
@@ -630,39 +782,15 @@ answered questions, and were part of inspiring discussions.</p>
 </div>
 <div class="section" id="release-0-1-3">
 <h2>Release 0.1.3<a class="headerlink" href="#release-0-1-3" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Major Features and Improvements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>None</p>
-</div>
-<div class="section" id="id2">
-<h3>Bug Fixes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Fixed a bug in <code class="docutils literal notranslate"><span class="pre">diagrams.Amplitude</span></code> causing the transformed array to be wrongly filled and added adequate test.</p></li>
-</ul>
-</div>
-<div class="section" id="id3">
-<h3>Backwards-Incompatible Changes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>None.</p>
-</div>
-<div class="section" id="id4">
-<h3>Thanks to our Contributors<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>This release contains contributions from many people:</p>
-<p>Umberto Lupo.</p>
-<p>We are also grateful to all who filed issues or helped resolve them, asked and
-answered questions, and were part of inspiring discussions.</p>
-<div class="section" id="release-0-1-2">
-<h4>Release 0.1.2<a class="headerlink" href="#release-0-1-2" title="Permalink to this headline">¶</a></h4>
-</div>
-</div>
 <div class="section" id="id5">
 <h3>Major Features and Improvements<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Added support for Python 3.5.</p></li>
-</ul>
+<p>None</p>
 </div>
 <div class="section" id="id6">
 <h3>Bug Fixes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<p>None.</p>
+<ul class="simple">
+<li><p>Fixed a bug in <code class="docutils literal notranslate"><span class="pre">diagrams.Amplitude</span></code> causing the transformed array to be wrongly filled and added adequate test.</p></li>
+</ul>
 </div>
 <div class="section" id="id7">
 <h3>Backwards-Incompatible Changes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
@@ -671,6 +799,30 @@ answered questions, and were part of inspiring discussions.</p>
 <div class="section" id="id8">
 <h3>Thanks to our Contributors<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>This release contains contributions from many people:</p>
+<p>Umberto Lupo.</p>
+<p>We are also grateful to all who filed issues or helped resolve them, asked and
+answered questions, and were part of inspiring discussions.</p>
+</div>
+</div>
+<div class="section" id="release-0-1-2">
+<h2>Release 0.1.2<a class="headerlink" href="#release-0-1-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>Major Features and Improvements<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added support for Python 3.5.</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>Bug Fixes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>None.</p>
+</div>
+<div class="section" id="id11">
+<h3>Backwards-Incompatible Changes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>None.</p>
+</div>
+<div class="section" id="id12">
+<h3>Thanks to our Contributors<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>This release contains contributions from many people:</p>
 <p>Matteo Caorsi, Henry Tom (&#64;henrytomsf), Guillaume Tauzin.</p>
 <p>We are also grateful to all who filed issues or helped resolve them, asked and
 answered questions, and were part of inspiring discussions.</p>
@@ -678,8 +830,8 @@ answered questions, and were part of inspiring discussions.</p>
 </div>
 <div class="section" id="release-0-1-1">
 <h2>Release 0.1.1<a class="headerlink" href="#release-0-1-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id9">
-<h3>Major Features and Improvements<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>Major Features and Improvements<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Improved documentation.</p></li>
 <li><p>Improved features of class <code class="docutils literal notranslate"><span class="pre">Labeller</span></code>.</p></li>
@@ -688,17 +840,17 @@ answered questions, and were part of inspiring discussions.</p>
 <li><p>Improved CI.</p></li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3>Bug Fixes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>Bug Fixes<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>Fixed minor bugs from the first release.</p>
 </div>
-<div class="section" id="id11">
-<h3>Backwards-Incompatible Changes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>Backwards-Incompatible Changes<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <p>The following class were renamed:
 -  class <code class="docutils literal notranslate"><span class="pre">PearsonCorrelation</span></code> was renamed to class <code class="docutils literal notranslate"><span class="pre">PearsonDissimilarities</span></code></p>
 </div>
-<div class="section" id="id12">
-<h3>Thanks to our Contributors<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>Thanks to our Contributors<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <p>This release contains contributions from many people:</p>
 <p>Umberto Lupo, Guillaume Tauzin, Matteo Caorsi, Olivier Morel.</p>
 <p>We are also grateful to all who filed issues or helped resolve them, asked and
@@ -707,8 +859,8 @@ answered questions, and were part of inspiring discussions.</p>
 </div>
 <div class="section" id="release-0-1-0">
 <h2>Release 0.1.0<a class="headerlink" href="#release-0-1-0" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id13">
-<h3>Major Features and Improvements<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>Major Features and Improvements<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <p>The following submodules where added:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">giotto.homology</span></code> implements transformers to modify metric spaces or generate persistence diagrams.</p></li>
@@ -721,16 +873,16 @@ answered questions, and were part of inspiring discussions.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">giotto.pipeline</span></code> extends scikit-learn’s module by defining Pipelines that include <code class="docutils literal notranslate"><span class="pre">TransformerResamplers</span></code>.</p></li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h3>Bug Fixes<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>Bug Fixes<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <p>None</p>
 </div>
-<div class="section" id="id15">
-<h3>Backwards-Incompatible Changes<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>Backwards-Incompatible Changes<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <p>None</p>
 </div>
-<div class="section" id="id16">
-<h3>Thanks to our Contributors<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h3>Thanks to our Contributors<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <p>This release contains contributions from many people:</p>
 <p>Guillaume Tauzin, Umberto Lupo, Philippe Nguyen, Matteo Caorsi, Julian Burella Pérez, Alessio Ghiraldello.</p>
 <p>We are also grateful to all who filed issues or helped resolve them, asked and

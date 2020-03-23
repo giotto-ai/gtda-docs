@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gtda.mapper.filter &mdash; giotto-tda 0.1.4 documentation</title>
+  <title>gtda.mapper.filter &mdash; giotto-tda 0.2.0 documentation</title>
   
 
   
@@ -101,9 +101,17 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../library.html#what-s-new">What’s new</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../library.html#library-name-change">Library name change</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../library.html#change-of-license">Change of license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-point-clouds-subpackage">New <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#list-of-point-cloud-input">List of point cloud input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#changes-and-additions-to-gtda-diagrams">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#changes-and-additions-to-gtda-utils">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
@@ -280,6 +288,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
 </ul>
 </li>
@@ -443,41 +452,58 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release.html">Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-4">Release 0.1.4</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#library-name-change">Library name change</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#change-of-license">Change of license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-0">Release 0.2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-point-clouds-subpackage">New <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#list-of-point-cloud-input">List of point cloud input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-diagrams">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-utils">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-3">Release 0.1.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-4">Release 0.1.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#library-name-change">Library name change</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#change-of-license">Change of license</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id1">Major Features and Improvements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id2">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id3">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id4">Thanks to our Contributors</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../release.html#release-0-1-2">Release 0.1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id4">Thanks to our Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-3">Release 0.1.3</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id5">Major Features and Improvements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id6">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id7">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id8">Thanks to our Contributors</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-1">Release 0.1.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-2">Release 0.1.2</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id9">Major Features and Improvements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id10">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id11">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id12">Thanks to our Contributors</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-0">Release 0.1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-1">Release 0.1.1</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id13">Major Features and Improvements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id14">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id15">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#id16">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-0">Release 0.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id17">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id18">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id19">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id20">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1a-0">Release 0.1a.0</a></li>
@@ -624,10 +650,12 @@
         <span class="c1">#  may be computed. May be useful for supervised tasks with Mapper?</span>
         <span class="c1">#  Evaluate performance impact of doing this.</span>
         <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
         <span class="k">return</span> <span class="bp">self</span></div>
 
 <div class="viewcode-block" id="Eccentricity.transform"><a class="viewcode-back" href="../../../modules/generated/mapper/filters/gtda.mapper.Eccentricity.html#gtda.mapper.Eccentricity.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -650,13 +678,13 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">==</span> <span class="s1">&#39;precomputed&#39;</span><span class="p">:</span>
-            <span class="n">Xt</span> <span class="o">=</span> <span class="n">X</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">!=</span> <span class="s1">&#39;precomputed&#39;</span><span class="p">:</span>
             <span class="n">Xt</span> <span class="o">=</span> <span class="n">squareform</span><span class="p">(</span>
-                <span class="n">pdist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">))</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">pdist</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">))</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Xt</span></div></div>
 
 
@@ -694,6 +722,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -720,15 +749,15 @@
         <span class="c1">#  consists of &quot;probabilities&quot; that sum to one. Consider normalisation</span>
         <span class="c1">#  in terms of bin counts?</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">Xt</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Negative values detected in X! Taking absolute &quot;</span>
                           <span class="s2">&quot;value to calculate probabilities.&quot;</span><span class="p">)</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
 
-        <span class="n">probs</span> <span class="o">=</span> <span class="n">X</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="p">(</span><span class="n">entr</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span> <span class="o">/</span> <span class="n">Xt</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">entr</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Xt</span></div></div>
 
 
@@ -770,6 +799,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -795,11 +825,11 @@
         <span class="c1"># Simple duck typing to handle case of pandas dataframe input</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="s1">&#39;columns&#39;</span><span class="p">):</span>
             <span class="c1"># NB in this case we do not check the health of other columns</span>
-            <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-            <span class="n">Xt</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xt</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Xt</span></div></div>
 </pre></div>
 
