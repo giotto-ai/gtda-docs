@@ -1,0 +1,1701 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gtda.diagrams.representations &mdash; giotto-tda 0.2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/tda_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../library.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#guiding-principles">Guiding principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#s-guide-to-giotto-tda">30s guide to <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#resources">Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#tutorials-and-examples">Tutorials and examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#use-cases">Use cases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#what-s-new">What’s new</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#user-installation">User installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#developer-installation">Developer installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#macos">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#windows">Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#id2">Boost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#source-code">Source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#id3">Source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#to-install">To install:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/mapper.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>: Mapper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#filters">Filters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/filters/gtda.mapper.Projection.html">Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/filters/gtda.mapper.Eccentricity.html">Eccentricity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/filters/gtda.mapper.Entropy.html">Entropy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#covers">Covers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/covers/gtda.mapper.OneDimensionalCover.html">OneDimensionalCover</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/covers/gtda.mapper.CubicalCover.html">CubicalCover</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#clustering">Clustering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#pipeline">Pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#visualization">Visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#utilities">Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html">ForgetDimension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html">Scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html">Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#distances">Distances</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html">PairwiseDistance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#representations">Representations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html">PersistenceLandscape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html">BettiCurve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html">HeatKernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html">PersistenceImage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html">Silhouette</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.Amplitude.html">Amplitude</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html">PersistenceEntropy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/point_clouds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.point_clouds</span></code>: Point clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/gtda.point_clouds.ConsistentRescaling.html">ConsistentRescaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/gtda.point_clouds.ConsecutiveRescaling.html">ConsecutiveRescaling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/time_series.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>: Time series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html">SlidingWindow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Resampler.html">Resampler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html">Stationarizer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#target-preparation">Target preparation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/target_preparation/gtda.time_series.Labeller.html">Labeller</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#dynamical-systems">Dynamical systems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/dynamical_system/gtda.time_series.PermutationEntropy.html">PermutationEntropy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#multivariate">Multivariate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/multivariate/gtda.time_series.PearsonDissimilarity.html">PearsonDissimilarity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/graphs.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>: Graphs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/graphs.html#graph-creation">Graph creation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html">TransitionGraph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/graphs/creation/gtda.graphs.KNeighborsGraph.html">KNeighborsGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/graphs.html#graph-processing">Graph processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/graphs/processing/gtda.graphs.GraphGeodesicDistance.html">GraphGeodesicDistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/images.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.Binarizer.html">Binarizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.Inverter.html">Inverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.Padder.html">Padder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.ImageToPointCloud.html">ImageToPointCloud</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/images.html#filtrations">Filtrations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.HeightFiltration.html">HeightFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.RadialFiltration.html">RadialFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.DilationFiltration.html">DilationFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.ErosionFiltration.html">ErosionFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html">SignedDistanceFiltration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/plotting.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.plotting</span></code>: Plotting functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_point_cloud.html">plot_point_cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_heatmap.html">plot_heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_diagram.html">plot_diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_betti_curves.html">plot_betti_curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_betti_surfaces.html">plot_betti_surfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>: Base</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/base/gtda.base.TransformerResamplerMixin.html">TransformerResamplerMixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/base/gtda.base.PlotterMixin.html">PlotterMixin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>: Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/base/gtda.pipeline.Pipeline.html">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/index.html">Tutorials and examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/plotting_api.html#basic-philosophy-and-plot-methods">1. Basic philosophy and <code class="docutils literal notranslate"><span class="pre">plot</span></code> methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/plotting_api.html#derived-convenience-methods-transform-plot-and-fit-transform-plot">2 Derived convenience methods: <code class="docutils literal notranslate"><span class="pre">transform_plot</span></code> and <code class="docutils literal notranslate"><span class="pre">fit_transform_plot</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html">Getting started with Mapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#generate-and-visualise-data">Generate and visualise data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#configure-the-mapper-pipeline">Configure the Mapper pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-mapper-graph">Visualise the Mapper graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/classifying_shapes.html">Case study: Classification of shapes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#sampling-orientable-surfaces">Sampling orientable surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#computing-persistent-homology">Computing persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#conclusion-of-the-first-part">Conclusion of the first part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#classification-of-noisy-orientable-surfaces">Classification of noisy orientable surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#extract-and-plot-persistent-entropies">Extract and plot persistent entropies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#generating-non-orientable-surfaces">Generating non-orientable surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#id1">Computing persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#id2">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html">Case study: Lorenz attractor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#setting-up-the-lorenz-attractor-simulation">Setting up the Lorenz attractor simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#resampling-the-time-series">Resampling the time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#takens-embedding">Takens Embedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#scikit-learnstyle-pipeline">Scikit-learn–style pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#rescaling-the-diagram">Rescaling the diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#filtering-diagrams">Filtering diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#persistence-entropy">Persistence entropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#betti-curves">Betti Curves</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#new-distances-in-the-embedding-space-knn-graphs-and-geodesic-distances">New distances in the embedding space: kNN graphs and geodesic distances</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/voids_on_the_plane.html#import-libraries">Import libraries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/glossary.html">Theory Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#symbols">Symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#homology">Homology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cubical-complex">Cubical complex</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference">Reference:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#simplicial-complex">Simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#abstract-simplicial-complex">Abstract simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#ordered-simplicial-complex">Ordered simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#directed-simplicial-complex">Directed simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#chain-complex">Chain complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#homology-and-cohomology">Homology and cohomology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cubical-chains-and-cubical-homology">Cubical chains and cubical homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#filtered-complex">Filtered complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#clique-and-flag-complexes">Clique and flag complexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference-1">Reference:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-landscape">Persistence landscape</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#weighted-silhouette">Weighted silhouette</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-1">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-entropy">Persistence entropy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-2">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#betti-curve">Betti curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#metric-space">Metric space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#inner-product-and-norm">Inner product and norm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#euclidean-distance-and-norm">Euclidean distance and norm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vectorization-kernel-and-amplitude">Vectorization, kernel and amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#time-series">Time series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#id30">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#takens-embedding">Takens embedding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference-2">Reference:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#manifold">Manifold</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-3">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#compact-subset">Compact subset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/index.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/index.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/index.html#essentials-for-contributing">Essentials for contributing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#contributor-license-agreement">Contributor License Agreement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#pull-requests">Pull requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#issues">Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/index.html#contribution-guidelines-and-standards">Contribution guidelines and standards</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#general-guidelines-and-philosophy-for-contribution">General guidelines and philosophy for contribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#c-coding-style">C++ coding style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#python-coding-style">Python coding style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#git-pre-commit-hook">Git pre-commit hook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#running-unit-tests">Running unit tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release.html">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-1">Release 0.2.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-0">Release 0.2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id1">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-point-clouds-subpackage">New <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#list-of-point-cloud-input">List of point cloud input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-diagrams">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-utils">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id2">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id3">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id4">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-4">Release 0.1.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#library-name-change">Library name change</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#change-of-license">Change of license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id5">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id6">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id7">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id8">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-3">Release 0.1.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id9">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id10">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id11">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id12">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id13">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id14">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id15">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id16">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-1">Release 0.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id17">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id18">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id19">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id20">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-0">Release 0.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id21">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id22">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id23">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id24">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1a-0">Release 0.1a.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#i-am-a-researcher-can-i-use-giotto-tda-in-my-project">I am a researcher. Can I use <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> in my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#how-do-i-cite-giotto-tda">How do I cite <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#i-cannot-install-giotto-tda">I cannot install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA libraries available. How is <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> different?</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>gtda.diagrams.representations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for gtda.diagrams.representations</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Vector representations of persistence diagrams.&quot;&quot;&quot;</span>
+<span class="c1"># License: GNU AGPLv3</span>
+
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">gobj</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span><span class="p">,</span> <span class="n">effective_n_jobs</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">gen_even_slices</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
+
+<span class="kn">from</span> <span class="nn">._metrics</span> <span class="kn">import</span> <span class="n">betti_curves</span><span class="p">,</span> <span class="n">landscapes</span><span class="p">,</span> <span class="n">heats</span><span class="p">,</span> \
+    <span class="n">persistence_images</span><span class="p">,</span> <span class="n">silhouettes</span>
+<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_subdiagrams</span><span class="p">,</span> <span class="n">_bin</span><span class="p">,</span> <span class="n">_calculate_weights</span>
+<span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">PlotterMixin</span>
+<span class="kn">from</span> <span class="nn">..plotting</span> <span class="kn">import</span> <span class="n">plot_heatmap</span>
+<span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
+<span class="kn">from</span> <span class="nn">..utils.intervals</span> <span class="kn">import</span> <span class="n">Interval</span>
+<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span><span class="p">,</span> <span class="n">check_diagrams</span>
+
+
+<span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The identity function.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+
+<div class="viewcode-block" id="BettiCurve"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">BettiCurve</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Betti curves &lt;betti_curve&gt;` of persistence diagrams.</span>
+
+<span class="sd">    Given a persistence diagram consisting of birth-death-dimension triples</span>
+<span class="sd">    [b, d, q], subdiagrams corresponding to distinct homology dimensions are</span>
+<span class="sd">    considered separately, and their respective Betti curves are obtained by</span>
+<span class="sd">    evenly sampling the :ref:`filtration parameter &lt;filtered_complex&gt;`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_bins : int, optional, default: ``100``</span>
+<span class="sd">        The number of filtration parameter values, per available homology</span>
+<span class="sd">        dimension, to sample during :meth:`fit`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1</span>
+<span class="sd">        unless in a :obj:`joblib.parallel_backend` context. ``-1`` means</span>
+<span class="sd">        using all processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">        Homology dimensions seen in :meth:`fit`, sorted in ascending order.</span>
+
+<span class="sd">    samplings_ : dict</span>
+<span class="sd">        For each number in `homology_dimensions_`, a discrete sampling of</span>
+<span class="sd">        filtration parameters, calculated during :meth:`fit` according to the</span>
+<span class="sd">        minimum birth and maximum death values observed across all samples.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    PersistenceLandscape, PersistenceEntropy, HeatKernel, Amplitude, \</span>
+<span class="sd">    PairwiseDistance, Silhouette, PersistenceImage,\</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The samplings in :attr:`samplings_` are in general different between</span>
+<span class="sd">    different homology dimensions. This means that the j-th entry of a Betti</span>
+<span class="sd">    curve in homology dimension q typically arises from a different parameter</span>
+<span class="sd">    values to the j-th entry of a curve in dimension q&#39;.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}}</span>
+
+<div class="viewcode-block" id="BettiCurve.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="BettiCurve.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
+<span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
+<span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
+<span class="sd">        Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;betti&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+                           <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="BettiCurve.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute the Betti curves of diagrams in `X`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins)</span>
+<span class="sd">            Betti curves: one curve (represented as a one-dimensional array</span>
+<span class="sd">            of integer values) per sample and per homology dimension seen</span>
+<span class="sd">            in :meth:`fit`. Index i along axis 1 corresponds to the i-th</span>
+<span class="sd">            homology dimension in :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">betti_curves</span><span class="p">)(</span>
+                <span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">Xt</span></div>
+
+<div class="viewcode-block" id="BettiCurve.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of Betti curves arranged as in</span>
+<span class="sd">        the output of :meth:`transform`. Include homology in multiple</span>
+<span class="sd">        dimensions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins)</span>
+<span class="sd">            Collection of Betti curves, such as returned by :meth:`transform`.</span>
+
+<span class="sd">        sample : int, optional, default: ``0``</span>
+<span class="sd">            Index of the sample in `Xt` to be plotted.</span>
+
+<span class="sd">        homology_dimensions : list, tuple or None, optional, default: ``None``</span>
+<span class="sd">            Which homology dimensions to include in the plot. ``None`` means</span>
+<span class="sd">            plotting all dimensions present in :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">homology_dimensions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;All homology dimensions must be in &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;self.homology_dimensions_ which is &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.homology_dimensions_}</span><span class="s2">. </span><span class="si">{dim}</span><span class="s2"> is not.&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">homology_dimensions_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+                    <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">homology_dimensions_arr</span> <span class="o">==</span> <span class="n">dim</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">_homology_dimensions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ix</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
+
+        <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">xaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Filtration parameter&quot;</span><span class="p">,</span>
+                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span>
+                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
+            <span class="p">),</span>
+            <span class="n">yaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Betti number&quot;</span><span class="p">,</span>
+                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;y1&quot;</span><span class="p">,</span>
+                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
+            <span class="p">),</span>
+            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+        <span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">gobj</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+                         <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+                         <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">_homology_dimensions</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">gobj</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                       <span class="n">y</span><span class="o">=</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">ix</span><span class="p">],</span>
+                                       <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                       <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;H{int(dim)}&quot;</span><span class="p">))</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="PersistenceLandscape"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">PersistenceLandscape</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Persistence landscapes &lt;persistence_landscape&gt;` of persistence</span>
+<span class="sd">    diagrams.</span>
+
+<span class="sd">    Given a persistence diagram consisting of birth-death-dimension triples</span>
+<span class="sd">    [b, d, q], subdiagrams corresponding to distinct homology dimensions are</span>
+<span class="sd">    considered separately, and layers of their respective persistence</span>
+<span class="sd">    landscapes are obtained by evenly sampling the :ref:`filtration parameter</span>
+<span class="sd">    &lt;filtered_complex&gt;`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_layers : int, optional, default: ``1``</span>
+<span class="sd">        How many layers to consider in the persistence landscape.</span>
+
+<span class="sd">    n_bins : int, optional, default: ``100``</span>
+<span class="sd">        The number of filtration parameter values, per available</span>
+<span class="sd">        homology dimension, to sample during :meth:`fit`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">        Homology dimensions seen in :meth:`fit`.</span>
+
+<span class="sd">    samplings_ : dict</span>
+<span class="sd">        For each number in `homology_dimensions_`, a discrete sampling of</span>
+<span class="sd">        filtration parameters, calculated during :meth:`fit` according to the</span>
+<span class="sd">        minimum birth and maximum death values observed across all samples.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    BettiCurve, PersistenceEntropy, HeatKernel, Amplitude, \</span>
+<span class="sd">    PairwiseDistance, Silhouette, PersistenceImage, \</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The samplings in :attr:`samplings_` are in general different between</span>
+<span class="sd">    different homology dimensions. This means that the j-th entry of the</span>
+<span class="sd">    k-layer of a persistence landscape in homology dimension q typically</span>
+<span class="sd">    arises from a different parameter value to the j-th entry of a k-layer in</span>
+<span class="sd">    dimension q&#39;.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;n_layers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}}</span>
+
+<div class="viewcode-block" id="PersistenceLandscape.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span> <span class="o">=</span> <span class="n">n_layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="PersistenceLandscape.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
+<span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
+<span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
+<span class="sd">        Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;landscape&quot;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+                           <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PersistenceLandscape.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute the persistence landscapes of diagrams in `X`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, \</span>
+<span class="sd">            n_layers, n_bins)</span>
+<span class="sd">            Persistence lanscapes: one landscape (represented as a</span>
+<span class="sd">            two-dimensional array) per sample and per homology dimension seen</span>
+<span class="sd">            in :meth:`fit`. Each landscape contains a number `n_layers` of</span>
+<span class="sd">            layers. Index i along axis 1 corresponds to the i-th homology</span>
+<span class="sd">            dimension in :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">landscapes</span><span class="p">)(</span>
+                <span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">Xt</span></div>
+
+<div class="viewcode-block" id="PersistenceLandscape.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of persistence landscapes arranged</span>
+<span class="sd">        as in the output of :meth:`transform`. Include homology in multiple</span>
+<span class="sd">        dimensions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_layers, \</span>
+<span class="sd">            n_bins</span>
+<span class="sd">            Collection of persistence landscapes, such as returned by</span>
+<span class="sd">            :meth:`transform`.</span>
+
+<span class="sd">        sample : int, optional, default: ``0``</span>
+<span class="sd">            Index of the sample in `Xt` to be plotted.</span>
+
+<span class="sd">        homology_dimensions : list, tuple or None, optional, default: ``None``</span>
+<span class="sd">            Homology dimensions for which the landscape should be plotted.</span>
+<span class="sd">            ``None`` means plotting all dimensions present in</span>
+<span class="sd">            :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">homology_dimensions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;All homology dimensions must be in &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;self.homology_dimensions_ which is &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.homology_dimensions_}</span><span class="s2">. </span><span class="si">{dim}</span><span class="s2"> is not.&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">homology_dimensions_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+                    <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">homology_dimensions_arr</span> <span class="o">==</span> <span class="n">dim</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">_homology_dimensions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ix</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
+
+        <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">xaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;y1&quot;</span><span class="p">,</span>
+                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
+            <span class="p">),</span>
+            <span class="n">yaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span>
+                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
+            <span class="p">),</span>
+            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+        <span class="p">)</span>
+
+        <span class="n">Xt_sample</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">_homology_dimensions</span><span class="p">:</span>
+            <span class="n">layout_dim</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">layout_dim</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Persistence landscape for homology &quot;</span> <span class="o">+</span> \
+                                  <span class="s2">&quot;dimension </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">gobj</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">layout_dim</span><span class="p">)</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+                             <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+                             <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="n">n_layers</span> <span class="o">=</span> <span class="n">Xt_sample</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_layers</span><span class="p">):</span>
+                <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">gobj</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                           <span class="n">y</span><span class="o">=</span><span class="n">Xt_sample</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="n">layer</span><span class="p">],</span>
+                                           <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                           <span class="n">hoverinfo</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+                                           <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Layer {layer + 1}&quot;</span><span class="p">))</span>
+
+            <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="HeatKernel"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">HeatKernel</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convolution of persistence diagrams with a Gaussian kernel.</span>
+
+<span class="sd">    Based on ideas in [1]_. Given a persistence diagram consisting of</span>
+<span class="sd">    birth-death-dimension triples [b, d, q], subdiagrams corresponding to</span>
+<span class="sd">    distinct homology dimensions are considered separately and regarded as sums</span>
+<span class="sd">    of Dirac deltas. Then, the convolution with a Gaussian kernel is computed</span>
+<span class="sd">    over a rectangular grid of locations evenly sampled from appropriate</span>
+<span class="sd">    ranges of the :ref:`filtration parameter &lt;filtered_complex&gt;`. The</span>
+<span class="sd">    same is done with the reflected images of the subdiagrams about the</span>
+<span class="sd">    diagonal, and the difference between the results of the two convolutions is</span>
+<span class="sd">    computed. The result can be thought of as a (multi-channel) raster image.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sigma : float, optional default ``1.``</span>
+<span class="sd">        Standard deviation for Gaussian kernel.</span>
+
+<span class="sd">    n_bins : int, optional, default: ``100``</span>
+<span class="sd">        The number of filtration parameter values, per available homology</span>
+<span class="sd">        dimension, to sample during :meth:`fit`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">        Homology dimensions seen in :meth:`fit`.</span>
+
+<span class="sd">    samplings_ : dict</span>
+<span class="sd">        For each number in `homology_dimensions_`, a discrete sampling of</span>
+<span class="sd">        filtration parameters, calculated during :meth:`fit` according to the</span>
+<span class="sd">        minimum birth and maximum death values observed across all samples.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    BettiCurve, PersistenceLandscape, PersistenceEntropy, Amplitude, \</span>
+<span class="sd">    PairwiseDistance, Silhouette, PersistenceImage, \</span>
+<span class="sd">    gtda.homology.VietorisRipsPersistence</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The samplings in :attr:`samplings_` are in general different between</span>
+<span class="sd">    different homology dimensions. This means that the (i, j)-th pixel</span>
+<span class="sd">    of an image in homology dimension q typically arises from a different</span>
+<span class="sd">    pair of parameter values to the (i, j)-th pixel of an image in</span>
+<span class="sd">    dimension q&#39;.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] J. Reininghaus, S. Huber, U. Bauer, and R. Kwitt, &quot;A Stable</span>
+<span class="sd">           Multi-Scale Kernel for Topological Machine Learning&quot;; *2015 IEEE</span>
+<span class="sd">           Conference on Computer Vision and Pattern Recognition (CVPR)*,</span>
+<span class="sd">           pp. 4741--4748, 2015; doi: `10.1109/CVPR.2015.7299106</span>
+<span class="sd">           &lt;http://dx.doi.org/10.1109/CVPR.2015.7299106&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;neither&#39;</span><span class="p">)}}</span>
+
+<div class="viewcode-block" id="HeatKernel.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="HeatKernel.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
+<span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
+<span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
+<span class="sd">        Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_size</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;heat&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+                           <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="HeatKernel.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute multi-channel raster images from diagrams in `X` by</span>
+<span class="sd">        convolution with a Gaussian kernel and reflection about the diagonal.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins, \</span>
+<span class="sd">            n_bins)</span>
+<span class="sd">            Multi-channel raster images: one image per sample and one</span>
+<span class="sd">            channel per homology dimension seen in :meth:`fit`. Index i</span>
+<span class="sd">            along axis 1 corresponds to the i-th homology dimension in</span>
+<span class="sd">            :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span>
+            <span class="n">heats</span><span class="p">)(</span><span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+                   <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_size</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">Xt</span></div>
+
+<div class="viewcode-block" id="HeatKernel.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimension_ix</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;blues&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a single channel – corresponding to a given homology</span>
+<span class="sd">        dimension – in a sample from a collection of heat kernel images.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins, \</span>
+<span class="sd">            n_bins)</span>
+<span class="sd">            Collection of multi-channel raster images, such as returned by</span>
+<span class="sd">            :meth:`transform`.</span>
+
+<span class="sd">        sample : int, optional, default: ``0``</span>
+<span class="sd">            Index of the sample in `Xt` to be selected.</span>
+
+<span class="sd">        homology_dimension_ix : int, optional, default: ``0``</span>
+<span class="sd">            Index of the channel in the selected sample to be plotted. If</span>
+<span class="sd">            `Xt` is the result of a call to :meth:`transform` and this</span>
+<span class="sd">            index is i, the plot corresponds to the homology dimension given by</span>
+<span class="sd">            the i-th entry in :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        colorscale : str, optional, default: ``&#39;blues&#39;``</span>
+<span class="sd">            Color scale to be used in the heat map. Can be anything allowed by</span>
+<span class="sd">            :class:`plotly.graph_objects.Heatmap`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">plot_heatmap</span><span class="p">(</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">homology_dimension_ix</span><span class="p">],</span>
+                            <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">homology_dimension_ix</span><span class="p">],</span>
+                            <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">homology_dimension_ix</span><span class="p">],</span>
+                            <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="PersistenceImage"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">PersistenceImage</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Persistence images &lt;persistence_image&gt;` of persistence</span>
+<span class="sd">    diagrams.</span>
+
+<span class="sd">    Based on ideas in [1]_. Given a persistence diagram consisting of</span>
+<span class="sd">    birth-death-dimension triples [b, d, q], the equivalent diagrams of</span>
+<span class="sd">    birth-persistence-dimension [b, d-b, q] triples are computed and</span>
+<span class="sd">    subdiagrams corresponding to distinct homology dimensions are considered</span>
+<span class="sd">    separately and regarded as sums of Dirac deltas. Then, the convolution</span>
+<span class="sd">    with a Gaussian kernel is computed over a rectangular grid of locations</span>
+<span class="sd">    evenly sampled from appropriate ranges of the :ref:`filtration parameter</span>
+<span class="sd">    &lt;filtered_complex&gt;`. The result can be thought of as a (multi-channel)</span>
+<span class="sd">    raster image.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sigma : float, optional default ``1.``</span>
+<span class="sd">        Standard deviation for Gaussian kernel.</span>
+
+<span class="sd">    n_bins : int, optional, default: ``100``</span>
+<span class="sd">        The number of filtration parameter values, per available homology</span>
+<span class="sd">        dimension, to sample during :meth:`fit`.</span>
+
+<span class="sd">    weight_function : callable or None, default: ``None``</span>
+<span class="sd">        Function mapping the 1D array of persistence values of the points of an</span>
+<span class="sd">        input diagram to a 1D array of weights. ``None`` is equivalent to</span>
+<span class="sd">        passing the identity function.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    effective_weight_function_ : callable</span>
+<span class="sd">        Effective function corresponding to `weight_function`. Set in</span>
+<span class="sd">        :meth:`fit`.</span>
+
+<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">        Homology dimensions seen in :meth:`fit`.</span>
+
+<span class="sd">    samplings_ : dict</span>
+<span class="sd">        For each number in `homology_dimensions_`, a discrete sampling of</span>
+<span class="sd">        filtration parameters, calculated during :meth:`fit` according to the</span>
+<span class="sd">        minimum birth and maximum death values observed across all samples.</span>
+
+<span class="sd">    weights_ : dict</span>
+<span class="sd">        For each number in `homology_dimensions_`, an array of weights</span>
+<span class="sd">        corresponding to the persistence values obtained from `samplings_`</span>
+<span class="sd">        calculated during :meth:`fit` using the `weight_function`.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    BettiCurve, PersistenceLandscape, PersistenceEntropy, HeatKernel, \</span>
+<span class="sd">    Amplitude, PairwiseDistance, gtda.homology.VietorisRipsPersistence</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The samplings in :attr:`samplings_` are in general different between</span>
+<span class="sd">    different homology dimensions. This means that the (i, j)-th pixel of a</span>
+<span class="sd">    persistence image in homology dimension q typically arises from a different</span>
+<span class="sd">    pair of parameter values to the (i, j)-th pixel of a persistence image in</span>
+<span class="sd">    dimension q&#39;.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] H. Adams, T. Emerson, M. Kirby, R. Neville, C. Peterson, P. Shipman,</span>
+<span class="sd">           S. Chepushtanova, E. Hanson, F. Motta, and L. Ziegelmeier,</span>
+<span class="sd">           &quot;Persistence Images: A Stable Vector Representation of Persistent</span>
+<span class="sd">           Homology&quot;; *Journal of Machine Learning Research 18, 1*,</span>
+<span class="sd">           pp. 218-252, 2017; doi: `10.5555/3122009.3122017</span>
+<span class="sd">           &lt;http://dx.doi.org/10.5555/3122009.3122017&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;neither&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;weight_function&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))}}</span>
+
+<div class="viewcode-block" id="PersistenceImage.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">weight_function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span> <span class="o">=</span> <span class="n">weight_function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="PersistenceImage.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
+<span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
+<span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
+<span class="sd">        Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">effective_weight_function_</span> <span class="o">=</span> <span class="n">identity</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">effective_weight_function_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_size</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;persistence_image&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+                           <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span> <span class="o">=</span> <span class="n">_calculate_weights</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">effective_weight_function_</span><span class="p">,</span>
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PersistenceImage.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute multi-channel raster images from diagrams in `X` by</span>
+<span class="sd">        convolution with a Gaussian kernel.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins, \</span>
+<span class="sd">             n_bins)</span>
+<span class="sd">            Multi-channel raster images: one image per sample and one channel</span>
+<span class="sd">            per homology dimension seen in :meth:`fit`. Index i along axis 1</span>
+<span class="sd">            corresponds to the i-th homology dimension in</span>
+<span class="sd">            :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="n">persistence_images</span><span class="p">)(</span><span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                                     <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">_step_size</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">Xt</span></div>
+
+<div class="viewcode-block" id="PersistenceImage.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimension_ix</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;blues&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a single channel – corresponding to a given homology</span>
+<span class="sd">        dimension – in a sample from a collection of persistence images.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins, \</span>
+<span class="sd">            n_bins)</span>
+<span class="sd">            Collection of multi-channel raster images, such as returned by</span>
+<span class="sd">            :meth:`transform`.</span>
+
+<span class="sd">        sample : int, optional, default: ``0``</span>
+<span class="sd">            Index of the sample in `Xt` to be selected.</span>
+
+<span class="sd">        homology_dimension_ix : int, optional, default: ``0``</span>
+<span class="sd">            Index of the channel in the selected sample to be plotted. If</span>
+<span class="sd">            `Xt` is the result of a call to :meth:`transform` and this</span>
+<span class="sd">            index is i, the plot corresponds to the homology dimension given by</span>
+<span class="sd">            the i-th entry in :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        colorscale : str, optional, default: ``&#39;blues&#39;``</span>
+<span class="sd">            Color scale to be used in the heat map. Can be anything allowed by</span>
+<span class="sd">            :class:`plotly.graph_objects.Heatmap`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">samplings_x</span><span class="p">,</span> <span class="n">samplings_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">homology_dimension_ix</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">plot_heatmap</span><span class="p">(</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">homology_dimension_ix</span><span class="p">],</span>
+                            <span class="n">x</span><span class="o">=</span><span class="n">samplings_x</span><span class="p">,</span>
+                            <span class="n">y</span><span class="o">=</span><span class="n">samplings_y</span><span class="p">,</span>
+                            <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Silhouette"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">Silhouette</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Power-weighted silhouettes &lt;weighted_silhouette&gt;` of persistence</span>
+<span class="sd">    diagrams.</span>
+
+<span class="sd">    Based on ideas in [1]_. Given a persistence diagram consisting of</span>
+<span class="sd">    birth-death-dimension triples [b, d, q], subdiagrams corresponding to</span>
+<span class="sd">    distinct homology dimensions are considered separately, and their</span>
+<span class="sd">    respective silhouette by sampling the silhouette function over evenly</span>
+<span class="sd">    spaced locations from appropriate ranges of the :ref:`filtration parameter</span>
+<span class="sd">    &lt;filtered_complex&gt;`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    power: float, optional, default: ``1.``</span>
+<span class="sd">        The power to which persistence values are raised to define the</span>
+<span class="sd">        :ref:`power-weighted silhouettes &lt;weighted_silhouette&gt;`.</span>
+
+<span class="sd">    n_bins : int, optional, default: ``100``</span>
+<span class="sd">        The number of filtration parameter values, per available homology</span>
+<span class="sd">        dimension, to sample during :meth:`fit`.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1</span>
+<span class="sd">        unless in a :obj:`joblib.parallel_backend` context. ``-1`` means</span>
+<span class="sd">        using all processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">        Homology dimensions seen in :meth:`fit`, sorted in ascending order.</span>
+
+<span class="sd">    samplings_ : dict</span>
+<span class="sd">        For each number in `homology_dimensions_`, a discrete sampling of</span>
+<span class="sd">        filtration parameters, calculated during :meth:`fit` according to the</span>
+<span class="sd">        minimum birth and maximum death values observed across all samples.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    PersistenceLandscape, PersistenceEntropy, HeatKernel, Amplitude, \</span>
+<span class="sd">    PairwiseDistance, BettiCurve, gtda.homology.VietorisRipsPersistence</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The samplings in :attr:`samplings_` are in general different between</span>
+<span class="sd">    different homology dimensions. This means that the j-th entry of</span>
+<span class="sd">    a silhouette in homology dimension q typically arises from</span>
+<span class="sd">    a different parameter values to the j-th entry of a curve</span>
+<span class="sd">    in dimension q&#39;.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] F. Chazal, B. T. Fasy, F. Lecci, A. Rinaldo, and L. Wasserman,</span>
+<span class="sd">           &quot;Stochastic Convergence of Persistence Landscapes and Silhouettes&quot;;</span>
+<span class="sd">           *In Proceedings of the thirtieth annual symposium on Computational</span>
+<span class="sd">           Geometry*, Kyoto, Japan, 2014, pp. 474–483;</span>
+<span class="sd">           doi: `10.1145/2582112.2582128</span>
+<span class="sd">           &lt;http://dx.doi.org/10.1145/2582112.2582128&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;power&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)}}</span>
+
+<div class="viewcode-block" id="Silhouette.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="n">power</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+<div class="viewcode-block" id="Silhouette.fit"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Store all observed homology dimensions in</span>
+<span class="sd">        :attr:`homology_dimensions_` and, for each dimension separately,</span>
+<span class="sd">        store evenly sample filtration parameter values in :attr:`samplings_`.</span>
+<span class="sd">        Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;silhouette&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+                           <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Silhouette.transform"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute silhouettes of diagrams in `X`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
+<span class="sd">            triples [b, d, q] representing persistent topological features</span>
+<span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins)</span>
+<span class="sd">            One silhouette (represented as a one-dimensional array)</span>
+<span class="sd">            per sample and per homology dimension seen</span>
+<span class="sd">            in :meth:`fit`. Index i along axis 1 corresponds to the i-th</span>
+<span class="sd">            homology dimension in :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="p">(</span><span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+              <span class="p">(</span><span class="n">delayed</span><span class="p">(</span><span class="n">silhouettes</span><span class="p">)(</span><span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">power</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">power</span><span class="p">)</span>
+              <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+              <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                       <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">))))</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span> \
+            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span> \
+            <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">Xt</span></div>
+
+<div class="viewcode-block" id="Silhouette.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of silhouettes arranged as in</span>
+<span class="sd">        the output of :meth:`transform`. Include homology in multiple</span>
+<span class="sd">        dimensions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins)</span>
+<span class="sd">            Collection of silhouettes, such as returned by :meth:`transform`.</span>
+
+<span class="sd">        sample : int, optional, default: ``0``</span>
+<span class="sd">            Index of the sample in `Xt` to be plotted.</span>
+
+<span class="sd">        homology_dimensions : list, tuple or None, optional, default: ``None``</span>
+<span class="sd">            Which homology dimensions to include in the plot. ``None`` means</span>
+<span class="sd">            plotting all dimensions present in :attr:`homology_dimensions_`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">homology_dimensions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;All homology dimensions must be in &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;self.homology_dimensions_ which is &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.homology_dimensions_}</span><span class="s2">. </span><span class="si">{dim}</span><span class="s2"> is not.&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">homology_dimensions_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+                    <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">homology_dimensions_arr</span> <span class="o">==</span> <span class="n">dim</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">_homology_dimensions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ix</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
+
+        <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">xaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Filtration parameter&quot;</span><span class="p">,</span>
+                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span>
+                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
+            <span class="p">),</span>
+            <span class="n">yaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;y1&quot;</span><span class="p">,</span>
+                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
+            <span class="p">),</span>
+            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
+        <span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">gobj</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+                         <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+                         <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">_homology_dimensions</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">gobj</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                       <span class="n">y</span><span class="o">=</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">ix</span><span class="p">],</span>
+                                       <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                       <span class="n">hoverinfo</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                                       <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;H{int(dim)}&quot;</span><span class="p">))</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions</span>
+    current: 0.2.1
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+      
+      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
+      
+      <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
+      
+      <!--end_versions_tag-->
+    </dl>
+  </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

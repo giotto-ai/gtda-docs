@@ -1,0 +1,837 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gtda.time_series.target &mdash; giotto-tda 0.2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/tda_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../library.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#guiding-principles">Guiding principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#s-guide-to-giotto-tda">30s guide to <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#resources">Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#tutorials-and-examples">Tutorials and examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#use-cases">Use cases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#what-s-new">What’s new</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#user-installation">User installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#developer-installation">Developer installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#macos">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#windows">Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#id2">Boost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#source-code">Source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#id3">Source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#to-install">To install:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/mapper.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>: Mapper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#filters">Filters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/filters/gtda.mapper.Projection.html">Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/filters/gtda.mapper.Eccentricity.html">Eccentricity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/filters/gtda.mapper.Entropy.html">Entropy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#covers">Covers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/covers/gtda.mapper.OneDimensionalCover.html">OneDimensionalCover</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/covers/gtda.mapper.CubicalCover.html">CubicalCover</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#clustering">Clustering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#pipeline">Pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#visualization">Visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#utilities">Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html">ForgetDimension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html">Scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html">Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#distances">Distances</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html">PairwiseDistance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#representations">Representations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html">PersistenceLandscape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html">BettiCurve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html">HeatKernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html">PersistenceImage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html">Silhouette</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.Amplitude.html">Amplitude</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html">PersistenceEntropy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/point_clouds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.point_clouds</span></code>: Point clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/gtda.point_clouds.ConsistentRescaling.html">ConsistentRescaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/gtda.point_clouds.ConsecutiveRescaling.html">ConsecutiveRescaling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/time_series.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>: Time series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html">SlidingWindow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Resampler.html">Resampler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html">Stationarizer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#target-preparation">Target preparation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/target_preparation/gtda.time_series.Labeller.html">Labeller</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#dynamical-systems">Dynamical systems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/dynamical_system/gtda.time_series.PermutationEntropy.html">PermutationEntropy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#multivariate">Multivariate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/multivariate/gtda.time_series.PearsonDissimilarity.html">PearsonDissimilarity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/graphs.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>: Graphs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/graphs.html#graph-creation">Graph creation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html">TransitionGraph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/graphs/creation/gtda.graphs.KNeighborsGraph.html">KNeighborsGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/graphs.html#graph-processing">Graph processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/graphs/processing/gtda.graphs.GraphGeodesicDistance.html">GraphGeodesicDistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/images.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.Binarizer.html">Binarizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.Inverter.html">Inverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.Padder.html">Padder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.ImageToPointCloud.html">ImageToPointCloud</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/images.html#filtrations">Filtrations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.HeightFiltration.html">HeightFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.RadialFiltration.html">RadialFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.DilationFiltration.html">DilationFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.ErosionFiltration.html">ErosionFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html">SignedDistanceFiltration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/plotting.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.plotting</span></code>: Plotting functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_point_cloud.html">plot_point_cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_heatmap.html">plot_heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_diagram.html">plot_diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_betti_curves.html">plot_betti_curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/plotting/gtda.plotting.plot_betti_surfaces.html">plot_betti_surfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>: Base</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/base/gtda.base.TransformerResamplerMixin.html">TransformerResamplerMixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/base/gtda.base.PlotterMixin.html">PlotterMixin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>: Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/base/gtda.pipeline.Pipeline.html">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/index.html">Tutorials and examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/plotting_api.html#basic-philosophy-and-plot-methods">1. Basic philosophy and <code class="docutils literal notranslate"><span class="pre">plot</span></code> methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/plotting_api.html#derived-convenience-methods-transform-plot-and-fit-transform-plot">2 Derived convenience methods: <code class="docutils literal notranslate"><span class="pre">transform_plot</span></code> and <code class="docutils literal notranslate"><span class="pre">fit_transform_plot</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html">Getting started with Mapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#generate-and-visualise-data">Generate and visualise data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#configure-the-mapper-pipeline">Configure the Mapper pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-mapper-graph">Visualise the Mapper graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/classifying_shapes.html">Case study: Classification of shapes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#sampling-orientable-surfaces">Sampling orientable surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#computing-persistent-homology">Computing persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#conclusion-of-the-first-part">Conclusion of the first part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#classification-of-noisy-orientable-surfaces">Classification of noisy orientable surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#extract-and-plot-persistent-entropies">Extract and plot persistent entropies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#generating-non-orientable-surfaces">Generating non-orientable surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#id1">Computing persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#id2">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html">Case study: Lorenz attractor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#setting-up-the-lorenz-attractor-simulation">Setting up the Lorenz attractor simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#resampling-the-time-series">Resampling the time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#takens-embedding">Takens Embedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#scikit-learnstyle-pipeline">Scikit-learn–style pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#rescaling-the-diagram">Rescaling the diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#filtering-diagrams">Filtering diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#persistence-entropy">Persistence entropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#betti-curves">Betti Curves</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#new-distances-in-the-embedding-space-knn-graphs-and-geodesic-distances">New distances in the embedding space: kNN graphs and geodesic distances</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/voids_on_the_plane.html#import-libraries">Import libraries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/glossary.html">Theory Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#symbols">Symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#homology">Homology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cubical-complex">Cubical complex</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference">Reference:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#simplicial-complex">Simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#abstract-simplicial-complex">Abstract simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#ordered-simplicial-complex">Ordered simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#directed-simplicial-complex">Directed simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#chain-complex">Chain complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#homology-and-cohomology">Homology and cohomology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cubical-chains-and-cubical-homology">Cubical chains and cubical homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#filtered-complex">Filtered complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#clique-and-flag-complexes">Clique and flag complexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference-1">Reference:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-landscape">Persistence landscape</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#weighted-silhouette">Weighted silhouette</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-1">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-entropy">Persistence entropy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-2">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#betti-curve">Betti curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#metric-space">Metric space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#inner-product-and-norm">Inner product and norm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#euclidean-distance-and-norm">Euclidean distance and norm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vectorization-kernel-and-amplitude">Vectorization, kernel and amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#finite-metric-spaces-and-point-clouds">Finite metric spaces and point clouds</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#time-series">Time series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#id30">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#takens-embedding">Takens embedding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference-2">Reference:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#manifold">Manifold</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-3">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#compact-subset">Compact subset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/index.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/index.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/index.html#essentials-for-contributing">Essentials for contributing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#contributor-license-agreement">Contributor License Agreement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#pull-requests">Pull requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#issues">Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/index.html#contribution-guidelines-and-standards">Contribution guidelines and standards</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#general-guidelines-and-philosophy-for-contribution">General guidelines and philosophy for contribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#c-coding-style">C++ coding style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#python-coding-style">Python coding style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#git-pre-commit-hook">Git pre-commit hook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#running-unit-tests">Running unit tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release.html">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-1">Release 0.2.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-0">Release 0.2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id1">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-point-clouds-subpackage">New <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#list-of-point-cloud-input">List of point cloud input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-diagrams">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-utils">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id2">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id3">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id4">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-4">Release 0.1.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#library-name-change">Library name change</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#change-of-license">Change of license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id5">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id6">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id7">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id8">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-3">Release 0.1.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id9">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id10">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id11">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id12">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id13">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id14">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id15">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id16">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-1">Release 0.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id17">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id18">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id19">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id20">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-0">Release 0.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id21">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id22">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id23">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id24">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1a-0">Release 0.1a.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#i-am-a-researcher-can-i-use-giotto-tda-in-my-project">I am a researcher. Can I use <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> in my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#how-do-i-cite-giotto-tda">How do I cite <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#i-cannot-install-giotto-tda">I cannot install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA libraries available. How is <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> different?</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>gtda.time_series.target</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for gtda.time_series.target</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Time series labelling.&quot;&quot;&quot;</span>
+<span class="c1"># License: GNU AGPLv3</span>
+
+<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
+<span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">FunctionType</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span><span class="p">,</span> <span class="n">column_or_1d</span>
+
+<span class="kn">from</span> <span class="nn">.embedding</span> <span class="kn">import</span> <span class="n">SlidingWindow</span>
+<span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">TransformerResamplerMixin</span>
+<span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
+<span class="kn">from</span> <span class="nn">..utils.intervals</span> <span class="kn">import</span> <span class="n">Interval</span>
+<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span>
+
+
+<div class="viewcode-block" id="Labeller"><a class="viewcode-back" href="../../../modules/generated/time_series/target_preparation/gtda.time_series.Labeller.html#gtda.time_series.Labeller">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">Labeller</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerResamplerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Target creation from sliding windows over a time series.</span>
+
+<span class="sd">    Useful to define a time series forecasting task in which labels are</span>
+<span class="sd">    obtained from future values of the input time series, via the</span>
+<span class="sd">    application of a function to time windows.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    width : int, optional, default: ``10``</span>
+<span class="sd">        Width of each sliding window. Each window contains ``width + 1``</span>
+<span class="sd">        objects from the original time series.</span>
+
+<span class="sd">    func : callable, optional, default: ``numpy.std``</span>
+<span class="sd">        Function to be applied to each window.</span>
+
+<span class="sd">    func_params : dict or None, optional, default: ``None``</span>
+<span class="sd">        Additional keyword arguments for `func`.</span>
+
+<span class="sd">    percentiles : list of real numbers between 0 and 100 inclusive, or \</span>
+<span class="sd">        None, optional, default: ``None``</span>
+<span class="sd">        If ``None``, creates a target for a regression task. Otherwise,</span>
+<span class="sd">        creates a target for an n-class classification task where</span>
+<span class="sd">        ``n = len(percentiles) + 1``.</span>
+
+<span class="sd">    n_steps_future : int, optional, default: ``1``</span>
+<span class="sd">        Number of steps in the future for the predictive task.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    thresholds_ : list of floats or ``None`` if percentiles is ``None``</span>
+<span class="sd">        Values corresponding to each percentile, based on data seen in</span>
+<span class="sd">        :meth:`fit`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from gtda.time_series import Labeller</span>
+<span class="sd">    &gt;&gt;&gt; # Create a time series</span>
+<span class="sd">    &gt;&gt;&gt; X = np.arange(10).reshape(-1, 1)</span>
+<span class="sd">    &gt;&gt;&gt; labeller = Labeller(width=2)</span>
+<span class="sd">    &gt;&gt;&gt; # Fit and transform X</span>
+<span class="sd">    &gt;&gt;&gt; X, y = labeller.fit_transform_resample(X, X)</span>
+<span class="sd">    &gt;&gt;&gt; print(X)</span>
+<span class="sd">    [[1]</span>
+<span class="sd">     [2]</span>
+<span class="sd">     [3]</span>
+<span class="sd">     [4]</span>
+<span class="sd">     [5]</span>
+<span class="sd">     [6]</span>
+<span class="sd">     [7]</span>
+<span class="sd">     [8]]</span>
+<span class="sd">    &gt;&gt;&gt; print(y)</span>
+<span class="sd">    [0.81649658 0.81649658 0.81649658 0.81649658 0.81649658 0.81649658</span>
+<span class="sd">     0.81649658 0.81649658]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">FunctionType</span><span class="p">},</span>
+        <span class="s1">&#39;func_params&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))},</span>
+        <span class="s1">&#39;percentiles&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)),</span>
+            <span class="s1">&#39;of&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)}},</span>
+        <span class="s1">&#39;n_steps_future&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="Labeller.__init__"><a class="viewcode-back" href="../../../modules/generated/time_series/target_preparation/gtda.time_series.Labeller.html#gtda.time_series.Labeller.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">,</span>
+                 <span class="n">func_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">percentiles</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_steps_future</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func_params</span> <span class="o">=</span> <span class="n">func_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">percentiles</span> <span class="o">=</span> <span class="n">percentiles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_future</span> <span class="o">=</span> <span class="n">n_steps_future</span></div>
+
+<div class="viewcode-block" id="Labeller.fit"><a class="viewcode-back" href="../../../modules/generated/time_series/target_preparation/gtda.time_series.Labeller.html#gtda.time_series.Labeller.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute :attr:`thresholds_` and return the estimator.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples,) or (n_samples, 1)</span>
+<span class="sd">            Time series to build a target for.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sliding_window</span> <span class="o">=</span> <span class="n">SlidingWindow</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sliding_window</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_effective_func_params</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_effective_func_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func_params</span>
+        <span class="n">_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span>
+            <span class="n">_X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_effective_func_params</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentiles</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">thresholds_</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">thresholds_</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">_X</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span> <span class="n">percentile</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">percentile</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentiles</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Labeller.transform"><a class="viewcode-back" href="../../../modules/generated/time_series/target_preparation/gtda.time_series.Labeller.html#gtda.time_series.Labeller.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cuts `X` so it is aligned with `y`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples,) or (n_samples, 1)</span>
+<span class="sd">            Time series to build a target for.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target, yet the pipeline API</span>
+<span class="sd">            requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples_new, 1)</span>
+<span class="sd">            The cut input time series.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[:</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">n_steps_future</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_future</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">:</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_future</span><span class="p">:]</span>
+        <span class="k">return</span> <span class="n">Xt</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Labeller.resample"><a class="viewcode-back" href="../../../modules/generated/time_series/target_preparation/gtda.time_series.Labeller.html#gtda.time_series.Labeller.resample">[docs]</a>    <span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resample `y`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        y : ndarray of shape (n_samples,)</span>
+<span class="sd">            Time series to build a target for.</span>
+
+<span class="sd">        X : None</span>
+<span class="sd">            There is no need for `X`, yet the pipeline API requires this</span>
+<span class="sd">            parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        yr : ndarray of shape (n_samples_new,)</span>
+<span class="sd">            Target for the prediction task.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="n">yr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sliding_window</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">yr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span>
+            <span class="n">yr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_effective_func_params</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">thresholds_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span>
+            <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+                <span class="p">[</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">yr</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">yr</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">thresholds_</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">+</span>
+                <span class="p">[</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">yr</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">thresholds_</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span>
+                 <span class="p">(</span><span class="n">yr</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">thresholds_</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span>
+                    <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thresholds_</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">+</span>
+                <span class="p">[</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">yr</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">thresholds_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">yr</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">yr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_steps_future</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">:</span>
+            <span class="n">yr</span> <span class="o">=</span> <span class="n">yr</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">n_steps_future</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+
+        <span class="k">return</span> <span class="n">yr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions</span>
+    current: 0.2.1
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+      
+      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
+      
+      <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
+      
+      <!--end_versions_tag-->
+    </dl>
+  </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
