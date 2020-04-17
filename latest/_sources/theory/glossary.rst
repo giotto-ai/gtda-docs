@@ -32,6 +32,176 @@ Symbols
 |                              | :math:`( s,s ) \mapsto +\infty`.     |
 +------------------------------+--------------------------------------+
 
+Analysis
+========
+
+.. _metric_space:
+
+Metric space
+------------
+
+A set :math:`X` with a function
+
+.. math:: d : X \times X \to \mathbb R
+
+is said to be a *metric space* if the values of :math:`d` are all
+non-negative and for all :math:`x,y,z \in X`
+
+.. math:: d(x,y) = 0\ \Leftrightarrow\ x = y
+
+.. math:: d(x,y) = d(y,x)
+
+.. math:: d(x,z) \leq d(x,y) + d(y, z).
+
+In this case the :math:`d` is referred to as the *metric* or the
+*distance function*.
+
+.. _normed_space:
+
+Normed space
+------------
+
+A vector space :math:`V` together with a function
+
+.. math:: ||-|| : V \to \mathbb R
+
+is said to be an *normed space* if the values of :math:`||-||` are all
+non-negative and for all :math:`u,v \in V` and :math:`a \in \mathbb R`
+
+.. math:: ||v|| = 0\ \Leftrightarrow\ u = 0
+
+.. math:: ||a u || = |a|\, ||u||
+
+.. math:: ||u+v|| = ||u|| + ||v||.
+
+The function :math:`||-||` is referred to as the *norm*.
+
+A normed space is naturally a metric space with distance function
+
+.. math:: d(u,v) = ||u-v||.
+
+.. _inner_product_space:
+
+Inner product space
+-------------------
+
+A vector space :math:`V` together with a function
+
+.. math:: \langle -, - \rangle : V \times V \to \mathbb R
+
+is said to be an *inner product space* if for all :math:`u,v,w \in V`
+and :math:`a \in \mathbb R`
+
+.. math:: u \neq 0\ \Rightarrow\ \langle u, u \rangle > 0
+
+.. math:: \langle u, v\rangle = \langle v, u\rangle
+
+.. math:: \langle au+v, w \rangle = a\langle u, w \rangle + \langle v, w \rangle.
+
+The function :math:`\langle -, - \rangle` is referred to as the *inner
+product*.
+
+An inner product space is naturally a normed space with
+
+.. math:: ||u|| = \sqrt{\langle u, u \rangle}.
+
+.. _vectorization_amplitude_and_kernel:
+
+Vectorization, amplitude and kernel
+-----------------------------------
+
+Let :math:`X` be a set, for example, the set of all persistence
+diagrams. A *vectorization* for :math:`X` is a function
+
+.. math:: \phi : X \to V
+
+where :math:`V` is a vector space.
+
+An *amplitude* on :math:`X` is a function
+
+.. math:: A : X \to \mathbb R
+
+for which there exists a vectorization :math:`\phi : X \to V` with
+:math:`V` a normed space such that
+
+.. math:: A(x) = ||\phi(x)||
+
+for all :math:`x \in X`.
+
+A *kernel* on the set :math:`X` is a function
+
+.. math:: k : X \times X \to \mathbb R
+
+for which there exists a vectorization :math:`\phi : X \to V` with
+:math:`V` an inner product space such that
+
+.. math:: k(x,y) = \langle \phi(x), \phi(y) \rangle
+
+for each :math:`x,y \in X`.
+
+.. _euclidean_distance_and_norm:
+
+Euclidean distance and :math:`l^p`-norms
+----------------------------------------
+
+The vector space :math:`\mathbb R^n` is an inner product space with
+inner product
+
+.. math:: \langle x, y \rangle = (x_1-y_1)^2 + \cdots + (x_n-y_n)^2.
+
+This inner product is referred to as *dot product* and the associated
+norm and distance function are respectively named *euclidean norm* and
+*euclidean distance*.
+
+For any :math:`p \in (0,\infty]` the pair :math:`\mathbb R^n, ||-||_p`
+with
+
+.. math:: ||x||_p = (x_1^p + \cdots + x_n^p)^{1/p}
+
+if :math:`p` is finite and
+
+.. math:: ||x||_{\infty} = max\{x_i\ |\ i = 1,\dots,n\}
+
+is a normed spaced and its norm is referred to as the
+:math:`l^p`\ *-norm*.
+
+.. _distance_matrices_and_point_clouds:
+
+Distance matrices and point clouds
+----------------------------------
+
+Let :math:`(X, d)` be a finite metric space. A *distance matrix*
+associated to it is obtained by choosing a total order on
+:math:`X = {x_1 < \cdots < x_m}` and setting the :math:`(i,j)`-entry to
+be equal to :math:`d(x_i, x_j)`.
+
+A *point cloud* is a finite subset of :math:`\mathbb{R}^n` (for some
+:math:`n`) together with the metric induced from the euclidean distance.
+
+.. _functional_lp:
+
+:math:`L^p`-norms
+-----------------
+
+Let :math:`U \subseteq \mathbb R^n` and :math:`C(U, \mathbb R)` be the
+set of continuous real-valued functions on :math:`U`. A function
+:math:`f \in C(U, \mathbb R)` is said to be :math:`p`\ *-integrable* if
+
+.. math:: \int_U |f(x)|^p dx
+
+is finite. The subset of :math:`p`-integrable functions together with
+the assignment :math:`||-||_p`
+
+.. math:: f \mapsto \left( \int_U |f(x)|^p dx \right)^{1/p}
+
+is a normed space and :math:`||-||_p` is referred to as the
+:math:`L^p`\ *-norm*.
+
+The only :math:`L^p`-norm that is induced from an inner product is
+:math:`L^2`, and the inner product is given by
+
+.. math:: \langle f, g \rangle = \left(\int_U |f(x)-g(x)|^2 dx\right)^{1/2}.
+
 Homology
 ========
 
@@ -60,12 +230,11 @@ total number of its non-degenerate factors
 
 we define for :math:`i = 1, \dots, n` the following two elementary cubes
 
-.. math:: d_i^\pm I^N = I_{a_1} \times \cdots \times d^\pm I_{a_{k_i}} \times \cdots \times I_{a_{N.}}
+.. math:: d_i^\pm I^N = I_{a_1} \times \cdots \times d^\pm I_{a_{k_i}} \times \cdots \times I_{a_{N}}.
 
 A *cubical complex* is a finite set of elementary cubes of
 :math:`\mathbb{R}^N`, and a *subcomplex* of :math:`X` is a cubical
-complex whose elementary cubes are also in :math:`X`. We denote the set
-of :math:`n`-dimensional cubes as :math:`X_n`.
+complex whose elementary cubes are also in :math:`X`.
 
 Reference:
 ~~~~~~~~~~
@@ -121,11 +290,6 @@ a simplex :math:`x` is defined by :math:`|x| = \# x - 1` where
 dimension :math:`d` are called :math:`d`-simplices. We abuse terminology
 and refer to the elements of :math:`V` and to their associated
 :math:`0`-simplices both as *vertices*.
-
-The :math:`k`\ *-skeleton* :math:`X_k` of a simplicial complex :math:`X`
-is the subcomplex containing all simplices of dimension at most
-:math:`k`. A simplicial complex is said to be :math:`d`\ *-dimensional*
-if :math:`d` is the smallest integer satisfying :math:`X = X_d`.
 
 A *simplicial map* between simplicial complexes is a function between
 their vertices such that the image of any simplex via the induced map is
@@ -227,9 +391,10 @@ homologies.
 Simplicial chains and simplicial homology
 -----------------------------------------
 
-Let :math:`X` be an ordered or directed simplicial complex. Define its
-*simplicial chain complex with* :math:`\Bbbk`\ *-coefficients*
-:math:`C_*(X; \Bbbk)` by
+Let :math:`X` be an ordered or directed simplicial complex and denote
+the subset of :math:`n`-simplices by :math:`X_n`. Define its *simplicial
+chain complex with* :math:`\Bbbk`\ *-coefficients* :math:`C_*(X; \Bbbk)`
+by
 
 .. math:: C_n(X; \Bbbk) = \Bbbk\{X_n\}, \qquad \partial_n(x) = \sum_{i=0}^{n} (-1)^i d_ix
 
@@ -246,8 +411,9 @@ chain complexes and, therefore, between the associated simplicial
 Cubical chains and cubical homology
 -----------------------------------
 
-Let :math:`X` be a cubical complex. Define its *cubical chain complex
-with* :math:`\Bbbk`\ *-coefficients* :math:`C_*(X; \Bbbk)` by
+Let :math:`X` be a cubical complex and denote the subset of
+:math:`n`-cubes by :math:`X_n`. Define the *cubical chain complex with*
+:math:`\Bbbk`\ *-coefficients* :math:`C_*(X; \Bbbk)` by
 
 .. math:: C_n(X; \Bbbk) = \Bbbk\{X_n\}, \qquad \partial_n x = \sum_{i = 1}^{n} (-1)^{i-1}(d^+_i x - d^-_i x)
 
@@ -256,6 +422,9 @@ dimension of :math:`I_1 \times \cdots \times I_i`. Its *homology and
 cohomology with* :math:`\Bbbk`\ *-coefficients* is the homology and
 cohomology of this chain complex. We use the notation
 :math:`H_*(X; \Bbbk)` and :math:`H^*(X; \Bbbk)` for these.
+
+Persistence
+===========
 
 .. _filtered_complex:
 
@@ -357,7 +526,7 @@ with* :math:`\Bbbk`\ *-coefficients* is the persistence module
 
 with structure maps
 :math:`H_*(f_{st}) : H_*(X(s); \Bbbk) \to H_*(X(t); \Bbbk)` induced form
-the maps :math:`f_{st.}` In general, the collection constructed this way
+the maps :math:`f_{st}.` In general, the collection constructed this way
 needs not satisfy the tameness condition of a persistence module, but we
 restrict attention to the cases where it does. Its *persistence
 simplicial cohomology with* :math:`\Bbbk`\ *-coefficients* is defined
@@ -434,7 +603,7 @@ Given a persistence module, its associated persistence diagram is
 determined by the following condition: for each pair :math:`s,t` the
 number counted with multiplicity of points :math:`(b,d)` in the
 multiset, satisfying :math:`b \leq s \leq t < d` is equal to the rank of
-:math:`f_{st.}`
+:math:`f_{st}.`
 
 A well known result establishes that there exists an isomorphism between
 two persistence module if and only if their persistence diagrams are
@@ -458,7 +627,7 @@ The limit :math:`p \to \infty` defines the *bottleneck distance*. More
 explicitly, it is the infimum over the same set of bijections of the
 value
 
-.. math:: \sup_{x \in D_1 \cup \Delta} ||x - \gamma(x)||_{\infty.}
+.. math:: \sup_{x \in D_1 \cup \Delta} ||x - \gamma(x)||_{\infty}.
 
 The set of persistence diagrams together with any of the distances above
 is a metric space.
@@ -487,7 +656,7 @@ value of the set :math:`\{\Lambda_i(t)\}_ {i \in I}` where
 .. math:: \Lambda_i(t) = \left[ \min \{t-b_i, d_i-t\}\right]_+
 
 and :math:`c_+ := \max(c,0)`. The function :math:`\lambda_k` is referred
-to as the *:math:`k`-layer of the persistence landscape*.
+to as the :math:`k`-*layer of the persistence landscape*.
 
 We describe the graph of each :math:`\lambda_k` intuitively. For each
 :math:`i \in I`, draw an isosceles triangle with base the interval
@@ -517,8 +686,15 @@ where
 .. math:: ||\lambda_i||_p = \left( \int_{\mathbb R} \lambda_i^p(x)\, dx \right)^{1/p}
 
 is finite. In this case we refer to
-`[equation:persistence_landscape_norm] <#equation:persistence_landscape_norm>`__
-as the *landscape* :math:`p`-*amplitude* of :math:`D`.
+(`[equation:persistence_landscape_norm] <#equation:persistence_landscape_norm>`__)
+as the :math:`p`-*landscape norm* of :math:`D` and, for :math:`p = 2`,
+define the value of the *landscape kernel* on two persistence diagrams
+:math:`D` and :math:`E` as
+
+.. math:: \langle \lambda, \mu \rangle = \left(\sum_{i \in \mathbb N} \int_{\mathbb R} |\lambda_i(x) - \mu_i(x)|^2\, dx\right)^{1/2}
+
+where :math:`\lambda` and :math:`\mu` are their associated persistence
+landscapes.
 
 References:
 ~~~~~~~~~~~
@@ -532,7 +708,7 @@ Weighted silhouette
 
 Let :math:`D = \{(b_i, d_i)\}_{i \in I}` be a persistence diagram and
 :math:`w = \{w_i\}_{i \in I}` a set of positive real numbers. The
-*silhouette of :math:`D` weighted by :math:`w`* is the function
+*silhouette of* :math:`D` *weighted by* :math:`w` is the function
 :math:`\phi : \mathbb R \to \mathbb R` defined by
 
 .. math:: \phi(t) = \frac{\sum_{i \in I}w_i \Lambda_i(t)}{\sum_{i \in I}w_i},
@@ -543,7 +719,7 @@ where
 
 and :math:`c_+ := \max(c,0)`. When :math:`w_i = \vert d_i - b_i \vert^p`
 for :math:`0 < p \leq \infty` we refer to :math:`\phi` as the
-*:math:`p`-power-weighted silhouette* of :math:`D`. The silhouette
+:math:`p`-*power-weighted silhouette* of :math:`D`. The silhouette
 construction defines a vectorization of the set of persistence diagrams
 with target the vector space of continuous real-valued functions on
 :math:`\mathbb R`.
@@ -554,6 +730,56 @@ References:
 ~~~~~~~~~~~
 
 (Chazal et al. 2014)
+
+.. _heat_vectorization:
+
+Heat vectorizations
+-------------------
+
+Considering the points in a persistence diagram as the support of Dirac
+deltas one can construct, for any :math:`t > 0`, two vectorizations of
+the set of persistence diagrams to the set of continuous real-valued
+function on the first quadrant :math:`\mathbb{R}^2_{>0}`. The *symmetry
+heat vectorization* is constructed for every persistence diagram
+:math:`D` by solving the heat equation
+
+.. math::
+
+   \begin{aligned}
+    \label{equation:heat_equation}
+       \Delta_x(u) &= \partial_t u && \text{on } \Omega \times \mathbb R_{>0} \nonumber \\
+       u &= 0 && \text{on } \{x_1 = x_2\} \times \mathbb R_{\geq 0} \\
+       u &= \sum_{p \in D} \delta_p && \text{on } \Omega \times {0} \nonumber
+       \end{aligned}
+
+where :math:`\Omega = \{(x_1, x_2) \in \mathbb R^2\ |\ x_1 \leq x_2\}`,
+then solving the same equation after precomposing the data of
+(`[equation:heat_equation] <#equation:heat_equation>`__) with the change
+of coordinates :math:`(x_1, x_2) \mapsto (x_2, x_1)`, and defining the
+image of :math:`D` to be the difference between these two solutions at
+the chosen time :math:`t`.
+
+Similarly, the *rotation heat vectorization* is defined by sending
+:math:`D` to the solution, evaluated at time :math:`t`, of the equation
+obtained by precomposing the data of
+(`[equation:heat_equation] <#equation:heat_equation>`__) with the change
+of coordinates :math:`(x_1, x_2) \mapsto (x_1, x_2-x_1)`.
+
+We recall that the solution to the heat equation with initial condition
+given by a Dirac delta supported at :math:`p \in \mathbb R^2` is
+
+.. math:: \frac{1}{4 \pi t} \exp\left(-\frac{||p-x||^2}{4t}\right)
+
+and, to highlight the connection with normally distributed random
+variables, it is customary to use the the change of variable
+:math:`\sigma = \sqrt{2t}`.
+
+.. _references-2:
+
+References:
+~~~~~~~~~~~
+
+(Reininghaus et al. 2015; Adams et al. 2017)
 
 .. _persistence_entropy:
 
@@ -571,7 +797,7 @@ where
 
 .. math:: p_i = \frac{(d_i - b_i)}{L_D} \qquad \text{and} \qquad L_D = \sum_{i \in I} (d_i - b_i) .
 
-.. _references-2:
+.. _references-3:
 
 References:
 ~~~~~~~~~~~
@@ -590,131 +816,6 @@ points :math:`(b_i,d_i)` in :math:`D` such that :math:`b_i \leq s <d_i`.
 
 The name is inspired from the case when the persistence diagram comes
 from persistent homology.
-
-.. _metric_space:
-
-Metric space
-------------
-
-A set :math:`X` with a function
-
-.. math:: d : X \times X \to \mathbb R
-
-is said to be a *metric space* if the values of :math:`d` are all
-non-negative and for all :math:`x,y,z \in X`
-
-.. math:: d(x,y) = 0\ \Leftrightarrow\ x = y
-
-.. math:: d(x,y) = d(y,x)
-
-.. math:: d(x,z) \leq d(x,y) + d(y, z).
-
-In this case the :math:`d` is referred to as the *metric* or the
-*distance function*.
-
-.. _inner_product_and_norm:
-
-Inner product and norm
-----------------------
-
-A vector space :math:`V` together with a function
-
-.. math:: \langle -, - \rangle : V \times V \to \mathbb R
-
-is said to be an *inner product space* if for all :math:`u,v,w \in V`
-and :math:`a \in \mathbb R`
-
-.. math:: u \neq 0\ \Rightarrow\ \langle u, u \rangle > 0
-
-.. math:: \langle u, v\rangle = \langle v, u\rangle
-
-.. math:: \langle au+v, w \rangle = a\langle u, w \rangle + \langle v, w \rangle.
-
-The function :math:`\langle -, - \rangle` is referred to as the *inner
-product*.
-
-A vector space :math:`V` together with a function
-
-.. math:: ||-|| : V \to \mathbb R
-
-is said to be an *normed space* if the values of :math:`||-||` are all
-non-negative and for all :math:`u,v \in V` and :math:`a \in \mathbb R`
-
-.. math:: ||v|| = 0\ \Leftrightarrow\ u = 0
-
-.. math:: ||a u || = |a|\, ||u||
-
-.. math:: ||u+v|| = ||u|| + ||v||.
-
-The function :math:`||-||` is referred to as the *norm*.
-
-An inner product space is naturally a norm space with
-
-.. math:: ||u|| = \sqrt{\langle u, u \rangle}
-
-and a norm space is naturally a metric space with distance function
-
-.. math:: d(u,v) = ||u-v||.
-
-.. _euclidean_distance_and_norm:
-
-Euclidean distance and norm
----------------------------
-
-The vector space :math:`\mathbb R^n` is an inner product space with
-inner product
-
-.. math:: \langle x, y \rangle = (x_1-y_1)^2 + \cdots + (x_n-y_n)^2.
-
-This inner product is referred to as *dot product* and the associated
-norm and distance function are respectively named *euclidean norm* and
-*euclidean distance*.
-
-.. _vectorization_kernel_and_amplitude:
-
-Vectorization, kernel and amplitude
------------------------------------
-
-Let :math:`X` be a set, for example, the set of all persistence
-diagrams. A *vectorization* for :math:`X` is a function
-
-.. math:: \phi : X \to V
-
-where :math:`V` is a vector space. A *kernel* on the set :math:`X` is a
-function
-
-.. math:: k : X \times X \to \mathbb R
-
-for which there exists a vectorization :math:`\phi : X \to V` with
-:math:`V` an inner product space such that
-
-.. math:: k(x,y) = \langle \phi(x), \phi(y) \rangle
-
-for each :math:`x,y \in X`. Similarly, an *amplitude* on :math:`X` is a
-function
-
-.. math:: A : X \to \mathbb R
-
-for which there exists a vectorization :math:`\phi : X \to V` with
-:math:`V` a normed space such that
-
-.. math:: A(x) = ||\phi(x)||
-
-for all :math:`x \in X`.
-
-.. _finite_metric_spaces_and_point_clouds:
-
-Finite metric spaces and point clouds
--------------------------------------
-
-A *finite metric space* is a finite set together with a metric. A
-*distance matrix* associated to a finite metric space is obtained by
-choosing a total order on the finite set and setting the
-:math:`(i,j)`-entry to be equal to the distance between the :math:`i`-th
-and :math:`j`-th elements.
-
-A *point cloud* is a finite subset of :math:`\mathbb{R}^n` (for some
-:math:`n`) together with the metric induced from the euclidean distance.
 
 Time series
 ===========
@@ -737,7 +838,7 @@ Another usual construction is as follows: given a time series
 
 .. math:: f : U \subseteq \mathbb R \to \mathbb R
 
-we obtain a new time series :math:`\{f(x_i)\}_{i = 0.}^n`
+we obtain a new time series :math:`\{f(x_i)\}_{i = 0}^n`.
 
 Generalizing the previous construction we can define a time series from
 a function
@@ -799,7 +900,7 @@ with smooth inverse
 
 .. math:: \phi_x : B(x) \to \{v \in \mathbb R^n\,;\ ||v||<1\}.
 
-.. _references-3:
+.. _references-4:
 
 References:
 ~~~~~~~~~~~
@@ -825,6 +926,15 @@ Bibliography
 
 .. container:: references hanging-indent
    :name: refs
+
+   .. container::
+      :name: ref-adams2017persistence
+
+      Adams, Henry, Tegan Emerson, Michael Kirby, Rachel Neville, Chris
+      Peterson, Patrick Shipman, Sofya Chepushtanova, Eric Hanson,
+      Francis Motta, and Lori Ziegelmeier. 2017. “Persistence Images: A
+      Stable Vector Representation of Persistent Homology.” *The Journal
+      of Machine Learning Research* 18 (1): 218–52.
 
    .. container::
       :name: ref-bubenik2015statistical
@@ -868,6 +978,14 @@ Bibliography
 
       Milnor, John Willard, and David W Weaver. 1997. *Topology from the
       Differentiable Viewpoint*. Princeton university press.
+
+   .. container::
+      :name: ref-reininghaus2015stable
+
+      Reininghaus, Jan, Stefan Huber, Ulrich Bauer, and Roland Kwitt.
+      2015. “A Stable Multi-Scale Kernel for Topological Machine
+      Learning.” In *Proceedings of the IEEE Conference on Computer
+      Vision and Pattern Recognition*, 4741–8.
 
    .. container::
       :name: ref-rucco2016characterisation
