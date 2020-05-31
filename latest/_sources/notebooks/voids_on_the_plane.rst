@@ -23,7 +23,7 @@ Import libraries
     from gtda.homology import VietorisRipsPersistence
     import itertools
     
-    import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt  # Not a requirement of giotto-tda, but is needed here
     
     np.random.seed(1)  # Set numpy's random seed
 
