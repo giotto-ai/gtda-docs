@@ -170,6 +170,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -598,6 +599,7 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">pyflagser</span> <span class="kn">import</span> <span class="n">flagser_weighted</span>
 <span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
 
 <span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">pairwise_distances</span>
@@ -655,10 +657,10 @@
 <span class="sd">        :math:`p` equals `coeff`.</span>
 
 <span class="sd">    max_edge_length : float, optional, default: ``numpy.inf``</span>
-<span class="sd">        Upper bound on the maximum value of the Vietoris–Rips filtration</span>
-<span class="sd">        parameter. Points whose distance is greater than this value will</span>
-<span class="sd">        never be connected by an edge, and topological features at scales</span>
-<span class="sd">        larger than this value will not be detected.</span>
+<span class="sd">        Maximum value of the Vietoris–Rips filtration parameter. Points whose</span>
+<span class="sd">        distance is greater than this value will never be connected by an</span>
+<span class="sd">        edge, and topological features at scales larger than this value will</span>
+<span class="sd">        not be detected.</span>
 
 <span class="sd">    infinity_values : float or None, default: ``None``</span>
 <span class="sd">        Which death value to assign to features which are still alive at</span>
@@ -678,8 +680,8 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    SparseRipsPersistence, EuclideanCechPersistence, CubicalPersistence,</span>
-<span class="sd">    ConsistentRescaling</span>
+<span class="sd">    FlagserPersistence, SparseRipsPersistence, EuclideanCechPersistence, \</span>
+<span class="sd">    ConsistentRescaling, ConsecutiveRescaling</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -728,11 +730,6 @@
         <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">:</span>
             <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># Remove one infinite bar</span>
 
-        <span class="c1"># Add dimension as the third elements of each (b, d) tuple</span>
-        <span class="n">Xdgms</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                 <span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
-                                               <span class="n">dtype</span><span class="o">=</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
-                 <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">Xdgms</span>
 
 <div class="viewcode-block" id="VietorisRipsPersistence.fit"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -896,10 +893,10 @@
 <span class="sd">        the same results as :class:`VietorisRipsPersistence` but is slower.</span>
 
 <span class="sd">    max_edge_length : float, optional, default: ``numpy.inf``</span>
-<span class="sd">        Upper bound on the maximum value of the Vietoris–Rips filtration</span>
-<span class="sd">        parameter. Points whose distance is greater than this value will</span>
-<span class="sd">        never be connected by an edge, and topological features at scales</span>
-<span class="sd">        larger than this value will not be detected.</span>
+<span class="sd">        Maximum value of the Sparse Rips filtration parameter. Points whose</span>
+<span class="sd">        distance is greater than this value will never be connected by an</span>
+<span class="sd">        edge, and topological features at scales larger than this value will</span>
+<span class="sd">        not be detected.</span>
 
 <span class="sd">    infinity_values : float or None, default : ``None``</span>
 <span class="sd">        Which death value to assign to features which are still alive at</span>
@@ -919,8 +916,8 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    VietorisRipsPersistence, EuclideanCechPersistence, CubicalPersistence,</span>
-<span class="sd">    ConsistentRescaling</span>
+<span class="sd">    VietorisRipsPersistence, FlagserPersistence, EuclideanCechPersistence, \</span>
+<span class="sd">    ConsistentRescaling, ConsecutiveRescaling</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -980,11 +977,6 @@
         <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">:</span>
             <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>  <span class="c1"># Remove one infinite bar</span>
 
-        <span class="c1"># Add dimension as the third elements of each (b, d) tuple</span>
-        <span class="n">Xdgms</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                 <span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
-                                               <span class="n">dtype</span><span class="o">=</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
-                 <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">Xdgms</span>
 
 <div class="viewcode-block" id="SparseRipsPersistence.fit"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1123,10 +1115,8 @@
 <span class="sd">        :math:`p` equals `coeff`.</span>
 
 <span class="sd">    max_edge_length : float, optional, default: ``numpy.inf``</span>
-<span class="sd">        Upper bound on the maximum value of the Vietoris–Rips filtration</span>
-<span class="sd">        parameter. Points whose distance is greater than this value will</span>
-<span class="sd">        never be connected by an edge, and topological features at scales</span>
-<span class="sd">        larger than this value will not be detected.</span>
+<span class="sd">        Maximum value of the Cech filtration parameter. Topological features at</span>
+<span class="sd">        scales larger than this value will not be detected.</span>
 
 <span class="sd">    infinity_values : float or None, default: ``None``</span>
 <span class="sd">        Which death value to assign to features which are still alive at</span>
@@ -1146,8 +1136,8 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    VietorisRipsPersistence, SparseRipsPersistence, CubicalPersistence,</span>
-<span class="sd">    ConsistentRescaling</span>
+<span class="sd">    VietorisRipsPersistence, FlagserPersistence, SparseRipsPersistence, \</span>
+<span class="sd">    ConsistentRescaling, ConsecutiveRescaling</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -1202,11 +1192,6 @@
         <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">:</span>
             <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>  <span class="c1"># Remove one infinite bar</span>
 
-        <span class="c1"># Add dimension as the third elements of each (b, d) tuple</span>
-        <span class="n">Xdgms</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                 <span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
-                                               <span class="n">dtype</span><span class="o">=</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
-                 <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">Xdgms</span>
 
 <div class="viewcode-block" id="EuclideanCechPersistence.fit"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1313,6 +1298,270 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">plot_diagram</span><span class="p">(</span>
             <span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">],</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="n">homology_dimensions</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="FlagserPersistence"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html#gtda.homology.FlagserPersistence">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">FlagserPersistence</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Persistence diagrams &lt;persistence_diagram&gt;` resulting from</span>
+<span class="sd">    :ref:`filtrations &lt;filtered_complex&gt;` of :ref:`directed or undirected flag</span>
+<span class="sd">    complexes &lt;clique_and_flag_complexes&gt;`.</span>
+
+<span class="sd">    Given a weighted directed or undirected graph, information about the</span>
+<span class="sd">    appearance and disappearance of topological features (technically,</span>
+<span class="sd">    :ref:`homology classes &lt;homology_and_cohomology&gt;`) of various dimension</span>
+<span class="sd">    and at different scales is summarised in the corresponding persistence</span>
+<span class="sd">    diagram.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    homology_dimensions : list or tuple, optional, default: ``(0, 1)``</span>
+<span class="sd">        Dimensions (non-negative integers) of the topological features to be</span>
+<span class="sd">        detected.</span>
+
+<span class="sd">    directed : bool, optional, default: ``True``</span>
+<span class="sd">        If ``True``, :meth:`transform` computes the persistence diagrams of</span>
+<span class="sd">        the filtered directed flag complexes arising from the input collection</span>
+<span class="sd">        of weighted directed graphs. If ``False``, :meth:`transform` computes</span>
+<span class="sd">        the persistence diagrams of the filtered undirected flag complexes</span>
+<span class="sd">        obtained by regarding all input weighted graphs as undirected, and:</span>
+
+<span class="sd">        - if `max_edge_weight` is ``numpy.inf``, it is sufficient to pass a</span>
+<span class="sd">          collection of (dense or sparse) upper-triangular matrices;</span>
+<span class="sd">        - if `max_edge_weight` is finite, it is recommended to pass either a</span>
+<span class="sd">          collection of symmetric dense matrices, or a collection of sparse</span>
+<span class="sd">          upper-triangular matrices.</span>
+
+<span class="sd">    filtration : string, optional, default: ``&#39;max&#39;``</span>
+<span class="sd">        Algorithm determining the filtration values of higher order simplices</span>
+<span class="sd">        from the weights of the vertices and edges. Possible values are:</span>
+<span class="sd">        [&#39;dimension&#39;, &#39;zero&#39;, &#39;max&#39;, &#39;max3&#39;, &#39;max_plus_one&#39;, &#39;product&#39;, &#39;sum&#39;,</span>
+<span class="sd">        &#39;pmean&#39;, &#39;pmoment&#39;, &#39;remove_edges&#39;, &#39;vertex_degree&#39;]</span>
+
+<span class="sd">    coeff : int prime, optional, default: ``2``</span>
+<span class="sd">        Compute homology with coefficients in the prime field</span>
+<span class="sd">        :math:`\\mathbb{F}_p = \\{ 0, \\ldots, p - 1 \\}` where</span>
+<span class="sd">        :math:`p` equals `coeff`.</span>
+
+<span class="sd">    max_edge_weight : float, optional, default: ``numpy.inf``</span>
+<span class="sd">        Maximum edge weight to be considered in the filtration. All edge</span>
+<span class="sd">        weights greater than this value will be considered as absent from the</span>
+<span class="sd">        filtration and topological features at scales larger than this value</span>
+<span class="sd">        will not be detected.</span>
+
+<span class="sd">    infinity_values : float or None, default : ``None``</span>
+<span class="sd">        Which death value to assign to features which are still alive at</span>
+<span class="sd">        filtration value `max_edge_weight`. ``None`` means that this</span>
+<span class="sd">        death value is declared to be equal to `max_edge_weight`.</span>
+
+<span class="sd">    max_entries : int, optional, default: ``-1``</span>
+<span class="sd">        Number controlling the degree of precision in the matrix</span>
+<span class="sd">        reductions performed by the the backend. Corresponds to the parameter</span>
+<span class="sd">        ``approximation`` in :func:`pyflagser.flagser`. Increase for higher</span>
+<span class="sd">        precision, decrease for faster computation. A good value is often</span>
+<span class="sd">        ``100000`` in hard problems.  A negative value computes highest</span>
+<span class="sd">        possible precision.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    infinity_values_ : float</span>
+<span class="sd">        Effective death value to assign to features which are still alive at</span>
+<span class="sd">        filtration value `max_edge_weight`.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    VietorisRipsPersistence, SparseRipsPersistence, EuclideanCechPersistence, \</span>
+<span class="sd">    ConsistentRescaling, ConsecutiveRescaling</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The `pyflagser &lt;https://github.com/giotto-ai/pyflagser&gt;`_ Python package</span>
+<span class="sd">    is used for binding `Flagser &lt;https://github.com/luetge/flagser&gt;`_, a C++</span>
+<span class="sd">    backend for computing the (persistent) homology of (filtered) directed</span>
+<span class="sd">    flag complexes.</span>
+
+<span class="sd">    For more details, please refer to the `flagser documentation \</span>
+<span class="sd">    &lt;https://github.com/luetge/flagser/blob/master/docs/\</span>
+<span class="sd">    documentation_flagser.pdf&gt;`_.</span>
+
+<span class="sd">    Persistence diagrams produced by this class must be interpreted with</span>
+<span class="sd">    care due to the presence of padding triples which carry no information.</span>
+<span class="sd">    See :meth:`transform` for additional information.</span>
+
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    [1] D. Luetgehetmann, D. Govc, J. P. Smith, and R. Levi, &quot;Computing \</span>
+<span class="sd">        persistent homology of directed flag complexes&quot;, Algorithms,</span>
+<span class="sd">        13(1), 2020.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;homology_dimensions&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">),</span> <span class="s1">&#39;of&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}},</span>
+        <span class="s1">&#39;directed&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">},</span>
+        <span class="s1">&#39;coeff&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;max_edge_weight&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">},</span>
+        <span class="s1">&#39;infinity_values&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))},</span>
+        <span class="s1">&#39;max_entries&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">}</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="FlagserPersistence.__init__"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html#gtda.homology.FlagserPersistence.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">directed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">filtration</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">coeff</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_edge_weight</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+                 <span class="n">infinity_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_entries</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span> <span class="o">=</span> <span class="n">homology_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">directed</span> <span class="o">=</span> <span class="n">directed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filtration</span> <span class="o">=</span> <span class="n">filtration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coeff</span> <span class="o">=</span> <span class="n">coeff</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_weight</span> <span class="o">=</span> <span class="n">max_edge_weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span> <span class="o">=</span> <span class="n">infinity_values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_entries</span> <span class="o">=</span> <span class="n">max_entries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+    <span class="k">def</span> <span class="nf">_flagser_diagram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">Xdgms</span> <span class="o">=</span> <span class="n">flagser_weighted</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">max_edge_weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_edge_weight</span><span class="p">,</span>
+                                 <span class="n">min_dimension</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_min_homology_dimension</span><span class="p">,</span>
+                                 <span class="n">max_dimension</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_max_homology_dimension</span><span class="p">,</span>
+                                 <span class="n">directed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directed</span><span class="p">,</span>
+                                 <span class="n">filtration</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filtration</span><span class="p">,</span> <span class="n">coeff</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">coeff</span><span class="p">,</span>
+                                 <span class="n">approximation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_entries</span><span class="p">)[</span><span class="s1">&#39;dgms&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">:</span>
+            <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xdgms</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># Remove final death at np.inf</span>
+
+        <span class="k">return</span> <span class="n">Xdgms</span>
+
+<div class="viewcode-block" id="FlagserPersistence.fit"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html#gtda.homology.FlagserPersistence.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`infinity_values_`. Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_vertices, n_vertices) or list of \</span>
+<span class="sd">            n_samples ``scipy.sparse`` matrices of shape (n_vertices, \</span>
+<span class="sd">            n_vertices)</span>
+<span class="sd">            Input collection. Each entry along axis 0 is the adjacency matrix</span>
+<span class="sd">            of a weighted directed or undirected graph. In each of those</span>
+<span class="sd">            adjacency matrices, diagonal elements are vertex weights and</span>
+<span class="sd">            off-diagonal elements are edges weights. It is assumed that a</span>
+<span class="sd">            vertex weight cannot be larger than the weight of the edges it</span>
+<span class="sd">            forms. The way zero values are handled depends on the format of the</span>
+<span class="sd">            matrix. If the matrix is a dense ``numpy.ndarray``, zero values</span>
+<span class="sd">            denote zero-weighted edges. If the matrix is a sparse</span>
+<span class="sd">            ``scipy.sparse`` matrix, explicitly stored off-diagonal zeros and</span>
+<span class="sd">            all diagonal zeros denote zero-weighted edges. Off-diagonal values</span>
+<span class="sd">            that have not been explicitely stored are treated by</span>
+<span class="sd">            ``scipy.sparse`` as zeros but will be understood as</span>
+<span class="sd">            infinitely-valued edges, i.e., edges absent from the filtration.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">distance_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">,</span>
+                                                               <span class="s1">&#39;filtration&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_edge_weight</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_min_homology_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_homology_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="FlagserPersistence.transform"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html#gtda.homology.FlagserPersistence.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For each adjacency matrix in `X`, compute the relevant persistence</span>
+<span class="sd">        diagram as an array of triples [b, d, q]. Each triple represents a</span>
+<span class="sd">        persistent topological feature in dimension q (belonging to</span>
+<span class="sd">        `homology_dimensions`) which is born at b and dies at d. Only triples</span>
+<span class="sd">        in which b &lt; d are meaningful. Triples in which b and d are equal</span>
+<span class="sd">        (&quot;diagonal elements&quot;) may be artificially introduced during the</span>
+<span class="sd">        computation for padding purposes, since the number of non-trivial</span>
+<span class="sd">        persistent topological features is typically not constant across</span>
+<span class="sd">        samples. They carry no information and hence should be effectively</span>
+<span class="sd">        ignored by any further computation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_vertices, n_vertices) or list of \</span>
+<span class="sd">            n_samples ``scipy.sparse`` matrices of shape (n_vertices, \</span>
+<span class="sd">            n_vertices)</span>
+<span class="sd">            Input collection. Each entry along axis 0 is the adjacency matrix</span>
+<span class="sd">            of a weighted directed or undirected graph. In each of those</span>
+<span class="sd">            adjacency matrices, diagonal elements are vertex weights and</span>
+<span class="sd">            off-diagonal elements are edges weights. It is assumed that a</span>
+<span class="sd">            vertex weight cannot be larger than the weight of the edges it</span>
+<span class="sd">            forms. The way zero values are handled depends on the format of the</span>
+<span class="sd">            matrix. If the matrix is a dense ``numpy.ndarray``, zero values</span>
+<span class="sd">            denote zero-weighted edges. If the matrix is a sparse</span>
+<span class="sd">            ``scipy.sparse`` matrix, explicitly stored off-diagonal zeros and</span>
+<span class="sd">            all diagonal zeros denote zero-weighted edges. Off-diagonal values</span>
+<span class="sd">            that have not been explicitely stored are treated by</span>
+<span class="sd">            ``scipy.sparse`` as zeros but will be understood as</span>
+<span class="sd">            infinitely-valued edges, i.e., edges absent from the filtration.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
+<span class="sd">            API requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_features, 3)</span>
+<span class="sd">            Array of persistence diagrams computed from the feature arrays or</span>
+<span class="sd">            distance matrices in `X`. ``n_features`` equals</span>
+<span class="sd">            :math:`\\sum_q n_q`, where :math:`n_q` is the maximum number of</span>
+<span class="sd">            topological features in dimension :math:`q` across all samples in</span>
+<span class="sd">            `X`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">distance_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_flagser_diagram</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">_postprocess_diagrams</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">,</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">infinity_values_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xt</span></div>
+
+<div class="viewcode-block" id="FlagserPersistence.plot"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html#gtda.homology.FlagserPersistence.plot">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of persistence diagrams, with</span>
+<span class="sd">        homology in multiple dimensions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_points, 3)</span>
+<span class="sd">            Collection of persistence diagrams, such as returned by</span>
+<span class="sd">            :meth:`transform`.</span>
+
+<span class="sd">        sample : int, optional, default: ``0``</span>
+<span class="sd">            Index of the sample in `Xt` to be plotted.</span>
+
+<span class="sd">        homology_dimensions : list, tuple or None, optional, default: ``None``</span>
+<span class="sd">            Which homology dimensions to include in the plot. ``None`` means</span>
+<span class="sd">            plotting all dimensions present in ``Xt[sample]``.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">plot_diagram</span><span class="p">(</span>
+            <span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">],</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="n">homology_dimensions</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
@@ -1355,11 +1604,11 @@
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
       
-      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
-      
       <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
+      
+      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
       <dd><a href="../../../../latest/index.html">latest</a></dd>
       

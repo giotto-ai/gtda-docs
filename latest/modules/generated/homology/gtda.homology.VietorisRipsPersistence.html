@@ -172,6 +172,7 @@
 <li class="toctree-l3"><a class="reference internal" href="gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -633,10 +634,10 @@ detected.</p></li>
 <li><p><strong>coeff</strong> (int prime, optional, default: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Compute homology with coefficients in the prime field
 <span class="math notranslate nohighlight">\(\mathbb{F}_p = \{ 0, \ldots, p - 1 \}\)</span> where
 <span class="math notranslate nohighlight">\(p\)</span> equals <cite>coeff</cite>.</p></li>
-<li><p><strong>max_edge_length</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code>) – Upper bound on the maximum value of the Vietoris–Rips filtration
-parameter. Points whose distance is greater than this value will
-never be connected by an edge, and topological features at scales
-larger than this value will not be detected.</p></li>
+<li><p><strong>max_edge_length</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code>) – Maximum value of the Vietoris–Rips filtration parameter. Points whose
+distance is greater than this value will never be connected by an
+edge, and topological features at scales larger than this value will
+not be detected.</p></li>
 <li><p><strong>infinity_values</strong> (float or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Which death value to assign to features which are still alive at
 filtration value <cite>max_edge_length</cite>. <code class="docutils literal notranslate"><span class="pre">None</span></code> means that this
 death value is declared to be equal to <cite>max_edge_length</cite>.</p></li>
@@ -660,7 +661,7 @@ filtration value <cite>max_edge_length</cite>.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence" title="gtda.homology.SparseRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence" title="gtda.homology.EuclideanCechPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">EuclideanCechPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence" title="gtda.homology.CubicalPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubicalPersistence</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ConsistentRescaling</span></code></p>
+<p><a class="reference internal" href="gtda.homology.FlagserPersistence.html#gtda.homology.FlagserPersistence" title="gtda.homology.FlagserPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence" title="gtda.homology.SparseRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence" title="gtda.homology.EuclideanCechPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">EuclideanCechPersistence</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ConsistentRescaling</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ConsecutiveRescaling</span></code></p>
 </div>
 <p class="rubric">Notes</p>
 <p><a class="reference external" href="https://github.com/Ripser/ripser">Ripser</a> is used as a C++ backend
@@ -940,11 +941,11 @@ Before returning the transformed object, plot the transformed sample.</p>
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
       
-      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
-      
       <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
+      
+      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
       <dd><a href="../../../../latest/index.html">latest</a></dd>
       

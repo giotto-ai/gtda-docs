@@ -170,6 +170,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -660,7 +661,9 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    VietorisRipsPersistence, SparseRipsPersistence, EuclideanCechPersistence</span>
+<span class="sd">    images.HeightFiltration, images.RadialFiltration, \</span>
+<span class="sd">    images.DilationFiltration, images.ErosionFiltration, \</span>
+<span class="sd">    images.SignedDistanceFiltration</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -710,11 +713,6 @@
                                 <span class="k">if</span> <span class="n">Xdgms</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">dim</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
                  <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions</span><span class="p">}</span>
 
-        <span class="c1"># Add dimension as the third elements of each (b, d) tuple</span>
-        <span class="n">Xdgms</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                 <span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
-                                               <span class="n">dtype</span><span class="o">=</span><span class="n">Xdgms</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)])</span>
-                 <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_homology_dimensions</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">Xdgms</span>
 
 <div class="viewcode-block" id="CubicalPersistence.fit"><a class="viewcode-back" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html#gtda.homology.CubicalPersistence.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -877,11 +875,11 @@
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
       
-      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
-      
       <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
+      
+      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
       <dd><a href="../../../../latest/index.html">latest</a></dd>
       
