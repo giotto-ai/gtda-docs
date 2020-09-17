@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="CubicalPersistence" href="gtda.homology.CubicalPersistence.html" />
-    <link rel="prev" title="SparseRipsPersistence" href="gtda.homology.SparseRipsPersistence.html" />
+    <link rel="next" title="FlagserPersistence" href="gtda.homology.FlagserPersistence.html" />
+    <link rel="prev" title="WeakAlphaPersistence" href="gtda.homology.WeakAlphaPersistence.html" />
 <link href="../../../_static/style.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script>require=requirejs;</script>
@@ -121,7 +121,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#id2">Boost</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#source-code">Source code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed Boost version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
@@ -148,21 +148,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../../mapper.html#clustering">Clustering</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../mapper/clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../mapper/clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/clustering/gtda.mapper.ParallelClustering.html">ParallelClustering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../mapper.html#nerve-graph-construction">Nerve (graph construction)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/nerve/gtda.mapper.Nerve.html">Nerve</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../mapper.html#pipeline">Pipeline</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/pipeline/gtda.mapper.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../mapper.html#visualization">Visualization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/visualization/gtda.mapper.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/visualization/gtda.mapper.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/utils/gtda.mapper.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/utils/gtda.mapper.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -170,9 +175,10 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -215,6 +221,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/embedding/gtda.time_series.SingleTakensEmbedding.html">SingleTakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/embedding/gtda.time_series.takens_embedding_optimal_parameters.html">takens_embedding_optimal_parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../time_series.html#target-preparation">Target preparation</a><ul>
@@ -280,8 +288,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_params.html">validate_params</a></li>
 </ul>
 </li>
@@ -290,15 +299,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/index.html">Tutorials and examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../notebooks/tutorials.html">Tutorials</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulate-the-steps-above-in-a-pipeline">Encapsulate the steps above in a pipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
@@ -315,6 +320,32 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#gravitational-wave-detection">Gravitational wave detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#endogeneous-target-preparation-with-labeller">Endogeneous target preparation with <code class="docutils literal notranslate"><span class="pre">Labeller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#where-to-next">Where to next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html">Topological feature extraction from graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#undirected-graphs-vietorisripspersistence-and-sparseripspersistence">Undirected graphs – <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#directed-graphs-flagserpersistence">Directed graphs – <code class="docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#where-to-next">Where to next?</a></li>
 </ul>
 </li>
 </ul>
@@ -602,28 +633,38 @@
 <h1>EuclideanCechPersistence<a class="headerlink" href="#euclideancechpersistence" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="gtda.homology.EuclideanCechPersistence">
-<em class="property">class </em><code class="sig-prename descclassname">gtda.homology.</code><code class="sig-name descname">EuclideanCechPersistence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">homology_dimensions</span><span class="o">=</span><span class="default_value">0, 1</span></em>, <em class="sig-param"><span class="n">coeff</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">max_edge_length</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">infinity_values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#EuclideanCechPersistence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.EuclideanCechPersistence" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">gtda.homology.</code><code class="sig-name descname">EuclideanCechPersistence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">homology_dimensions</span><span class="o">=</span><span class="default_value">0, 1</span></em>, <em class="sig-param"><span class="n">coeff</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">max_edge_length</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">infinity_values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reduced_homology</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#EuclideanCechPersistence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.EuclideanCechPersistence" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from
-<a class="reference external" href="TODO">Cech filtrations</a>.</p>
+<a class="reference external" href="cech_complex_and_cech_persistence">Cech filtrations</a>.</p>
 <p>Given a <a class="reference internal" href="../../../theory/glossary.html#distance-matrices-and-point-clouds"><span class="std std-ref">point cloud</span></a> in
-Euclidean space, information about the appearance and disappearance of
-topological features (technically,
-<a class="reference internal" href="../../../theory/glossary.html#homology-and-cohomology"><span class="std std-ref">homology classes</span></a>) of various dimensions
-and at different scales is summarised in the corresponding persistence
-diagram.</p>
+Euclidean space, or an abstract <a class="reference internal" href="../../../theory/glossary.html#distance-matrices-and-point-clouds"><span class="std std-ref">metric space</span></a> encoded by a distance matrix,
+information about the appearance and disappearance of topological features
+(technically, <a class="reference internal" href="../../../theory/glossary.html#homology-and-cohomology"><span class="std std-ref">homology classes</span></a>) of various
+dimensions and at different scales is summarised in the corresponding
+persistence diagram.</p>
+<p><strong>Important note</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Persistence diagrams produced by this class must be interpreted with
+care due to the presence of padding triples which carry no
+information. See <a class="reference internal" href="#gtda.homology.EuclideanCechPersistence.transform" title="gtda.homology.EuclideanCechPersistence.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a> for additional information.</p></li>
+</ul>
+</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>homology_dimensions</strong> (list or tuple, optional, default: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>) – Dimensions (non-negative integers) of the topological features to be
 detected.</p></li>
 <li><p><strong>coeff</strong> (int prime, optional, default: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Compute homology with coefficients in the prime field
-<span class="math notranslate nohighlight">\(\mathbb{F}_p = \{ 0, \ldots, p - 1 \}\)</span> where
-<span class="math notranslate nohighlight">\(p\)</span> equals <cite>coeff</cite>.</p></li>
+<span class="math notranslate nohighlight">\(\mathbb{F}_p = \{ 0, \ldots, p - 1 \}\)</span> where <span class="math notranslate nohighlight">\(p\)</span>
+equals <cite>coeff</cite>.</p></li>
 <li><p><strong>max_edge_length</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code>) – Maximum value of the Cech filtration parameter. Topological features at
 scales larger than this value will not be detected.</p></li>
 <li><p><strong>infinity_values</strong> (float or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Which death value to assign to features which are still alive at
 filtration value <cite>max_edge_length</cite>. <code class="docutils literal notranslate"><span class="pre">None</span></code> means that this death
 value is declared to be equal to <cite>max_edge_length</cite>.</p></li>
+<li><p><strong>reduced_homology</strong> (bool, optional, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the earliest-born triple in homology dimension 0 which has
+infinite death is discarded in <a class="reference internal" href="#gtda.homology.EuclideanCechPersistence.transform" title="gtda.homology.EuclideanCechPersistence.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a>.</p></li>
 <li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless
 in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all
 processors.</p></li>
@@ -631,8 +672,8 @@ processors.</p></li>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt>
-<code class="sig-name descname">infinity_values\_</code></dt>
+<dt id="gtda.homology.EuclideanCechPersistence.infinity_values_">
+<code class="sig-name descname">infinity_values_</code><a class="headerlink" href="#gtda.homology.EuclideanCechPersistence.infinity_values_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effective death value to assign to features which are still alive at
 filtration value <cite>max_edge_length</cite>.</p>
 <dl class="field-list simple">
@@ -644,38 +685,39 @@ filtration value <cite>max_edge_length</cite>.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.FlagserPersistence.html#gtda.homology.FlagserPersistence" title="gtda.homology.FlagserPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence" title="gtda.homology.SparseRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ConsistentRescaling</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ConsecutiveRescaling</span></code></p>
+<p><a class="reference internal" href="gtda.homology.VietorisRipsPersistence.html#gtda.homology.VietorisRipsPersistence" title="gtda.homology.VietorisRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.FlagserPersistence.html#gtda.homology.FlagserPersistence" title="gtda.homology.FlagserPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence" title="gtda.homology.SparseRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.WeakAlphaPersistence.html#gtda.homology.WeakAlphaPersistence" title="gtda.homology.WeakAlphaPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeakAlphaPersistence</span></code></a></p>
 </div>
 <p class="rubric">Notes</p>
 <p><a class="reference external" href="https://github.com/GUDHI/gudhi-devel">GUDHI</a> is used as a C++ backend
-for computing Cech persistent homology. Python bindings were modified
+for computing Cech persistent homology <a class="footnote-reference brackets" href="#id2" id="id1">1</a>. Python bindings were modified
 for performance.</p>
-<p>Persistence diagrams produced by this class must be interpreted with
-care due to the presence of padding triples which carry no information.
-See <a class="reference internal" href="#gtda.homology.EuclideanCechPersistence.transform" title="gtda.homology.EuclideanCechPersistence.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a> for additional information.</p>
 <p class="rubric">References</p>
-<p>[1] C. Maria, “Persistent Cohomology”, 2020; <a class="reference external" href="http://gudhi.gforge.inria.fr/doc/3.1.0/group__persistent_cohomology.html">GUDHI User and Reference         Manual</a>.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>C. Maria, “Persistent Cohomology”, 2020; <a class="reference external" href="http://gudhi.gforge.inria.fr/doc/3.1.0/group__persistent__cohomology.html">GUDHI User and Reference
+Manual</a>.</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="gtda.homology.EuclideanCechPersistence.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">homology_dimensions</span><span class="o">=</span><span class="default_value">0, 1</span></em>, <em class="sig-param"><span class="n">coeff</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">max_edge_length</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">infinity_values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#EuclideanCechPersistence.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.EuclideanCechPersistence.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">homology_dimensions</span><span class="o">=</span><span class="default_value">0, 1</span></em>, <em class="sig-param"><span class="n">coeff</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">max_edge_length</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">infinity_values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reduced_homology</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#EuclideanCechPersistence.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.EuclideanCechPersistence.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="gtda.homology.EuclideanCechPersistence.fit">
 <code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#EuclideanCechPersistence.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.EuclideanCechPersistence.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate <code class="xref py py-attr docutils literal notranslate"><span class="pre">infinity_values_</span></code>. Then, return the estimator.</p>
+<dd><p>Calculate <a class="reference internal" href="#gtda.homology.EuclideanCechPersistence.infinity_values_" title="gtda.homology.EuclideanCechPersistence.infinity_values_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">infinity_values_</span></code></a>. Then, return the estimator.</p>
 <p>This method is here to implement the usual scikit-learn API and hence
 work in pipelines.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>ndarray</em><em> or </em><em>list</em>) – Input data representing a collection of point clouds. Can be
-either a 3D ndarray whose zeroth dimension has size <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>,
-or a list containing <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> 2D ndarrays. The rows of
-elements in <cite>X</cite> are interpreted as vectors in Euclidean space and.
-and, when <cite>X</cite> is a list, warnings are issued when the number of
-columns (dimension of the Euclidean space) differs among samples.</p></li>
+<li><p><strong>X</strong> (<em>ndarray</em><em> or </em><em>list of length n_samples</em>) – Input data representing a collection of point clouds. Can be either
+a 3D ndarray whose zeroth dimension has size <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>, or a
+list containing <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> 2D ndarrays. Point cloud arrays have
+shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_dimensions)</span></code>, and if <cite>X</cite> is a list these
+shapes can vary between point clouds.</p></li>
 <li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
 API requires this parameter.</p></li>
 </ul>
@@ -698,12 +740,11 @@ and returns a transformed version of <cite>X</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>ndarray</em><em> or </em><em>list</em>) – Input data representing a collection of point clouds. Can be
-either a 3D ndarray whose zeroth dimension has size <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>,
-or a list containing <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> 2D ndarrays. The rows of
-elements in <cite>X</cite> are interpreted as vectors in Euclidean space and.
-and, when <cite>X</cite> is a list, warnings are issued when the number of
-columns (dimension of the Euclidean space) differs among samples.</p></li>
+<li><p><strong>X</strong> (<em>ndarray</em><em> or </em><em>list of length n_samples</em>) – Input data representing a collection of point clouds. Can be either
+a 3D ndarray whose zeroth dimension has size <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>, or a
+list containing <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> 2D ndarrays. Point cloud arrays have
+shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_dimensions)</span></code>, and if <cite>X</cite> is a list these
+shapes can vary between point clouds.</p></li>
 <li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
 API requires this parameter.</p></li>
 </ul>
@@ -762,18 +803,29 @@ contained subobjects that are estimators.</p>
 
 <dl class="py method">
 <dt id="gtda.homology.EuclideanCechPersistence.plot">
-<em class="property">static </em><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Xt</span></em>, <em class="sig-param"><span class="n">sample</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">homology_dimensions</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#EuclideanCechPersistence.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.EuclideanCechPersistence.plot" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Xt</span></em>, <em class="sig-param"><span class="n">sample</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">homology_dimensions</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">plotly_params</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#EuclideanCechPersistence.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.EuclideanCechPersistence.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot a sample from a collection of persistence diagrams, with
 homology in multiple dimensions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Xt</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>3</em><em>)</em>) – Collection of persistence diagrams, such as returned by
+<li><p><strong>Xt</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Collection of persistence diagrams, such as returned by
 <a class="reference internal" href="#gtda.homology.EuclideanCechPersistence.transform" title="gtda.homology.EuclideanCechPersistence.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a>.</p></li>
 <li><p><strong>sample</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">0</span></code>) – Index of the sample in <cite>Xt</cite> to be plotted.</p></li>
 <li><p><strong>homology_dimensions</strong> (list, tuple or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Which homology dimensions to include in the plot. <code class="docutils literal notranslate"><span class="pre">None</span></code> means
 plotting all dimensions present in <code class="docutils literal notranslate"><span class="pre">Xt[sample]</span></code>.</p></li>
+<li><p><strong>plotly_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Custom parameters to configure the plotly figure. Allowed keys are
+<code class="docutils literal notranslate"><span class="pre">&quot;traces&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;layout&quot;</span></code>, and the corresponding values should
+be dictionaries containing keyword arguments as would be fed to the
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">update_traces</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">update_layout</span></code> methods of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">plotly.graph_objects.Figure</span></code>.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – Plotly figure.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">plotly.graph_objects.Figure</span></code> object</p>
 </dd>
 </dl>
 </dd></dl>
@@ -815,12 +867,11 @@ ignored by any further computation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data representing a collection of point clouds. Can be
-either a 3D ndarray whose zeroth dimension has size <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>,
-or a list containing <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> 2D ndarrays. The rows of
-elements in <cite>X</cite> are interpreted as vectors in Euclidean space and.
-and, when <cite>X</cite> is a list, warnings are issued when the number of
-columns (dimension of the Euclidean space) differs among samples.</p></li>
+<li><p><strong>X</strong> (<em>ndarray</em><em> or </em><em>list of length n_samples</em>) – Input data representing a collection of point clouds. Can be either
+a 3D ndarray whose zeroth dimension has size <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>, or a
+list containing <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> 2D ndarrays. Point cloud arrays have
+shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_dimensions)</span></code>, and if <cite>X</cite> is a list these
+shapes can vary between point clouds.</p></li>
 <li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
 API requires this parameter.</p></li>
 </ul>
@@ -847,7 +898,7 @@ Before returning the transformed object, plot the transformed sample.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>..</em><em>)</em>) – Input data.</p></li>
 <li><p><strong>sample</strong> (<em>int</em>) – Sample to be plotted.</p></li>
-<li><p><strong>plot_params</strong> (<em>dict</em>) – Optional plotting parameters.</p></li>
+<li><p><strong>**plot_params</strong> – Optional plotting parameters.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -871,10 +922,10 @@ Before returning the transformed object, plot the transformed sample.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gtda.homology.CubicalPersistence.html" class="btn btn-neutral float-right" title="CubicalPersistence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gtda.homology.FlagserPersistence.html" class="btn btn-neutral float-right" title="FlagserPersistence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gtda.homology.SparseRipsPersistence.html" class="btn btn-neutral float-left" title="SparseRipsPersistence" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gtda.homology.WeakAlphaPersistence.html" class="btn btn-neutral float-left" title="WeakAlphaPersistence" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -915,11 +966,11 @@ Before returning the transformed object, plot the transformed sample.</p>
       
       <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
+      <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
       <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
-      
-      <dd><a href="../../../../latest/index.html">latest</a></dd>
       
       <!--end_versions_tag-->
     </dl>

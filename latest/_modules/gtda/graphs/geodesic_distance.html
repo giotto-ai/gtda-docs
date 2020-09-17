@@ -119,7 +119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#id2">Boost</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#source-code">Source code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed Boost version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
@@ -146,21 +146,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#clustering">Clustering</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.ParallelClustering.html">ParallelClustering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#nerve-graph-construction">Nerve (graph construction)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/nerve/gtda.mapper.Nerve.html">Nerve</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#pipeline">Pipeline</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#visualization">Visualization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -168,9 +173,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -213,6 +219,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html">SingleTakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.takens_embedding_optimal_parameters.html">takens_embedding_optimal_parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#target-preparation">Target preparation</a><ul>
@@ -278,8 +286,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
 </ul>
 </li>
@@ -288,15 +297,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/index.html">Tutorials and examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../notebooks/tutorials.html">Tutorials</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulate-the-steps-above-in-a-pipeline">Encapsulate the steps above in a pipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
@@ -313,6 +318,32 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#gravitational-wave-detection">Gravitational wave detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#endogeneous-target-preparation-with-labeller">Endogeneous target preparation with <code class="docutils literal notranslate"><span class="pre">Labeller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#where-to-next">Where to next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html">Topological feature extraction from graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#undirected-graphs-vietorisripspersistence-and-sparseripspersistence">Undirected graphs – <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#directed-graphs-flagserpersistence">Directed graphs – <code class="docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#where-to-next">Where to next?</a></li>
 </ul>
 </li>
 </ul>
@@ -594,10 +625,17 @@
 <span></span><span class="sd">&quot;&quot;&quot;Graph geodesic distance calculations.&quot;&quot;&quot;</span>
 <span class="c1"># License: GNU AGPLv3</span>
 
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">and_</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">numpy.ma</span> <span class="kn">import</span> <span class="n">masked_invalid</span>
+<span class="kn">from</span> <span class="nn">numpy.ma.core</span> <span class="kn">import</span> <span class="n">MaskedArray</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">issparse</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse.csgraph</span> <span class="kn">import</span> <span class="n">shortest_path</span>
 <span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.graph_shortest_path</span> <span class="kn">import</span> <span class="n">graph_shortest_path</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
 
 <span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">PlotterMixin</span>
@@ -615,8 +653,15 @@
 <span class="sd">    path between any two of its vertices, setting it to ``numpy.inf`` when two</span>
 <span class="sd">    vertices cannot be connected by a path.</span>
 
-<span class="sd">    The graphs are encoded as sparse adjacency matrices, while the outputs</span>
-<span class="sd">    are dense distance matrices of variable size.</span>
+<span class="sd">    The graphs are represented by their adjacency matrices which can be dense</span>
+<span class="sd">    arrays, sparse matrices or masked arrays. The following rules apply:</span>
+
+<span class="sd">    - In dense arrays of Boolean type, entries which are ``False`` represent</span>
+<span class="sd">      absent edges.</span>
+<span class="sd">    - In dense arrays of integer or float type, zero entries represent edges</span>
+<span class="sd">      of length 0. Absent edges must be indicated by ``numpy.inf``.</span>
+<span class="sd">    - In sparse matrices, non-stored values represent absent edges. Explicitly</span>
+<span class="sd">      stored zero or ``False`` edges represent edges of length 0.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -625,19 +670,34 @@
 <span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
 <span class="sd">        processors.</span>
 
+<span class="sd">    directed : bool, optional, default: ``True``</span>
+<span class="sd">        If ``True`` (default), then find the shortest path on a directed graph.</span>
+<span class="sd">        If ``False``, then find the shortest path on an undirected graph.</span>
+
+<span class="sd">    unweighted : bool, optional, default: ``False``</span>
+<span class="sd">        If ``True``, then find unweighted distances. That is, rather than</span>
+<span class="sd">        finding the path between each point such that the sum of weights is</span>
+<span class="sd">        minimized, find the path such that the number of edges is minimized.</span>
+
+<span class="sd">    method : ``&#39;auto&#39;`` | ``&#39;FW&#39;`` | ``&#39;D&#39;`` | ``&#39;BF&#39;`` | ``&#39;J&#39;``, optional, \</span>
+<span class="sd">        default: ``&#39;auto&#39;``</span>
+<span class="sd">        Algorithm to use for shortest paths. See the `scipy documentation \</span>
+<span class="sd">        &lt;https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.\</span>
+<span class="sd">        csgraph.shortest_path.html&gt;`_.</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">    &gt;&gt;&gt; from gtda.graphs import TransitionGraph, GraphGeodesicDistance</span>
 <span class="sd">    &gt;&gt;&gt; X = np.arange(4).reshape(1, -1, 1)</span>
-<span class="sd">    &gt;&gt;&gt; tg = TransitionGraph(func=None).fit_transform(X)</span>
-<span class="sd">    &gt;&gt;&gt; print(tg[0].toarray())</span>
-<span class="sd">    [[False  True False False]</span>
-<span class="sd">     [ True False  True False]</span>
-<span class="sd">     [False  True False  True]</span>
-<span class="sd">     [False False  True False]]</span>
-<span class="sd">    &gt;&gt;&gt; ggd = GraphGeodesicDistance().fit_transform(tg)</span>
-<span class="sd">    &gt;&gt;&gt; print(ggd[0])</span>
+<span class="sd">    &gt;&gt;&gt; X_tg = TransitionGraph(func=None).fit_transform(X)</span>
+<span class="sd">    &gt;&gt;&gt; print(X_tg[0].toarray())</span>
+<span class="sd">    [[0 1 0 0]</span>
+<span class="sd">     [0 0 1 0]</span>
+<span class="sd">     [0 0 0 1]</span>
+<span class="sd">     [0 0 0 0]]</span>
+<span class="sd">    &gt;&gt;&gt; X_ggd = GraphGeodesicDistance(directed=False).fit_transform(X_tg)</span>
+<span class="sd">    &gt;&gt;&gt; print(X_ggd[0])</span>
 <span class="sd">    [[0. 1. 2. 3.]</span>
 <span class="sd">     [1. 0. 1. 2.]</span>
 <span class="sd">     [2. 1. 0. 1.]</span>
@@ -645,18 +705,40 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    TransitionGraph, KNeighborsGraph, gtda.homology.VietorisRipsPersistence</span>
+<span class="sd">    TransitionGraph, KNeighborsGraph</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="GraphGeodesicDistance.__init__"><a class="viewcode-back" href="../../../modules/generated/graphs/processing/gtda.graphs.GraphGeodesicDistance.html#gtda.graphs.GraphGeodesicDistance.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+<div class="viewcode-block" id="GraphGeodesicDistance.__init__"><a class="viewcode-back" href="../../../modules/generated/graphs/processing/gtda.graphs.GraphGeodesicDistance.html#gtda.graphs.GraphGeodesicDistance.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unweighted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">method</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">directed</span> <span class="o">=</span> <span class="n">directed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unweighted</span> <span class="o">=</span> <span class="n">unweighted</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span></div>
 
-    <span class="k">def</span> <span class="nf">_geodesic_distance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="n">X_distance</span> <span class="o">=</span> <span class="n">graph_shortest_path</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">X_distance</span><span class="p">[</span><span class="n">X_distance</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>  <span class="c1"># graph_shortest_path returns a</span>
-        <span class="c1"># float64 array, so inserting np.inf does not change the type.</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">X_distance</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_geodesic_distance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">method_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">issparse</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+            <span class="n">diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">diag</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;FW&#39;</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">method_</span> <span class="o">=</span> <span class="s1">&#39;J&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">method_</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
+                    <span class="n">warn</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Methods &#39;auto&#39; and &#39;FW&#39; are not supported when &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;some edge weights are zero. Using &#39;</span><span class="si">{</span><span class="n">method_</span><span class="si">}</span><span class="s2">&#39; &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;instead for graph </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">MaskedArray</span><span class="p">):</span>
+                <span class="c1"># Convert to a masked array with mask given by positions in</span>
+                <span class="c1"># which infs or NaNs occur.</span>
+                <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="nb">bool</span><span class="p">:</span>
+                    <span class="n">X</span> <span class="o">=</span> <span class="n">masked_invalid</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">X_distance</span> <span class="o">=</span> <span class="n">shortest_path</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directed</span><span class="p">,</span>
+                                   <span class="n">unweighted</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">unweighted</span><span class="p">,</span>
+                                   <span class="n">method</span><span class="o">=</span><span class="n">method_</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">X_distance</span>
 
 <div class="viewcode-block" id="GraphGeodesicDistance.fit"><a class="viewcode-back" href="../../../modules/generated/graphs/processing/gtda.graphs.GraphGeodesicDistance.html#gtda.graphs.GraphGeodesicDistance.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -667,10 +749,10 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        X : ndarray of shape (n_samples,) or \</span>
-<span class="sd">            (n_samples, n_vertices, n_vertices)</span>
-<span class="sd">            Input data, i.e. a collection of adjacency matrices of graphs.</span>
-<span class="sd">            Each adjacency matrix may be a dense or a sparse array.</span>
+<span class="sd">        X : list of length n_samples, or ndarray of shape (n_samples, \</span>
+<span class="sd">            n_vertices, n_vertices)</span>
+<span class="sd">            Input data: a collection of adjacency matrices of graphs. Each</span>
+<span class="sd">            adjacency matrix may be a dense or a sparse array.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -687,44 +769,48 @@
         <span class="k">return</span> <span class="bp">self</span></div>
 
 <div class="viewcode-block" id="GraphGeodesicDistance.transform"><a class="viewcode-back" href="../../../modules/generated/graphs/processing/gtda.graphs.GraphGeodesicDistance.html#gtda.graphs.GraphGeodesicDistance.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use :meth:`sklearn.utils.graph_shortest_path.graph_shortest_path`</span>
-<span class="sd">        to compute the lengths of graph shortest paths between any two</span>
+        <span class="sd">&quot;&quot;&quot;Compute the lengths of graph shortest paths between any two</span>
 <span class="sd">        vertices.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        X : ndarray of shape (n_samples,) or \</span>
-<span class="sd">            (n_samples, n_vertices, n_vertices)</span>
-<span class="sd">            Input data, i.e. a collection of adjacency matrices of graphs.</span>
-<span class="sd">            Each adjacency matrix may be a dense or sparse array.</span>
+<span class="sd">        X : list of length n_samples, or ndarray of shape (n_samples, \</span>
+<span class="sd">            n_vertices, n_vertices)</span>
+<span class="sd">            Input data: a collection of ``n_samples`` adjacency matrices of</span>
+<span class="sd">            graphs. Each adjacency matrix may be a dense array, a sparse</span>
+<span class="sd">            matrix, or a masked array.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            Ignored.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Xt : ndarray of shape (n_samples,) or \</span>
-<span class="sd">             (n_samples, n_vertices, n_vertices)</span>
-<span class="sd">            Array of distance matrices. If the distance matrices have variable</span>
-<span class="sd">            size across samples, `Xt` is a one-dimensional array of dense</span>
-<span class="sd">            arrays.</span>
+<span class="sd">        Xt : list of length n_samples, or ndarray of shape (n_samples, \</span>
+<span class="sd">            n_vertices, n_vertices)</span>
+<span class="sd">            Output collection of dense distance matrices. If the distance</span>
+<span class="sd">            matrices all have the same shape, a single 3D ndarray is returned.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_graph</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
-            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_geodesic_distance</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_geodesic_distance</span><span class="p">)(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+
+        <span class="n">x0_shape</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">if</span> <span class="n">reduce</span><span class="p">(</span><span class="n">and_</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">x0_shape</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Xt</span><span class="p">),</span> <span class="kc">True</span><span class="p">):</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+
         <span class="k">return</span> <span class="n">Xt</span></div>
 
 <div class="viewcode-block" id="GraphGeodesicDistance.plot"><a class="viewcode-back" href="../../../modules/generated/graphs/processing/gtda.graphs.GraphGeodesicDistance.html#gtda.graphs.GraphGeodesicDistance.plot">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;blues&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;blues&#39;</span><span class="p">,</span> <span class="n">plotly_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of distance matrices.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        Xt : ndarray of shape (n_samples, n_points, n_points)</span>
+<span class="sd">        Xt : list of length n_samples, or ndarray of shape (n_samples, \</span>
+<span class="sd">            n_vertices, n_vertices)</span>
 <span class="sd">            Collection of distance matrices, such as returned by</span>
 <span class="sd">            :meth:`transform`.</span>
 
@@ -735,8 +821,24 @@
 <span class="sd">            Color scale to be used in the heat map. Can be anything allowed by</span>
 <span class="sd">            :class:`plotly.graph_objects.Heatmap`.</span>
 
+<span class="sd">        plotly_params : dict or None, optional, default: ``None``</span>
+<span class="sd">            Custom parameters to configure the plotly figure. Allowed keys are</span>
+<span class="sd">            ``&quot;trace&quot;`` and ``&quot;layout&quot;``, and the corresponding values should</span>
+<span class="sd">            be dictionaries containing keyword arguments as would be fed to the</span>
+<span class="sd">            :meth:`update_traces` and :meth:`update_layout` methods of</span>
+<span class="sd">            :class:`plotly.graph_objects.Figure`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : :class:`plotly.graph_objects.Figure` object</span>
+<span class="sd">            Plotly figure.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">plot_heatmap</span><span class="p">(</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">],</span> <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">plot_heatmap</span><span class="p">(</span>
+            <span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">],</span> <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2">-th geodesic distance matrix&quot;</span><span class="p">,</span>
+            <span class="n">plotly_params</span><span class="o">=</span><span class="n">plotly_params</span>
+            <span class="p">)</span></div></div>
 </pre></div>
 
            </div>
@@ -781,11 +883,11 @@
       
       <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
+      <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
       <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
-      
-      <dd><a href="../../../../latest/index.html">latest</a></dd>
       
       <!--end_versions_tag-->
     </dl>

@@ -121,7 +121,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#id2">Boost</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pre-built-binaries">Pre-built binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#source-code">Source code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#already-installed-boost-version">Already installed Boost version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
@@ -148,21 +148,26 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/mapper.html#clustering">Clustering</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/clustering/gtda.mapper.ParallelClustering.html">ParallelClustering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/mapper.html#nerve-graph-construction">Nerve (graph construction)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/nerve/gtda.mapper.Nerve.html">Nerve</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modules/mapper.html#pipeline">Pipeline</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/pipeline/gtda.mapper.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modules/mapper.html#visualization">Visualization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/visualization/gtda.mapper.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/visualization/gtda.mapper.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modules/mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/utils/gtda.mapper.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/mapper/utils/gtda.mapper.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -170,9 +175,10 @@
 <li class="toctree-l2"><a class="reference internal" href="modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -215,6 +221,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modules/time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html">SingleTakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/time_series/embedding/gtda.time_series.takens_embedding_optimal_parameters.html">takens_embedding_optimal_parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modules/time_series.html#target-preparation">Target preparation</a><ul>
@@ -280,8 +288,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
 </ul>
 </li>
@@ -290,15 +299,11 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/index.html">Tutorials and examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/tutorials.html">Tutorials</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/vietoris_rips_quickstart.html#encapsulate-the-steps-above-in-a-pipeline">Encapsulate the steps above in a pipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
@@ -315,6 +320,32 @@
 <li class="toctree-l4"><a class="reference internal" href="notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/time_series_classification.html">Topology of time series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#gravitational-wave-detection">Gravitational wave detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_forecasting.html#endogeneous-target-preparation-with-labeller">Endogeneous target preparation with <code class="docutils literal notranslate"><span class="pre">Labeller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_forecasting.html#where-to-next">Where to next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/persistent_homology_graphs.html">Topological feature extraction from graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/persistent_homology_graphs.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/persistent_homology_graphs.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/persistent_homology_graphs.html#undirected-graphs-vietorisripspersistence-and-sparseripspersistence">Undirected graphs – <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/persistent_homology_graphs.html#directed-graphs-flagserpersistence">Directed graphs – <code class="docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/persistent_homology_graphs.html#where-to-next">Where to next?</a></li>
 </ul>
 </li>
 </ul>
@@ -598,42 +629,42 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="dependencies">
 <span id="id1"></span><h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<p>The latest stable version of giotto-tda requires:</p>
+<p>The latest stable version of <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> requires:</p>
 <ul class="simple">
 <li><p>Python (&gt;= 3.6)</p></li>
-<li><p>NumPy (&gt;= 1.17.0)</p></li>
-<li><p>SciPy (&gt;= 0.17.0)</p></li>
-<li><p>joblib (&gt;= 0.13)</p></li>
-<li><p>scikit-learn (&gt;= 0.22.0)</p></li>
-<li><p>pyflagser (&gt;= 0.4.0)</p></li>
-<li><p>python-igraph (&gt;= 0.7.1.post6)</p></li>
-<li><p>plotly (&gt;= 4.4.1)</p></li>
+<li><p>NumPy (&gt;= 1.19.1)</p></li>
+<li><p>SciPy (&gt;= 1.5.0)</p></li>
+<li><p>joblib (&gt;= 0.16.0)</p></li>
+<li><p>scikit-learn (&gt;= 0.23.1)</p></li>
+<li><p>pyflagser (&gt;= 0.4.1)</p></li>
+<li><p>python-igraph (&gt;= 0.8.2)</p></li>
+<li><p>plotly (&gt;= 4.8.2)</p></li>
 <li><p>ipywidgets (&gt;= 7.5.1)</p></li>
 </ul>
-<p>To run the examples, jupyter is required.</p>
+<p>To run the examples, <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> is required.</p>
 </div>
 <div class="section" id="user-installation">
 <h2>User installation<a class="headerlink" href="#user-installation" title="Permalink to this headline">¶</a></h2>
-<p>The simplest way to install giotto-tda is using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span>
+<p>The simplest way to install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> is using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span>
 </pre></div>
 </div>
 <p>If necessary, this will also automatically install all the above dependencies. Note: we recommend
 upgrading <code class="docutils literal notranslate"><span class="pre">pip</span></code> to a recent version as the above may fail on very old versions.</p>
 <p>Pre-release, experimental builds containing recently added features, and/or
 bug fixes can be installed by running</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span><span class="o">-</span><span class="n">nightly</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">giotto</span><span class="o">-</span><span class="n">tda</span><span class="o">-</span><span class="n">nightly</span>
 </pre></div>
 </div>
-<p>The main difference between giotto-tda-nightly and the developer installation (see the section
+<p>The main difference between <code class="docutils literal notranslate"><span class="pre">giotto-tda-nightly</span></code> and the developer installation (see the section
 on contributing, below) is that the former is shipped with pre-compiled wheels (similarly to the stable
 release) and hence does not require any C++ dependencies. As the main library module is called <code class="docutils literal notranslate"><span class="pre">gtda</span></code> in
-both the stable and nightly versions, giotto-tda and giotto-tda-nightly should not be installed in
+both the stable and nightly versions, <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> and <code class="docutils literal notranslate"><span class="pre">giotto-tda-nightly</span></code> should not be installed in
 the same environment.</p>
 </div>
 <div class="section" id="developer-installation">
 <h2>Developer installation<a class="headerlink" href="#developer-installation" title="Permalink to this headline">¶</a></h2>
-<p id="dev-installation">Installing both the PyPI release and source of giotto-tda in the same environment is not recommended since it is
+<p id="dev-installation">Installing both the PyPI release and source of <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> in the same environment is not recommended since it is
 known to cause conflicts with the C++ bindings.</p>
 <p>The developer installation requires three important C++ dependencies:</p>
 <ul class="simple">
@@ -670,34 +701,33 @@ is as follows:</p>
 </ol>
 <div class="section" id="id2">
 <h4>Boost<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<p>Some users are experiencing some issue when installation <cite>boost</cite> on Windows. To help them resolve this issue, we customized a little bit the detection of <cite>boost</cite> library.
-To install boost on windows, we (maintainers of giotto-tda) recommend 3 options:</p>
+<p>Some users have been experiencing issues when installing Boost on Windows. To help them resolve them, we customized a little bit the detection of Boost.
+To install Boost on Windows, we recommend 3 options:</p>
 <ul class="simple">
 <li><p>Pre-built binaries,</p></li>
 <li><p>Directly from source,</p></li>
-<li><p>Use an already installed boost version that fulfills <cite>giotto-tda</cite> requirements.</p></li>
+<li><p>Use an already installed Boost version that fulfills <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> requirements.</p></li>
 </ul>
 </div>
 <div class="section" id="pre-built-binaries">
 <h4>Pre-built binaries<a class="headerlink" href="#pre-built-binaries" title="Permalink to this headline">¶</a></h4>
-<p>Boost propose for windows pre-built binaries to ease the installation of boost
-in your system. In the
-<a class="reference external" href="https://sourceforge.net/projects/boost/files/boost-binaries/">website</a>, you’ll have access to all versions of boost. At the time of writing
-this documentation, the most recent version of boost is <cite>1.72.0</cite>. If you go
-into the folder, you’ll find different executables - choose the version
-corresponding to your system (32, 64 bits). In our case, we downloaded <cite>boost_1_72_0-msvc-14.2-64.exe</cite>.
-Follow the installation instructions, and when prompted to specify the folder to install boost, go for <cite>C:\local\</cite>.</p>
+<p>For Windows, Boost propose pre-built binaries to ease the installation in your system. In the
+<a class="reference external" href="https://sourceforge.net/projects/boost/files/boost-binaries/">website</a>, you’ll have access to all versions of Boost.
+At the time of writing this documentation, the most recent version of Boost is <cite>1.72.0</cite>. If you go into the folder,
+you’ll find different executables - choose the version corresponding to your system (32, 64 bits). In our case, we
+downloaded <cite>boost_1_72_0-msvc-14.2-64.exe</cite>. Follow the installation instructions, and when prompted to specify the
+folder to install Boost, go for <cite>C:\local\</cite>.</p>
 </div>
 <div class="section" id="source-code">
 <h4>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h4>
-<p>Boost proposes to <a class="reference external" href="https://www.boost.org/users/download/">download</a> directly the source code of boost.
+<p>Boost proposes to <a class="reference external" href="https://www.boost.org/users/download/">download</a> directly the Boost source code.
 You can choose from different sources (compressed in <cite>.7z</cite> or <cite>.zip</cite>).
 Download one and uncompress it in <cite>C:\local\</cite>, so you should have something like <cite>C:\local\boost_x_y_z\&lt;boost_files&gt;</cite>.</p>
 </div>
 <div class="section" id="already-installed-boost-version">
-<h4>Already installed boost version<a class="headerlink" href="#already-installed-boost-version" title="Permalink to this headline">¶</a></h4>
-<p>If by some obscure reason, you have boost installed in your system but the installation procedure cannot find it (can happen, no control on cmake …).
-You can help the installation script by adding the path to your installation in the following place <cite>gtda\cmake\HelperBoost.cmake</cite>.
+<h4>Already installed Boost version<a class="headerlink" href="#already-installed-boost-version" title="Permalink to this headline">¶</a></h4>
+<p>If, for some obscure reason, you have Boost installed in your system but the installation procedure cannot find it (can happen, no control on cmake …).
+You can help the installation script by adding the path to your installation in the following place: <cite>gtda\cmake\HelperBoost.cmake</cite>.
 In <cite>HelperBoost.cmake</cite> file, line 7, you can add your path between the quotation marks, e.g.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">APPEND</span> <span class="n">BOOST_ROOT</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">&lt;path_to_your_boost_installation&gt;&quot;</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
@@ -705,9 +735,9 @@ In <cite>HelperBoost.cmake</cite> file, line 7, you can add your path between th
 </div>
 <div class="section" id="troubleshooting">
 <h4>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h4>
-<p>If you need to understand where the compiler tries to look for <code class="docutils literal notranslate"><span class="pre">boost</span></code> headers,
+<p>If you need to understand where the compiler tries to look for Boost headers,
 you can install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span> <span class="o">-</span><span class="n">v</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span> <span class="o">-</span><span class="n">v</span>
 </pre></div>
 </div>
 <p>Then you can look at the output for lines starting with:</p>
@@ -715,7 +745,7 @@ you can install <code class="docutils literal notranslate"><span class="pre">gio
 <span class="n">Boost_INCLUDE_DIRS</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Also, if you have installed different versions of <code class="docutils literal notranslate"><span class="pre">boost</span></code> in the process of trying to instal <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>,
+<p>Also, if you have installed different versions of Boost in the process of trying to install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>,
 make sure to clear CMake cache entries:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">build</span><span class="o">/</span>
 </pre></div>
@@ -799,13 +829,13 @@ source directory:</p>
       <!--start_versions_tag-->
       <!--path_to_root:./-->
       
-      <dd><a href="./../0.2.1/index.html">0.2.1</a></dd>
+      <dd><a href="./../latest/index.html">latest</a></dd>
       
-      <dd><a href="./../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="./../0.2.1/index.html">0.2.1</a></dd>
       
       <dd><a href="./../0.2.2/index.html">0.2.2</a></dd>
       
-      <dd><a href="./../latest/index.html">latest</a></dd>
+      <dd><a href="./../0.2.0/index.html">0.2.0</a></dd>
       
       <!--end_versions_tag-->
     </dl>

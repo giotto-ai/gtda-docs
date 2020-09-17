@@ -13,6 +13,7 @@
 
    homology.VietorisRipsPersistence
    homology.SparseRipsPersistence
+   homology.WeakAlphaPersistence
    homology.EuclideanCechPersistence
-   homology.CubicalPersistence
    homology.FlagserPersistence
+   homology.CubicalPersistence

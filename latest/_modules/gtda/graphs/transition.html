@@ -119,7 +119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#id2">Boost</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#source-code">Source code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed Boost version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
@@ -146,21 +146,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#clustering">Clustering</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.ParallelClustering.html">ParallelClustering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#nerve-graph-construction">Nerve (graph construction)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/nerve/gtda.mapper.Nerve.html">Nerve</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#pipeline">Pipeline</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#visualization">Visualization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -168,9 +173,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -213,6 +219,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html">SingleTakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.takens_embedding_optimal_parameters.html">takens_embedding_optimal_parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#target-preparation">Target preparation</a><ul>
@@ -278,8 +286,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
 </ul>
 </li>
@@ -288,15 +297,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/index.html">Tutorials and examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../notebooks/tutorials.html">Tutorials</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulate-the-steps-above-in-a-pipeline">Encapsulate the steps above in a pipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
@@ -313,6 +318,32 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#gravitational-wave-detection">Gravitational wave detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#endogeneous-target-preparation-with-labeller">Endogeneous target preparation with <code class="docutils literal notranslate"><span class="pre">Labeller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#where-to-next">Where to next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html">Topological feature extraction from graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#undirected-graphs-vietorisripspersistence-and-sparseripspersistence">Undirected graphs – <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#directed-graphs-flagserpersistence">Directed graphs – <code class="docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#where-to-next">Where to next?</a></li>
 </ul>
 </li>
 </ul>
@@ -595,17 +626,15 @@
 <span class="c1"># License: GNU AGPLv3</span>
 
 <span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">FunctionType</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span> <span class="k">as</span> <span class="n">sp</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">SparseEfficiencyWarning</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
 <span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">check_is_fitted</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
 
 <span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
-<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span>
+<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span><span class="p">,</span> <span class="n">check_point_clouds</span>
 
 
 <span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -620,29 +649,29 @@
 <span class="sd">    Let A be a two-dimensional array viewed as a time series (along the row</span>
 <span class="sd">    axis) of one-dimensional arrays encoding the &quot;state&quot; of a system. The</span>
 <span class="sd">    corresponding *undirected transition graph* (or *network*) has as vertex</span>
-<span class="sd">    set the set of all unique states (rows) in A, and there is an edge</span>
-<span class="sd">    between two vertices if and only if one of the corresponding states</span>
-<span class="sd">    immediately follows the other in A.</span>
+<span class="sd">    set the set of all unique states (rows) in A, and there is an edge between</span>
+<span class="sd">    vertex i and vertex j≠i if and only if the state corresponding to vertex</span>
+<span class="sd">    j immediately follows the one corresponding to vertex i, somewhere in A.</span>
 
-<span class="sd">    Given a collection of two-dimensional arrays, this transformer performs</span>
-<span class="sd">    two tasks:</span>
+<span class="sd">    Given a collection of two-dimensional arrays, this transformer performs two</span>
+<span class="sd">    tasks:</span>
 
-<span class="sd">        1. Optionally, it preprocesses the arrays by applying a function row</span>
-<span class="sd">           by row to them. This can be used e.g. as a &quot;compression&quot; step</span>
-<span class="sd">           to reduce the size of the state space.</span>
-<span class="sd">        2. It computes the undirected transition graph of each array as a</span>
-<span class="sd">           sparse matrix.</span>
+<span class="sd">        1. Optionally, it preprocesses the arrays by applying a function row by</span>
+<span class="sd">           row to them. This can be used e.g. as a &quot;compression&quot; step to reduce</span>
+<span class="sd">           the size of the state space.</span>
+<span class="sd">        2. It computes the transition graph of each array as a sparse matrix of</span>
+<span class="sd">           zeros and ones.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    func : None or callable, optional, default: ``numpy.argsort``</span>
 <span class="sd">        If a callable, it is the function to be applied to each row of each</span>
-<span class="sd">        array as a preprocessing steps. Allowed callables are functions</span>
-<span class="sd">        mapping 1-D arrays to 1-D arrays of constant length, and must be</span>
-<span class="sd">        compatible with :mod:`numpy.apply_along_axis`. If ``None``, this</span>
-<span class="sd">        function is the identity (no preprocessing). The default is</span>
-<span class="sd">        ``numpy.argsort``, which makes the final transition graphs</span>
-<span class="sd">        *ordinal partition networks* [1]_ [2]_ [3]_.</span>
+<span class="sd">        array as a preprocessing step. Allowed callables are functions mapping</span>
+<span class="sd">        1D arrays to 1D arrays of constant length, and must be compatible with</span>
+<span class="sd">        :func:`numpy.apply_along_axis`. If ``None``, this function is the</span>
+<span class="sd">        identity (no preprocessing). The default is ``numpy.argsort``, which</span>
+<span class="sd">        makes the final transition graphs *ordinal partition networks*</span>
+<span class="sd">        [1]_ [2]_ [3]_.</span>
 
 <span class="sd">    func_params : None or dict, optional, default: ``None``</span>
 <span class="sd">        Additional keyword arguments for `func`.</span>
@@ -663,19 +692,17 @@
 <span class="sd">    &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">    &gt;&gt;&gt; from gtda.graphs import TransitionGraph</span>
 <span class="sd">    &gt;&gt;&gt; X = np.array([[[1, 0], [2, 3], [5, 4]],</span>
-<span class="sd">    ...               [[5, 4], [5, 4], [5, 4]])</span>
-<span class="sd">    &gt;&gt;&gt; tg = TransitionGraph()</span>
-<span class="sd">    &gt;&gt;&gt; tg = tg.fit(X)</span>
-<span class="sd">    &gt;&gt;&gt; print(tg.transform(X)[0].toarray())</span>
+<span class="sd">    ...               [[5, 4], [5, 4], [5, 4]]])</span>
+<span class="sd">    &gt;&gt;&gt; X_tg = TransitionGraph().fit_transform(X)</span>
+<span class="sd">    &gt;&gt;&gt; print(X_tg[0].toarray())</span>
 <span class="sd">    [[0 1]</span>
 <span class="sd">     [1 0]]</span>
-<span class="sd">    &gt;&gt;&gt; print(tg.transform(X)[1].toarray())</span>
-<span class="sd">    [[1 0]</span>
-<span class="sd">     [0 0]]</span>
+<span class="sd">    &gt;&gt;&gt; print(X_tg[1].toarray())</span>
+<span class="sd">    [[0]]</span>
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    GraphGeodesicDistance, gtda.time_series.TakensEmbedding</span>
+<span class="sd">    KNeighborsGraph, GraphGeodesicDistance</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -687,26 +714,24 @@
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] M. Small, &quot;Complex networks from time series: Capturing dynamics&quot;,</span>
 <span class="sd">           *2013 IEEE International Symposium on Circuits and Systems</span>
-<span class="sd">           (IS-CAS2013)*, 2013; doi: `10.1109/iscas.2013.6572389</span>
+<span class="sd">           (IS-CAS2013)*, 2013; `DOI: 10.1109/iscas.2013.6572389</span>
 <span class="sd">           &lt;http://dx.doi.org/10.1109/iscas.2013.6572389&gt;`_.</span>
 
 <span class="sd">    .. [2] M. McCullough, M. Small, T. Stemler, and H. Ho-Ching Iu, &quot;Time</span>
 <span class="sd">           lagged ordinal partition networks for capturing dynamics of</span>
-<span class="sd">           continuous dynamical systems&quot;; *Chaos: An Interdisciplinary</span>
-<span class="sd">           Journal of Nonlinear Science* **25** (5), p. 053101, 2015;</span>
-<span class="sd">           doi: `10.1063/1.4919075 &lt;http://dx.doi.org/10.1063/1.4919075&gt;`_.</span>
+<span class="sd">           continuous dynamical systems&quot;; *Chaos: An Interdisciplinary Journal</span>
+<span class="sd">           of Nonlinear Science* **25** (5), p. 053101, 2015; `DOI:</span>
+<span class="sd">           10.1063/1.4919075 &lt;http://dx.doi.org/10.1063/1.4919075&gt;`_.</span>
 
 <span class="sd">    .. [3] A. Myers, E. Munch, and F. A. Khasawneh, &quot;Persistent homology of</span>
 <span class="sd">           complex networks for dynamic state detection&quot;; *Phys. Rev. E*</span>
-<span class="sd">           **100**, 022314, 2019; doi: `10.1103/PhysRevE.100.022314</span>
+<span class="sd">           **100**, 022314, 2019; `DOI: 10.1103/PhysRevE.100.022314</span>
 <span class="sd">           &lt;http://dx.doi.org/10.1109/CVPR.2015.7299106&gt;`_.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">FunctionType</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))},</span>
-        <span class="s1">&#39;func_params&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))}</span>
-    <span class="p">}</span>
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">FunctionType</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))},</span>
+                        <span class="s1">&#39;func_params&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))}}</span>
 
 <div class="viewcode-block" id="TransitionGraph.__init__"><a class="viewcode-back" href="../../../modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">,</span> <span class="n">func_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
@@ -715,17 +740,16 @@
 
     <span class="k">def</span> <span class="nf">_make_adjacency_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="n">Xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
-        <span class="n">Xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Xm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">n_indices</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xm</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">unique_states</span><span class="p">,</span> <span class="n">Xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Xm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">n_unique_states</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_states</span><span class="p">)</span>
         <span class="n">first</span> <span class="o">=</span> <span class="n">Xm</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">second</span> <span class="o">=</span> <span class="n">Xm</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-        <span class="n">Xm</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n_indices</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
-                           <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">]),</span>
-                            <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">second</span><span class="p">,</span> <span class="n">first</span><span class="p">]))))</span>
-        <span class="c1"># Silence sparse warnings TODO: Benchmark</span>
-        <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">SparseEfficiencyWarning</span><span class="p">)</span>
-            <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="o">.</span><span class="n">setdiag</span><span class="p">(</span><span class="n">Xm</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">non_diag_idx</span> <span class="o">=</span> <span class="n">first</span> <span class="o">!=</span> <span class="n">second</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">non_diag_idx</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="p">[</span><span class="n">non_diag_idx</span><span class="p">]</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="p">[</span><span class="n">non_diag_idx</span><span class="p">]</span>
+        <span class="n">Xm</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">)),</span>
+                        <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_unique_states</span><span class="p">,</span> <span class="n">n_unique_states</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">Xm</span>
 
 <div class="viewcode-block" id="TransitionGraph.fit"><a class="viewcode-back" href="../../../modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -736,8 +760,10 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        X : ndarray of shape (n_samples, n_time_steps, n_features)</span>
-<span class="sd">            Input data.</span>
+<span class="sd">        X : list of length n_samples, or ndarray of shape (n_samples, \</span>
+<span class="sd">            n_timestamps, n_features)</span>
+<span class="sd">            Input data: a collection of 2D arrays of shape</span>
+<span class="sd">            ``(n_timestamps, n_features)``.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -748,7 +774,7 @@
 <span class="sd">        self : object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
 
@@ -766,14 +792,14 @@
 
 <div class="viewcode-block" id="TransitionGraph.transform"><a class="viewcode-back" href="../../../modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create transition graphs from the input data and return their</span>
-<span class="sd">        adjacency matrices. The graphs are simple, undirected and</span>
-<span class="sd">        unweighted, and the adjacency matrices are sparse matrices of type</span>
-<span class="sd">        bool.</span>
+<span class="sd">        adjacency matrices. The graphs are simple and unweighted.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        X : ndarray of shape (n_samples, n_time_steps, n_features)</span>
-<span class="sd">            Input data.</span>
+<span class="sd">        X : list of length n_samples, or ndarray of shape (n_samples, \</span>
+<span class="sd">            n_timestamps, n_features)</span>
+<span class="sd">            Input data: a collection of 2D arrays of shape</span>
+<span class="sd">            ``(n_timestamps, n_features)``.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -781,17 +807,17 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Xt : array of sparse boolean matrices, shape (n_samples,)</span>
-<span class="sd">            The collection of ``n_samples`` transition graphs. Each transition</span>
-<span class="sd">            graph is encoded by a sparse matrix of boolean type.</span>
+<span class="sd">        Xt : list of length n_samples</span>
+<span class="sd">            Collection of ``n_samples`` transition graphs. Each transition</span>
+<span class="sd">            graph is encoded by a sparse CSR matrix of ones and zeros.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
-            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_make_adjacency_matrix</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Xt</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_make_adjacency_matrix</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Xt</span>
+            <span class="p">)</span>
         <span class="k">return</span> <span class="n">Xt</span></div></div>
 </pre></div>
 
@@ -837,11 +863,11 @@
       
       <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
+      <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
       <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
-      
-      <dd><a href="../../../../latest/index.html">latest</a></dd>
       
       <!--end_versions_tag-->
     </dl>

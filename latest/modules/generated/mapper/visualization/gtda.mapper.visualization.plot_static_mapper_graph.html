@@ -38,8 +38,6 @@
     
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="plot_interactive_mapper_graph" href="gtda.mapper.visualization.plot_interactive_mapper_graph.html" />
-    <link rel="prev" title="MapperPipeline" href="../pipeline/gtda.mapper.pipeline.MapperPipeline.html" />
 <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script>require=requirejs;</script>
@@ -93,7 +91,7 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../library.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../library.html#guiding-principles">Guiding principles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../library.html#s-guide-to-giotto-tda">30s guide to <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
@@ -121,7 +119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#id2">Boost</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#source-code">Source code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#already-installed-boost-version">Already installed Boost version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../installation.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
@@ -132,8 +130,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../../mapper.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>: Mapper</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../mapper.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>: Mapper</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../mapper.html#filters">Filters</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../filters/gtda.mapper.Projection.html">Projection</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../filters/gtda.mapper.Eccentricity.html">Eccentricity</a></li>
@@ -148,21 +146,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../mapper.html#clustering">Clustering</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clustering/gtda.mapper.ParallelClustering.html">ParallelClustering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mapper.html#nerve-graph-construction">Nerve (graph construction)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../nerve/gtda.mapper.Nerve.html">Nerve</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../mapper.html#pipeline">Pipeline</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../pipeline/gtda.mapper.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../mapper.html#visualization">Visualization</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">plot_static_mapper_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gtda.mapper.visualization.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mapper.html#visualization">Visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gtda.mapper.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gtda.mapper.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../utils/gtda.mapper.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../utils/gtda.mapper.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -170,9 +173,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -215,6 +219,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../time_series/embedding/gtda.time_series.SingleTakensEmbedding.html">SingleTakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../time_series/embedding/gtda.time_series.takens_embedding_optimal_parameters.html">takens_embedding_optimal_parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../time_series.html#target-preparation">Target preparation</a><ul>
@@ -280,8 +286,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.validate_params.html">validate_params</a></li>
 </ul>
 </li>
@@ -290,15 +297,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/index.html">Tutorials and examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../notebooks/tutorials.html">Tutorials</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/vietoris_rips_quickstart.html#encapsulate-the-steps-above-in-a-pipeline">Encapsulate the steps above in a pipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
@@ -315,6 +318,32 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#gravitational-wave-detection">Gravitational wave detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html#endogeneous-target-preparation-with-labeller">Endogeneous target preparation with <code class="docutils literal notranslate"><span class="pre">Labeller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html#where-to-next">Where to next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/persistent_homology_graphs.html">Topological feature extraction from graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/persistent_homology_graphs.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/persistent_homology_graphs.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/persistent_homology_graphs.html#undirected-graphs-vietorisripspersistence-and-sparseripspersistence">Undirected graphs – <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/persistent_homology_graphs.html#directed-graphs-flagserpersistence">Directed graphs – <code class="docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/persistent_homology_graphs.html#where-to-next">Where to next?</a></li>
 </ul>
 </li>
 </ul>
@@ -575,10 +604,6 @@
     
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../../../index.html">API reference</a> &raquo;</li>
-        
-          <li><a href="../../../mapper.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>: Mapper</a> &raquo;</li>
-        
       <li>plot_static_mapper_graph</li>
     
     
@@ -603,11 +628,32 @@
 <dl class="py function">
 <dt id="gtda.mapper.visualization.plot_static_mapper_graph">
 <code class="sig-prename descclassname">gtda.mapper.visualization.</code><code class="sig-name descname">plot_static_mapper_graph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pipeline</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">layout</span><span class="o">=</span><span class="default_value">'kamada_kawai'</span></em>, <em class="sig-param"><span class="n">layout_dim</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">color_variable</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">node_color_statistic</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">color_by_columns_dropdown</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">clone_pipeline</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">n_sig_figs</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">node_scale</span><span class="o">=</span><span class="default_value">12</span></em>, <em class="sig-param"><span class="n">plotly_params</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/visualization.html#plot_static_mapper_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.visualization.plot_static_mapper_graph" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plotting function for static Mapper graphs.</p>
-<p>Nodes are colored according to <cite>color_variable</cite> and <cite>node_color_statistic</cite>.
-By default, the hovertext on each node displays a globally unique ID for
-the node, the number of data points associated with the node, and the
-summary statistic which determines its color.</p>
+<dd><p>Plot Mapper graphs without interactivity on pipeline parameters.</p>
+<p>The output graph is a rendition of the <code class="xref py py-class docutils literal notranslate"><span class="pre">igraph.Graph</span></code> object
+computed by calling the <code class="xref py py-meth docutils literal notranslate"><span class="pre">fit_transform</span></code> method of the
+<a class="reference internal" href="../pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline" title="gtda.mapper.pipeline.MapperPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">MapperPipeline</span></code></a> instance <cite>pipeline</cite> on the
+input <cite>data</cite>. The graph’s nodes correspond to subsets of elements (rows) in
+<cite>data</cite>; these subsets are clusters in larger portions of <cite>data</cite> called
+“pullback (cover) sets”, which are computed by means of the <cite>pipeline</cite>’s
+“filter function” and “cover” and correspond to the differently-colored
+portions in <a class="reference external" href="../../../../_images/mapper_pipeline.svg">this diagram</a>.
+Two clusters from different pullback cover sets can overlap; if they do, an
+edge between the corresponding nodes in the graph may be drawn.</p>
+<p>Nodes are colored according to <cite>color_variable</cite> and <cite>node_color_statistic</cite>
+and are sized according to the number of elements they represent. The
+hovertext on each node displays, in this order:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>a globally unique ID for the node, which can be used to retrieve
+node information from the <code class="xref py py-class docutils literal notranslate"><span class="pre">igraph.Graph</span></code> object, see
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Nerve</span></code>;</p></li>
+<li><p>the label of the pullback (cover) set which the node’s elements
+form a cluster in;</p></li>
+<li><p>a label identifying the node as a cluster within that pullback set;</p></li>
+<li><p>the number of elements of <cite>data</cite> associated with the node;</p></li>
+<li><p>the value of the summary statistic which determines the node’s color.</p></li>
+</ul>
+</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -615,7 +661,7 @@ summary statistic which determines its color.</p>
 <li><p><strong>data</strong> (<em>array-like of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – Data used to generate the Mapper graph. Can be a pandas dataframe.</p></li>
 <li><p><strong>layout</strong> (None, str or callable, optional, default: <code class="docutils literal notranslate"><span class="pre">&quot;kamada-kawai&quot;</span></code>) – Layout algorithm for the graph. Can be any accepted value for the
 <code class="docutils literal notranslate"><span class="pre">layout</span></code> parameter in the <code class="xref py py-meth docutils literal notranslate"><span class="pre">layout</span></code> method of
-<code class="xref py py-class docutils literal notranslate"><span class="pre">igraph.Graph</span></code>. <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p></li>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">igraph.Graph</span></code> <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.</p></li>
 <li><p><strong>layout_dim</strong> (int, default: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – The number of dimensions for the layout. Can be 2 or 3.</p></li>
 <li><p><strong>color_variable</strong> (object or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>Specifies a feature of interest to be used, together with
 <cite>node_color_statistic</cite>, to determine node colors.</p>
@@ -669,6 +715,7 @@ and size.</p>
 <p class="rubric">Examples</p>
 <p>Setting a colorscale different from the default one:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gtda.mapper</span> <span class="kn">import</span> <span class="n">make_mapper_pipeline</span><span class="p">,</span> <span class="n">plot_static_mapper_graph</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">make_mapper_pipeline</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -677,9 +724,16 @@ and size.</p>
 <span class="gp">... </span>                               <span class="n">plotly_params</span><span class="o">=</span><span class="n">plotly_params</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Inspect the composition of a node with “Node ID” displayed as 0 in the
+hovertext:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">graph</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">graph</span><span class="o">.</span><span class="n">vs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;node_elements&quot;</span><span class="p">]</span>
+<span class="go">array([70])</span>
+</pre></div>
+</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="gtda.mapper.visualization.plot_interactive_mapper_graph.html#gtda.mapper.visualization.plot_interactive_mapper_graph" title="gtda.mapper.visualization.plot_interactive_mapper_graph"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_interactive_mapper_graph</span></code></a>, <a class="reference internal" href="../pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html#gtda.mapper.pipeline.make_mapper_pipeline" title="gtda.mapper.pipeline.make_mapper_pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mapper_pipeline</span></code></a></p>
+<p><a class="reference internal" href="gtda.mapper.visualization.plot_interactive_mapper_graph.html#gtda.mapper.visualization.plot_interactive_mapper_graph" title="gtda.mapper.visualization.plot_interactive_mapper_graph"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_interactive_mapper_graph</span></code></a>, <a class="reference internal" href="../pipeline/gtda.mapper.make_mapper_pipeline.html#gtda.mapper.make_mapper_pipeline" title="gtda.mapper.make_mapper_pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">gtda.mapper.make_mapper_pipeline</span></code></a></p>
 </div>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
@@ -697,15 +751,6 @@ documentation.</p>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="gtda.mapper.visualization.plot_interactive_mapper_graph.html" class="btn btn-neutral float-right" title="plot_interactive_mapper_graph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../pipeline/gtda.mapper.pipeline.MapperPipeline.html" class="btn btn-neutral float-left" title="MapperPipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -744,11 +789,11 @@ documentation.</p>
       
       <dd><a href="../../../../../0.2.1/index.html">0.2.1</a></dd>
       
+      <dd><a href="../../../../../latest/index.html">latest</a></dd>
+      
       <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
-      
-      <dd><a href="../../../../../latest/index.html">latest</a></dd>
       
       <!--end_versions_tag-->
     </dl>

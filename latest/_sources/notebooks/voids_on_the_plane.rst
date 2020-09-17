@@ -10,7 +10,8 @@ the square :math:`[0, 1] \times [0, 1] \subset \mathbb{R}^2`.
 
 If you are looking at a static version of this notebook and would like
 to run its contents, head over to
-`github <https://github.com/giotto-ai/giotto-tda/blob/master/examples/voids_on_the_plane.ipynb>`__.
+`GitHub <https://github.com/giotto-ai/giotto-tda/blob/master/examples/voids_on_the_plane.ipynb>`__
+and download the source.
 
 **License: AGPLv3**
 

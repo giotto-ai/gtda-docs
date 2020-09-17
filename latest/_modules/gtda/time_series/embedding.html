@@ -119,7 +119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#id2">Boost</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#source-code">Source code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed Boost version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
@@ -146,21 +146,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#clustering">Clustering</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.ParallelClustering.html">ParallelClustering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#nerve-graph-construction">Nerve (graph construction)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/nerve/gtda.mapper.Nerve.html">Nerve</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#pipeline">Pipeline</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#visualization">Visualization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -168,9 +173,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -213,6 +219,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html">SingleTakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.takens_embedding_optimal_parameters.html">takens_embedding_optimal_parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#target-preparation">Target preparation</a><ul>
@@ -278,8 +286,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
 </ul>
 </li>
@@ -288,15 +297,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/index.html">Tutorials and examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../notebooks/tutorials.html">Tutorials</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulate-the-steps-above-in-a-pipeline">Encapsulate the steps above in a pipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
@@ -313,6 +318,32 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#gravitational-wave-detection">Gravitational wave detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#endogeneous-target-preparation-with-labeller">Endogeneous target preparation with <code class="docutils literal notranslate"><span class="pre">Labeller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#where-to-next">Where to next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html">Topological feature extraction from graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#undirected-graphs-vietorisripspersistence-and-sparseripspersistence">Undirected graphs – <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#directed-graphs-flagserpersistence">Directed graphs – <code class="docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#where-to-next">Where to next?</a></li>
 </ul>
 </li>
 </ul>
@@ -596,32 +627,130 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
-<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mutual_info_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span><span class="p">,</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">column_or_1d</span>
 
-<span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">TransformerResamplerMixin</span>
+<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_time_delay_embedding</span><span class="p">,</span> <span class="n">_mutual_information</span><span class="p">,</span> \
+    <span class="n">_false_nearest_neighbors</span>
+<span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">TransformerResamplerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span>
+<span class="kn">from</span> <span class="nn">..plotting</span> <span class="kn">import</span> <span class="n">plot_point_cloud</span>
 <span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
 <span class="kn">from</span> <span class="nn">..utils.intervals</span> <span class="kn">import</span> <span class="n">Interval</span>
-<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span>
-<span class="n">from</span><span class="o">..</span><span class="n">plotting</span> <span class="kn">import</span> <span class="nn">plot_point_cloud</span>
+<span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span><span class="p">,</span> <span class="n">check_collection</span>
+
+<span class="n">_TAKENS_EMBEDDING_HYPERPARAMETERS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;time_delay&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;dimension&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;stride&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}</span>
+        <span class="p">}</span>
+
+
+<div class="viewcode-block" id="takens_embedding_optimal_parameters"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.takens_embedding_optimal_parameters.html#gtda.time_series.takens_embedding_optimal_parameters">[docs]</a><span class="k">def</span> <span class="nf">takens_embedding_optimal_parameters</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">max_time_delay</span><span class="p">,</span> <span class="n">max_dimension</span><span class="p">,</span>
+                                        <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute the &quot;optimal&quot; parameters for a Takens (time-delay) embedding</span>
+<span class="sd">    [1]_ of a univariate time series.</span>
+
+<span class="sd">    First, an optimal time delay is found by minimising the time-delayed mutual</span>
+<span class="sd">    information among values no greater than `max_time_delay`. Then, a</span>
+<span class="sd">    heuristic based on an algorithm in [2]_ is used to select an embedding</span>
+<span class="sd">    dimension which, when increased, does not reveal a large proportion of</span>
+<span class="sd">    &quot;false nearest neighbors&quot;.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : ndarray of shape (n_samples,) or (n_samples, 1)</span>
+<span class="sd">        Input data representing a single univariate time series.</span>
+
+<span class="sd">    max_time_delay : int, required</span>
+<span class="sd">        Maximum time delay between two consecutive values for constructing one</span>
+<span class="sd">        embedded point.</span>
+
+<span class="sd">    max_dimension : int, required</span>
+<span class="sd">        Maximum embedding dimension that will be considered in the</span>
+<span class="sd">        optimization.</span>
+
+<span class="sd">    stride : int, optional, default: ``1``</span>
+<span class="sd">        Stride duration between two consecutive embedded points. It defaults to</span>
+<span class="sd">        1 as this is the usual value in the statement of Takens&#39;s embedding</span>
+<span class="sd">        theorem.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    validate : bool, optional, default: ``True``</span>
+<span class="sd">        Whether the input and hyperparameters should be validated.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    time_delay : int</span>
+<span class="sd">        The &quot;optimal&quot; time delay less than or equal to `max_dimension`, as</span>
+<span class="sd">        determined by minimizing the time-delayed mutual information.</span>
+
+<span class="sd">    dimension : int</span>
+<span class="sd">        The &quot;optimal&quot; embedding dimension less than or equal to</span>
+<span class="sd">        `max_dimension`, as determined by a false nearest neighbors heuristic</span>
+<span class="sd">        once `time_delay` is computed.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    SingleTakensEmbedding, TakensEmbedding, SlidingWindow</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] F. Takens, &quot;Detecting strange attractors in turbulence&quot;. In: Rand</span>
+<span class="sd">           D., Young LS. (eds) *Dynamical Systems and Turbulence, Warwick</span>
+<span class="sd">           1980*. Lecture Notes in Mathematics, vol. 898. Springer, 1981;</span>
+<span class="sd">           `DOI: 10.1007/BFb0091924 &lt;https://doi.org/10.1007/BFb0091924&gt;`_.</span>
+
+<span class="sd">    .. [2] M. B. Kennel, R. Brown, and H. D. I. Abarbanel, &quot;Determining</span>
+<span class="sd">           embedding dimension for phase-space reconstruction using a</span>
+<span class="sd">           geometrical construction&quot;; *Phys. Rev. A* **45**, pp. 3403--3411,</span>
+<span class="sd">           1992; `DOI: 10.1103/PhysRevA.45.3403</span>
+<span class="sd">           &lt;https://doi.org/10.1103/PhysRevA.45.3403&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">validate</span><span class="p">:</span>
+        <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="n">_TAKENS_EMBEDDING_HYPERPARAMETERS</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">validate_params</span><span class="p">({</span><span class="s1">&#39;validate&#39;</span><span class="p">:</span> <span class="n">validate</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;validate&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">}})</span>
+        <span class="n">validate_params</span><span class="p">({</span><span class="s1">&#39;time_delay&#39;</span><span class="p">:</span> <span class="n">max_time_delay</span><span class="p">,</span>
+                         <span class="s1">&#39;dimension&#39;</span><span class="p">:</span> <span class="n">max_dimension</span><span class="p">,</span> <span class="s1">&#39;stride&#39;</span><span class="p">:</span> <span class="n">stride</span><span class="p">},</span>
+                        <span class="n">_hyperparameters</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="n">mutual_information_list</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)(</span>
+        <span class="n">delayed</span><span class="p">(</span><span class="n">_mutual_information</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">time_delay</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">time_delay</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_time_delay</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">time_delay</span> <span class="o">=</span> \
+        <span class="n">mutual_information_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">mutual_information_list</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">n_false_nbhrs_list</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)(</span>
+        <span class="n">delayed</span><span class="p">(</span><span class="n">_false_nearest_neighbors</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">time_delay</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">stride</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_dimension</span> <span class="o">+</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">variation_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">n_false_nbhrs_list</span><span class="p">[</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                             <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_false_nbhrs_list</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">+</span>
+                             <span class="n">n_false_nbhrs_list</span><span class="p">[</span><span class="n">dim</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+                      <span class="o">/</span> <span class="p">(</span><span class="n">n_false_nbhrs_list</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dim</span>
+                      <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_dimension</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">dimension</span> <span class="o">=</span> <span class="n">variation_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">variation_list</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span>
+
+    <span class="k">return</span> <span class="n">time_delay</span><span class="p">,</span> <span class="n">dimension</span></div>
 
 
 <div class="viewcode-block" id="SlidingWindow"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">SlidingWindow</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerResamplerMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Sliding windows onto the data.</span>
 
-<span class="sd">    Useful in time series analysis to convert a sequence of objects (scalar</span>
-<span class="sd">    or array-like) into a sequence of windows on the original sequence. Each</span>
+<span class="sd">    Useful in time series analysis to convert a sequence of objects (scalar or</span>
+<span class="sd">    array-like) into a sequence of windows on the original sequence. Each</span>
 <span class="sd">    window stacks together consecutive objects, and consecutive windows are</span>
 <span class="sd">    separated by a constant stride.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    width : int, optional, default: ``10``</span>
-<span class="sd">        Width of each sliding window. Each window contains ``width + 1``</span>
-<span class="sd">        objects from the original time series.</span>
+<span class="sd">    size : int, optional, default: ``10``</span>
+<span class="sd">        Size of each sliding window.</span>
 
 <span class="sd">    stride : int, optional, default: ``1``</span>
 <span class="sd">        Stride between consecutive windows.</span>
@@ -634,7 +763,7 @@
 <span class="sd">    &gt;&gt;&gt; # time series of scalars</span>
 <span class="sd">    &gt;&gt;&gt; X = np.arange(20).reshape(-1, 2)</span>
 <span class="sd">    &gt;&gt;&gt; y = np.arange(10)</span>
-<span class="sd">    &gt;&gt;&gt; windows = SlidingWindow(width=2, stride=3)</span>
+<span class="sd">    &gt;&gt;&gt; windows = SlidingWindow(size=3, stride=3)</span>
 <span class="sd">    &gt;&gt;&gt; # Fit and transform X</span>
 <span class="sd">    &gt;&gt;&gt; X_windows = windows.fit_transform(X)</span>
 <span class="sd">    &gt;&gt;&gt; print(X_windows)</span>
@@ -654,36 +783,43 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    TakensEmbedding</span>
+<span class="sd">    SingleTakensEmbedding, TakensEmbedding</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    The current implementation favours the last entry over the first one,</span>
-<span class="sd">    in the sense that the last entry of the last window always equals the last</span>
+<span class="sd">    The current implementation favours the last entry over the first one, in</span>
+<span class="sd">    the sense that the last entry of the last window always equals the last</span>
 <span class="sd">    entry in the original time series. Hence, a number of initial entries</span>
-<span class="sd">    (depending on the remainder of the division between :math:`n_\\mathrm{</span>
-<span class="sd">    samples} - \\mathrm{width} - 1` and the stride) may be lost.</span>
+<span class="sd">    (depending on the remainder of the division between ``n_samples - size``</span>
+<span class="sd">    and ``stride``) may be lost.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
         <span class="s1">&#39;stride&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}</span>
-    <span class="p">}</span>
+        <span class="p">}</span>
 
-<div class="viewcode-block" id="SlidingWindow.__init__"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+<div class="viewcode-block" id="SlidingWindow.__init__"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">=</span> <span class="n">stride</span></div>
 
-    <span class="k">def</span> <span class="nf">_slice_windows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_window_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="n">n_samples</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">n_windows</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">n_windows</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">)</span>
+        <span class="n">n_windows</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">n_windows</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Number of samples (</span><span class="si">{</span><span class="n">n_samples</span><span class="si">}</span><span class="s2">) cannot be less than window &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;size (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">).&quot;</span>
+                <span class="p">)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="p">(</span><span class="n">n_windows</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">indices</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_windows</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">+</span> <span class="n">offset</span>
+        <span class="k">return</span> <span class="n">indices</span>
 
-        <span class="n">window_slices</span> <span class="o">=</span> <span class="p">[(</span><span class="n">n_samples</span> <span class="o">-</span> <span class="n">i</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
-                          <span class="n">n_samples</span> <span class="o">-</span> <span class="n">i</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">)</span>
-                         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_windows</span><span class="p">))]</span>
-
-        <span class="k">return</span> <span class="n">window_slices</span>
+    <span class="k">def</span> <span class="nf">slice_windows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_window_indices</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">indices</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
 <div class="viewcode-block" id="SlidingWindow.fit"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Do nothing and return the estimator unchanged.</span>
@@ -723,18 +859,17 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Xt : ndarray of shape (n_windows, n_samples_window, ...)</span>
+<span class="sd">        Xt : ndarray of shape (n_windows, size, ...)</span>
 <span class="sd">            Windows of consecutive entries of the original time series.</span>
-<span class="sd">            ``n_windows = (n_samples - width - 1) // stride  + 1``, and</span>
-<span class="sd">            ``n_samples_window = width + 1``.</span>
+<span class="sd">            ``n_windows = (n_samples - size) // stride  + 1``.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">window_slices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_slice_windows</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+        <span class="n">window_indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_window_indices</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
 
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">Xt</span><span class="p">[</span><span class="n">begin</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="k">for</span> <span class="n">begin</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">window_slices</span><span class="p">])</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[</span><span class="n">window_indices</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">Xt</span></div>
 
 <div class="viewcode-block" id="SlidingWindow.resample"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow.resample">[docs]</a>    <span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -748,84 +883,59 @@
 <span class="sd">            Target.</span>
 
 <span class="sd">        X : None</span>
-<span class="sd">            There is no need for input data, yet the pipeline API requires</span>
-<span class="sd">            this parameter.</span>
+<span class="sd">            There is no need for input data, yet the pipeline API requires this</span>
+<span class="sd">            parameter.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        yr : ndarray of shape (n_samples_new,)</span>
-<span class="sd">            The resampled target. ``n_samples_new = (n_samples - time_delay *</span>
-<span class="sd">            (dimension - 1) - 1) // stride + 1``.</span>
+<span class="sd">            The resampled target. ``n_samples_new = (n_samples - size)</span>
+<span class="sd">            // stride + 1``.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
         <span class="n">yr</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-        <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span>
-        <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">yr</span><span class="p">[:</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">yr</span></div>
-
-<div class="viewcode-block" id="SlidingWindow.plot"><a class="viewcode-back" href="../../../modules/generated/time_series/preprocessing/gtda.time_series.SlidingWindow.html#gtda.time_series.SlidingWindow.plot">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of sliding windows, as a point</span>
-<span class="sd">        cloud in 2D or 3D. If points in the window have more than three</span>
-<span class="sd">        dimensions, only the first three are plotted.</span>
-
-<span class="sd">        Important: when using on the result `Xt` of calling :meth:`transform`</span>
-<span class="sd">        on ``X``, ensure that each sample in ``X`` is a point in</span>
-<span class="sd">        ``n_dimensions``-dimensional space with ``n_dimensions &gt; 1``.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        Xt : ndarray of shape (n_samples, n_points, n_dimensions)</span>
-<span class="sd">            Collection of sliding windows, each containing ``n_points``</span>
-<span class="sd">            points in ``n_dimensions``-dimensional space, such as returned by</span>
-<span class="sd">            :meth:`transform`.</span>
-
-<span class="sd">        sample : int, optional, default: ``0``</span>
-<span class="sd">            Index of the sample in `Xt` to be plotted.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">plot_point_cloud</span><span class="p">(</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">])</span></div></div>
+        <span class="n">yr</span> <span class="o">=</span> <span class="n">yr</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">yr</span></div></div>
 
 
-<div class="viewcode-block" id="TakensEmbedding"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
-<span class="k">class</span> <span class="nc">TakensEmbedding</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerResamplerMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Representation of a univariate time series as a time series of</span>
-<span class="sd">    point clouds.</span>
+<div class="viewcode-block" id="SingleTakensEmbedding"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html#gtda.time_series.SingleTakensEmbedding">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">SingleTakensEmbedding</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerResamplerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Representation of a single univariate time series as a point cloud.</span>
 
-<span class="sd">    Based on a time-delay embedding technique named after F. Takens [1]_.</span>
-<span class="sd">    Given a discrete time series :math:`(X_0, X_1, \\ldots)` and a sequence</span>
-<span class="sd">    of evenly sampled times :math:`t_0, t_1, \\ldots`, one extracts a set</span>
-<span class="sd">    of :math:`d`-dimensional vectors of the form :math:`(X_{t_i}, X_{t_i +</span>
-<span class="sd">    \\tau}, \\ldots , X_{t_i + (d-1)\\tau})` for :math:`i = 0, 1, \\ldots`.</span>
-<span class="sd">    This set is called the :ref:`Takens embedding &lt;takens_embedding&gt;`</span>
-<span class="sd">    of the time series and can be interpreted as a point cloud.</span>
+<span class="sd">    Based on a time-delay embedding technique named after F. Takens [1]_ [2]_.</span>
+<span class="sd">    Given a discrete time series :math:`(X_0, X_1, \\ldots)` and a sequence of</span>
+<span class="sd">    evenly sampled times :math:`t_0, t_1, \\ldots`, one extracts a set of</span>
+<span class="sd">    :math:`d`-dimensional vectors of the form :math:`(X_{t_i}, X_{t_i + \\tau},</span>
+<span class="sd">    \\ldots , X_{t_i + (d-1)\\tau})` for :math:`i = 0, 1, \\ldots`. This set is</span>
+<span class="sd">    called the :ref:`Takens embedding &lt;takens_embedding&gt;` of the time series</span>
+<span class="sd">    and can be interpreted as a point cloud.</span>
 
 <span class="sd">    The difference between :math:`t_{i+1}` and :math:`t_i` is called the</span>
-<span class="sd">    stride, :math:`\\tau` is called the time delay, and :math:`d` is called</span>
-<span class="sd">    the (embedding) dimension.</span>
+<span class="sd">    stride, :math:`\\tau` is called the time delay, and :math:`d` is called the</span>
+<span class="sd">    (embedding) dimension.</span>
 
-<span class="sd">    If :math:`d` and :math:`\\tau` are not explicitly set, suitable values</span>
-<span class="sd">    are searched for during :meth:`fit`. [2]_ [3]_</span>
+<span class="sd">    If :math:`d` and :math:`\\tau` are not explicitly set, suitable values are</span>
+<span class="sd">    searched for during :meth:`fit` [3]_ [4]_.</span>
+
+<span class="sd">    To compute time-delay embeddings of several time series simultaneously, use</span>
+<span class="sd">    :class:`TakensEmbedding` instead.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    parameters_type : ``&#39;search&#39;`` | ``&#39;fixed&#39;``, optional, default: \</span>
 <span class="sd">        ``&#39;search&#39;``</span>
-<span class="sd">        If set to ``&#39;fixed&#39;``, the values of `time_delay` and `dimension`</span>
-<span class="sd">        are used directly in :meth:`transform`. If set to ``&#39;search&#39;``,</span>
-<span class="sd">        those values are only used as upper bounds in a search as follows:</span>
-<span class="sd">        first, an optimal time delay is found by minimising the time delayed</span>
-<span class="sd">        mutual information; then, a heuristic based on an algorithm in [2]_ is</span>
-<span class="sd">        used to select an embedding dimension which, when increased, does not</span>
-<span class="sd">        reveal a large proportion of &quot;false nearest neighbors&quot;.</span>
+<span class="sd">        If set to ``&#39;fixed&#39;``, the values of `time_delay` and `dimension` are</span>
+<span class="sd">        used directly in :meth:`transform`. If set to ``&#39;search&#39;``,</span>
+<span class="sd">        :func:`takens_embedding_optimal_parameter` is run in :meth:`fit` to</span>
+<span class="sd">        estimate optimal values for these quantities and store them as</span>
+<span class="sd">        :attr:`time_delay_` and :attr:`dimension_`.</span>
 
 <span class="sd">    time_delay : int, optional, default: ``1``</span>
-<span class="sd">        Time delay between two consecutive values for constructing one</span>
-<span class="sd">        embedded point. If `parameters_type` is ``&#39;search&#39;``,</span>
-<span class="sd">        it corresponds to the maximal embedding time delay that will be</span>
-<span class="sd">        considered.</span>
+<span class="sd">        Time delay between two consecutive values for constructing one embedded</span>
+<span class="sd">        point. If `parameters_type` is ``&#39;search&#39;``, it corresponds to the</span>
+<span class="sd">        maximum time delay that will be considered.</span>
 
 <span class="sd">    dimension : int, optional, default: ``5``</span>
 <span class="sd">        Dimension of the embedding space. If `parameters_type` is ``&#39;search&#39;``,</span>
@@ -833,8 +943,8 @@
 <span class="sd">        considered.</span>
 
 <span class="sd">    stride : int, optional, default: ``1``</span>
-<span class="sd">        Stride duration between two consecutive embedded points. It defaults</span>
-<span class="sd">        to 1 as this is the usual value in the statement of Takens&#39;s embedding</span>
+<span class="sd">        Stride duration between two consecutive embedded points. It defaults to</span>
+<span class="sd">        1 as this is the usual value in the statement of Takens&#39;s embedding</span>
 <span class="sd">        theorem.</span>
 
 <span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
@@ -845,33 +955,33 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    time_delay_ : int</span>
-<span class="sd">        Actual embedding time delay used to embed. If</span>
-<span class="sd">        `parameters_type` is ``&#39;search&#39;``, it is the calculated optimal</span>
-<span class="sd">        embedding time delay and is less than or equal to `time_delay`.</span>
-<span class="sd">        Otherwise it is equal to `time_delay`.</span>
+<span class="sd">        Actual time delay used to embed. If</span>
+<span class="sd">        `parameters_type` is ``&#39;search&#39;``, it is the calculated optimal time</span>
+<span class="sd">        delay and is less than or equal to `time_delay`. Otherwise it is equal</span>
+<span class="sd">        to `time_delay`.</span>
 
 <span class="sd">    dimension_ : int</span>
 <span class="sd">        Actual embedding dimension used to embed. If `parameters_type` is</span>
-<span class="sd">        ``&#39;search&#39;``, it is the calculated optimal embedding dimension and</span>
-<span class="sd">        is less than or equal to `dimension`. Otherwise it is equal to</span>
+<span class="sd">        ``&#39;search&#39;``, it is the calculated optimal embedding dimension and is</span>
+<span class="sd">        less than or equal to `dimension`. Otherwise it is equal to</span>
 <span class="sd">        `dimension`.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">    &gt;&gt;&gt; from gtda.time_series import TakensEmbedding</span>
+<span class="sd">    &gt;&gt;&gt; from gtda.time_series import SingleTakensEmbedding</span>
 <span class="sd">    &gt;&gt;&gt; # Create a noisy signal</span>
 <span class="sd">    &gt;&gt;&gt; n_samples = 10000</span>
 <span class="sd">    &gt;&gt;&gt; signal_noise = np.asarray([np.sin(x / 50) + 0.5 * np.random.random()</span>
 <span class="sd">    ...     for x in range(n_samples)])</span>
 <span class="sd">    &gt;&gt;&gt; # Set up the transformer</span>
-<span class="sd">    &gt;&gt;&gt; embedder = TakensEmbedding(parameters_type=&#39;search&#39;, dimension=5,</span>
+<span class="sd">    &gt;&gt;&gt; embedder = SingleTakensEmbedding(parameters_type=&#39;search&#39;, dimension=5,</span>
 <span class="sd">    ...                            time_delay=5, n_jobs=-1)</span>
 <span class="sd">    &gt;&gt;&gt; # Fit and transform</span>
 <span class="sd">    &gt;&gt;&gt; embedded_noise = embedder.fit_transform(signal_noise)</span>
-<span class="sd">    &gt;&gt;&gt; print(&#39;Optimal embedding time delay based on mutual information:&#39;,</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;Optimal time delay based on mutual information:&#39;,</span>
 <span class="sd">    ...       embedder.time_delay_)</span>
-<span class="sd">    Optimal embedding time delay based on mutual information: 5</span>
+<span class="sd">    Optimal time delay based on mutual information: 5</span>
 <span class="sd">    &gt;&gt;&gt; print(&#39;Optimal embedding dimension based on false nearest neighbors:&#39;,</span>
 <span class="sd">    ...       embedder.dimension_)</span>
 <span class="sd">    Optimal embedding dimension based on false nearest neighbors: 2</span>
@@ -880,51 +990,48 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    SlidingWindow, gtda.homology.VietorisRipsPersistence</span>
+<span class="sd">    TakensEmbedding, SlidingWindow, takens_embedding_optimal_parameters</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    The current implementation favours the last value over the first one,</span>
-<span class="sd">    in the sense that the last coordinate of the last vector in a Takens</span>
-<span class="sd">    embedded time series always equals the last value in the original time</span>
-<span class="sd">    series. Hence, a number of initial values (depending on the remainder of</span>
-<span class="sd">    the division between :math:`n_\\mathrm{samples} - d(\\tau - 1) - 1` and</span>
-<span class="sd">    the stride) may be lost.</span>
+<span class="sd">    The current implementation favours the last value over the first one, in</span>
+<span class="sd">    the sense that the last coordinate of the last vector in a Takens embedded</span>
+<span class="sd">    time series always equals the last value in the original time series.</span>
+<span class="sd">    Hence, a number of initial values (depending on the remainder of the</span>
+<span class="sd">    division between ``n_samples - dimension * (time_delay - 1) - 1`` and the</span>
+<span class="sd">    stride) may be lost.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] F. Takens, &quot;Detecting strange attractors in turbulence&quot;. In: Rand</span>
 <span class="sd">           D., Young LS. (eds) *Dynamical Systems and Turbulence, Warwick</span>
 <span class="sd">           1980*. Lecture Notes in Mathematics, vol. 898. Springer, 1981;</span>
-<span class="sd">           doi: `10.1007/BFb0091924 &lt;https://doi.org/10.1007/BFb0091924&gt;`_.</span>
+<span class="sd">           `DOI: 10.1007/BFb0091924 &lt;https://doi.org/10.1007/BFb0091924&gt;`_.</span>
 
-<span class="sd">    .. [2] M. B. Kennel, R. Brown, and H. D. I. Abarbanel, &quot;Determining</span>
+<span class="sd">    .. [2] J. A. Perea and J. Harer, &quot;Sliding Windows and Persistence: An \</span>
+<span class="sd">           Application of Topological Methods to Signal Analysis&quot;; \</span>
+<span class="sd">           *Foundations of Computational Mathematics*, **15**, \</span>
+<span class="sd">            pp. 799--838; `DOI: 10.1007/s10208-014-9206-z</span>
+<span class="sd">           &lt;https://doi.org/10.1007/s10208-014-9206-z&gt;`_.</span>
+
+<span class="sd">    .. [3] M. B. Kennel, R. Brown, and H. D. I. Abarbanel, &quot;Determining</span>
 <span class="sd">           embedding dimension for phase-space reconstruction using a</span>
 <span class="sd">           geometrical construction&quot;; *Phys. Rev. A* **45**, pp. 3403--3411,</span>
-<span class="sd">           1992; doi: `10.1103/PhysRevA.45.3403</span>
+<span class="sd">           1992; `DOI: 10.1103/PhysRevA.45.3403</span>
 <span class="sd">           &lt;https://doi.org/10.1103/PhysRevA.45.3403&gt;`_.</span>
 
-<span class="sd">    .. [3] N. Sanderson, &quot;Topological Data Analysis of Time Series using</span>
+<span class="sd">    .. [4] N. Sanderson, &quot;Topological Data Analysis of Time Series using</span>
 <span class="sd">           Witness Complexes&quot;; PhD thesis, University of Colorado at</span>
 <span class="sd">           Boulder, 2018; `https://scholar.colorado.edu/math_gradetds/67</span>
 <span class="sd">           &lt;https://scholar.colorado.edu/math_gradetds/67&gt;`_.</span>
 
-<span class="sd">    [4] J. A. Perea and J. Harer, &quot;Sliding Windows and Persistence: An \</span>
-<span class="sd">        Application of Topological Methods to Signal Analysis&quot;; \</span>
-<span class="sd">        *Foundations of Computational Mathematics*, **15**, \</span>
-<span class="sd">        pp. 799--838; `doi:10.1007/s10208-014-9206-z \</span>
-<span class="sd">        &lt;https://doi.org/10.1007/s10208-014-9206-z&gt;`_.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;parameters_type&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;fixed&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">]},</span>
-        <span class="s1">&#39;time_delay&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;dimension&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;stride&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}</span>
-    <span class="p">}</span>
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="n">_TAKENS_EMBEDDING_HYPERPARAMETERS</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">_hyperparameters</span><span class="p">[</span><span class="s1">&#39;parameters_type&#39;</span><span class="p">]</span> <span class="o">=</span> \
+        <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;fixed&#39;</span><span class="p">,</span> <span class="s1">&#39;search&#39;</span><span class="p">]}</span>
 
-<div class="viewcode-block" id="TakensEmbedding.__init__"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters_type</span><span class="o">=</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="n">time_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<div class="viewcode-block" id="SingleTakensEmbedding.__init__"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html#gtda.time_series.SingleTakensEmbedding.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters_type</span><span class="o">=</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="n">time_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                  <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters_type</span> <span class="o">=</span> <span class="n">parameters_type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">time_delay</span> <span class="o">=</span> <span class="n">time_delay</span>
@@ -932,65 +1039,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">=</span> <span class="n">stride</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_embed</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">time_delay</span><span class="p">,</span> <span class="n">dimension</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>
-        <span class="n">n_points</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">time_delay</span> <span class="o">*</span> <span class="p">(</span><span class="n">dimension</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>\
-                   <span class="o">//</span> <span class="n">stride</span> <span class="o">+</span> <span class="mi">1</span>
-
-        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">points_</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="n">j</span> <span class="o">*</span> <span class="n">stride</span><span class="p">:</span><span class="n">j</span> <span class="o">*</span> <span class="n">stride</span> <span class="o">+</span> <span class="n">time_delay</span> <span class="o">*</span> <span class="n">dimension</span><span class="p">:</span><span class="n">time_delay</span><span class="p">]</span>
-                   <span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_points</span><span class="p">)]</span>
-        <span class="n">X_embedded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">points_</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">X_embedded</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">dimension</span><span class="p">)</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_mutual_information</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">time_delay</span><span class="p">,</span> <span class="n">n_bins</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate the mutual information given the time delay.&quot;&quot;&quot;</span>
-        <span class="n">contingency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,))[:</span><span class="o">-</span><span class="n">time_delay</span><span class="p">],</span>
-                                     <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,))[</span><span class="n">time_delay</span><span class="p">:],</span>
-                                     <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">mutual_information</span> <span class="o">=</span> <span class="n">mutual_info_score</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
-                                               <span class="n">contingency</span><span class="o">=</span><span class="n">contingency</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">mutual_information</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_false_nearest_neighbors</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">time_delay</span><span class="p">,</span> <span class="n">dimension</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate the number of false nearest neighbours in a certain</span>
-<span class="sd">        embedding dimension, based on heuristics.&quot;&quot;&quot;</span>
-        <span class="n">X_embedded</span> <span class="o">=</span> <span class="n">TakensEmbedding</span><span class="o">.</span><span class="n">_embed</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">time_delay</span><span class="p">,</span> <span class="n">dimension</span><span class="p">,</span> <span class="n">stride</span><span class="p">)</span>
-
-        <span class="n">neighbor</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-            <span class="n">X_embedded</span><span class="p">)</span>
-        <span class="n">distances</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">neighbor</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">X_embedded</span><span class="p">)</span>
-        <span class="n">distance</span> <span class="o">=</span> <span class="n">distances</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="n">X_first_nbhrs</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]]</span>
-
-        <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">tolerance</span> <span class="o">=</span> <span class="mi">10</span>
-
-        <span class="n">neg_dim_delay</span> <span class="o">=</span> <span class="o">-</span> <span class="n">dimension</span> <span class="o">*</span> <span class="n">time_delay</span>
-        <span class="n">distance_slice</span> <span class="o">=</span> <span class="n">distance</span><span class="p">[:</span><span class="n">neg_dim_delay</span><span class="p">]</span>
-        <span class="n">X_rolled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">neg_dim_delay</span><span class="p">)</span>
-        <span class="n">X_rolled_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">X_embedded</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">neg_dim_delay</span><span class="p">)</span>
-        <span class="n">X_first_nbhrs_rolled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">X_first_nbhrs</span><span class="p">,</span> <span class="n">neg_dim_delay</span><span class="p">)</span>
-
-        <span class="n">neighbor_abs_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
-            <span class="n">X_rolled</span><span class="p">[</span><span class="n">X_rolled_slice</span><span class="p">]</span> <span class="o">-</span> <span class="n">X_first_nbhrs_rolled</span><span class="p">[:</span><span class="n">neg_dim_delay</span><span class="p">])</span><span class="o">.</span>\
-            <span class="n">flatten</span><span class="p">()</span>
-
-        <span class="n">false_neighbor_ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span>
-            <span class="n">neighbor_abs_diff</span><span class="p">,</span> <span class="n">distance_slice</span><span class="p">,</span>
-            <span class="n">out</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">neighbor_abs_diff</span><span class="p">),</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">distance_slice</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">))</span>
-        <span class="n">false_neighbor_criteria</span> <span class="o">=</span> <span class="n">false_neighbor_ratio</span> <span class="o">&gt;</span> <span class="n">tolerance</span>
-
-        <span class="n">limited_dataset_criteria</span> <span class="o">=</span> <span class="n">distance_slice</span> <span class="o">&lt;</span> <span class="n">epsilon</span>
-
-        <span class="n">n_false_neighbors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
-            <span class="n">false_neighbor_criteria</span> <span class="o">*</span> <span class="n">limited_dataset_criteria</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">n_false_neighbors</span>
-
-<div class="viewcode-block" id="TakensEmbedding.fit"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SingleTakensEmbedding.fit"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html#gtda.time_series.SingleTakensEmbedding.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;If necessary, compute the optimal time delay and embedding</span>
 <span class="sd">        dimension. Then, return the estimator.</span>
 
@@ -1003,46 +1052,31 @@
 <span class="sd">            Input data.</span>
 
 <span class="sd">        y : None</span>
-<span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
-<span class="sd">            API requires this parameter.</span>
+<span class="sd">            There is no need for a target, yet the pipeline API requires this</span>
+<span class="sd">            parameter.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        self : object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
 
-        <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
-
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters_type</span> <span class="o">==</span> <span class="s1">&#39;search&#39;</span><span class="p">:</span>
-            <span class="n">mutual_information_list</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
-                <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mutual_information</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">time_delay</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">time_delay</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_delay</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">time_delay_</span> <span class="o">=</span> <span class="n">mutual_information_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span>
-                <span class="nb">min</span><span class="p">(</span><span class="n">mutual_information_list</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
-
-            <span class="n">n_false_nbhrs_list</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
-                <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_false_nearest_neighbors</span><span class="p">)(</span>
-                    <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_delay_</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimension</span> <span class="o">+</span> <span class="mi">3</span><span class="p">))</span>
-            <span class="n">variation_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">n_false_nbhrs_list</span><span class="p">[</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-                                     <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_false_nbhrs_list</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">+</span>
-                                     <span class="n">n_false_nbhrs_list</span><span class="p">[</span><span class="n">dim</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-                              <span class="o">/</span> <span class="p">(</span><span class="n">n_false_nbhrs_list</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dim</span>
-                              <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimension</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dimension_</span> <span class="o">=</span> <span class="n">variation_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">variation_list</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span>
-
+            <span class="bp">self</span><span class="o">.</span><span class="n">time_delay_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimension_</span> <span class="o">=</span> \
+                <span class="n">takens_embedding_optimal_parameters</span><span class="p">(</span>
+                    <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_delay</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimension</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">,</span>
+                    <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span>
+                    <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">time_delay_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_delay</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dimension_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimension</span>
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TakensEmbedding.transform"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SingleTakensEmbedding.transform"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html#gtda.time_series.SingleTakensEmbedding.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute the Takens embedding of `X`.</span>
 
 <span class="sd">        Parameters</span>
@@ -1062,15 +1096,16 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">Xt</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_embed</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_delay_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimension_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">_time_delay_embedding</span><span class="p">(</span>
+            <span class="n">Xt</span><span class="p">,</span> <span class="n">time_delay</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_delay_</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dimension_</span><span class="p">,</span>
+            <span class="n">stride</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stride</span>
+            <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">Xt</span></div>
 
-<div class="viewcode-block" id="TakensEmbedding.resample"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding.resample">[docs]</a>    <span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SingleTakensEmbedding.resample"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html#gtda.time_series.SingleTakensEmbedding.resample">[docs]</a>    <span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Resample `y` so that, for any i &gt; 0, the minus i-th entry of the</span>
 <span class="sd">        resampled vector corresponds in time to the last coordinate of the</span>
 <span class="sd">        minus i-th embedding vector produced by :meth:`transform`.</span>
@@ -1081,8 +1116,8 @@
 <span class="sd">            Target.</span>
 
 <span class="sd">        X : None</span>
-<span class="sd">            There is no need for input data, yet the pipeline API requires</span>
-<span class="sd">            this parameter.</span>
+<span class="sd">            There is no need for input data, yet the pipeline API requires this</span>
+<span class="sd">            parameter.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1094,10 +1129,244 @@
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">yr</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-        <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span>
-        <span class="n">final_index</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">time_delay_</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dimension_</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">yr</span><span class="p">[:</span><span class="n">final_index</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">])</span>
+        <span class="n">final_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_delay_</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dimension_</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">yr</span> <span class="o">=</span> <span class="n">yr</span><span class="p">[:</span><span class="n">final_index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">yr</span></div></div>
+
+
+<div class="viewcode-block" id="TakensEmbedding"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">TakensEmbedding</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Point clouds from collections of time series via independent Takens</span>
+<span class="sd">    embeddings.</span>
+
+<span class="sd">    This transformer takes collections of (possibly multivariate) time series</span>
+<span class="sd">    as input, applies the Takens embedding algorithm described in</span>
+<span class="sd">    :class:`SingleTakensEmbedding` to each independently, and returns a</span>
+<span class="sd">    corresponding collection of point clouds in Euclidean space (or possibly</span>
+<span class="sd">    higher-dimensional structures, see `flatten`).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    time_delay : int, optional, default: ``1``</span>
+<span class="sd">        Time delay between two consecutive values for constructing one embedded</span>
+<span class="sd">        point.</span>
+
+<span class="sd">    dimension : int, optional, default: ``2``</span>
+<span class="sd">        Dimension of the embedding space (per variable, in the multivariate</span>
+<span class="sd">        case).</span>
+
+<span class="sd">    stride : int, optional, default: ``1``</span>
+<span class="sd">        Stride duration between two consecutive embedded points.</span>
+
+<span class="sd">    flatten : bool, optional, default: ``True``</span>
+<span class="sd">        Only relevant when the input of :meth:`transform` represents a</span>
+<span class="sd">        collection of multivariate or tensor-valued time series. If ``True``,</span>
+<span class="sd">        ensures that the output is a 3D ndarray or list of 2D arrays. If</span>
+<span class="sd">        ``False``, each entry of the input collection leads to an array of</span>
+<span class="sd">        dimension one higher than the entry&#39;s dimension. See Examples.</span>
+
+<span class="sd">    ensure_last_value : bool, optional, default: ``True``</span>
+<span class="sd">        Whether the value(s) representing the last measurement(s) must be</span>
+<span class="sd">        be present in the output as the last coordinate(s) of the last</span>
+<span class="sd">        embedding vector(s). If ``False``, the first measurement(s) is (are)</span>
+<span class="sd">        present as the 0-th coordinate(s) of the 0-th vector(s) instead.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from gtda.time_series import TakensEmbedding</span>
+<span class="sd">    # Two univariate time series of duration 4</span>
+<span class="sd">    &gt;&gt;&gt; X = np.arange(8).reshape(2, 4)</span>
+<span class="sd">    &gt;&gt;&gt; print(X)</span>
+<span class="sd">    [[0 1 2 3]</span>
+<span class="sd">     [4 5 6 7]]</span>
+<span class="sd">    &gt;&gt;&gt; TE = TakensEmbedding(time_delay=1, dimension=2)</span>
+<span class="sd">    &gt;&gt;&gt; print(embedder.fit_transform(X))</span>
+<span class="sd">    [[[0 1]</span>
+<span class="sd">      [1 2]</span>
+<span class="sd">      [2 3]]</span>
+<span class="sd">     [[5 6]</span>
+<span class="sd">      [6 7]</span>
+<span class="sd">      [7 8]]]</span>
+<span class="sd">    # Two multivariate time series of duration 4, with 2 variables</span>
+<span class="sd">    &gt;&gt;&gt; x = np.arange(8).reshape(2, 1, 4)</span>
+<span class="sd">    &gt;&gt;&gt; X = np.concatenate([x, -x], axis=1)</span>
+<span class="sd">    &gt;&gt;&gt; print(X)</span>
+<span class="sd">    [[[ 0  1  2  3]</span>
+<span class="sd">      [ 0 -1 -2 -3]]</span>
+<span class="sd">     [[ 4  5  6  7]</span>
+<span class="sd">      [-4 -5 -6 -7]]]</span>
+<span class="sd">    # Pass `flatten` as `True` (default)</span>
+<span class="sd">    &gt;&gt;&gt; TE = TakensEmbedding(time_delay=1, dimension=2, flatten=True)</span>
+<span class="sd">    &gt;&gt;&gt; print(TE.fit_transform(X))</span>
+<span class="sd">    [[[ 0  1  0 -1]</span>
+<span class="sd">      [ 1  2 -1 -2]</span>
+<span class="sd">      [ 2  3 -2 -3]]</span>
+<span class="sd">     [[ 4  5 -4 -5]</span>
+<span class="sd">      [ 5  6 -5 -6]</span>
+<span class="sd">      [ 6  7 -6 -7]]]</span>
+<span class="sd">    # Pass `flatten` as `False`</span>
+<span class="sd">    &gt;&gt;&gt; TE = TakensEmbedding(time_delay=1, dimension=2, flatten=False)</span>
+<span class="sd">    &gt;&gt;&gt; print(TE.fit_transform(X))</span>
+<span class="sd">    [[[[ 0  1]</span>
+<span class="sd">       [ 1  2]</span>
+<span class="sd">       [ 2  3]]</span>
+<span class="sd">      [[ 0 -1]</span>
+<span class="sd">       [-1 -2]</span>
+<span class="sd">       [-2 -3]]]</span>
+<span class="sd">     [[[ 4  5]</span>
+<span class="sd">       [ 5  6]</span>
+<span class="sd">       [ 6  7]]</span>
+<span class="sd">      [[-4 -5]</span>
+<span class="sd">       [-5 -6]</span>
+<span class="sd">       [-6 -7]]]]</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    SingleTakensEmbedding, SlidingWindow, takens_embedding_optimal_parameters</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    To compute the Takens embedding of a single univariate time series in the</span>
+<span class="sd">    form of a 1D array or column vector, use :class:`SingleTakensEmbedding`</span>
+<span class="sd">    instead.</span>
+
+<span class="sd">    Unlike :class:`SingleTakensEmbedding`, this transformer does not include</span>
+<span class="sd">    heuristics to optimize the choice of time delay and embedding dimension.</span>
+<span class="sd">    The function :func:`takens_embedding_optimal_parameters` is specifically</span>
+<span class="sd">    dedicated to this task, but only on a single univariate time series.</span>
+
+<span class="sd">    If dealing with a forecasting problem on a single time series, this</span>
+<span class="sd">    transformer can be used after an instance of :class:`SlidingWindow` and</span>
+<span class="sd">    before an instance of a homology transformer, to produce topological</span>
+<span class="sd">    features from sliding windows over the time series.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="n">_TAKENS_EMBEDDING_HYPERPARAMETERS</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">_hyperparameters</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;flatten&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">},</span>
+                             <span class="s1">&#39;ensure_last_value&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">}})</span>
+
+<div class="viewcode-block" id="TakensEmbedding.__init__"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">flatten</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">ensure_last_value</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_delay</span> <span class="o">=</span> <span class="n">time_delay</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dimension</span> <span class="o">=</span> <span class="n">dimension</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="o">=</span> <span class="n">stride</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span> <span class="o">=</span> <span class="n">flatten</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ensure_last_value</span> <span class="o">=</span> <span class="n">ensure_last_value</span></div>
+
+<div class="viewcode-block" id="TakensEmbedding.fit"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do nothing and return the estimator unchanged.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray or list of length n_samples</span>
+<span class="sd">            Input collection of time series. A 2D array or list of 1D arrays is</span>
+<span class="sd">            interpreted as a collection of univariate time series. A 3D array</span>
+<span class="sd">            or list of 2D arrays is interpreted as a collection of multivariate</span>
+<span class="sd">            time series, each with shape ``(n_variables, n_timestamps)``. More</span>
+<span class="sd">            generally, :math`N`-dimensional arrays or lists of</span>
+<span class="sd">            (:math`N-1`)-dimensional arrays (:math:`N \\geq 3`) are interpreted</span>
+<span class="sd">            as collections of tensor-valued time series, each with time indexed</span>
+<span class="sd">            by the last axis.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need for a target, yet the pipeline API requires this</span>
+<span class="sd">            parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_collection</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="TakensEmbedding.transform"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute the Takens embedding of each entry in `X`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray or list of length n_samples</span>
+<span class="sd">            Input collection of time series. A 2D array or list of 1D arrays is</span>
+<span class="sd">            interpreted as a collection of univariate time series. A 3D array</span>
+<span class="sd">            or list of 2D arrays is interpreted as a collection of multivariate</span>
+<span class="sd">            time series, each with shape ``(n_variables, n_timestamps)``. More</span>
+<span class="sd">            generally, :math`N`-dimensional arrays or lists of</span>
+<span class="sd">            (:math`N-1`)-dimensional arrays (:math:`N \\geq 3`) are interpreted</span>
+<span class="sd">            as collections of tensor-valued time series, each with time indexed</span>
+<span class="sd">            by the last axis.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            Ignored.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray or list of length n_samples</span>
+<span class="sd">            The result of performing a Takens embedding of each entry in `X`</span>
+<span class="sd">            with the given parameters. If `X` is a 2D array or a list of 1D</span>
+<span class="sd">            arrays, `Xt` is a 3D array or a list of 2D arrays (respectively),</span>
+<span class="sd">            each entry of which has shape ``(n_points, dimension)`` where</span>
+<span class="sd">            ``n_points = (n_timestamps - time_delay * (dimension - 1) - 1) // \</span>
+<span class="sd">            stride + 1``. If `X` is an :math`N`-dimensional array or a list of</span>
+<span class="sd">            (:math`N-1`)-dimensional arrays (:math:`N \\geq 3`), the output</span>
+<span class="sd">            shapes depend on the `flatten` parameter:</span>
+
+<span class="sd">                - if `flatten` is ``True``, `Xt` is still a 3D array or a</span>
+<span class="sd">                  list of 2D arrays (respectively), each entry of which has</span>
+<span class="sd">                  shape ``(n_points, dimension * n_variables)`` where</span>
+<span class="sd">                  ``n_points`` is as above and ``n_variables`` is the product</span>
+<span class="sd">                  of the sizes of all axes in said entry except the last.</span>
+<span class="sd">                - if `flatten` is ``False``, `Xt` is an</span>
+<span class="sd">                  (:math`N+1`)-dimensional array or list of</span>
+<span class="sd">                  :math`N`-dimensional arrays.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_collection</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">_time_delay_embedding</span><span class="p">(</span>
+            <span class="n">Xt</span><span class="p">,</span> <span class="n">time_delay</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_delay</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dimension</span><span class="p">,</span>
+            <span class="n">stride</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">,</span> <span class="n">flatten</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">flatten</span><span class="p">,</span>
+            <span class="n">ensure_last_value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ensure_last_value</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Xt</span></div>
+
+<div class="viewcode-block" id="TakensEmbedding.plot"><a class="viewcode-back" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html#gtda.time_series.TakensEmbedding.plot">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">plotly_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of Takens embeddings of time series,</span>
+<span class="sd">        as a point cloud in 2D or 3D. If points in the window have more than</span>
+<span class="sd">        three dimensions, only the first three are plotted.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xt : ndarray or list of length n_samples</span>
+<span class="sd">            Collection of point clouds, such as returned by :meth:`transform`.</span>
+
+<span class="sd">        sample : int, optional, default: ``0``</span>
+<span class="sd">            Index of the sample in `Xt` to be plotted.</span>
+
+<span class="sd">        plotly_params : dict or None, optional, default: ``None``</span>
+<span class="sd">            Custom parameters to configure the plotly figure. Allowed keys are</span>
+<span class="sd">            ``&quot;trace&quot;`` and ``&quot;layout&quot;``, and the corresponding values should</span>
+<span class="sd">            be dictionaries containing keyword arguments as would be fed to the</span>
+<span class="sd">            :meth:`update_traces` and :meth:`update_layout` methods of</span>
+<span class="sd">            :class:`plotly.graph_objects.Figure`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : :class:`plotly.graph_objects.Figure` object</span>
+<span class="sd">            Plotly figure.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">plot_point_cloud</span><span class="p">(</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">],</span> <span class="n">plotly_params</span><span class="o">=</span><span class="n">plotly_params</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
@@ -1142,11 +1411,11 @@
       
       <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
+      <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
       <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
-      
-      <dd><a href="../../../../latest/index.html">latest</a></dd>
       
       <!--end_versions_tag-->
     </dl>

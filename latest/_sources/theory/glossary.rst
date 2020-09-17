@@ -68,11 +68,11 @@ A vector space :math:`V` together with a function
 is said to be an *normed space* if the values of :math:`||-||` are all
 non-negative and for all :math:`u,v \in V` and :math:`a \in \mathbb R`
 
-.. math:: ||v|| = 0\ \Leftrightarrow\ u = 0
+.. math:: ||u|| = 0\ \Leftrightarrow\ u = 0
 
 .. math:: ||a u || = |a|\, ||u||
 
-.. math:: ||u+v|| = ||u|| + ||v||.
+.. math:: ||u + v|| \leq ||u|| + ||v||.
 
 The function :math:`||-||` is referred to as the *norm*.
 

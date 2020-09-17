@@ -119,7 +119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#id2">Boost</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#source-code">Source code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed Boost version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../installation.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
@@ -146,21 +146,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#clustering">Clustering</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/clustering/gtda.mapper.ParallelClustering.html">ParallelClustering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#nerve-graph-construction">Nerve (graph construction)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/nerve/gtda.mapper.Nerve.html">Nerve</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#pipeline">Pipeline</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#visualization">Visualization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.visualization.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/visualization/gtda.mapper.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/mapper.html#utilities">Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html">method_to_transform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.utils.pipeline.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/mapper/utils/gtda.mapper.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
 </ul>
 </li>
 </ul>
@@ -168,9 +173,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -213,6 +219,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html">SingleTakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/time_series/embedding/gtda.time_series.takens_embedding_optimal_parameters.html">takens_embedding_optimal_parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/time_series.html#target-preparation">Target preparation</a><ul>
@@ -278,8 +286,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.validate_params.html">validate_params</a></li>
 </ul>
 </li>
@@ -288,15 +297,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/index.html">Tutorials and examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../notebooks/tutorials.html">Tutorials</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#import-libraries">Import libraries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulates-the-steps-above-in-a-pipeline">Encapsulates the steps above in a pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#define-the-pipeline">Define the pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#prepare-the-data">Prepare the data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#train-and-score">Train and score</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulate-the-steps-above-in-a-pipeline">Encapsulate the steps above in a pipeline</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
@@ -313,6 +318,32 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#gravitational-wave-detection">Gravitational wave detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#endogeneous-target-preparation-with-labeller">Endogeneous target preparation with <code class="docutils literal notranslate"><span class="pre">Labeller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#where-to-next">Where to next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html">Topological feature extraction from graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#undirected-graphs-vietorisripspersistence-and-sparseripspersistence">Undirected graphs – <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#directed-graphs-flagserpersistence">Directed graphs – <code class="docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#where-to-next">Where to next?</a></li>
 </ul>
 </li>
 </ul>
@@ -598,25 +629,22 @@
 <span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">gobj</span>
 <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span><span class="p">,</span> <span class="n">effective_n_jobs</span>
+<span class="kn">from</span> <span class="nn">plotly.graph_objects</span> <span class="kn">import</span> <span class="n">Figure</span><span class="p">,</span> <span class="n">Scatter</span>
+<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
 <span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">gen_even_slices</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
 
 <span class="kn">from</span> <span class="nn">._metrics</span> <span class="kn">import</span> <span class="n">betti_curves</span><span class="p">,</span> <span class="n">landscapes</span><span class="p">,</span> <span class="n">heats</span><span class="p">,</span> \
     <span class="n">persistence_images</span><span class="p">,</span> <span class="n">silhouettes</span>
-<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_subdiagrams</span><span class="p">,</span> <span class="n">_bin</span><span class="p">,</span> <span class="n">_calculate_weights</span>
+<span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_subdiagrams</span><span class="p">,</span> <span class="n">_bin</span><span class="p">,</span> <span class="n">_make_homology_dimensions_mapping</span><span class="p">,</span> \
+    <span class="n">_homology_dimensions_to_sorted_ints</span>
 <span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">PlotterMixin</span>
 <span class="kn">from</span> <span class="nn">..plotting</span> <span class="kn">import</span> <span class="n">plot_heatmap</span>
 <span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
 <span class="kn">from</span> <span class="nn">..utils.intervals</span> <span class="kn">import</span> <span class="n">Interval</span>
 <span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">validate_params</span><span class="p">,</span> <span class="n">check_diagrams</span>
-
-
-<span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;The identity function.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">x</span>
 
 
 <div class="viewcode-block" id="BettiCurve"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
@@ -628,6 +656,11 @@
 <span class="sd">    considered separately, and their respective Betti curves are obtained by</span>
 <span class="sd">    evenly sampling the :ref:`filtration parameter &lt;filtered_complex&gt;`.</span>
 
+<span class="sd">    **Important note**:</span>
+
+<span class="sd">        - Input collections of persistence diagrams for this transformer must</span>
+<span class="sd">          satisfy certain requirements, see e.g. :meth:`fit`.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    n_bins : int, optional, default: ``100``</span>
@@ -635,13 +668,13 @@
 <span class="sd">        dimension, to sample during :meth:`fit`.</span>
 
 <span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
-<span class="sd">        The number of jobs to use for the computation. ``None`` means 1</span>
-<span class="sd">        unless in a :obj:`joblib.parallel_backend` context. ``-1`` means</span>
-<span class="sd">        using all processors.</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">    homology_dimensions_ : tuple</span>
 <span class="sd">        Homology dimensions seen in :meth:`fit`, sorted in ascending order.</span>
 
 <span class="sd">    samplings_ : dict</span>
@@ -652,7 +685,7 @@
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
 <span class="sd">    PersistenceLandscape, PersistenceEntropy, HeatKernel, Amplitude, \</span>
-<span class="sd">    PairwiseDistance, Silhouette, PersistenceImage,\</span>
+<span class="sd">    PairwiseDistance, Silhouette, PersistenceImage, \</span>
 <span class="sd">    gtda.homology.VietorisRipsPersistence</span>
 
 <span class="sd">    Notes</span>
@@ -665,7 +698,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}}</span>
+        <span class="s2">&quot;n_bins&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)}</span>
+        <span class="p">}</span>
 
 <div class="viewcode-block" id="BettiCurve.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
@@ -686,6 +720,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -698,11 +735,19 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;n_jobs&quot;</span><span class="p">])</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="c1"># Find the unique homology dimensions in the 3D array X passed to `fit`</span>
+        <span class="c1"># assuming that they can all be found in its zero-th entry</span>
+        <span class="n">homology_dimensions_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> \
+            <span class="n">_homology_dimensions_to_sorted_ints</span><span class="p">(</span><span class="n">homology_dimensions_fit</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;betti&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;betti&quot;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span>
+            <span class="n">homology_dimensions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
                            <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
@@ -717,6 +762,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -735,20 +783,18 @@
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">betti_curves</span><span class="p">)(</span>
-                <span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+                <span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">])</span>
             <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
-            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span>\
-            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span>\
             <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">Xt</span></div>
 
-<div class="viewcode-block" id="BettiCurve.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of Betti curves arranged as in</span>
-<span class="sd">        the output of :meth:`transform`. Include homology in multiple</span>
-<span class="sd">        dimensions.</span>
+<div class="viewcode-block" id="BettiCurve.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plotly_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of Betti curves arranged as in the</span>
+<span class="sd">        output of :meth:`transform`. Include homology in multiple dimensions.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -762,63 +808,68 @@
 <span class="sd">            Which homology dimensions to include in the plot. ``None`` means</span>
 <span class="sd">            plotting all dimensions present in :attr:`homology_dimensions_`.</span>
 
+<span class="sd">        plotly_params : dict or None, optional, default: ``None``</span>
+<span class="sd">            Custom parameters to configure the plotly figure. Allowed keys are</span>
+<span class="sd">            ``&quot;traces&quot;`` and ``&quot;layout&quot;``, and the corresponding values should</span>
+<span class="sd">            be dictionaries containing keyword arguments as would be fed to the</span>
+<span class="sd">            :meth:`update_traces` and :meth:`update_layout` methods of</span>
+<span class="sd">            :class:`plotly.graph_objects.Figure`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : :class:`plotly.graph_objects.Figure` object</span>
+<span class="sd">            Plotly figure.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">homology_dimensions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;All homology dimensions must be in &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;self.homology_dimensions_ which is &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> is not.&quot;</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">homology_dimensions_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
-                    <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">homology_dimensions_arr</span> <span class="o">==</span> <span class="n">dim</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="n">_homology_dimensions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ix</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
+        <span class="n">homology_dimensions_mapping</span> <span class="o">=</span> <span class="n">_make_homology_dimensions_mapping</span><span class="p">(</span>
+            <span class="n">homology_dimensions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="p">)</span>
 
-        <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-            <span class="n">xaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Filtration parameter&quot;</span><span class="p">,</span>
-                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
-                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
-                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
-                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span>
-                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
-                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
-            <span class="p">),</span>
-            <span class="n">yaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Betti number&quot;</span><span class="p">,</span>
-                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
-                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
-                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
-                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;y1&quot;</span><span class="p">,</span>
-                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
-                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
-            <span class="p">),</span>
-            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
-        <span class="p">)</span>
-        <span class="n">fig</span> <span class="o">=</span> <span class="n">gobj</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-                         <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-                         <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">layout_axes_common</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ticks&quot;</span><span class="p">:</span> <span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;showline&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;zeroline&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;linewidth&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;linecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mirror&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">&quot;showexponent&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;exponentformat&quot;</span><span class="p">:</span> <span class="s2">&quot;e&quot;</span>
+            <span class="p">}</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;xaxis1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Filtration parameter&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;anchor&quot;</span><span class="p">:</span> <span class="s2">&quot;y1&quot;</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">layout_axes_common</span>
+                <span class="p">},</span>
+            <span class="s2">&quot;yaxis1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Betti number&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;anchor&quot;</span><span class="p">:</span> <span class="s2">&quot;x1&quot;</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">layout_axes_common</span>
+                <span class="p">},</span>
+            <span class="s2">&quot;plot_bgcolor&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Betti curves from diagram </span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">}</span>
 
-        <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">_homology_dimensions</span><span class="p">:</span>
-            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">gobj</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                       <span class="n">y</span><span class="o">=</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">ix</span><span class="p">],</span>
-                                       <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                       <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;H</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
 
-        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
+        <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions_mapping</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                  <span class="n">y</span><span class="o">=</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">ix</span><span class="p">],</span>
+                                  <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                                  <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                  <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;H</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+        <span class="c1"># Update traces and layout according to user input</span>
+        <span class="k">if</span> <span class="n">plotly_params</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">plotly_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;traces&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">plotly_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;layout&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">fig</span></div></div>
 
 
 <div class="viewcode-block" id="PersistenceLandscape"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
@@ -831,6 +882,11 @@
 <span class="sd">    considered separately, and layers of their respective persistence</span>
 <span class="sd">    landscapes are obtained by evenly sampling the :ref:`filtration parameter</span>
 <span class="sd">    &lt;filtered_complex&gt;`.</span>
+
+<span class="sd">    **Important note**:</span>
+
+<span class="sd">        - Input collections of persistence diagrams for this transformer must</span>
+<span class="sd">          satisfy certain requirements, see e.g. :meth:`fit`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -848,7 +904,7 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">    homology_dimensions_ : tuple</span>
 <span class="sd">        Homology dimensions seen in :meth:`fit`.</span>
 
 <span class="sd">    samplings_ : dict</span>
@@ -873,8 +929,9 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;n_layers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)}}</span>
+        <span class="s2">&quot;n_bins&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)},</span>
+        <span class="s2">&quot;n_layers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)}</span>
+        <span class="p">}</span>
 
 <div class="viewcode-block" id="PersistenceLandscape.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span> <span class="o">=</span> <span class="n">n_layers</span>
@@ -896,6 +953,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -908,11 +968,19 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;n_jobs&quot;</span><span class="p">])</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="c1"># Find the unique homology dimensions in the 3D array X passed to `fit`</span>
+        <span class="c1"># assuming that they can all be found in its zero-th entry</span>
+        <span class="n">homology_dimensions_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> \
+            <span class="n">_homology_dimensions_to_sorted_ints</span><span class="p">(</span><span class="n">homology_dimensions_fit</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;landscape&quot;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;landscape&quot;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span>
+            <span class="n">homology_dimensions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
                            <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
@@ -927,6 +995,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -947,18 +1018,17 @@
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">landscapes</span><span class="p">)(</span>
-                <span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+                <span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
-            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                        <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
             <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">Xt</span></div>
 
-<div class="viewcode-block" id="PersistenceLandscape.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PersistenceLandscape.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceLandscape.html#gtda.diagrams.PersistenceLandscape.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plotly_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of persistence landscapes arranged</span>
 <span class="sd">        as in the output of :meth:`transform`. Include homology in multiple</span>
 <span class="sd">        dimensions.</span>
@@ -978,69 +1048,82 @@
 <span class="sd">            ``None`` means plotting all dimensions present in</span>
 <span class="sd">            :attr:`homology_dimensions_`.</span>
 
+<span class="sd">        plotly_params : dict or None, optional, default: ``None``</span>
+<span class="sd">            Custom parameters to configure the plotly figure. Allowed keys are</span>
+<span class="sd">            ``&quot;traces&quot;`` and ``&quot;layout&quot;``, and the corresponding values should</span>
+<span class="sd">            be dictionaries containing keyword arguments as would be fed to the</span>
+<span class="sd">            :meth:`update_traces` and :meth:`update_layout` methods of</span>
+<span class="sd">            :class:`plotly.graph_objects.Figure`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : :class:`plotly.graph_objects.Figure` object</span>
+<span class="sd">            Plotly figure.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">homology_dimensions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;All homology dimensions must be in &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;self.homology_dimensions_ which is &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> is not.&quot;</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">homology_dimensions_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
-                    <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">homology_dimensions_arr</span> <span class="o">==</span> <span class="n">dim</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="n">_homology_dimensions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ix</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
+        <span class="n">homology_dimensions_mapping</span> <span class="o">=</span> <span class="n">_make_homology_dimensions_mapping</span><span class="p">(</span>
+            <span class="n">homology_dimensions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="p">)</span>
 
-        <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-            <span class="n">xaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
-                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
-                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
-                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;y1&quot;</span><span class="p">,</span>
-                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
-                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
-            <span class="p">),</span>
-            <span class="n">yaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
-                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
-                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
-                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span>
-                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
-                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
-            <span class="p">),</span>
-            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
-        <span class="p">)</span>
+        <span class="n">layout_axes_common</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ticks&quot;</span><span class="p">:</span> <span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;showline&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;zeroline&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;linewidth&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;linecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mirror&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">&quot;showexponent&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;exponentformat&quot;</span><span class="p">:</span> <span class="s2">&quot;e&quot;</span>
+            <span class="p">}</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;xaxis1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;anchor&quot;</span><span class="p">:</span> <span class="s2">&quot;y1&quot;</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">layout_axes_common</span>
+                <span class="p">},</span>
+            <span class="s2">&quot;yaxis1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;anchor&quot;</span><span class="p">:</span> <span class="s2">&quot;x1&quot;</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">layout_axes_common</span>
+                <span class="p">},</span>
+            <span class="s2">&quot;plot_bgcolor&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
 
         <span class="n">Xt_sample</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">_homology_dimensions</span><span class="p">:</span>
-            <span class="n">layout_dim</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-            <span class="n">layout_dim</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Persistence landscape for homology &quot;</span> <span class="o">+</span> \
-                                  <span class="s2">&quot;dimension </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
-            <span class="n">fig</span> <span class="o">=</span> <span class="n">gobj</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">layout_dim</span><span class="p">)</span>
-            <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-                             <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-            <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-                             <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-            <span class="n">n_layers</span> <span class="o">=</span> <span class="n">Xt_sample</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">n_layers</span> <span class="o">=</span> <span class="n">Xt_sample</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">subplot_titles</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;H</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions_mapping</span><span class="p">]</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">homology_dimensions_mapping</span><span class="p">),</span> <span class="n">cols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                            <span class="n">subplot_titles</span><span class="o">=</span><span class="n">subplot_titles</span><span class="p">)</span>
+        <span class="n">has_many_homology_dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">homology_dimensions_mapping</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">inv_idx</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">homology_dimensions_mapping</span><span class="p">):</span>
+            <span class="n">hom_dim_str</span> <span class="o">=</span> \
+                <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="n">subplot_titles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">if</span> <span class="n">has_many_homology_dim</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
             <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_layers</span><span class="p">):</span>
-                <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">gobj</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                           <span class="n">y</span><span class="o">=</span><span class="n">Xt_sample</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="n">layer</span><span class="p">],</span>
-                                           <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                           <span class="n">hoverinfo</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
-                                           <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Layer </span><span class="si">{</span><span class="n">layer</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+                <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+                    <span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                            <span class="n">y</span><span class="o">=</span><span class="n">Xt_sample</span><span class="p">[</span><span class="n">inv_idx</span><span class="p">,</span> <span class="n">layer</span><span class="p">],</span>
+                            <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                            <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">hoverinfo</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                            <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Layer </span><span class="si">{</span><span class="n">layer</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}{</span><span class="n">hom_dim_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
+                    <span class="n">row</span><span class="o">=</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+                    <span class="p">)</span>
 
-            <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">title_text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Landscape representations of diagram </span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">layout</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Update traces and layout according to user input</span>
+        <span class="k">if</span> <span class="n">plotly_params</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">plotly_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;traces&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">plotly_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;layout&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">fig</span></div></div>
 
 
 <div class="viewcode-block" id="HeatKernel"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
@@ -1057,9 +1140,14 @@
 <span class="sd">    diagonal, and the difference between the results of the two convolutions is</span>
 <span class="sd">    computed. The result can be thought of as a (multi-channel) raster image.</span>
 
+<span class="sd">    **Important note**:</span>
+
+<span class="sd">        - Input collections of persistence diagrams for this transformer must</span>
+<span class="sd">          satisfy certain requirements, see e.g. :meth:`fit`.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    sigma : float, optional default ``1.``</span>
+<span class="sd">    sigma : float, optional default ``0.1``</span>
 <span class="sd">        Standard deviation for Gaussian kernel.</span>
 
 <span class="sd">    n_bins : int, optional, default: ``100``</span>
@@ -1073,7 +1161,7 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">    homology_dimensions_ : tuple</span>
 <span class="sd">        Homology dimensions seen in :meth:`fit`.</span>
 
 <span class="sd">    samplings_ : dict</span>
@@ -1100,16 +1188,17 @@
 <span class="sd">    .. [1] J. Reininghaus, S. Huber, U. Bauer, and R. Kwitt, &quot;A Stable</span>
 <span class="sd">           Multi-Scale Kernel for Topological Machine Learning&quot;; *2015 IEEE</span>
 <span class="sd">           Conference on Computer Vision and Pattern Recognition (CVPR)*,</span>
-<span class="sd">           pp. 4741--4748, 2015; doi: `10.1109/CVPR.2015.7299106</span>
+<span class="sd">           pp. 4741--4748, 2015; `DOI: 10.1109/CVPR.2015.7299106</span>
 <span class="sd">           &lt;http://dx.doi.org/10.1109/CVPR.2015.7299106&gt;`_.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;neither&#39;</span><span class="p">)}}</span>
+        <span class="s2">&quot;n_bins&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)},</span>
+        <span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)}</span>
+        <span class="p">}</span>
 
-<div class="viewcode-block" id="HeatKernel.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="HeatKernel.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
@@ -1129,6 +1218,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -1141,12 +1233,19 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;n_jobs&quot;</span><span class="p">])</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="c1"># Find the unique homology dimensions in the 3D array X passed to `fit`</span>
+        <span class="c1"># assuming that they can all be found in its zero-th entry</span>
+        <span class="n">homology_dimensions_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> \
+            <span class="n">_homology_dimensions_to_sorted_ints</span><span class="p">(</span><span class="n">homology_dimensions_fit</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_size</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span>
-            <span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;heat&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+            <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;heat&quot;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span>
+            <span class="n">homology_dimensions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
                            <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
@@ -1162,6 +1261,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -1180,20 +1282,20 @@
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span>
-            <span class="n">heats</span><span class="p">)(</span><span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">mmap_mode</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span>
+            <span class="n">heats</span><span class="p">)(</span><span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
                    <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_size</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
-            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
             <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">Xt</span></div>
 
-<div class="viewcode-block" id="HeatKernel.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimension_ix</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;blues&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Plot a single channel – corresponding to a given homology</span>
-<span class="sd">        dimension – in a sample from a collection of heat kernel images.</span>
+<div class="viewcode-block" id="HeatKernel.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimension_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s2">&quot;blues&quot;</span><span class="p">,</span>
+             <span class="n">plotly_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a single channel –- corresponding to a given homology</span>
+<span class="sd">        dimension -- in a sample from a collection of heat kernel images.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1205,27 +1307,47 @@
 <span class="sd">        sample : int, optional, default: ``0``</span>
 <span class="sd">            Index of the sample in `Xt` to be selected.</span>
 
-<span class="sd">        homology_dimension_ix : int, optional, default: ``0``</span>
-<span class="sd">            Index of the channel in the selected sample to be plotted. If</span>
-<span class="sd">            `Xt` is the result of a call to :meth:`transform` and this</span>
-<span class="sd">            index is i, the plot corresponds to the homology dimension given by</span>
-<span class="sd">            the i-th entry in :attr:`homology_dimensions_`.</span>
+<span class="sd">        homology_dimension_idx : int, optional, default: ``0``</span>
+<span class="sd">            Index of the channel in the selected sample to be plotted. If `Xt`</span>
+<span class="sd">            is the result of a call to :meth:`transform` and this index is i,</span>
+<span class="sd">            the plot corresponds to the homology dimension given by the i-th</span>
+<span class="sd">            entry in :attr:`homology_dimensions_`.</span>
 
-<span class="sd">        colorscale : str, optional, default: ``&#39;blues&#39;``</span>
+<span class="sd">        colorscale : str, optional, default: ``&quot;blues&quot;``</span>
 <span class="sd">            Color scale to be used in the heat map. Can be anything allowed by</span>
 <span class="sd">            :class:`plotly.graph_objects.Heatmap`.</span>
 
+<span class="sd">        plotly_params : dict or None, optional, default: ``None``</span>
+<span class="sd">            Custom parameters to configure the plotly figure. Allowed keys are</span>
+<span class="sd">            ``&quot;trace&quot;`` and ``&quot;layout&quot;``, and the corresponding values should</span>
+<span class="sd">            be dictionaries containing keyword arguments as would be fed to the</span>
+<span class="sd">            :meth:`update_traces` and :meth:`update_layout` methods of</span>
+<span class="sd">            :class:`plotly.graph_objects.Figure`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : :class:`plotly.graph_objects.Figure` object</span>
+<span class="sd">            Plotly figure.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">plot_heatmap</span><span class="p">(</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">homology_dimension_ix</span><span class="p">],</span>
-                            <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">homology_dimension_ix</span><span class="p">],</span>
-                            <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">homology_dimension_ix</span><span class="p">],</span>
-                            <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">)</span></div></div>
+        <span class="n">homology_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">[</span><span class="n">homology_dimension_idx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">homology_dimension</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+            <span class="n">homology_dimension</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">homology_dimension</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">homology_dimension</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">plot_heatmap</span><span class="p">(</span>
+            <span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">homology_dimension_idx</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Heat kernel representation of diagram </span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2"> in &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;homology dimension </span><span class="si">{</span><span class="n">homology_dimension</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">plotly_params</span><span class="o">=</span><span class="n">plotly_params</span>
+            <span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="PersistenceImage"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">PersistenceImage</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;:ref:`Persistence images &lt;persistence_image&gt;` of persistence</span>
+    <span class="sd">&quot;&quot;&quot;:ref:`Persistence images &lt;TODO&gt;` of persistence</span>
 <span class="sd">    diagrams.</span>
 
 <span class="sd">    Based on ideas in [1]_. Given a persistence diagram consisting of</span>
@@ -1238,9 +1360,14 @@
 <span class="sd">    &lt;filtered_complex&gt;`. The result can be thought of as a (multi-channel)</span>
 <span class="sd">    raster image.</span>
 
+<span class="sd">    **Important note**:</span>
+
+<span class="sd">        - Input collections of persistence diagrams for this transformer must</span>
+<span class="sd">          satisfy certain requirements, see e.g. :meth:`fit`.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    sigma : float, optional default ``1.``</span>
+<span class="sd">    sigma : float, optional default ``0.1``</span>
 <span class="sd">        Standard deviation for Gaussian kernel.</span>
 
 <span class="sd">    n_bins : int, optional, default: ``100``</span>
@@ -1248,9 +1375,10 @@
 <span class="sd">        dimension, to sample during :meth:`fit`.</span>
 
 <span class="sd">    weight_function : callable or None, default: ``None``</span>
-<span class="sd">        Function mapping the 1D array of persistence values of the points of an</span>
-<span class="sd">        input diagram to a 1D array of weights. ``None`` is equivalent to</span>
-<span class="sd">        passing the identity function.</span>
+<span class="sd">        Function mapping the 1D array of sampled persistence values (see</span>
+<span class="sd">        :attr:`samplings_`) to a 1D array of weights. ``None`` is equivalent to</span>
+<span class="sd">        passing ``numpy.ones_like``. More weight can be given to regions of</span>
+<span class="sd">        high persistence by passing a monotonic function, e.g. the identity.</span>
 
 <span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
 <span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
@@ -1263,13 +1391,14 @@
 <span class="sd">        Effective function corresponding to `weight_function`. Set in</span>
 <span class="sd">        :meth:`fit`.</span>
 
-<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">    homology_dimensions_ : tuple</span>
 <span class="sd">        Homology dimensions seen in :meth:`fit`.</span>
 
 <span class="sd">    samplings_ : dict</span>
-<span class="sd">        For each number in `homology_dimensions_`, a discrete sampling of</span>
-<span class="sd">        filtration parameters, calculated during :meth:`fit` according to the</span>
-<span class="sd">        minimum birth and maximum death values observed across all samples.</span>
+<span class="sd">        For each dimension in `homology_dimensions_`, a discrete sampling of</span>
+<span class="sd">        birth parameters and one of persistence values, calculated during</span>
+<span class="sd">        :meth:`fit` according to the minimum birth and maximum death values</span>
+<span class="sd">        observed across all samples.</span>
 
 <span class="sd">    weights_ : dict</span>
 <span class="sd">        For each number in `homology_dimensions_`, an array of weights</span>
@@ -1295,17 +1424,18 @@
 <span class="sd">           S. Chepushtanova, E. Hanson, F. Motta, and L. Ziegelmeier,</span>
 <span class="sd">           &quot;Persistence Images: A Stable Vector Representation of Persistent</span>
 <span class="sd">           Homology&quot;; *Journal of Machine Learning Research 18, 1*,</span>
-<span class="sd">           pp. 218-252, 2017; doi: `10.5555/3122009.3122017</span>
+<span class="sd">           pp. 218-252, 2017; `DOI: 10.5555/3122009.3122017</span>
 <span class="sd">           &lt;http://dx.doi.org/10.5555/3122009.3122017&gt;`_.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;neither&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;weight_function&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))}}</span>
+        <span class="s2">&quot;n_bins&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)},</span>
+        <span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)},</span>
+        <span class="s2">&quot;weight_function&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))}</span>
+        <span class="p">}</span>
 
-<div class="viewcode-block" id="PersistenceImage.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">weight_function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="PersistenceImage.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">weight_function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span> <span class="o">=</span> <span class="n">n_bins</span>
@@ -1327,6 +1457,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -1339,21 +1472,29 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;n_jobs&quot;</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">effective_weight_function_</span> <span class="o">=</span> <span class="n">identity</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">effective_weight_function_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">effective_weight_function_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="c1"># Find the unique homology dimensions in the 3D array X passed to `fit`</span>
+        <span class="c1"># assuming that they can all be found in its zero-th entry</span>
+        <span class="n">homology_dimensions_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> \
+            <span class="n">_homology_dimensions_to_sorted_ints</span><span class="p">(</span><span class="n">homology_dimensions_fit</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_size</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span>
-            <span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;persistence_image&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-                           <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span> <span class="o">=</span> <span class="n">_calculate_weights</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">effective_weight_function_</span><span class="p">,</span>
-                                           <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">)</span>
+            <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;persistence_image&quot;</span><span class="p">,</span>  <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span>
+            <span class="n">homology_dimensions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">dim</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">effective_weight_function_</span><span class="p">(</span><span class="n">samplings_dim</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">samplings_dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -1367,6 +1508,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -1375,7 +1519,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Xt : ndarray of shape (n_samples, n_homology_dimensions, n_bins, \</span>
-<span class="sd">             n_bins)</span>
+<span class="sd">            n_bins)</span>
 <span class="sd">            Multi-channel raster images: one image per sample and one channel</span>
 <span class="sd">            per homology dimension seen in :meth:`fit`. Index i along axis 1</span>
 <span class="sd">            corresponds to the i-th homology dimension in</span>
@@ -1385,25 +1529,26 @@
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
-            <span class="n">delayed</span><span class="p">(</span><span class="n">persistence_images</span><span class="p">)(</span><span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                                     <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
-                                        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                        <span class="bp">self</span><span class="o">.</span><span class="n">_step_size</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                        <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">mmap_mode</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="n">persistence_images</span><span class="p">)(</span>
+                <span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_step_size</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span>
+                <span class="p">)</span>
             <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
-            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">))</span>
-        <span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                        <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span><span class="o">.</span>\
             <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">Xt</span></div>
 
-<div class="viewcode-block" id="PersistenceImage.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimension_ix</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;blues&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Plot a single channel – corresponding to a given homology</span>
-<span class="sd">        dimension – in a sample from a collection of persistence images.</span>
+<div class="viewcode-block" id="PersistenceImage.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.PersistenceImage.html#gtda.diagrams.PersistenceImage.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimension_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s2">&quot;blues&quot;</span><span class="p">,</span>
+             <span class="n">plotly_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a single channel -– corresponding to a given homology</span>
+<span class="sd">        dimension -– in a sample from a collection of persistence images.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1415,23 +1560,45 @@
 <span class="sd">        sample : int, optional, default: ``0``</span>
 <span class="sd">            Index of the sample in `Xt` to be selected.</span>
 
-<span class="sd">        homology_dimension_ix : int, optional, default: ``0``</span>
-<span class="sd">            Index of the channel in the selected sample to be plotted. If</span>
-<span class="sd">            `Xt` is the result of a call to :meth:`transform` and this</span>
-<span class="sd">            index is i, the plot corresponds to the homology dimension given by</span>
-<span class="sd">            the i-th entry in :attr:`homology_dimensions_`.</span>
+<span class="sd">        homology_dimension_idx : int, optional, default: ``0``</span>
+<span class="sd">            Index of the channel in the selected sample to be plotted. If `Xt`</span>
+<span class="sd">            is the result of a call to :meth:`transform` and this index is i,</span>
+<span class="sd">            the plot corresponds to the homology dimension given by the i-th</span>
+<span class="sd">            entry in :attr:`homology_dimensions_`.</span>
 
-<span class="sd">        colorscale : str, optional, default: ``&#39;blues&#39;``</span>
+<span class="sd">        colorscale : str, optional, default: ``&quot;blues&quot;``</span>
 <span class="sd">            Color scale to be used in the heat map. Can be anything allowed by</span>
 <span class="sd">            :class:`plotly.graph_objects.Heatmap`.</span>
 
+<span class="sd">        plotly_params : dict or None, optional, default: ``None``</span>
+<span class="sd">            Custom parameters to configure the plotly figure. Allowed keys are</span>
+<span class="sd">            ``&quot;trace&quot;`` and ``&quot;layout&quot;``, and the corresponding values should</span>
+<span class="sd">            be dictionaries containing keyword arguments as would be fed to the</span>
+<span class="sd">            :meth:`update_traces` and :meth:`update_layout` methods of</span>
+<span class="sd">            :class:`plotly.graph_objects.Figure`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : :class:`plotly.graph_objects.Figure` object</span>
+<span class="sd">            Plotly figure.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">samplings_x</span><span class="p">,</span> <span class="n">samplings_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">homology_dimension_ix</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">plot_heatmap</span><span class="p">(</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">homology_dimension_ix</span><span class="p">],</span>
-                            <span class="n">x</span><span class="o">=</span><span class="n">samplings_x</span><span class="p">,</span>
-                            <span class="n">y</span><span class="o">=</span><span class="n">samplings_y</span><span class="p">,</span>
-                            <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">)</span></div></div>
+        <span class="n">homology_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">[</span><span class="n">homology_dimension_idx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">homology_dimension</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+            <span class="n">homology_dimension</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">homology_dimension</span><span class="p">)</span>
+        <span class="n">samplings_x</span><span class="p">,</span> <span class="n">samplings_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">homology_dimension</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">plot_heatmap</span><span class="p">(</span>
+            <span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">homology_dimension_idx</span><span class="p">],</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">samplings_x</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">samplings_y</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">,</span>
+            <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Persistence image representation of diagram </span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2"> in &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;homology dimension </span><span class="si">{</span><span class="n">homology_dimension</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">plotly_params</span><span class="o">=</span><span class="n">plotly_params</span>
+            <span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="Silhouette"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
@@ -1442,9 +1609,14 @@
 <span class="sd">    Based on ideas in [1]_. Given a persistence diagram consisting of</span>
 <span class="sd">    birth-death-dimension triples [b, d, q], subdiagrams corresponding to</span>
 <span class="sd">    distinct homology dimensions are considered separately, and their</span>
-<span class="sd">    respective silhouette by sampling the silhouette function over evenly</span>
-<span class="sd">    spaced locations from appropriate ranges of the :ref:`filtration parameter</span>
-<span class="sd">    &lt;filtered_complex&gt;`.</span>
+<span class="sd">    respective silhouettes are obtained by sampling the silhouette function</span>
+<span class="sd">    over evenly spaced locations from appropriate ranges of the</span>
+<span class="sd">    :ref:`filtration parameter &lt;filtered_complex&gt;`.</span>
+
+<span class="sd">    **Important note**:</span>
+
+<span class="sd">        - Input collections of persistence diagrams for this transformer must</span>
+<span class="sd">          satisfy certain requirements, see e.g. :meth:`fit`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1457,13 +1629,13 @@
 <span class="sd">        dimension, to sample during :meth:`fit`.</span>
 
 <span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
-<span class="sd">        The number of jobs to use for the computation. ``None`` means 1</span>
-<span class="sd">        unless in a :obj:`joblib.parallel_backend` context. ``-1`` means</span>
-<span class="sd">        using all processors.</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    homology_dimensions_ : list</span>
+<span class="sd">    homology_dimensions_ : tuple</span>
 <span class="sd">        Homology dimensions seen in :meth:`fit`, sorted in ascending order.</span>
 
 <span class="sd">    samplings_ : dict</span>
@@ -1479,10 +1651,9 @@
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    The samplings in :attr:`samplings_` are in general different between</span>
-<span class="sd">    different homology dimensions. This means that the j-th entry of</span>
-<span class="sd">    a silhouette in homology dimension q typically arises from</span>
-<span class="sd">    a different parameter values to the j-th entry of a curve</span>
-<span class="sd">    in dimension q&#39;.</span>
+<span class="sd">    different homology dimensions. This means that the j-th entry of a</span>
+<span class="sd">    silhouette in homology dimension q typically arises from a different</span>
+<span class="sd">    parameter values to the j-th entry of a curve in dimension q&#39;.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -1490,14 +1661,15 @@
 <span class="sd">           &quot;Stochastic Convergence of Persistence Landscapes and Silhouettes&quot;;</span>
 <span class="sd">           *In Proceedings of the thirtieth annual symposium on Computational</span>
 <span class="sd">           Geometry*, Kyoto, Japan, 2014, pp. 474–483;</span>
-<span class="sd">           doi: `10.1145/2582112.2582128</span>
+<span class="sd">           `DOI: 10.1145/2582112.2582128</span>
 <span class="sd">           &lt;http://dx.doi.org/10.1145/2582112.2582128&gt;`_.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;power&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)}}</span>
+        <span class="s2">&quot;power&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)},</span>
+        <span class="s2">&quot;n_bins&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)}</span>
+        <span class="p">}</span>
 
 <div class="viewcode-block" id="Silhouette.__init__"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="n">power</span>
@@ -1519,6 +1691,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -1531,11 +1706,19 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;n_jobs&quot;</span><span class="p">])</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])))</span>
+        <span class="c1"># Find the unique homology dimensions in the 3D array X passed to `fit`</span>
+        <span class="c1"># assuming that they can all be found in its zero-th entry</span>
+        <span class="n">homology_dimensions_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span> <span class="o">=</span> \
+            <span class="n">_homology_dimensions_to_sorted_ints</span><span class="p">(</span><span class="n">homology_dimensions_fit</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;silhouette&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_bin</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;silhouette&quot;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_bins</span><span class="p">,</span>
+            <span class="n">homology_dimensions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
                            <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
@@ -1550,6 +1733,9 @@
 <span class="sd">            Input data. Array of persistence diagrams, each a collection of</span>
 <span class="sd">            triples [b, d, q] representing persistent topological features</span>
 <span class="sd">            through their birth (b), death (d) and homology dimension (q).</span>
+<span class="sd">            It is important that, for each possible homology dimension, the</span>
+<span class="sd">            number of triples for which q equals that homology dimension is</span>
+<span class="sd">            constants across the entries of X.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -1568,21 +1754,19 @@
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
         <span class="n">Xt</span> <span class="o">=</span> <span class="p">(</span><span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
-              <span class="p">(</span><span class="n">delayed</span><span class="p">(</span><span class="n">silhouettes</span><span class="p">)(</span><span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">s</span><span class="p">],</span>
+              <span class="p">(</span><span class="n">delayed</span><span class="p">(</span><span class="n">silhouettes</span><span class="p">)(</span><span class="n">_subdiagrams</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">remove_dim</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
                                     <span class="bp">self</span><span class="o">.</span><span class="n">_samplings</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">power</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">power</span><span class="p">)</span>
               <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
-              <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                       <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">))))</span>
+              <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">))))</span>
 
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span> \
-            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span> \
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_dimensions</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span>\
             <span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">Xt</span></div>
 
-<div class="viewcode-block" id="Silhouette.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of silhouettes arranged as in</span>
-<span class="sd">        the output of :meth:`transform`. Include homology in multiple</span>
-<span class="sd">        dimensions.</span>
+<div class="viewcode-block" id="Silhouette.plot"><a class="viewcode-back" href="../../../modules/generated/diagrams/representations/gtda.diagrams.Silhouette.html#gtda.diagrams.Silhouette.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">homology_dimensions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plotly_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of silhouettes arranged as in the</span>
+<span class="sd">        output of :meth:`transform`. Include homology in multiple dimensions.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1596,63 +1780,68 @@
 <span class="sd">            Which homology dimensions to include in the plot. ``None`` means</span>
 <span class="sd">            plotting all dimensions present in :attr:`homology_dimensions_`.</span>
 
+<span class="sd">        plotly_params : dict or None, optional, default: ``None``</span>
+<span class="sd">            Custom parameters to configure the plotly figure. Allowed keys are</span>
+<span class="sd">            ``&quot;traces&quot;`` and ``&quot;layout&quot;``, and the corresponding values should</span>
+<span class="sd">            be dictionaries containing keyword arguments as would be fed to the</span>
+<span class="sd">            :meth:`update_traces` and :meth:`update_layout` methods of</span>
+<span class="sd">            :class:`plotly.graph_objects.Figure`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : :class:`plotly.graph_objects.Figure` object</span>
+<span class="sd">            Plotly figure.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">homology_dimensions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">_homology_dimensions</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;All homology dimensions must be in &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;self.homology_dimensions_ which is &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> is not.&quot;</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">homology_dimensions_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span><span class="p">)</span>
-                    <span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">homology_dimensions_arr</span> <span class="o">==</span> <span class="n">dim</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="n">_homology_dimensions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ix</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
+        <span class="n">homology_dimensions_mapping</span> <span class="o">=</span> <span class="n">_make_homology_dimensions_mapping</span><span class="p">(</span>
+            <span class="n">homology_dimensions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">homology_dimensions_</span>
+            <span class="p">)</span>
 
-        <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-            <span class="n">xaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Filtration parameter&quot;</span><span class="p">,</span>
-                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
-                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
-                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
-                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span>
-                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
-                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
-            <span class="p">),</span>
-            <span class="n">yaxis1</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-                <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
-                <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
-                <span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;outside&quot;</span><span class="p">,</span>
-                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;y1&quot;</span><span class="p">,</span>
-                <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">showexponent</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
-                <span class="n">exponentformat</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
-            <span class="p">),</span>
-            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span>
-        <span class="p">)</span>
-        <span class="n">fig</span> <span class="o">=</span> <span class="n">gobj</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-                         <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">zeroline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-                         <span class="n">mirror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">layout_axes_common</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ticks&quot;</span><span class="p">:</span> <span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;showline&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;zeroline&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;linewidth&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;linecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mirror&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">&quot;showexponent&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;exponentformat&quot;</span><span class="p">:</span> <span class="s2">&quot;e&quot;</span>
+            <span class="p">}</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;xaxis1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Filtration parameter&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;anchor&quot;</span><span class="p">:</span> <span class="s2">&quot;y1&quot;</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">layout_axes_common</span>
+                <span class="p">},</span>
+            <span class="s2">&quot;yaxis1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;anchor&quot;</span><span class="p">:</span> <span class="s2">&quot;x1&quot;</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">layout_axes_common</span>
+                <span class="p">},</span>
+            <span class="s2">&quot;plot_bgcolor&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Silhouette representation of diagram </span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">}</span>
 
-        <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">_homology_dimensions</span><span class="p">:</span>
-            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">gobj</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
-                                       <span class="n">y</span><span class="o">=</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">ix</span><span class="p">],</span>
-                                       <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                       <span class="n">hoverinfo</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
-                                       <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;H</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
 
-        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
+        <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions_mapping</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">samplings_</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span>
+                                  <span class="n">y</span><span class="o">=</span><span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">][</span><span class="n">ix</span><span class="p">],</span>
+                                  <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                                  <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                  <span class="n">hoverinfo</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                                  <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;H</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+        <span class="c1"># Update traces and layout according to user input</span>
+        <span class="k">if</span> <span class="n">plotly_params</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">plotly_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;traces&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">plotly_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;layout&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">fig</span></div></div>
 </pre></div>
 
            </div>
@@ -1697,11 +1886,11 @@
       
       <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
+      <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
       <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
-      
-      <dd><a href="../../../../latest/index.html">latest</a></dd>
       
       <!--end_versions_tag-->
     </dl>
