@@ -954,29 +954,6 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    relative_gap_size : float, optional, default: ``0.3``</span>
-<span class="sd">        The fraction of the largest linkage in the dendrogram to be used as</span>
-<span class="sd">        a threshold for determining a large enough gap.</span>
-
-<span class="sd">    max_fraction : float or None, optional, default: ``None``</span>
-<span class="sd">        When not ``None``, the algorithm is constrained to produce no more</span>
-<span class="sd">        than ``max_fraction * (n_samples - 1)`` clusters, even if a</span>
-<span class="sd">        candidate gap is observed in the iterative process which would produce</span>
-<span class="sd">        a greater number of clusters.</span>
-
-<span class="sd">    affinity : str, optional, default: ``&#39;euclidean&#39;``</span>
-<span class="sd">        Metric used to compute the linkage. Can be ``&#39;euclidean&#39;``, ``&#39;l1&#39;``,</span>
-<span class="sd">        ``&#39;l2&#39;``, ``&#39;manhattan&#39;``, ``&#39;cosine&#39;``, or ``&#39;precomputed&#39;``.</span>
-<span class="sd">        If linkage is ``&#39;ward&#39;``, only ``&#39;euclidean&#39;`` is accepted.</span>
-<span class="sd">        If ``&#39;precomputed&#39;``, a distance matrix (instead of a similarity</span>
-<span class="sd">        matrix) is needed as input for :meth:`fit`.</span>
-
-<span class="sd">    memory : None, str or object with the joblib.Memory interface, \</span>
-<span class="sd">        optional, default: ``None``</span>
-<span class="sd">        Used to cache the output of the computation of the tree.</span>
-<span class="sd">        By default, no caching is done. If a string is given, it is the</span>
-<span class="sd">        path to the caching directory.</span>
-
 <span class="sd">    linkage : ``&#39;ward&#39;`` | ``&#39;complete&#39;`` | ``&#39;average&#39;`` | ``&#39;single&#39;``, \</span>
 <span class="sd">        optional, default: ``&#39;single&#39;``</span>
 <span class="sd">        Which linkage criterion to use. The linkage criterion determines which</span>
@@ -990,6 +967,29 @@
 <span class="sd">          all observations of the two sets.</span>
 <span class="sd">        - ``&#39;single&#39;`` uses the minimum of the distances between all</span>
 <span class="sd">          observations of the two sets.</span>
+
+<span class="sd">    affinity : str, optional, default: ``&#39;euclidean&#39;``</span>
+<span class="sd">        Metric used to compute the linkage. Can be ``&#39;euclidean&#39;``, ``&#39;l1&#39;``,</span>
+<span class="sd">        ``&#39;l2&#39;``, ``&#39;manhattan&#39;``, ``&#39;cosine&#39;``, or ``&#39;precomputed&#39;``.</span>
+<span class="sd">        If linkage is ``&#39;ward&#39;``, only ``&#39;euclidean&#39;`` is accepted.</span>
+<span class="sd">        If ``&#39;precomputed&#39;``, a distance matrix (instead of a similarity</span>
+<span class="sd">        matrix) is needed as input for :meth:`fit`.</span>
+
+<span class="sd">    relative_gap_size : float, optional, default: ``0.3``</span>
+<span class="sd">        The fraction of the largest linkage in the dendrogram to be used as</span>
+<span class="sd">        a threshold for determining a large enough gap.</span>
+
+<span class="sd">    max_fraction : float, optional, default: ``1.``</span>
+<span class="sd">        When not ``None``, the algorithm is constrained to produce no more</span>
+<span class="sd">        than ``max_fraction * n_samples`` clusters, even if a candidate gap is</span>
+<span class="sd">        observed in the iterative process which would produce a greater number</span>
+<span class="sd">        of clusters.</span>
+
+<span class="sd">    memory : None, str or object with the joblib.Memory interface, \</span>
+<span class="sd">        optional, default: ``None``</span>
+<span class="sd">        Used to cache the output of the computation of the tree. By default, no</span>
+<span class="sd">        caching is performed. If a string is given, it is the path to the</span>
+<span class="sd">        caching directory.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1021,21 +1021,20 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;linkage&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span>
+        <span class="s1">&#39;affinity&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span>
         <span class="s1">&#39;relative_gap_size&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span>
                               <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;max_fraction&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)),</span>
-                         <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;affinity&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span>
-        <span class="s1">&#39;linkage&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">}</span>
+        <span class="s1">&#39;max_fraction&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)}</span>
         <span class="p">}</span>
 
-<div class="viewcode-block" id="FirstSimpleGap.__init__"><a class="viewcode-back" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html#gtda.mapper.FirstSimpleGap.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_gap_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">max_fraction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="FirstSimpleGap.__init__"><a class="viewcode-back" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html#gtda.mapper.FirstSimpleGap.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span>
+                 <span class="n">relative_gap_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">max_fraction</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linkage</span> <span class="o">=</span> <span class="n">linkage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">affinity</span> <span class="o">=</span> <span class="n">affinity</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">relative_gap_size</span> <span class="o">=</span> <span class="n">relative_gap_size</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_fraction</span> <span class="o">=</span> <span class="n">max_fraction</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">affinity</span> <span class="o">=</span> <span class="n">affinity</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">memory</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">linkage</span> <span class="o">=</span> <span class="n">linkage</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">memory</span></div>
 
 <div class="viewcode-block" id="FirstSimpleGap.fit"><a class="viewcode-back" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html#gtda.mapper.FirstSimpleGap.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit the agglomerative clustering from features or distance matrix.</span>
@@ -1061,8 +1060,6 @@
         <span class="n">validate_params</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;memory&#39;</span><span class="p">])</span>
 
-        <span class="n">_max_fraction</span> <span class="o">=</span> <span class="mf">1.</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_fraction</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_fraction</span>
-
         <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters_</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1072,7 +1069,7 @@
 
         <span class="n">min_gap_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relative_gap_size</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">distances_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters_</span> <span class="o">=</span> <span class="n">_num_clusters_simple</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">distances_</span><span class="p">,</span> <span class="n">min_gap_size</span><span class="p">,</span> <span class="n">_max_fraction</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">distances_</span><span class="p">,</span> <span class="n">min_gap_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_fraction</span><span class="p">)</span>
 
         <span class="c1"># Cut the tree to find labels</span>
         <span class="c1"># TODO: Verify whether Daniel Mullner&#39;s implementation of this step</span>
@@ -1088,42 +1085,15 @@
 
 <span class="sd">    Given a frequency threshold f and an initial integer k: 1) create a</span>
 <span class="sd">    histogram of k equally spaced bins of the number of merges in the</span>
-<span class="sd">    dendrogram, as a function of the linkage parameter; 2) the value of</span>
-<span class="sd">    linkage at which the tree is to be cut is the first one after which a</span>
-<span class="sd">    bin of height no greater than f (i.e. a &quot;gap&quot;) is observed; 3) if no gap is</span>
-<span class="sd">    observed, increase k and repeat 1) and 2) until termination. The algorithm</span>
-<span class="sd">    can be partially overridden to ensure that the final number of clusters</span>
-<span class="sd">    does not exceed a certain threshold, by passing a parameter `max_fraction`.</span>
+<span class="sd">    dendrogram, as a function of the linkage parameter; 2) the value of linkage</span>
+<span class="sd">    at which the tree is to be cut is the first one after which a bin of height</span>
+<span class="sd">    no greater than f (i.e. a &quot;gap&quot;) is observed; 3) if no gap is observed,</span>
+<span class="sd">    increase k and repeat 1) and 2) until termination. The algorithm can be</span>
+<span class="sd">    partially overridden to ensure that the final number of clusters does not</span>
+<span class="sd">    exceed a certain threshold, by passing a parameter `max_fraction`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    freq_threshold : int, optional, default: ``0``</span>
-<span class="sd">        The frequency threshold for declaring that a gap in the histogram of</span>
-<span class="sd">        merges is present.</span>
-
-<span class="sd">    max_fraction : float or None, optional, default: ``None``</span>
-<span class="sd">        When not ``None``, the algorithm is constrained to produce no more</span>
-<span class="sd">        than ``max_fraction * (n_samples - 1)`` clusters, even if a</span>
-<span class="sd">        candidate gap is observed in the iterative process which would produce</span>
-<span class="sd">        a greater number of clusters.</span>
-
-<span class="sd">    n_bins_start : int, optional, default: ``5``</span>
-<span class="sd">        The initial number of bins in the iterative process for finding a</span>
-<span class="sd">        gap in the histogram of merges.</span>
-
-<span class="sd">    affinity : str, optional, default: ``&#39;euclidean&#39;``</span>
-<span class="sd">        Metric used to compute the linkage. Can be ``&#39;euclidean&#39;``, ``&#39;l1&#39;``,</span>
-<span class="sd">        ``&#39;l2&#39;``, ``&#39;manhattan&#39;``, ``&#39;cosine&#39;``, or ``&#39;precomputed&#39;``.</span>
-<span class="sd">        If linkage is ``&#39;ward&#39;``, only ``&#39;euclidean&#39;`` is accepted.</span>
-<span class="sd">        If ``&#39;precomputed&#39;``, a distance matrix (instead of a similarity</span>
-<span class="sd">        matrix) is needed as input for :meth:`fit`.</span>
-
-<span class="sd">    memory : None, str or object with the joblib.Memory interface, \</span>
-<span class="sd">        optional, default: ``None``</span>
-<span class="sd">        Used to cache the output of the computation of the tree.</span>
-<span class="sd">        By default, no caching is done. If a string is given, it is the</span>
-<span class="sd">        path to the caching directory.</span>
-
 <span class="sd">    linkage : ``&#39;ward&#39;`` | ``&#39;complete&#39;`` | ``&#39;average&#39;`` | ``&#39;single&#39;``, \</span>
 <span class="sd">        optional, default: ``&#39;single&#39;``</span>
 <span class="sd">        Which linkage criterion to use. The linkage criterion determines which</span>
@@ -1133,10 +1103,37 @@
 <span class="sd">        - ``&#39;ward&#39;`` minimizes the variance of the clusters being merged.</span>
 <span class="sd">        - ``&#39;average&#39;`` uses the average of the distances of each observation</span>
 <span class="sd">          of the two sets.</span>
-<span class="sd">        - ``&#39;complete&#39;`` linkage uses the maximum distances between</span>
-<span class="sd">          all observations of the two sets.</span>
+<span class="sd">        - ``&#39;complete&#39;`` linkage uses the maximum distances between all</span>
+<span class="sd">          observations of the two sets.</span>
 <span class="sd">        - ``&#39;single&#39;`` uses the minimum of the distances between all</span>
 <span class="sd">          observations of the two sets.</span>
+
+<span class="sd">    affinity : str, optional, default: ``&#39;euclidean&#39;``</span>
+<span class="sd">        Metric used to compute the linkage. Can be ``&#39;euclidean&#39;``, ``&#39;l1&#39;``,</span>
+<span class="sd">        ``&#39;l2&#39;``, ``&#39;manhattan&#39;``, ``&#39;cosine&#39;``, or ``&#39;precomputed&#39;``.</span>
+<span class="sd">        If linkage is ``&#39;ward&#39;``, only ``&#39;euclidean&#39;`` is accepted.</span>
+<span class="sd">        If ``&#39;precomputed&#39;``, a distance matrix (instead of a similarity</span>
+<span class="sd">        matrix) is needed as input for :meth:`fit`.</span>
+
+<span class="sd">    freq_threshold : int, optional, default: ``0``</span>
+<span class="sd">        The frequency threshold for declaring that a gap in the histogram of</span>
+<span class="sd">        merges is present.</span>
+
+<span class="sd">    max_fraction : float, optional, default: ``1.``</span>
+<span class="sd">        When not ``None``, the algorithm is constrained to produce no more</span>
+<span class="sd">        than ``max_fraction * n_samples`` clusters, even if a candidate gap is</span>
+<span class="sd">        observed in the iterative process which would produce a greater number</span>
+<span class="sd">        of clusters.</span>
+
+<span class="sd">    n_bins_start : int, optional, default: ``5``</span>
+<span class="sd">        The initial number of bins in the iterative process for finding a gap</span>
+<span class="sd">        in the histogram of merges.</span>
+
+<span class="sd">    memory : None, str or object with the joblib.Memory interface, \</span>
+<span class="sd">        optional, default: ``None``</span>
+<span class="sd">        Used to cache the output of the computation of the tree. By default, no</span>
+<span class="sd">        caching is performed. If a string is given, it is the path to the</span>
+<span class="sd">        caching directory.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1174,24 +1171,24 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;linkage&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span>
+        <span class="s1">&#39;affinity&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span>
         <span class="s1">&#39;freq_threshold&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                            <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;max_fraction&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)),</span>
-                         <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;max_fraction&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)},</span>
         <span class="s1">&#39;n_bins_start&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                          <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)},</span>
-        <span class="s1">&#39;affinity&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span>
-        <span class="s1">&#39;linkage&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">}</span>
         <span class="p">}</span>
 
-<div class="viewcode-block" id="FirstHistogramGap.__init__"><a class="viewcode-back" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html#gtda.mapper.FirstHistogramGap.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq_threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_fraction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_bins_start</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                 <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="FirstHistogramGap.__init__"><a class="viewcode-back" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html#gtda.mapper.FirstHistogramGap.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">affinity</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span>
+                 <span class="n">freq_threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_fraction</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">n_bins_start</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                 <span class="n">memory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linkage</span> <span class="o">=</span> <span class="n">linkage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">affinity</span> <span class="o">=</span> <span class="n">affinity</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">freq_threshold</span> <span class="o">=</span> <span class="n">freq_threshold</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_fraction</span> <span class="o">=</span> <span class="n">max_fraction</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_bins_start</span> <span class="o">=</span> <span class="n">n_bins_start</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">affinity</span> <span class="o">=</span> <span class="n">affinity</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">memory</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">linkage</span> <span class="o">=</span> <span class="n">linkage</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">memory</span></div>
 
 <div class="viewcode-block" id="FirstHistogramGap.fit"><a class="viewcode-back" href="../../../modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html#gtda.mapper.FirstHistogramGap.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit the agglomerative clustering from features or distance matrix.</span>
@@ -1217,8 +1214,6 @@
         <span class="n">validate_params</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;memory&#39;</span><span class="p">])</span>
 
-        <span class="n">_max_fraction</span> <span class="o">=</span> <span class="mf">1.</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_fraction</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_fraction</span>
-
         <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters_</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1228,7 +1223,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters_</span> <span class="o">=</span> <span class="n">_num_clusters_histogram</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">distances_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">freq_threshold</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_bins_start</span><span class="p">,</span>
-            <span class="n">_max_fraction</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max_fraction</span><span class="p">)</span>
 
         <span class="c1"># Cut the tree to find labels</span>
         <span class="c1"># TODO: Verify whether Daniel Mullner&#39;s implementation of this step</span>
@@ -1277,15 +1272,7 @@
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
-      
-      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
-      
-      <dd><a href="../../../../latest/index.html">latest</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
-      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
-      
+<dd><a href="../../../../0.2.0/library.html">0.2.0</a></dd><dd><a href="../../../../0.2.1/library.html">0.2.1</a></dd><dd><a href="../../../../0.2.2/library.html">0.2.2</a></dd><dd><a href="../../../../latest/library.html">latest</a></dd>
       <!--end_versions_tag-->
     </dl>
   </div>

@@ -633,7 +633,7 @@
 <h1>FirstSimpleGap<a class="headerlink" href="#firstsimplegap" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="gtda.mapper.FirstSimpleGap">
-<em class="property">class </em><code class="sig-prename descclassname">gtda.mapper.</code><code class="sig-name descname">FirstSimpleGap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">relative_gap_size</span><span class="o">=</span><span class="default_value">0.3</span></em>, <em class="sig-param"><span class="n">max_fraction</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">affinity</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">memory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">linkage</span><span class="o">=</span><span class="default_value">'single'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cluster.html#FirstSimpleGap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.FirstSimpleGap" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">gtda.mapper.</code><code class="sig-name descname">FirstSimpleGap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">linkage</span><span class="o">=</span><span class="default_value">'single'</span></em>, <em class="sig-param"><span class="n">affinity</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">relative_gap_size</span><span class="o">=</span><span class="default_value">0.3</span></em>, <em class="sig-param"><span class="n">max_fraction</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">memory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cluster.html#FirstSimpleGap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.FirstSimpleGap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Agglomerative clustering cutting the dendrogram at the first instance
 of a sufficiently large gap.</p>
 <p>A simple threshold is determined as a fraction of the largest linkage
@@ -646,20 +646,6 @@ clusters does not exceed a certain threshold, by passing a parameter
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>relative_gap_size</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">0.3</span></code>) – The fraction of the largest linkage in the dendrogram to be used as
-a threshold for determining a large enough gap.</p></li>
-<li><p><strong>max_fraction</strong> (float or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – When not <code class="docutils literal notranslate"><span class="pre">None</span></code>, the algorithm is constrained to produce no more
-than <code class="docutils literal notranslate"><span class="pre">max_fraction</span> <span class="pre">*</span> <span class="pre">(n_samples</span> <span class="pre">-</span> <span class="pre">1)</span></code> clusters, even if a
-candidate gap is observed in the iterative process which would produce
-a greater number of clusters.</p></li>
-<li><p><strong>affinity</strong> (str, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>) – Metric used to compute the linkage. Can be <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>, <code class="docutils literal notranslate"><span class="pre">'l1'</span></code>,
-<code class="docutils literal notranslate"><span class="pre">'l2'</span></code>, <code class="docutils literal notranslate"><span class="pre">'manhattan'</span></code>, <code class="docutils literal notranslate"><span class="pre">'cosine'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.
-If linkage is <code class="docutils literal notranslate"><span class="pre">'ward'</span></code>, only <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code> is accepted.
-If <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, a distance matrix (instead of a similarity
-matrix) is needed as input for <a class="reference internal" href="#gtda.mapper.FirstSimpleGap.fit" title="gtda.mapper.FirstSimpleGap.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p></li>
-<li><p><strong>memory</strong> (None, str or object with the joblib.Memory interface,         optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Used to cache the output of the computation of the tree.
-By default, no caching is done. If a string is given, it is the
-path to the caching directory.</p></li>
 <li><p><strong>linkage</strong> (<code class="docutils literal notranslate"><span class="pre">'ward'</span></code> | <code class="docutils literal notranslate"><span class="pre">'complete'</span></code> | <code class="docutils literal notranslate"><span class="pre">'average'</span></code> | <code class="docutils literal notranslate"><span class="pre">'single'</span></code>,         optional, default: <code class="docutils literal notranslate"><span class="pre">'single'</span></code>) – <p>Which linkage criterion to use. The linkage criterion determines which
 distance to use between sets of observation. The algorithm will merge
 the pairs of cluster that minimize this criterion.</p>
@@ -673,6 +659,20 @@ all observations of the two sets.</p></li>
 observations of the two sets.</p></li>
 </ul>
 </p></li>
+<li><p><strong>affinity</strong> (str, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>) – Metric used to compute the linkage. Can be <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>, <code class="docutils literal notranslate"><span class="pre">'l1'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'l2'</span></code>, <code class="docutils literal notranslate"><span class="pre">'manhattan'</span></code>, <code class="docutils literal notranslate"><span class="pre">'cosine'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.
+If linkage is <code class="docutils literal notranslate"><span class="pre">'ward'</span></code>, only <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code> is accepted.
+If <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, a distance matrix (instead of a similarity
+matrix) is needed as input for <a class="reference internal" href="#gtda.mapper.FirstSimpleGap.fit" title="gtda.mapper.FirstSimpleGap.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p></li>
+<li><p><strong>relative_gap_size</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">0.3</span></code>) – The fraction of the largest linkage in the dendrogram to be used as
+a threshold for determining a large enough gap.</p></li>
+<li><p><strong>max_fraction</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>) – When not <code class="docutils literal notranslate"><span class="pre">None</span></code>, the algorithm is constrained to produce no more
+than <code class="docutils literal notranslate"><span class="pre">max_fraction</span> <span class="pre">*</span> <span class="pre">n_samples</span></code> clusters, even if a candidate gap is
+observed in the iterative process which would produce a greater number
+of clusters.</p></li>
+<li><p><strong>memory</strong> (None, str or object with the joblib.Memory interface,         optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Used to cache the output of the computation of the tree. By default, no
+caching is performed. If a string is given, it is the path to the
+caching directory.</p></li>
 </ul>
 </dd>
 </dl>
@@ -743,7 +743,7 @@ are merged to form node <code class="docutils literal notranslate"><span class="
 </div>
 <dl class="py method">
 <dt id="gtda.mapper.FirstSimpleGap.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">relative_gap_size</span><span class="o">=</span><span class="default_value">0.3</span></em>, <em class="sig-param"><span class="n">max_fraction</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">affinity</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">memory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">linkage</span><span class="o">=</span><span class="default_value">'single'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cluster.html#FirstSimpleGap.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.FirstSimpleGap.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">linkage</span><span class="o">=</span><span class="default_value">'single'</span></em>, <em class="sig-param"><span class="n">affinity</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">relative_gap_size</span><span class="o">=</span><span class="default_value">0.3</span></em>, <em class="sig-param"><span class="n">max_fraction</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">memory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cluster.html#FirstSimpleGap.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.FirstSimpleGap.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -882,15 +882,7 @@ component of a nested object.</p>
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:../../../../-->
-      
-      <dd><a href="../../../../../latest/index.html">latest</a></dd>
-      
-      <dd><a href="../../../../../0.2.1/index.html">0.2.1</a></dd>
-      
-      <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+<dd><a href="../../../../../0.2.0/library.html">0.2.0</a></dd><dd><a href="../../../../../0.2.1/library.html">0.2.1</a></dd><dd><a href="../../../../../0.2.2/library.html">0.2.2</a></dd><dd><a href="../../../../../latest/library.html">latest</a></dd>
       <!--end_versions_tag-->
     </dl>
   </div>

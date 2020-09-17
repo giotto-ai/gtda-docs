@@ -704,21 +704,22 @@ less than or equal to <cite>dimension</cite>. Otherwise it is equal to
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gtda.time_series</span> <span class="kn">import</span> <span class="n">SingleTakensEmbedding</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a noisy signal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">signal_noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="gp">... </span>                     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Set up the transformer</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">embedder</span> <span class="o">=</span> <span class="n">SingleTakensEmbedding</span><span class="p">(</span><span class="n">parameters_type</span><span class="o">=</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-<span class="gp">... </span>                           <span class="n">time_delay</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">STE</span> <span class="o">=</span> <span class="n">SingleTakensEmbedding</span><span class="p">(</span><span class="n">parameters_type</span><span class="o">=</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="gp">... </span>                            <span class="n">time_delay</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Fit and transform</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">embedded_noise</span> <span class="o">=</span> <span class="n">embedder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">signal_noise</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signal_embedded</span> <span class="o">=</span> <span class="n">STE</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Optimal time delay based on mutual information:&#39;</span><span class="p">,</span>
-<span class="gp">... </span>      <span class="n">embedder</span><span class="o">.</span><span class="n">time_delay_</span><span class="p">)</span>
+<span class="gp">... </span>      <span class="n">STE</span><span class="o">.</span><span class="n">time_delay_</span><span class="p">)</span>
 <span class="go">Optimal time delay based on mutual information: 5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Optimal embedding dimension based on false nearest neighbors:&#39;</span><span class="p">,</span>
-<span class="gp">... </span>      <span class="n">embedder</span><span class="o">.</span><span class="n">dimension_</span><span class="p">)</span>
+<span class="gp">... </span>      <span class="n">STE</span><span class="o">.</span><span class="n">dimension_</span><span class="p">)</span>
 <span class="go">Optimal embedding dimension based on false nearest neighbors: 2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">embedded_noise</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">signal_embedded</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="go">(9995, 2)</span>
 </pre></div>
 </div>
@@ -995,15 +996,7 @@ and returns a transformed version of <cite>X</cite>.</p>
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:../../../../-->
-      
-      <dd><a href="../../../../../0.2.1/index.html">0.2.1</a></dd>
-      
-      <dd><a href="../../../../../latest/index.html">latest</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
-      <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
-      
+<dd><a href="../../../../../0.2.0/library.html">0.2.0</a></dd><dd><a href="../../../../../0.2.1/library.html">0.2.1</a></dd><dd><a href="../../../../../0.2.2/library.html">0.2.2</a></dd><dd><a href="../../../../../latest/library.html">latest</a></dd>
       <!--end_versions_tag-->
     </dl>
   </div>

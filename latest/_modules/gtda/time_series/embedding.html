@@ -971,21 +971,22 @@
 <span class="sd">    &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">    &gt;&gt;&gt; from gtda.time_series import SingleTakensEmbedding</span>
 <span class="sd">    &gt;&gt;&gt; # Create a noisy signal</span>
+<span class="sd">    &gt;&gt;&gt; rng = np.random.default_rng()</span>
 <span class="sd">    &gt;&gt;&gt; n_samples = 10000</span>
-<span class="sd">    &gt;&gt;&gt; signal_noise = np.asarray([np.sin(x / 50) + 0.5 * np.random.random()</span>
-<span class="sd">    ...     for x in range(n_samples)])</span>
+<span class="sd">    &gt;&gt;&gt; signal = np.asarray([np.sin(x / 50) + 0.5 * rng.random()</span>
+<span class="sd">    ...                      for x in range(n_samples)])</span>
 <span class="sd">    &gt;&gt;&gt; # Set up the transformer</span>
-<span class="sd">    &gt;&gt;&gt; embedder = SingleTakensEmbedding(parameters_type=&#39;search&#39;, dimension=5,</span>
-<span class="sd">    ...                            time_delay=5, n_jobs=-1)</span>
+<span class="sd">    &gt;&gt;&gt; STE = SingleTakensEmbedding(parameters_type=&#39;search&#39;, dimension=5,</span>
+<span class="sd">    ...                             time_delay=5, n_jobs=-1)</span>
 <span class="sd">    &gt;&gt;&gt; # Fit and transform</span>
-<span class="sd">    &gt;&gt;&gt; embedded_noise = embedder.fit_transform(signal_noise)</span>
+<span class="sd">    &gt;&gt;&gt; signal_embedded = STE.fit_transform(signal)</span>
 <span class="sd">    &gt;&gt;&gt; print(&#39;Optimal time delay based on mutual information:&#39;,</span>
-<span class="sd">    ...       embedder.time_delay_)</span>
+<span class="sd">    ...       STE.time_delay_)</span>
 <span class="sd">    Optimal time delay based on mutual information: 5</span>
 <span class="sd">    &gt;&gt;&gt; print(&#39;Optimal embedding dimension based on false nearest neighbors:&#39;,</span>
-<span class="sd">    ...       embedder.dimension_)</span>
+<span class="sd">    ...       STE.dimension_)</span>
 <span class="sd">    Optimal embedding dimension based on false nearest neighbors: 2</span>
-<span class="sd">    &gt;&gt;&gt; print(embedded_noise.shape)</span>
+<span class="sd">    &gt;&gt;&gt; print(signal_embedded.shape)</span>
 <span class="sd">    (9995, 2)</span>
 
 <span class="sd">    See also</span>
@@ -1175,20 +1176,24 @@
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">    &gt;&gt;&gt; from gtda.time_series import TakensEmbedding</span>
-<span class="sd">    # Two univariate time series of duration 4</span>
+
+<span class="sd">    Two univariate time series of duration 4:</span>
+
 <span class="sd">    &gt;&gt;&gt; X = np.arange(8).reshape(2, 4)</span>
 <span class="sd">    &gt;&gt;&gt; print(X)</span>
 <span class="sd">    [[0 1 2 3]</span>
 <span class="sd">     [4 5 6 7]]</span>
 <span class="sd">    &gt;&gt;&gt; TE = TakensEmbedding(time_delay=1, dimension=2)</span>
-<span class="sd">    &gt;&gt;&gt; print(embedder.fit_transform(X))</span>
+<span class="sd">    &gt;&gt;&gt; print(TE.fit_transform(X))</span>
 <span class="sd">    [[[0 1]</span>
 <span class="sd">      [1 2]</span>
 <span class="sd">      [2 3]]</span>
 <span class="sd">     [[5 6]</span>
 <span class="sd">      [6 7]</span>
 <span class="sd">      [7 8]]]</span>
-<span class="sd">    # Two multivariate time series of duration 4, with 2 variables</span>
+
+<span class="sd">    Two multivariate time series of duration 4, with 2 variables:</span>
+
 <span class="sd">    &gt;&gt;&gt; x = np.arange(8).reshape(2, 1, 4)</span>
 <span class="sd">    &gt;&gt;&gt; X = np.concatenate([x, -x], axis=1)</span>
 <span class="sd">    &gt;&gt;&gt; print(X)</span>
@@ -1196,7 +1201,9 @@
 <span class="sd">      [ 0 -1 -2 -3]]</span>
 <span class="sd">     [[ 4  5  6  7]</span>
 <span class="sd">      [-4 -5 -6 -7]]]</span>
-<span class="sd">    # Pass `flatten` as `True` (default)</span>
+
+<span class="sd">    Pass `flatten` as ``True`` (default):</span>
+
 <span class="sd">    &gt;&gt;&gt; TE = TakensEmbedding(time_delay=1, dimension=2, flatten=True)</span>
 <span class="sd">    &gt;&gt;&gt; print(TE.fit_transform(X))</span>
 <span class="sd">    [[[ 0  1  0 -1]</span>
@@ -1205,7 +1212,9 @@
 <span class="sd">     [[ 4  5 -4 -5]</span>
 <span class="sd">      [ 5  6 -5 -6]</span>
 <span class="sd">      [ 6  7 -6 -7]]]</span>
-<span class="sd">    # Pass `flatten` as `False`</span>
+
+<span class="sd">    Pass `flatten` as ``False``:</span>
+
 <span class="sd">    &gt;&gt;&gt; TE = TakensEmbedding(time_delay=1, dimension=2, flatten=False)</span>
 <span class="sd">    &gt;&gt;&gt; print(TE.fit_transform(X))</span>
 <span class="sd">    [[[[ 0  1]</span>
@@ -1408,15 +1417,7 @@
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
-      
-      <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
-      
-      <dd><a href="../../../../latest/index.html">latest</a></dd>
-      
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
-      
-      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
-      
+<dd><a href="../../../../0.2.0/library.html">0.2.0</a></dd><dd><a href="../../../../0.2.1/library.html">0.2.1</a></dd><dd><a href="../../../../0.2.2/library.html">0.2.2</a></dd><dd><a href="../../../../latest/library.html">latest</a></dd>
       <!--end_versions_tag-->
     </dl>
   </div>

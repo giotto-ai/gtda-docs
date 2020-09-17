@@ -633,36 +633,20 @@
 <h1>FirstHistogramGap<a class="headerlink" href="#firsthistogramgap" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="gtda.mapper.FirstHistogramGap">
-<em class="property">class </em><code class="sig-prename descclassname">gtda.mapper.</code><code class="sig-name descname">FirstHistogramGap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">freq_threshold</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">max_fraction</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_bins_start</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">affinity</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">memory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">linkage</span><span class="o">=</span><span class="default_value">'single'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cluster.html#FirstHistogramGap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.FirstHistogramGap" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">gtda.mapper.</code><code class="sig-name descname">FirstHistogramGap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">linkage</span><span class="o">=</span><span class="default_value">'single'</span></em>, <em class="sig-param"><span class="n">affinity</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">freq_threshold</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">max_fraction</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">n_bins_start</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">memory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cluster.html#FirstHistogramGap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.FirstHistogramGap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Agglomerative clustering with stopping rule given by a histogram-based
 version of the first gap method, introduced in <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.</p>
 <p>Given a frequency threshold f and an initial integer k: 1) create a
 histogram of k equally spaced bins of the number of merges in the
-dendrogram, as a function of the linkage parameter; 2) the value of
-linkage at which the tree is to be cut is the first one after which a
-bin of height no greater than f (i.e. a “gap”) is observed; 3) if no gap is
-observed, increase k and repeat 1) and 2) until termination. The algorithm
-can be partially overridden to ensure that the final number of clusters
-does not exceed a certain threshold, by passing a parameter <cite>max_fraction</cite>.</p>
+dendrogram, as a function of the linkage parameter; 2) the value of linkage
+at which the tree is to be cut is the first one after which a bin of height
+no greater than f (i.e. a “gap”) is observed; 3) if no gap is observed,
+increase k and repeat 1) and 2) until termination. The algorithm can be
+partially overridden to ensure that the final number of clusters does not
+exceed a certain threshold, by passing a parameter <cite>max_fraction</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>freq_threshold</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">0</span></code>) – The frequency threshold for declaring that a gap in the histogram of
-merges is present.</p></li>
-<li><p><strong>max_fraction</strong> (float or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – When not <code class="docutils literal notranslate"><span class="pre">None</span></code>, the algorithm is constrained to produce no more
-than <code class="docutils literal notranslate"><span class="pre">max_fraction</span> <span class="pre">*</span> <span class="pre">(n_samples</span> <span class="pre">-</span> <span class="pre">1)</span></code> clusters, even if a
-candidate gap is observed in the iterative process which would produce
-a greater number of clusters.</p></li>
-<li><p><strong>n_bins_start</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">5</span></code>) – The initial number of bins in the iterative process for finding a
-gap in the histogram of merges.</p></li>
-<li><p><strong>affinity</strong> (str, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>) – Metric used to compute the linkage. Can be <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>, <code class="docutils literal notranslate"><span class="pre">'l1'</span></code>,
-<code class="docutils literal notranslate"><span class="pre">'l2'</span></code>, <code class="docutils literal notranslate"><span class="pre">'manhattan'</span></code>, <code class="docutils literal notranslate"><span class="pre">'cosine'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.
-If linkage is <code class="docutils literal notranslate"><span class="pre">'ward'</span></code>, only <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code> is accepted.
-If <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, a distance matrix (instead of a similarity
-matrix) is needed as input for <a class="reference internal" href="#gtda.mapper.FirstHistogramGap.fit" title="gtda.mapper.FirstHistogramGap.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p></li>
-<li><p><strong>memory</strong> (None, str or object with the joblib.Memory interface,         optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Used to cache the output of the computation of the tree.
-By default, no caching is done. If a string is given, it is the
-path to the caching directory.</p></li>
 <li><p><strong>linkage</strong> (<code class="docutils literal notranslate"><span class="pre">'ward'</span></code> | <code class="docutils literal notranslate"><span class="pre">'complete'</span></code> | <code class="docutils literal notranslate"><span class="pre">'average'</span></code> | <code class="docutils literal notranslate"><span class="pre">'single'</span></code>,         optional, default: <code class="docutils literal notranslate"><span class="pre">'single'</span></code>) – <p>Which linkage criterion to use. The linkage criterion determines which
 distance to use between sets of observation. The algorithm will merge
 the pairs of cluster that minimize this criterion.</p>
@@ -670,12 +654,28 @@ the pairs of cluster that minimize this criterion.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">'ward'</span></code> minimizes the variance of the clusters being merged.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'average'</span></code> uses the average of the distances of each observation
 of the two sets.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'complete'</span></code> linkage uses the maximum distances between
-all observations of the two sets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'complete'</span></code> linkage uses the maximum distances between all
+observations of the two sets.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'single'</span></code> uses the minimum of the distances between all
 observations of the two sets.</p></li>
 </ul>
 </p></li>
+<li><p><strong>affinity</strong> (str, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>) – Metric used to compute the linkage. Can be <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>, <code class="docutils literal notranslate"><span class="pre">'l1'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'l2'</span></code>, <code class="docutils literal notranslate"><span class="pre">'manhattan'</span></code>, <code class="docutils literal notranslate"><span class="pre">'cosine'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.
+If linkage is <code class="docutils literal notranslate"><span class="pre">'ward'</span></code>, only <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code> is accepted.
+If <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, a distance matrix (instead of a similarity
+matrix) is needed as input for <a class="reference internal" href="#gtda.mapper.FirstHistogramGap.fit" title="gtda.mapper.FirstHistogramGap.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p></li>
+<li><p><strong>freq_threshold</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">0</span></code>) – The frequency threshold for declaring that a gap in the histogram of
+merges is present.</p></li>
+<li><p><strong>max_fraction</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">1.</span></code>) – When not <code class="docutils literal notranslate"><span class="pre">None</span></code>, the algorithm is constrained to produce no more
+than <code class="docutils literal notranslate"><span class="pre">max_fraction</span> <span class="pre">*</span> <span class="pre">n_samples</span></code> clusters, even if a candidate gap is
+observed in the iterative process which would produce a greater number
+of clusters.</p></li>
+<li><p><strong>n_bins_start</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">5</span></code>) – The initial number of bins in the iterative process for finding a gap
+in the histogram of merges.</p></li>
+<li><p><strong>memory</strong> (None, str or object with the joblib.Memory interface,         optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Used to cache the output of the computation of the tree. By default, no
+caching is performed. If a string is given, it is the path to the
+caching directory.</p></li>
 </ul>
 </dd>
 </dl>
@@ -754,7 +754,7 @@ in <em>SPBG</em>, pp. 91–100, 2007.</p>
 </dl>
 <dl class="py method">
 <dt id="gtda.mapper.FirstHistogramGap.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">freq_threshold</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">max_fraction</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_bins_start</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">affinity</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">memory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">linkage</span><span class="o">=</span><span class="default_value">'single'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cluster.html#FirstHistogramGap.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.FirstHistogramGap.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">linkage</span><span class="o">=</span><span class="default_value">'single'</span></em>, <em class="sig-param"><span class="n">affinity</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">freq_threshold</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">max_fraction</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">n_bins_start</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">memory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cluster.html#FirstHistogramGap.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.FirstHistogramGap.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -893,15 +893,7 @@ component of a nested object.</p>
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:../../../../-->
-      
-      <dd><a href="../../../../../latest/index.html">latest</a></dd>
-      
-      <dd><a href="../../../../../0.2.1/index.html">0.2.1</a></dd>
-      
-      <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
-      
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
-      
+<dd><a href="../../../../../0.2.0/library.html">0.2.0</a></dd><dd><a href="../../../../../0.2.1/library.html">0.2.1</a></dd><dd><a href="../../../../../0.2.2/library.html">0.2.2</a></dd><dd><a href="../../../../../latest/library.html">latest</a></dd>
       <!--end_versions_tag-->
     </dl>
   </div>
