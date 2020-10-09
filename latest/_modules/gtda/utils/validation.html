@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gtda.utils.validation &mdash; giotto-tda 0.2.2 documentation</title>
+  <title>gtda.utils.validation &mdash; giotto-tda 0.3.0 documentation</title>
   
 
   
@@ -103,7 +103,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../library.html#what-s-new">What’s new</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
@@ -173,12 +189,21 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/homology.html#undirected-simplicial-homology">Undirected simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/homology.html#directed-simplicial-homology">Directed simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/homology.html#cubical-homology">Cubical homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -203,6 +228,19 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#features">Features</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.Amplitude.html">Amplitude</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html">PersistenceEntropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html">NumberOfPoints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html">ComplexPolynomial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/curves.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.curves</span></code>: Curves</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/curves.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/curves/preprocessing/gtda.curves.Derivative.html">Derivative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/curves.html#feature-extraction">Feature extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/curves/gtda.curves.StandardFeatures.html">StandardFeatures</a></li>
 </ul>
 </li>
 </ul>
@@ -265,6 +303,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.DilationFiltration.html">DilationFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.ErosionFiltration.html">ErosionFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html">SignedDistanceFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.DensityFiltration.html">DensityFiltration</a></li>
 </ul>
 </li>
 </ul>
@@ -287,7 +326,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/metaestimators.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.metaestimators</span></code>: Meta-estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/base/gtda.metaestimators.CollectionTransformer.html">CollectionTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
@@ -324,6 +367,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
@@ -333,6 +377,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
@@ -378,6 +423,15 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#betti-curves">Betti Curves</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#new-distances-in-the-embedding-space-knn-graphs-and-geodesic-distances">New distances in the embedding space: kNN graphs and geodesic distances</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/MNIST_classification.html">Classifying handwritten digits</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#load-the-mnist-dataset">Load the MNIST dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#from-pixels-to-topological-features">From pixels to topological features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#building-a-full-blown-feature-extraction-pipeline">Building a full-blown feature extraction pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#training-a-classifier">Training a classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#using-hyperparameter-search-with-topological-pipelines">Using hyperparameter search with topological pipelines</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a><ul>
@@ -485,22 +539,45 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release.html">Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-2">Release 0.2.2</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-3-0">Release 0.3.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-2">Release 0.2.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id79">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id80">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id81">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id82">Thanks to our Contributors</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-1">Release 0.2.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id1">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id2">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id3">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id4">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id83">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id84">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id85">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id86">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-0">Release 0.2.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id5">Major Features and Improvements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id87">Major Features and Improvements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
@@ -511,43 +588,43 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id6">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id7">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id8">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id88">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id89">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id90">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-4">Release 0.1.4</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#library-name-change">Library name change</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#change-of-license">Change of license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id9">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id10">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id11">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id12">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id91">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id92">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id93">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id94">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-3">Release 0.1.3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id13">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id14">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id15">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id16">Thanks to our Contributors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id17">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id18">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id19">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id20">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id95">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id96">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id97">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id98">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id99">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id100">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id101">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id102">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-1">Release 0.1.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id21">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id22">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id23">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id24">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id103">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id104">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id105">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id106">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-0">Release 0.1.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id25">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id26">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id27">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id28">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id107">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id108">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id109">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id110">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1a-0">Release 0.1a.0</a></li>
@@ -637,6 +714,20 @@
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_array</span>
 
 
+<span class="k">def</span> <span class="nf">_check_array_mod</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Modified version of :func:`sklearn.utils.validation.check_array. When</span>
+<span class="sd">    keyword parameter `force_all_finite` is set to False, NaNs are not</span>
+<span class="sd">    accepted but infinity is.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;force_all_finite&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="n">Xnew</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Xnew</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">issparse</span><span class="p">(</span><span class="n">Xnew</span><span class="p">)</span> <span class="k">else</span> <span class="n">Xnew</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input contains NaNs. Only finite values and &quot;</span>
+                             <span class="s2">&quot;infinity are allowed when parameter &quot;</span>
+                             <span class="s2">&quot;`force_all_finite` is False.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Xnew</span>
+    <span class="k">return</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
 <div class="viewcode-block" id="check_diagrams"><a class="viewcode-back" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html#gtda.utils.check_diagrams">[docs]</a><span class="k">def</span> <span class="nf">check_diagrams</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Input validation for collections of persistence diagrams.</span>
 
@@ -659,11 +750,8 @@
 <span class="sd">        The converted and validated array of persistence diagrams.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">X_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">X_array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Expected 3D array, got scalar array instead:</span><span class="se">\n</span><span class="s2">array=</span><span class="si">{</span><span class="n">X_array</span><span class="si">}</span><span class="s2">.&quot;</span>
-            <span class="p">)</span>
+    <span class="n">X_array</span> <span class="o">=</span> <span class="n">_check_array_mod</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                               <span class="n">force_all_finite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">X_array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;Input should be a 3D ndarray, the shape is </span><span class="si">{</span><span class="n">X_array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">.&quot;</span>
@@ -674,26 +762,21 @@
             <span class="sa">f</span><span class="s2">&quot;components, but there are </span><span class="si">{</span><span class="n">X_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> components.&quot;</span>
             <span class="p">)</span>
 
-    <span class="n">X_array</span> <span class="o">=</span> <span class="n">X_array</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">homology_dimensions</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">X_array</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]))</span>
     <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">homology_dimensions</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">dim</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">homology_dimensions</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;np.inf is a valid homology dimension for a stacked &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;numpy.inf is a valid homology dimension for a stacked &quot;</span>
                     <span class="sa">f</span><span class="s2">&quot;diagram but it should be the only one: &quot;</span>
                     <span class="sa">f</span><span class="s2">&quot;homology_dimensions = </span><span class="si">{</span><span class="n">homology_dimensions</span><span class="si">}</span><span class="s2">.&quot;</span>
                     <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">dim</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">dim</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;All homology dimensions should be integer valued: &quot;</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> can&#39;t be cast to an int of the same value.&quot;</span>
-                    <span class="p">)</span>
-            <span class="k">if</span> <span class="n">dim</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;All homology dimensions should be integer valued: &quot;</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> can&#39;t be cast to an int of the same value.&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Homology dimensions should be positive integers or &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;numpy.inf: </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> can&#39;t be cast to an int of the same &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;value.&quot;</span>
                     <span class="p">)</span>
 
     <span class="n">n_points_below_diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X_array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">X_array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span>
@@ -703,8 +786,6 @@
             <span class="sa">f</span><span class="s2">&quot;diagonal, i.e. X[:, :, 1] &gt;= X[:, :, 0]. </span><span class="si">{</span><span class="n">n_points_below_diag</span><span class="si">}</span><span class="s2"> &quot;</span>
             <span class="sa">f</span><span class="s2">&quot;points are below the diagonal.&quot;</span>
             <span class="p">)</span>
-    <span class="k">if</span> <span class="n">copy</span><span class="p">:</span>
-        <span class="n">X_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">X_array</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">X_array</span></div>
 
@@ -714,45 +795,47 @@
     <span class="k">return</span> <span class="n">X</span>
 
 
-<span class="k">def</span> <span class="nf">_validate_params_single</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">reference</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span>
-
-    <span class="n">ref_type</span> <span class="o">=</span> <span class="n">reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-
-    <span class="c1"># Check that parameter has the correct type</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">ref_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">ref_type</span><span class="p">)):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Parameter `</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">` is of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span><span class="si">}</span><span class="s2"> while &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;it should be of type </span><span class="si">{</span><span class="n">ref_type</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-
-    <span class="c1"># If the reference type parameter is not list, tuple, np.ndarray or dict,</span>
-    <span class="c1"># the checks are performed on the parameter object directly.</span>
-    <span class="k">elif</span> <span class="n">ref_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
-        <span class="n">ref_in</span> <span class="o">=</span> <span class="n">reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="n">ref_other</span> <span class="o">=</span> <span class="n">reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;other&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">parameter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">ref_in</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">parameter</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ref_in</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Parameter `</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">` is </span><span class="si">{</span><span class="n">parameter</span><span class="si">}</span><span class="s2">, which is not in &quot;</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ref_in</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-        <span class="c1"># Perform any other checks via the callable ref_others</span>
-        <span class="k">if</span> <span class="n">ref_other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">ref_other</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
-
-    <span class="c1"># Explicitly return the type of reference if one of list, tuple, np.ndarray</span>
-    <span class="c1"># or dict.</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">ref_type</span>
-
-
 <span class="k">def</span> <span class="nf">_validate_params</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">references</span><span class="p">,</span> <span class="n">rec_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">types_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_validate_params_single</span><span class="p">(</span><span class="n">_parameter</span><span class="p">,</span> <span class="n">_reference</span><span class="p">,</span> <span class="n">_name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">_reference</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">_ref_type</span> <span class="o">=</span> <span class="n">_reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># Check that _parameter has the correct type</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">((</span><span class="n">_ref_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_parameter</span><span class="p">,</span> <span class="n">_ref_type</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parameter `</span><span class="si">{</span><span class="n">_name</span><span class="si">}</span><span class="s2">` is of type &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">_parameter</span><span class="p">)</span><span class="si">}</span><span class="s2"> while it should be of type &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_ref_type</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># If neither the reference type is list, tuple, np.ndarray or dict,</span>
+        <span class="c1"># nor _parameter is an instance of one of these types, the checks are</span>
+        <span class="c1"># performed on _parameter directly.</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="p">((</span><span class="n">_ref_type</span> <span class="ow">in</span> <span class="n">types_tuple</span><span class="p">)</span>
+                  <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_parameter</span><span class="p">,</span> <span class="n">types_tuple</span><span class="p">)):</span>
+            <span class="n">ref_in</span> <span class="o">=</span> <span class="n">_reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">ref_other</span> <span class="o">=</span> <span class="n">_reference</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;other&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">_parameter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="p">((</span><span class="n">ref_in</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">_parameter</span> <span class="ow">in</span> <span class="n">ref_in</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parameter `</span><span class="si">{</span><span class="n">_name</span><span class="si">}</span><span class="s2">` is </span><span class="si">{</span><span class="n">_parameter</span><span class="si">}</span><span class="s2">, &quot;</span>
+                                     <span class="sa">f</span><span class="s2">&quot;which is not in </span><span class="si">{</span><span class="n">ref_in</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="c1"># Perform any other checks via the callable ref_others</span>
+            <span class="k">if</span> <span class="n">ref_other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">ref_other</span><span class="p">(</span><span class="n">_parameter</span><span class="p">)</span>
+
+        <span class="c1"># Explicitly return the type of _reference if one of list, tuple,</span>
+        <span class="c1"># np.ndarray or dict.</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_ref_type</span>
+
     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">parameter</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">references</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">name_extras</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="n">rec_name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot; in `</span><span class="si">{</span><span class="n">rec_name</span><span class="si">}</span><span class="s2">`&quot;</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">`</span><span class="si">{</span><span class="n">name_extras</span><span class="si">}</span><span class="s2"> is not an available parameter. &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;Available parameters are in </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">references</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">`</span><span class="si">{</span><span class="n">name_extras</span><span class="si">}</span><span class="s2"> is not an available &quot;</span>
+                           <span class="sa">f</span><span class="s2">&quot;parameter. Available parameters are in &quot;</span>
+                           <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span><span class="n">references</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
         <span class="n">reference</span> <span class="o">=</span> <span class="n">references</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
         <span class="n">ref_type</span> <span class="o">=</span> <span class="n">_validate_params_single</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -762,8 +845,8 @@
                 <span class="n">_validate_params</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">ref_of</span><span class="p">,</span> <span class="n">rec_name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>  <span class="c1"># List, tuple or ndarray type</span>
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">parameter_elem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">parameter</span><span class="p">):</span>
-                    <span class="n">_validate_params_single</span><span class="p">(</span>
-                        <span class="n">parameter_elem</span><span class="p">,</span> <span class="n">ref_of</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+                    <span class="n">_validate_params_single</span><span class="p">(</span><span class="n">parameter_elem</span><span class="p">,</span> <span class="n">ref_of</span><span class="p">,</span>
+                                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="validate_params"><a class="viewcode-back" href="../../../modules/generated/utils/gtda.utils.validate_params.html#gtda.utils.validate_params">[docs]</a><span class="k">def</span> <span class="nf">validate_params</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">references</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -787,9 +870,9 @@
 <span class="sd">        - ``&#39;type&#39;``, mapping to a class or tuple of classes. ``parameter``</span>
 <span class="sd">          is checked to be an instance of this class or tuple of classes.</span>
 
-<span class="sd">        - ``&#39;in&#39;``, mapping to a dictionary, when the value of ``&#39;type&#39;`` is</span>
+<span class="sd">        - ``&#39;in&#39;``, mapping to an object, when the value of ``&#39;type&#39;`` is</span>
 <span class="sd">          not one of ``list``, ``tuple``, ``numpy.ndarray`` or ``dict``.</span>
-<span class="sd">          Letting ``ref_in`` denote that dictionary, the following check is</span>
+<span class="sd">          Letting ``ref_in`` denote that object, the following check is</span>
 <span class="sd">          performed: ``parameter in ref_in``.</span>
 
 <span class="sd">        - ``&#39;of&#39;``, mapping to a dictionary, when the value of ``&#39;type&#39;``</span>
@@ -807,7 +890,7 @@
 <span class="sd">        - ``&#39;other&#39;``, which should map to a callable defining custom checks on</span>
 <span class="sd">          ``parameter``.</span>
 
-<span class="sd">    exclude : list of str, or None, optional, default: ``None``</span>
+<span class="sd">    exclude : list or None, optional, default: ``None``</span>
 <span class="sd">        List of parameter names which are among the keys in `parameters` but</span>
 <span class="sd">        should be excluded from validation. ``None`` is equivalent to</span>
 <span class="sd">        passing the empty list.</span>
@@ -819,28 +902,13 @@
     <span class="k">return</span> <span class="n">_validate_params</span><span class="p">(</span><span class="n">parameters_</span><span class="p">,</span> <span class="n">references</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">_check_array_mod</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Modified version of :func:`~sklearn.utils.validation.check_array. When</span>
-<span class="sd">    keyword parameter `force_all_finite` is set to False, NaNs are not</span>
-<span class="sd">    accepted but infinity is.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;force_all_finite&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
-        <span class="n">Xnew</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Xnew</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">issparse</span><span class="p">(</span><span class="n">Xnew</span><span class="p">)</span> <span class="k">else</span> <span class="n">Xnew</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">&quot;Input contains NaNs. Only finite values and infinity are &quot;</span>
-                <span class="s2">&quot;allowed when parameter `force_all_finite` is False.&quot;</span>
-                <span class="p">)</span>
-        <span class="k">return</span> <span class="n">Xnew</span>
-    <span class="k">return</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-
 <div class="viewcode-block" id="check_point_clouds"><a class="viewcode-back" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html#gtda.utils.check_point_clouds">[docs]</a><span class="k">def</span> <span class="nf">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">distance_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Input validation on arrays or lists representing collections of point</span>
 <span class="sd">    clouds or of distance/adjacency matrices.</span>
 
 <span class="sd">    The input is checked to be either a single 3D array using a single call</span>
-<span class="sd">    to :func:`~sklearn.utils.validation.check_array`, or a list of 2D arrays by</span>
-<span class="sd">    calling :func:`~sklearn.utils.validation.check_array` on each entry.</span>
+<span class="sd">    to :func:`sklearn.utils.validation.check_array`, or a list of 2D arrays by</span>
+<span class="sd">    calling :func:`sklearn.utils.validation.check_array` on each entry.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -854,14 +922,14 @@
 
 <span class="sd">    **kwargs</span>
 <span class="sd">        Keyword arguments accepted by</span>
-<span class="sd">        :func:`~sklearn.utils.validation.check_array`, with the following</span>
+<span class="sd">        :func:`sklearn.utils.validation.check_array`, with the following</span>
 <span class="sd">        caveats: 1) `ensure_2d` and `allow_nd` are ignored; 2) if not passed</span>
 <span class="sd">        explicitly, `force_all_finite` is set to be the boolean negation of</span>
 <span class="sd">        `distance_matrices`; 3) when `force_all_finite` is set to ``False``,</span>
 <span class="sd">        NaN inputs are not allowed; 4) `accept_sparse` and</span>
 <span class="sd">        `accept_large_sparse` are only meaningful in the case of lists of 2D</span>
 <span class="sd">        arrays, in which case they are passed to individual instances of</span>
-<span class="sd">        :func:`~sklearn.utils.validation.check_array` validating each entry</span>
+<span class="sd">        :func:`sklearn.utils.validation.check_array` validating each entry</span>
 <span class="sd">        in the list.</span>
 
 <span class="sd">    Returns</span>
@@ -951,7 +1019,7 @@
 
 <span class="sd">    **kwargs</span>
 <span class="sd">        Keyword arguments accepted by</span>
-<span class="sd">        :func:`~sklearn.utils.validation.check_array`, with the following</span>
+<span class="sd">        :func:`sklearn.utils.validation.check_array`, with the following</span>
 <span class="sd">        caveats: 1) `ensure_2d` and `allow_nd` are ignored; 2) when</span>
 <span class="sd">        `force_all_finite` is set to ``False``, NaN inputs are not allowed.</span>
 

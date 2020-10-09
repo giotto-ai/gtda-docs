@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; giotto-tda 0.2.2 documentation</title>
+  <title>Index &mdash; giotto-tda 0.3.0 documentation</title>
   
 
   
@@ -103,7 +103,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="library.html#what-s-new">What’s new</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="library.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="library.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="library.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
@@ -173,12 +189,21 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/homology.html#undirected-simplicial-homology">Undirected simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/homology.html#directed-simplicial-homology">Directed simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/homology.html#cubical-homology">Cubical homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -203,6 +228,19 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/diagrams.html#features">Features</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html">Amplitude</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html">PersistenceEntropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html">NumberOfPoints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html">ComplexPolynomial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/curves.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.curves</span></code>: Curves</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/curves.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html">Derivative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/curves.html#feature-extraction">Feature extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/curves/gtda.curves.StandardFeatures.html">StandardFeatures</a></li>
 </ul>
 </li>
 </ul>
@@ -265,6 +303,7 @@
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/images/gtda.images.DilationFiltration.html">DilationFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/images/gtda.images.ErosionFiltration.html">ErosionFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/images/gtda.images.SignedDistanceFiltration.html">SignedDistanceFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/images/gtda.images.DensityFiltration.html">DensityFiltration</a></li>
 </ul>
 </li>
 </ul>
@@ -287,7 +326,11 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/metaestimators.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.metaestimators</span></code>: Meta-estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/base/gtda.metaestimators.CollectionTransformer.html">CollectionTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
@@ -324,6 +367,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/time_series_classification.html">Topology of time series</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
@@ -333,6 +377,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_forecasting.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
@@ -378,6 +423,15 @@
 <li class="toctree-l4"><a class="reference internal" href="notebooks/lorenz_attractor.html#betti-curves">Betti Curves</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/lorenz_attractor.html#new-distances-in-the-embedding-space-knn-graphs-and-geodesic-distances">New distances in the embedding space: kNN graphs and geodesic distances</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/MNIST_classification.html">Classifying handwritten digits</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/MNIST_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/MNIST_classification.html#load-the-mnist-dataset">Load the MNIST dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/MNIST_classification.html#from-pixels-to-topological-features">From pixels to topological features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/MNIST_classification.html#building-a-full-blown-feature-extraction-pipeline">Building a full-blown feature extraction pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/MNIST_classification.html#training-a-classifier">Training a classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/MNIST_classification.html#using-hyperparameter-search-with-topological-pipelines">Using hyperparameter search with topological pipelines</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a><ul>
@@ -485,22 +539,45 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release.html#release-0-2-2">Release 0.2.2</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="release.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release.html#release-0-3-0">Release 0.3.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="release.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="release.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="release.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="release.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="release.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="release.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="release.html#release-0-2-2">Release 0.2.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id79">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id80">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id81">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id82">Thanks to our Contributors</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="release.html#release-0-2-1">Release 0.2.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id1">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id2">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id3">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id4">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id83">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id84">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id85">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id86">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="release.html#release-0-2-0">Release 0.2.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id5">Major Features and Improvements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id87">Major Features and Improvements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="release.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
 <li class="toctree-l4"><a class="reference internal" href="release.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="release.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
@@ -511,43 +588,43 @@
 <li class="toctree-l4"><a class="reference internal" href="release.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id6">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id7">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id8">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id88">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id89">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id90">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="release.html#release-0-1-4">Release 0.1.4</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="release.html#library-name-change">Library name change</a></li>
 <li class="toctree-l3"><a class="reference internal" href="release.html#change-of-license">Change of license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id9">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id10">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id11">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id12">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id91">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id92">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id93">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id94">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="release.html#release-0-1-3">Release 0.1.3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id13">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id14">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id15">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id16">Thanks to our Contributors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id17">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id18">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id19">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id20">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id95">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id96">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id97">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id98">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id99">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id100">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id101">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id102">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="release.html#release-0-1-1">Release 0.1.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id21">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id22">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id23">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id24">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id103">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id104">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id105">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id106">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="release.html#release-0-1-0">Release 0.1.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id25">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id26">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id27">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="release.html#id28">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id107">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id108">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id109">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release.html#id110">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="release.html#release-0-1a-0">Release 0.1a.0</a></li>
@@ -658,15 +735,23 @@
       <ul>
         <li><a href="modules/generated/base/gtda.base.TransformerResamplerMixin.html#gtda.base.TransformerResamplerMixin.__init__">(gtda.base.TransformerResamplerMixin method)</a>
 </li>
+        <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.__init__">(gtda.curves.Derivative method)</a>
+</li>
+        <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures.__init__">(gtda.curves.StandardFeatures method)</a>
+</li>
         <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.__init__">(gtda.diagrams.Amplitude method)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.__init__">(gtda.diagrams.BettiCurve method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html#gtda.diagrams.ComplexPolynomial.__init__">(gtda.diagrams.ComplexPolynomial method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.__init__">(gtda.diagrams.Filtering method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.__init__">(gtda.diagrams.ForgetDimension method)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.__init__">(gtda.diagrams.HeatKernel method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html#gtda.diagrams.NumberOfPoints.__init__">(gtda.diagrams.NumberOfPoints method)</a>
 </li>
         <li><a href="modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance.__init__">(gtda.diagrams.PairwiseDistance method)</a>
 </li>
@@ -699,6 +784,8 @@
         <li><a href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html#gtda.homology.WeakAlphaPersistence.__init__">(gtda.homology.WeakAlphaPersistence method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.__init__">(gtda.images.Binarizer method)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.__init__">(gtda.images.DensityFiltration method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.__init__">(gtda.images.DilationFiltration method)</a>
 </li>
@@ -735,6 +822,8 @@
         <li><a href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline.__init__">(gtda.mapper.pipeline.MapperPipeline method)</a>
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.__init__">(gtda.mapper.Projection method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.metaestimators.CollectionTransformer.html#gtda.metaestimators.CollectionTransformer.__init__">(gtda.metaestimators.CollectionTransformer method)</a>
 </li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.__init__">(gtda.pipeline.Pipeline method)</a>
 </li>
@@ -799,11 +888,15 @@
         <li><a href="modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html#gtda.mapper.FirstSimpleGap.children_">(gtda.mapper.FirstSimpleGap attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/mapper/clustering/gtda.mapper.ParallelClustering.html#gtda.mapper.ParallelClustering.clusterers_">clusterers_ (gtda.mapper.ParallelClustering attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/mapper/clustering/gtda.mapper.ParallelClustering.html#gtda.mapper.ParallelClustering.clusters_">clusters_ (gtda.mapper.ParallelClustering attribute)</a>
+</li>
+      <li><a href="modules/generated/base/gtda.metaestimators.CollectionTransformer.html#gtda.metaestimators.CollectionTransformer">CollectionTransformer (class in gtda.metaestimators)</a>
+</li>
+      <li><a href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html#gtda.diagrams.ComplexPolynomial">ComplexPolynomial (class in gtda.diagrams)</a>
 </li>
       <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling">ConsecutiveRescaling (class in gtda.point_clouds)</a>
 </li>
@@ -825,10 +918,14 @@
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.decision_function">(gtda.pipeline.Pipeline method)</a>
 </li>
       </ul></li>
-      <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration">DilationFiltration (class in gtda.images)</a>
+      <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration">DensityFiltration (class in gtda.images)</a>
+</li>
+      <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative">Derivative (class in gtda.curves)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration">DilationFiltration (class in gtda.images)</a>
+</li>
       <li><a href="modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html#gtda.time_series.SingleTakensEmbedding.dimension_">dimension_ (gtda.time_series.SingleTakensEmbedding attribute)</a>
 </li>
       <li><a href="modules/generated/images/gtda.images.HeightFiltration.html#gtda.images.HeightFiltration.direction_">direction_ (gtda.images.HeightFiltration attribute)</a>
@@ -849,14 +946,16 @@
 </li>
       <li><a href="modules/generated/graphs/creation/gtda.graphs.TransitionGraph.html#gtda.graphs.TransitionGraph.effective_func_params_">effective_func_params_ (gtda.graphs.TransitionGraph attribute)</a>
 </li>
+      <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures.effective_function_">effective_function_ (gtda.curves.StandardFeatures attribute)</a>
+</li>
+      <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures.effective_function_params_">effective_function_params_ (gtda.curves.StandardFeatures attribute)</a>
+</li>
       <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.effective_metric_params_">effective_metric_params_ (gtda.diagrams.Amplitude attribute)</a>
 
       <ul>
         <li><a href="modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance.effective_metric_params_">(gtda.diagrams.PairwiseDistance attribute)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Scaler.html#gtda.diagrams.Scaler.effective_metric_params_">(gtda.diagrams.Scaler attribute)</a>
-</li>
-        <li><a href="modules/generated/images/gtda.images.RadialFiltration.html#gtda.images.RadialFiltration.effective_metric_params_">(gtda.images.RadialFiltration attribute)</a>
 </li>
         <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling.effective_metric_params_">(gtda.point_clouds.ConsecutiveRescaling attribute)</a>
 </li>
@@ -885,16 +984,24 @@
 </li>
       <li><a href="modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html#gtda.mapper.FirstSimpleGap">FirstSimpleGap (class in gtda.mapper)</a>
 </li>
-      <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.fit">fit() (gtda.diagrams.Amplitude method)</a>
+      <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.fit">fit() (gtda.curves.Derivative method)</a>
 
       <ul>
+        <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures.fit">(gtda.curves.StandardFeatures method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.fit">(gtda.diagrams.Amplitude method)</a>
+</li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.fit">(gtda.diagrams.BettiCurve method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html#gtda.diagrams.ComplexPolynomial.fit">(gtda.diagrams.ComplexPolynomial method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.fit">(gtda.diagrams.Filtering method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.fit">(gtda.diagrams.ForgetDimension method)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.fit">(gtda.diagrams.HeatKernel method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html#gtda.diagrams.NumberOfPoints.fit">(gtda.diagrams.NumberOfPoints method)</a>
 </li>
         <li><a href="modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance.fit">(gtda.diagrams.PairwiseDistance method)</a>
 </li>
@@ -927,6 +1034,8 @@
         <li><a href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html#gtda.homology.WeakAlphaPersistence.fit">(gtda.homology.WeakAlphaPersistence method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.fit">(gtda.images.Binarizer method)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.fit">(gtda.images.DensityFiltration method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.fit">(gtda.images.DilationFiltration method)</a>
 </li>
@@ -963,6 +1072,8 @@
         <li><a href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline.fit">(gtda.mapper.pipeline.MapperPipeline method)</a>
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.fit">(gtda.mapper.Projection method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.metaestimators.CollectionTransformer.html#gtda.metaestimators.CollectionTransformer.fit">(gtda.metaestimators.CollectionTransformer method)</a>
 </li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.fit">(gtda.pipeline.Pipeline method)</a>
 </li>
@@ -1002,15 +1113,23 @@
       <li><a href="modules/generated/base/gtda.base.TransformerResamplerMixin.html#gtda.base.TransformerResamplerMixin.fit_transform">fit_transform() (gtda.base.TransformerResamplerMixin method)</a>
 
       <ul>
+        <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.fit_transform">(gtda.curves.Derivative method)</a>
+</li>
+        <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures.fit_transform">(gtda.curves.StandardFeatures method)</a>
+</li>
         <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.fit_transform">(gtda.diagrams.Amplitude method)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.fit_transform">(gtda.diagrams.BettiCurve method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html#gtda.diagrams.ComplexPolynomial.fit_transform">(gtda.diagrams.ComplexPolynomial method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.fit_transform">(gtda.diagrams.Filtering method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.fit_transform">(gtda.diagrams.ForgetDimension method)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.fit_transform">(gtda.diagrams.HeatKernel method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html#gtda.diagrams.NumberOfPoints.fit_transform">(gtda.diagrams.NumberOfPoints method)</a>
 </li>
         <li><a href="modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance.fit_transform">(gtda.diagrams.PairwiseDistance method)</a>
 </li>
@@ -1044,6 +1163,8 @@
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.fit_transform">(gtda.images.Binarizer method)</a>
 </li>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.fit_transform">(gtda.images.DensityFiltration method)</a>
+</li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.fit_transform">(gtda.images.DilationFiltration method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.ErosionFiltration.html#gtda.images.ErosionFiltration.fit_transform">(gtda.images.ErosionFiltration method)</a>
@@ -1076,6 +1197,8 @@
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.fit_transform">(gtda.mapper.Projection method)</a>
 </li>
+        <li><a href="modules/generated/base/gtda.metaestimators.CollectionTransformer.html#gtda.metaestimators.CollectionTransformer.fit_transform">(gtda.metaestimators.CollectionTransformer method)</a>
+</li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.fit_transform">(gtda.pipeline.Pipeline method)</a>
 </li>
         <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling.fit_transform">(gtda.point_clouds.ConsecutiveRescaling method)</a>
@@ -1104,6 +1227,8 @@
       <li><a href="modules/generated/base/gtda.base.PlotterMixin.html#gtda.base.PlotterMixin.fit_transform_plot">fit_transform_plot() (gtda.base.PlotterMixin method)</a>
 
       <ul>
+        <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.fit_transform_plot">(gtda.curves.Derivative method)</a>
+</li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.fit_transform_plot">(gtda.diagrams.BettiCurve method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.fit_transform_plot">(gtda.diagrams.Filtering method)</a>
@@ -1135,6 +1260,8 @@
         <li><a href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html#gtda.homology.WeakAlphaPersistence.fit_transform_plot">(gtda.homology.WeakAlphaPersistence method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.fit_transform_plot">(gtda.images.Binarizer method)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.fit_transform_plot">(gtda.images.DensityFiltration method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.fit_transform_plot">(gtda.images.DilationFiltration method)</a>
 </li>
@@ -1189,16 +1316,24 @@
 </li>
       <li><a href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline.get_mapper_params">get_mapper_params() (gtda.mapper.pipeline.MapperPipeline method)</a>
 </li>
-      <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.get_params">get_params() (gtda.diagrams.Amplitude method)</a>
+      <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.get_params">get_params() (gtda.curves.Derivative method)</a>
 
       <ul>
+        <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures.get_params">(gtda.curves.StandardFeatures method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.get_params">(gtda.diagrams.Amplitude method)</a>
+</li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.get_params">(gtda.diagrams.BettiCurve method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html#gtda.diagrams.ComplexPolynomial.get_params">(gtda.diagrams.ComplexPolynomial method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.get_params">(gtda.diagrams.Filtering method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.get_params">(gtda.diagrams.ForgetDimension method)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.get_params">(gtda.diagrams.HeatKernel method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html#gtda.diagrams.NumberOfPoints.get_params">(gtda.diagrams.NumberOfPoints method)</a>
 </li>
         <li><a href="modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance.get_params">(gtda.diagrams.PairwiseDistance method)</a>
 </li>
@@ -1231,6 +1366,8 @@
         <li><a href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html#gtda.homology.WeakAlphaPersistence.get_params">(gtda.homology.WeakAlphaPersistence method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.get_params">(gtda.images.Binarizer method)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.get_params">(gtda.images.DensityFiltration method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.get_params">(gtda.images.DilationFiltration method)</a>
 </li>
@@ -1267,6 +1404,8 @@
         <li><a href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline.get_params">(gtda.mapper.pipeline.MapperPipeline method)</a>
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.get_params">(gtda.mapper.Projection method)</a>
+</li>
+        <li><a href="modules/generated/base/gtda.metaestimators.CollectionTransformer.html#gtda.metaestimators.CollectionTransformer.get_params">(gtda.metaestimators.CollectionTransformer method)</a>
 </li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.get_params">(gtda.pipeline.Pipeline method)</a>
 </li>
@@ -1312,6 +1451,13 @@
 </li>
       </ul></li>
       <li>
+    gtda.curves
+
+      <ul>
+        <li><a href="modules/curves.html#module-gtda.curves">module</a>
+</li>
+      </ul></li>
+      <li>
     gtda.diagrams
 
       <ul>
@@ -1337,6 +1483,13 @@
 
       <ul>
         <li><a href="modules/images.html#module-gtda.images">module</a>
+</li>
+      </ul></li>
+      <li>
+    gtda.metaestimators
+
+      <ul>
+        <li><a href="modules/metaestimators.html#module-gtda.metaestimators">module</a>
 </li>
       </ul></li>
       <li>
@@ -1371,7 +1524,7 @@
     gtda.utils
 
       <ul>
-        <li><a href="modules/validation.html#module-gtda.utils">module</a>
+        <li><a href="modules/utils.html#module-gtda.utils">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1389,9 +1542,13 @@
       <ul>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.homology_dimensions_">(gtda.diagrams.BettiCurve attribute)</a>
 </li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html#gtda.diagrams.ComplexPolynomial.homology_dimensions_">(gtda.diagrams.ComplexPolynomial attribute)</a>
+</li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.homology_dimensions_">(gtda.diagrams.Filtering attribute)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.homology_dimensions_">(gtda.diagrams.HeatKernel attribute)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html#gtda.diagrams.NumberOfPoints.homology_dimensions_">(gtda.diagrams.NumberOfPoints attribute)</a>
 </li>
         <li><a href="modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance.homology_dimensions_">(gtda.diagrams.PairwiseDistance attribute)</a>
 </li>
@@ -1482,6 +1639,8 @@
 </li>
       <li><a href="modules/generated/mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline">MapperPipeline (class in gtda.mapper.pipeline)</a>
 </li>
+      <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.mask_">mask_ (gtda.images.DensityFiltration attribute)</a>
+</li>
       <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.max_value_">max_value_ (gtda.images.Binarizer attribute)</a>
 
       <ul>
@@ -1504,14 +1663,14 @@
         <li><a href="modules/generated/images/gtda.images.RadialFiltration.html#gtda.images.RadialFiltration.mesh_">(gtda.images.RadialFiltration attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/mapper/utils/gtda.mapper.method_to_transform.html#gtda.mapper.method_to_transform">method_to_transform() (in module gtda.mapper)</a>
 
       <ul>
         <li><a href="modules/generated/mapper/utils/gtda.mapper.utils.decorators.method_to_transform.html#gtda.mapper.utils.decorators.method_to_transform">(in module gtda.mapper.utils.decorators)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     module
 
@@ -1519,6 +1678,8 @@
         <li><a href="modules/mapper.html#module-gtda">gtda</a>
 </li>
         <li><a href="modules/base.html#module-gtda.base">gtda.base</a>
+</li>
+        <li><a href="modules/curves.html#module-gtda.curves">gtda.curves</a>
 </li>
         <li><a href="modules/diagrams.html#module-gtda.diagrams">gtda.diagrams</a>
 </li>
@@ -1528,6 +1689,8 @@
 </li>
         <li><a href="modules/images.html#module-gtda.images">gtda.images</a>
 </li>
+        <li><a href="modules/metaestimators.html#module-gtda.metaestimators">gtda.metaestimators</a>
+</li>
         <li><a href="modules/pipeline.html#module-gtda.pipeline">gtda.pipeline</a>
 </li>
         <li><a href="modules/plotting.html#module-gtda.plotting">gtda.plotting</a>
@@ -1536,7 +1699,7 @@
 </li>
         <li><a href="modules/time_series.html#module-gtda.time_series">gtda.time_series</a>
 </li>
-        <li><a href="modules/validation.html#module-gtda.utils">gtda.utils</a>
+        <li><a href="modules/utils.html#module-gtda.utils">gtda.utils</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1545,20 +1708,44 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.n_channels_">n_channels_ (gtda.curves.Derivative attribute)</a>
+
+      <ul>
+        <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures.n_channels_">(gtda.curves.StandardFeatures attribute)</a>
+</li>
+      </ul></li>
       <li><a href="modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html#gtda.mapper.FirstHistogramGap.n_clusters_">n_clusters_ (gtda.mapper.FirstHistogramGap attribute)</a>
 
       <ul>
         <li><a href="modules/generated/mapper/clustering/gtda.mapper.FirstSimpleGap.html#gtda.mapper.FirstSimpleGap.n_clusters_">(gtda.mapper.FirstSimpleGap attribute)</a>
 </li>
       </ul></li>
+      <li><a href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html#gtda.diagrams.ComplexPolynomial.n_coefficients_">n_coefficients_ (gtda.diagrams.ComplexPolynomial attribute)</a>
+</li>
       <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.n_dimensions_">n_dimensions_ (gtda.images.Binarizer attribute)</a>
 
       <ul>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.n_dimensions_">(gtda.images.DensityFiltration attribute)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.n_dimensions_">(gtda.images.DilationFiltration attribute)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.ErosionFiltration.html#gtda.images.ErosionFiltration.n_dimensions_">(gtda.images.ErosionFiltration attribute)</a>
+</li>
         <li><a href="modules/generated/images/gtda.images.HeightFiltration.html#gtda.images.HeightFiltration.n_dimensions_">(gtda.images.HeightFiltration attribute)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.ImageToPointCloud.html#gtda.images.ImageToPointCloud.n_dimensions_">(gtda.images.ImageToPointCloud attribute)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.Inverter.html#gtda.images.Inverter.n_dimensions_">(gtda.images.Inverter attribute)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.Padder.html#gtda.images.Padder.n_dimensions_">(gtda.images.Padder attribute)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.RadialFiltration.html#gtda.images.RadialFiltration.n_dimensions_">(gtda.images.RadialFiltration attribute)</a>
 </li>
+        <li><a href="modules/generated/images/gtda.images.SignedDistanceFiltration.html#gtda.images.SignedDistanceFiltration.n_dimensions_">(gtda.images.SignedDistanceFiltration attribute)</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.n_iterations_">n_iterations_ (gtda.images.DilationFiltration attribute)</a>
 
       <ul>
@@ -1567,8 +1754,6 @@
         <li><a href="modules/generated/images/gtda.images.SignedDistanceFiltration.html#gtda.images.SignedDistanceFiltration.n_iterations_">(gtda.images.SignedDistanceFiltration attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/mapper/clustering/gtda.mapper.FirstHistogramGap.html#gtda.mapper.FirstHistogramGap.n_leaves_">n_leaves_ (gtda.mapper.FirstHistogramGap attribute)</a>
 
       <ul>
@@ -1578,6 +1763,8 @@
       <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.named_steps">named_steps (gtda.pipeline.Pipeline attribute)</a>
 </li>
       <li><a href="modules/generated/mapper/nerve/gtda.mapper.Nerve.html#gtda.mapper.Nerve">Nerve (class in gtda.mapper)</a>
+</li>
+      <li><a href="modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html#gtda.diagrams.NumberOfPoints">NumberOfPoints (class in gtda.diagrams)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1615,9 +1802,11 @@
 </li>
       <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline">Pipeline (class in gtda.pipeline)</a>
 </li>
-      <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.plot">plot() (gtda.diagrams.BettiCurve method)</a>
+      <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.plot">plot() (gtda.curves.Derivative method)</a>
 
       <ul>
+        <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.plot">(gtda.diagrams.BettiCurve method)</a>
+</li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.plot">(gtda.diagrams.Filtering method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.plot">(gtda.diagrams.ForgetDimension static method)</a>
@@ -1647,6 +1836,8 @@
         <li><a href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html#gtda.homology.WeakAlphaPersistence.plot">(gtda.homology.WeakAlphaPersistence static method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.plot">(gtda.images.Binarizer static method)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.plot">(gtda.images.DensityFiltration static method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.plot">(gtda.images.DilationFiltration static method)</a>
 </li>
@@ -1779,16 +1970,24 @@
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.score_samples">(gtda.pipeline.Pipeline method)</a>
 </li>
       </ul></li>
-      <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.set_params">set_params() (gtda.diagrams.Amplitude method)</a>
+      <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.set_params">set_params() (gtda.curves.Derivative method)</a>
 
       <ul>
+        <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures.set_params">(gtda.curves.StandardFeatures method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.set_params">(gtda.diagrams.Amplitude method)</a>
+</li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.set_params">(gtda.diagrams.BettiCurve method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html#gtda.diagrams.ComplexPolynomial.set_params">(gtda.diagrams.ComplexPolynomial method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.set_params">(gtda.diagrams.Filtering method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.set_params">(gtda.diagrams.ForgetDimension method)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.set_params">(gtda.diagrams.HeatKernel method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html#gtda.diagrams.NumberOfPoints.set_params">(gtda.diagrams.NumberOfPoints method)</a>
 </li>
         <li><a href="modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance.set_params">(gtda.diagrams.PairwiseDistance method)</a>
 </li>
@@ -1821,6 +2020,8 @@
         <li><a href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html#gtda.homology.WeakAlphaPersistence.set_params">(gtda.homology.WeakAlphaPersistence method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.set_params">(gtda.images.Binarizer method)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.set_params">(gtda.images.DensityFiltration method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.set_params">(gtda.images.DilationFiltration method)</a>
 </li>
@@ -1858,6 +2059,8 @@
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.set_params">(gtda.mapper.Projection method)</a>
 </li>
+        <li><a href="modules/generated/base/gtda.metaestimators.CollectionTransformer.html#gtda.metaestimators.CollectionTransformer.set_params">(gtda.metaestimators.CollectionTransformer method)</a>
+</li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.set_params">(gtda.pipeline.Pipeline method)</a>
 </li>
         <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling.set_params">(gtda.point_clouds.ConsecutiveRescaling method)</a>
@@ -1893,6 +2096,8 @@
 </li>
       <li><a href="modules/generated/homology/gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence">SparseRipsPersistence (class in gtda.homology)</a>
 </li>
+      <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures">StandardFeatures (class in gtda.curves)</a>
+</li>
       <li><a href="modules/generated/time_series/preprocessing/gtda.time_series.Stationarizer.html#gtda.time_series.Stationarizer">Stationarizer (class in gtda.time_series)</a>
 </li>
   </ul></td>
@@ -1909,16 +2114,24 @@
 </li>
       <li><a href="modules/generated/time_series/embedding/gtda.time_series.SingleTakensEmbedding.html#gtda.time_series.SingleTakensEmbedding.time_delay_">time_delay_ (gtda.time_series.SingleTakensEmbedding attribute)</a>
 </li>
-      <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.transform">transform() (gtda.diagrams.Amplitude method)</a>
+      <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.transform">transform() (gtda.curves.Derivative method)</a>
 
       <ul>
+        <li><a href="modules/generated/curves/gtda.curves.StandardFeatures.html#gtda.curves.StandardFeatures.transform">(gtda.curves.StandardFeatures method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.Amplitude.html#gtda.diagrams.Amplitude.transform">(gtda.diagrams.Amplitude method)</a>
+</li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.transform">(gtda.diagrams.BettiCurve method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html#gtda.diagrams.ComplexPolynomial.transform">(gtda.diagrams.ComplexPolynomial method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.transform">(gtda.diagrams.Filtering method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.ForgetDimension.html#gtda.diagrams.ForgetDimension.transform">(gtda.diagrams.ForgetDimension method)</a>
 </li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.HeatKernel.html#gtda.diagrams.HeatKernel.transform">(gtda.diagrams.HeatKernel method)</a>
+</li>
+        <li><a href="modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html#gtda.diagrams.NumberOfPoints.transform">(gtda.diagrams.NumberOfPoints method)</a>
 </li>
         <li><a href="modules/generated/diagrams/distances/gtda.diagrams.PairwiseDistance.html#gtda.diagrams.PairwiseDistance.transform">(gtda.diagrams.PairwiseDistance method)</a>
 </li>
@@ -1952,6 +2165,8 @@
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.transform">(gtda.images.Binarizer method)</a>
 </li>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.transform">(gtda.images.DensityFiltration method)</a>
+</li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.transform">(gtda.images.DilationFiltration method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.ErosionFiltration.html#gtda.images.ErosionFiltration.transform">(gtda.images.ErosionFiltration method)</a>
@@ -1982,6 +2197,8 @@
 </li>
         <li><a href="modules/generated/mapper/filters/gtda.mapper.Projection.html#gtda.mapper.Projection.transform">(gtda.mapper.Projection method)</a>
 </li>
+        <li><a href="modules/generated/base/gtda.metaestimators.CollectionTransformer.html#gtda.metaestimators.CollectionTransformer.transform">(gtda.metaestimators.CollectionTransformer method)</a>
+</li>
         <li><a href="modules/generated/base/gtda.pipeline.Pipeline.html#gtda.pipeline.Pipeline.transform">(gtda.pipeline.Pipeline property)</a>
 </li>
         <li><a href="modules/generated/gtda.point_clouds.ConsecutiveRescaling.html#gtda.point_clouds.ConsecutiveRescaling.transform">(gtda.point_clouds.ConsecutiveRescaling method)</a>
@@ -2010,6 +2227,8 @@
       <li><a href="modules/generated/base/gtda.base.PlotterMixin.html#gtda.base.PlotterMixin.transform_plot">transform_plot() (gtda.base.PlotterMixin method)</a>
 
       <ul>
+        <li><a href="modules/generated/curves/preprocessing/gtda.curves.Derivative.html#gtda.curves.Derivative.transform_plot">(gtda.curves.Derivative method)</a>
+</li>
         <li><a href="modules/generated/diagrams/representations/gtda.diagrams.BettiCurve.html#gtda.diagrams.BettiCurve.transform_plot">(gtda.diagrams.BettiCurve method)</a>
 </li>
         <li><a href="modules/generated/diagrams/preprocessing/gtda.diagrams.Filtering.html#gtda.diagrams.Filtering.transform_plot">(gtda.diagrams.Filtering method)</a>
@@ -2041,6 +2260,8 @@
         <li><a href="modules/generated/homology/gtda.homology.WeakAlphaPersistence.html#gtda.homology.WeakAlphaPersistence.transform_plot">(gtda.homology.WeakAlphaPersistence method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.Binarizer.html#gtda.images.Binarizer.transform_plot">(gtda.images.Binarizer method)</a>
+</li>
+        <li><a href="modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.transform_plot">(gtda.images.DensityFiltration method)</a>
 </li>
         <li><a href="modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.transform_plot">(gtda.images.DilationFiltration method)</a>
 </li>

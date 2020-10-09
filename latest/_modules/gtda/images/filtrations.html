@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gtda.images.filtrations &mdash; giotto-tda 0.2.2 documentation</title>
+  <title>gtda.images.filtrations &mdash; giotto-tda 0.3.0 documentation</title>
   
 
   
@@ -103,7 +103,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../library.html#what-s-new">What’s new</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
@@ -173,12 +189,21 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/homology.html#undirected-simplicial-homology">Undirected simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/homology.html#directed-simplicial-homology">Directed simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/homology.html#cubical-homology">Cubical homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -203,6 +228,19 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#features">Features</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.Amplitude.html">Amplitude</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html">PersistenceEntropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html">NumberOfPoints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html">ComplexPolynomial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/curves.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.curves</span></code>: Curves</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/curves.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/curves/preprocessing/gtda.curves.Derivative.html">Derivative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/curves.html#feature-extraction">Feature extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/curves/gtda.curves.StandardFeatures.html">StandardFeatures</a></li>
 </ul>
 </li>
 </ul>
@@ -265,6 +303,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.DilationFiltration.html">DilationFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.ErosionFiltration.html">ErosionFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html">SignedDistanceFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.DensityFiltration.html">DensityFiltration</a></li>
 </ul>
 </li>
 </ul>
@@ -287,7 +326,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/metaestimators.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.metaestimators</span></code>: Meta-estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/base/gtda.metaestimators.CollectionTransformer.html">CollectionTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
@@ -324,6 +367,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
@@ -333,6 +377,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
@@ -378,6 +423,15 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#betti-curves">Betti Curves</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#new-distances-in-the-embedding-space-knn-graphs-and-geodesic-distances">New distances in the embedding space: kNN graphs and geodesic distances</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/MNIST_classification.html">Classifying handwritten digits</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#load-the-mnist-dataset">Load the MNIST dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#from-pixels-to-topological-features">From pixels to topological features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#building-a-full-blown-feature-extraction-pipeline">Building a full-blown feature extraction pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#training-a-classifier">Training a classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#using-hyperparameter-search-with-topological-pipelines">Using hyperparameter search with topological pipelines</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a><ul>
@@ -485,22 +539,45 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release.html">Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-2">Release 0.2.2</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-3-0">Release 0.3.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-2">Release 0.2.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id79">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id80">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id81">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id82">Thanks to our Contributors</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-1">Release 0.2.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id1">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id2">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id3">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id4">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id83">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id84">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id85">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id86">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-0">Release 0.2.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id5">Major Features and Improvements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id87">Major Features and Improvements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
@@ -511,43 +588,43 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id6">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id7">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id8">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id88">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id89">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id90">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-4">Release 0.1.4</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#library-name-change">Library name change</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#change-of-license">Change of license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id9">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id10">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id11">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id12">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id91">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id92">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id93">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id94">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-3">Release 0.1.3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id13">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id14">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id15">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id16">Thanks to our Contributors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id17">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id18">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id19">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id20">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id95">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id96">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id97">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id98">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id99">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id100">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id101">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id102">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-1">Release 0.1.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id21">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id22">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id23">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id24">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id103">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id104">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id105">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id106">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-0">Release 0.1.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id25">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id26">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id27">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id28">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id107">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id108">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id109">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id110">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1a-0">Release 0.1a.0</a></li>
@@ -627,9 +704,9 @@
 <span></span><span class="sd">&quot;&quot;&quot;Filtrations of 2D/3D binary images.&quot;&quot;&quot;</span>
 <span class="c1"># License: GNU AGPLv3</span>
 
-<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
+<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Integral</span>
 <span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">FunctionType</span>
-<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span><span class="p">,</span> <span class="n">effective_n_jobs</span>
@@ -639,6 +716,7 @@
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">check_is_fitted</span>
 
 <span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">_dilate</span><span class="p">,</span> <span class="n">_erode</span>
+<span class="kn">from</span> <span class="nn">.preprocessing</span> <span class="kn">import</span> <span class="n">Padder</span>
 <span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">PlotterMixin</span>
 <span class="kn">from</span> <span class="nn">..plotting</span> <span class="kn">import</span> <span class="n">plot_heatmap</span>
 <span class="kn">from</span> <span class="nn">..utils._docs</span> <span class="kn">import</span> <span class="n">adapt_fit_transform_docs</span>
@@ -689,12 +767,14 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    gtda.homology.CubicalPersistence, Binarizer</span>
+<span class="sd">    RadialFiltration, DilationFiltration, ErosionFiltration, \</span>
+<span class="sd">    SignedDistanceFiltration, DensityFiltration, \</span>
+<span class="sd">    gtda.homology.CubicalPersistence</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] A. Garin and G. Tauzin, &quot;A topological reading lesson:</span>
-<span class="sd">           Classification of MNIST  using  TDA&quot;; 19th International IEEE</span>
+<span class="sd">           Classification of MNIST using TDA&quot;; 19th International IEEE</span>
 <span class="sd">           Conference on Machine Learning and Applications (ICMLA 2020), 2019;</span>
 <span class="sd">           `arXiv:1910.08345 &lt;https://arxiv.org/abs/1910.08345&gt;`_.</span>
 
@@ -718,7 +798,7 @@
         <span class="k">return</span> <span class="n">Xh</span>
 
 <div class="viewcode-block" id="HeightFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.HeightFiltration.html#gtda.images.HeightFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate :attr:`direction_`, :attr:`n_dimensions_`, :attr:`mesh_`</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_dimensions_`, :attr:`direction_`, :attr:`mesh_`</span>
 <span class="sd">        and :attr:`max_value_` from a collection of binary images. Then,</span>
 <span class="sd">        return the estimator.</span>
 
@@ -742,9 +822,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">):</span>
-            <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
-                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
 
@@ -788,8 +868,8 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Xt : ndarray of shape (n_samples, n_pixels_x,</span>
-<span class="sd">            n_pixels_y [, n_pixels_z])</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_pixels_x, n_pixels_y \</span>
+<span class="sd">            [, n_pixels_z])</span>
 <span class="sd">            Transformed collection of images. Each entry along axis 0 is a</span>
 <span class="sd">            2D or 3D greyscale image.</span>
 
@@ -887,7 +967,7 @@
 <span class="sd">        two arrays from the entry in `X` as input, and return a value</span>
 <span class="sd">        indicating the distance between them.</span>
 
-<span class="sd">    metric_params : dict or None, optional, default: ``None``</span>
+<span class="sd">    metric_params : dict or None, optional, default: ``{}``</span>
 <span class="sd">        Additional keyword arguments for the metric function.</span>
 
 <span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
@@ -903,11 +983,6 @@
 <span class="sd">    center_ : ndarray of shape (:attr:`n_dimensions_`,)</span>
 <span class="sd">        Effective center of the radial filtration. Set in :meth:`fit`.</span>
 
-<span class="sd">    effective_metric_params_ : dict</span>
-<span class="sd">        Dictionary containing all information present in</span>
-<span class="sd">        `metric_params`. If `metric_params` is ``None``, it is set to</span>
-<span class="sd">        the empty dictionary.</span>
-
 <span class="sd">    mesh_ : ndarray of shape ( n_pixels_x, n_pixels_y [, n_pixels_z])</span>
 <span class="sd">        greyscale image corresponding to the radial filtration of a binary</span>
 <span class="sd">        image where each pixel is activated. Set in :meth:`fit`.</span>
@@ -918,26 +993,28 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    gtda.homology.CubicalPersistence, Binarizer</span>
+<span class="sd">    HeightFiltration, DilationFiltration, ErosionFiltration, \</span>
+<span class="sd">    SignedDistanceFiltration, DensityFiltration, \</span>
+<span class="sd">    gtda.homology.CubicalPersistence</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] A. Garin and G. Tauzin, &quot;A topological reading lesson:</span>
-<span class="sd">           Classification of MNIST  using  TDA&quot;; 19th International IEEE</span>
+<span class="sd">           Classification of MNIST using TDA&quot;; 19th International IEEE</span>
 <span class="sd">           Conference on Machine Learning and Applications (ICMLA 2020), 2019;</span>
 <span class="sd">           `arXiv:1910.08345 &lt;https://arxiv.org/abs/1910.08345&gt;`_.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;center&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)),</span> <span class="s1">&#39;of&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">}},</span>
+        <span class="s1">&#39;center&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)),</span> <span class="s1">&#39;of&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Integral</span><span class="p">}},</span>
         <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)},</span>
         <span class="s1">&#39;metric&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">FunctionType</span><span class="p">)},</span>
-        <span class="s1">&#39;metric_params&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))}</span>
+        <span class="s1">&#39;metric_params&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">}</span>
         <span class="p">}</span>
 
 <div class="viewcode-block" id="RadialFiltration.__init__"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.RadialFiltration.html#gtda.images.RadialFiltration.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span>
-                 <span class="n">metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">metric_params</span><span class="o">=</span><span class="p">{},</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">center</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
@@ -954,9 +1031,9 @@
         <span class="k">return</span> <span class="n">Xr</span>
 
 <div class="viewcode-block" id="RadialFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.RadialFiltration.html#gtda.images.RadialFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate :attr:`center_`, :attr:`effective_metric_params_`,</span>
-<span class="sd">        :attr:`n_dimensions_`, :attr:`mesh_` and :attr:`max_value_` from a</span>
-<span class="sd">        collection of binary images. Then, return the estimator.</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`center_`, :attr:`n_dimensions_`, :attr:`mesh_` and</span>
+<span class="sd">        :attr:`max_value_` from a collection of binary images. Then, return the</span>
+<span class="sd">        estimator.</span>
 
 <span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
 <span class="sd">        work in pipelines.</span>
@@ -978,9 +1055,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">):</span>
-            <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
-                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
 
@@ -989,11 +1066,6 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">center_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">center_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">center_</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
         <span class="n">axis_order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
         <span class="n">mesh_range_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -1004,12 +1076,12 @@
             <span class="n">axis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mesh_</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">center_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mesh_</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
-            <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+            <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mesh_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mesh_</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span> <span class="o">=</span> <span class="mf">0.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_radial</span><span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))))</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_value_</span> <span class="o">=</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_radial</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))))</span> <span class="o">+</span> <span class="mi">1</span>
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -1123,6 +1195,9 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
+<span class="sd">    n_dimensions_ : ``2`` or ``3``</span>
+<span class="sd">        Dimension of the images. Set in :meth:`fit`.</span>
+
 <span class="sd">    n_iterations_ : int</span>
 <span class="sd">        Effective number of iterations in the dilation process. Set in</span>
 <span class="sd">        :meth:`fit`.</span>
@@ -1133,12 +1208,14 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    gtda.homology.CubicalPersistence, Binarizer</span>
+<span class="sd">    HeightFiltration, RadialFiltration, ErosionFiltration, \</span>
+<span class="sd">    SignedDistanceFiltration, DensityFiltration, \</span>
+<span class="sd">    gtda.homology.CubicalPersistence</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] A. Garin and G. Tauzin, &quot;A topological reading lesson:</span>
-<span class="sd">           Classification of MNIST  using  TDA&quot;; 19th International IEEE</span>
+<span class="sd">           Classification of MNIST using TDA&quot;; 19th International IEEE</span>
 <span class="sd">           Conference on Machine Learning and Applications (ICMLA 2020), 2019;</span>
 <span class="sd">           `arXiv:1910.08345 &lt;https://arxiv.org/abs/1910.08345&gt;`_.</span>
 
@@ -1162,8 +1239,9 @@
         <span class="k">return</span> <span class="n">Xd</span>
 
 <div class="viewcode-block" id="DilationFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.DilationFiltration.html#gtda.images.DilationFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_iterations_` and :attr:`max_value_` from a</span>
-<span class="sd">        collection of binary images. Then, return the estimator.</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_dimensions_`, :attr:`n_iterations_` and</span>
+<span class="sd">        :attr:`max_value_` from a collection of binary images. Then, return the</span>
+<span class="sd">        estimator.</span>
 
 <span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
 <span class="sd">        work in pipelines.</span>
@@ -1184,11 +1262,10 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-        <span class="n">n_dimensions</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n_dimensions</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n_dimensions</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">):</span>
-            <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
-                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
 
@@ -1312,6 +1389,9 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
+<span class="sd">    n_dimensions_ : ``2`` or ``3``</span>
+<span class="sd">        Dimension of the images. Set in :meth:`fit`.</span>
+
 <span class="sd">    n_iterations_ : int</span>
 <span class="sd">        Effective number of iterations in the erosion process. Set in</span>
 <span class="sd">        :meth:`fit`.</span>
@@ -1322,12 +1402,14 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    gtda.homology.CubicalPersistence, Binarizer</span>
+<span class="sd">    HeightFiltration, RadialFiltration, DilationFiltration, \</span>
+<span class="sd">    SignedDistanceFiltration, DensityFiltration, \</span>
+<span class="sd">    gtda.homology.CubicalPersistence</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] A. Garin and G. Tauzin, &quot;A topological reading lesson:</span>
-<span class="sd">           Classification of MNIST  using  TDA&quot;; 19th International IEEE</span>
+<span class="sd">           Classification of MNIST using TDA&quot;; 19th International IEEE</span>
 <span class="sd">           Conference on Machine Learning and Applications (ICMLA 2020), 2019;</span>
 <span class="sd">           `arXiv:1910.08345 &lt;https://arxiv.org/abs/1910.08345&gt;`_.</span>
 
@@ -1351,8 +1433,9 @@
         <span class="k">return</span> <span class="n">Xe</span>
 
 <div class="viewcode-block" id="ErosionFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.ErosionFiltration.html#gtda.images.ErosionFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_iterations_` and :attr:`max_value_` from a</span>
-<span class="sd">        collection of binary images. Then, return the estimator.</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_dimensions_`, :attr:`n_iterations_` and</span>
+<span class="sd">        :attr:`max_value_` from a collection of binary images. Then, return the</span>
+<span class="sd">        estimator.</span>
 
 <span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
 <span class="sd">        work in pipelines.</span>
@@ -1373,10 +1456,10 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">n_dimensions</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n_dimensions</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n_dimensions</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">):</span>
-            <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
-                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
 
@@ -1502,6 +1585,9 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
+<span class="sd">    n_dimensions_ : ``2`` or ``3``</span>
+<span class="sd">        Dimension of the images. Set in :meth:`fit`.</span>
+
 <span class="sd">    n_iterations_ : int</span>
 <span class="sd">        Effective number of iterations in the dilation process. Set in</span>
 <span class="sd">        :meth:`fit`.</span>
@@ -1512,13 +1598,13 @@
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    gtda.homology.CubicalPersistence, Binarizer, ErosionFiltration, \</span>
-<span class="sd">    DilationFiltration</span>
+<span class="sd">    HeightFiltration, RadialFiltration, DilationFiltration, \</span>
+<span class="sd">    ErosionFiltration, DensityFiltration, gtda.homology.CubicalPersistence</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] A. Garin and G. Tauzin, &quot;A topological reading lesson:</span>
-<span class="sd">           Classification of MNIST  using  TDA&quot;; 19th International IEEE</span>
+<span class="sd">           Classification of MNIST using TDA&quot;; 19th International IEEE</span>
 <span class="sd">           Conference on Machine Learning and Applications (ICMLA 2020), 2019;</span>
 <span class="sd">           `arXiv:1910.08345 &lt;https://arxiv.org/abs/1910.08345&gt;`_.</span>
 
@@ -1549,8 +1635,9 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">Xd</span> <span class="o">+</span> <span class="n">Xe</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SignedDistanceFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html#gtda.images.SignedDistanceFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_iterations_` and :attr:`max_value_` from a</span>
-<span class="sd">        collection of binary images. Then, return the estimator.</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_dimensions_`, :attr:`n_iterations_` and</span>
+<span class="sd">        :attr:`max_value_` from a collection of binary images. Then, return the</span>
+<span class="sd">        estimator.</span>
 
 <span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
 <span class="sd">        work in pipelines.</span>
@@ -1571,10 +1658,10 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">n_dimensions</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n_dimensions</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n_dimensions</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">):</span>
-            <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
-                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
         <span class="n">validate_params</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
 
@@ -1622,6 +1709,248 @@
         <span class="k">return</span> <span class="n">Xt</span></div>
 
 <div class="viewcode-block" id="SignedDistanceFiltration.plot"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html#gtda.images.SignedDistanceFiltration.plot">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;greys&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">,</span>
+             <span class="n">plotly_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of 2D greyscale images.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_pixels_x, n_pixels_y)</span>
+<span class="sd">            Collection of 2D greyscale images, such as returned by</span>
+<span class="sd">            :meth:`transform`.</span>
+
+<span class="sd">        sample : int, optional, default: ``0``</span>
+<span class="sd">            Index of the sample in `Xt` to be plotted.</span>
+
+<span class="sd">        colorscale : str, optional, default: ``&#39;greys&#39;``</span>
+<span class="sd">            Color scale to be used in the heat map. Can be anything allowed by</span>
+<span class="sd">            :class:`plotly.graph_objects.Heatmap`.</span>
+
+<span class="sd">        origin : ``&#39;upper&#39;`` | ``&#39;lower&#39;``, optional, default: ``&#39;upper&#39;``</span>
+<span class="sd">            Position of the [0, 0] pixel of `data`, in the upper left or lower</span>
+<span class="sd">            left corner. The convention ``&#39;upper&#39;`` is typically used for</span>
+<span class="sd">            matrices and images.</span>
+
+<span class="sd">        plotly_params : dict or None, optional, default: ``None``</span>
+<span class="sd">            Custom parameters to configure the plotly figure. Allowed keys are</span>
+<span class="sd">            ``&quot;trace&quot;`` and ``&quot;layout&quot;``, and the corresponding values should</span>
+<span class="sd">            be dictionaries containing keyword arguments as would be fed to the</span>
+<span class="sd">            :meth:`update_traces` and :meth:`update_layout` methods of</span>
+<span class="sd">            :class:`plotly.graph_objects.Figure`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : :class:`plotly.graph_objects.Figure` object</span>
+<span class="sd">            Plotly figure.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">plot_heatmap</span><span class="p">(</span>
+            <span class="n">Xt</span><span class="p">[</span><span class="n">sample</span><span class="p">],</span> <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Signed-distance filtration of image </span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">plotly_params</span><span class="o">=</span><span class="n">plotly_params</span>
+            <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="DensityFiltration"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
+<span class="k">class</span> <span class="nc">DensityFiltration</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">,</span> <span class="n">PlotterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Filtrations of 2D/3D binary images based on the number of activated</span>
+<span class="sd">    neighboring pixels.</span>
+
+<span class="sd">    The density filtration assigns to each pixel of a binary image a greyscale</span>
+<span class="sd">    value equal to the number of activated pixels within a ball centered around</span>
+<span class="sd">    it.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    radius : float, optional, default: ``1.``</span>
+<span class="sd">        The radius of the ball within which the number of activated pixels is</span>
+<span class="sd">        considered.</span>
+
+<span class="sd">    metric : string or callable, optional, default: ``&#39;euclidean&#39;``</span>
+<span class="sd">        Determines a rule with which to calculate distances between</span>
+<span class="sd">        pairs of pixels.</span>
+<span class="sd">        If ``metric`` is a string, it must be one of the options allowed by</span>
+<span class="sd">        ``scipy.spatial.distance.pdist`` for its metric parameter, or a metric</span>
+<span class="sd">        listed in ``sklearn.pairwise.PAIRWISE_DISTANCE_FUNCTIONS``, including</span>
+<span class="sd">        &quot;euclidean&quot;, &quot;manhattan&quot;, or &quot;cosine&quot;.</span>
+<span class="sd">        If ``metric`` is a callable function, it is called on each pair of</span>
+<span class="sd">        instances and the resulting value recorded. The callable should take</span>
+<span class="sd">        two arrays from the entry in `X` as input, and return a value</span>
+<span class="sd">        indicating the distance between them.</span>
+
+<span class="sd">    metric_params : dict, optional, default: ``{}``</span>
+<span class="sd">        Additional keyword arguments for the metric function.</span>
+
+<span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
+<span class="sd">        The number of jobs to use for the computation. ``None`` means 1 unless</span>
+<span class="sd">        in a :obj:`joblib.parallel_backend` context. ``-1`` means using all</span>
+<span class="sd">        processors.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_dimensions_ : ``2`` or ``3``</span>
+<span class="sd">        Dimension of the images. Set in :meth:`fit`.</span>
+
+<span class="sd">    mask_ : ndarray of shape (radius, radius [, radius])</span>
+<span class="sd">        The mask applied around each pixel to calculate the weighted number of</span>
+<span class="sd">        its activated neighbors. Set in :meth:`fit`.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    HeightFiltration, RadialFiltration, DilationFiltration, \</span>
+<span class="sd">    ErosionFiltration, SignedDistanceFiltration, \</span>
+<span class="sd">    gtda.homology.CubicalPersistence</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    [1] A. Garin and G. Tauzin, &quot;A topological reading lesson: Classification</span>
+<span class="sd">        of MNIST  using  TDA&quot;; 19th International IEEE Conference on Machine</span>
+<span class="sd">        Learning and Applications (ICMLA 2020), 2019; arXiv: `1910.08345 \</span>
+<span class="sd">        &lt;https://arxiv.org/abs/1910.08345&gt;`_.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)},</span>
+        <span class="s1">&#39;metric&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">FunctionType</span><span class="p">)},</span>
+        <span class="s1">&#39;metric_params&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">},</span>
+        <span class="p">}</span>
+
+<div class="viewcode-block" id="DensityFiltration.__init__"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">metric_params</span><span class="o">=</span><span class="p">{},</span>
+                 <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span> <span class="o">=</span> <span class="n">metric_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+    <span class="k">def</span> <span class="nf">_calculate_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">Xd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="c1"># The idea behind this is to sum up pixel values of the image</span>
+        <span class="c1"># rolled according to the 3D mask</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iterator</span><span class="p">:</span>
+            <span class="n">Xd</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">j</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">i</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> \
+                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">Xd</span>
+
+<div class="viewcode-block" id="DensityFiltration.fit"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate :attr:`n_dimensions_` and :attr:`mask_` from a collection</span>
+<span class="sd">        of binary images. Then, return the estimator.</span>
+
+<span class="sd">        This method is here to implement the usual scikit-learn API and hence</span>
+<span class="sd">        work in pipelines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_pixels_x, n_pixels_y [, n_pixels_z])</span>
+<span class="sd">            Input data. Each entry along axis 0 is interpreted as a 2D or 3D</span>
+<span class="sd">            binary image.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need of a target in a transformer, yet the pipeline API</span>
+<span class="sd">            requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input of `fit` contains arrays of dimension &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">validate_params</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hyperparameters</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Determine the size of the mask based on the radius and metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span>
+            <span class="n">pairwise_distances</span><span class="p">([[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">]],</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
+                               <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span><span class="p">)</span>
+            <span class="p">))</span>
+        <span class="c1"># The mask is always 3D but not the iterator.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mask_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span>
+                             <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+
+        <span class="c1"># Create an iterator for applying the mask to every pixel at once</span>
+        <span class="n">iterator_size_list</span> <span class="o">=</span> \
+            <span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">+</span> \
+            <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_iterator</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">iterator_size_list</span><span class="p">))</span>
+
+        <span class="c1"># We create a mesh so that we have an array with coordinates and we can</span>
+        <span class="c1"># calculate the distance of each point to the center</span>
+        <span class="n">mesh_size_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mesh_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="n">mesh_size_list</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+        <span class="c1"># Calculate those distances to the center and use them to set the mask</span>
+        <span class="c1"># values so that it corresponds to a ball</span>
+        <span class="n">center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mask_</span> <span class="o">=</span> <span class="n">pairwise_distances</span><span class="p">(</span>
+            <span class="n">center</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mesh_</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
+            <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mask_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+
+        <span class="c1"># Instantiate a padder to pad all images with 0 so that the rolling of</span>
+        <span class="c1"># the mask also works at the boundary of the images</span>
+        <span class="n">padding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="o">*</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="p">,</span>
+                              <span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span><span class="p">)])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_padder</span> <span class="o">=</span> <span class="n">Padder</span><span class="p">(</span><span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_padder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DensityFiltration.transform"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For each binary image in the collection `X`, calculate a</span>
+<span class="sd">        corresponding greyscale image based on the density of its pixels.</span>
+<span class="sd">        Return the collection of greyscale images.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : ndarray of shape (n_samples, n_pixels_x, n_pixels_y [, n_pixels_z])</span>
+<span class="sd">            Input data. Each entry along axis 0 is interpreted as a 2D or 3D</span>
+<span class="sd">            binary image.</span>
+
+<span class="sd">        y : None</span>
+<span class="sd">            There is no need of a target in a transformer, yet the pipeline API</span>
+<span class="sd">            requires this parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Xt : ndarray of shape (n_samples, n_pixels_x, n_pixels_y \</span>
+<span class="sd">            [, n_pixels_z])</span>
+<span class="sd">            Transformed collection of images. Each entry along axis 0 is a</span>
+<span class="sd">            2D or 3D greyscale image.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Reshape the images to 3D so that they can be rolled according to the</span>
+        <span class="c1"># 3D mask</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_padder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_density</span><span class="p">)(</span><span class="n">Xt</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gen_even_slices</span><span class="p">(</span><span class="n">Xt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                     <span class="n">effective_n_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)))</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_dimensions_</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">]</span>
+
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">Xt</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Xt</span></div>
+
+<div class="viewcode-block" id="DensityFiltration.plot"><a class="viewcode-back" href="../../../modules/generated/images/gtda.images.DensityFiltration.html#gtda.images.DensityFiltration.plot">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;greys&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">,</span>
              <span class="n">plotly_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot a sample from a collection of 2D greyscale images.</span>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Entropy &mdash; giotto-tda 0.2.2 documentation</title>
+  <title>Entropy &mdash; giotto-tda 0.3.0 documentation</title>
   
 
   
@@ -105,7 +105,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../library.html#what-s-new">What’s new</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../library.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../library.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../library.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../library.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
@@ -175,12 +191,21 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../homology.html#undirected-simplicial-homology">Undirected simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../homology.html#directed-simplicial-homology">Directed simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../homology.html#cubical-homology">Cubical homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -205,6 +230,19 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../diagrams.html#features">Features</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../diagrams/features/gtda.diagrams.Amplitude.html">Amplitude</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../diagrams/features/gtda.diagrams.PersistenceEntropy.html">PersistenceEntropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../diagrams/features/gtda.diagrams.NumberOfPoints.html">NumberOfPoints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../diagrams/features/gtda.diagrams.ComplexPolynomial.html">ComplexPolynomial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../curves.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.curves</span></code>: Curves</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../curves.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../curves/preprocessing/gtda.curves.Derivative.html">Derivative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../curves.html#feature-extraction">Feature extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../curves/gtda.curves.StandardFeatures.html">StandardFeatures</a></li>
 </ul>
 </li>
 </ul>
@@ -267,6 +305,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../images/gtda.images.DilationFiltration.html">DilationFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../images/gtda.images.ErosionFiltration.html">ErosionFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../images/gtda.images.SignedDistanceFiltration.html">SignedDistanceFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../images/gtda.images.DensityFiltration.html">DensityFiltration</a></li>
 </ul>
 </li>
 </ul>
@@ -289,7 +328,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../metaestimators.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.metaestimators</span></code>: Meta-estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../base/gtda.metaestimators.CollectionTransformer.html">CollectionTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
@@ -326,6 +369,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
@@ -335,6 +379,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
@@ -380,6 +425,15 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/lorenz_attractor.html#betti-curves">Betti Curves</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/lorenz_attractor.html#new-distances-in-the-embedding-space-knn-graphs-and-geodesic-distances">New distances in the embedding space: kNN graphs and geodesic distances</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/MNIST_classification.html">Classifying handwritten digits</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/MNIST_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/MNIST_classification.html#load-the-mnist-dataset">Load the MNIST dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/MNIST_classification.html#from-pixels-to-topological-features">From pixels to topological features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/MNIST_classification.html#building-a-full-blown-feature-extraction-pipeline">Building a full-blown feature extraction pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/MNIST_classification.html#training-a-classifier">Training a classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/MNIST_classification.html#using-hyperparameter-search-with-topological-pipelines">Using hyperparameter search with topological pipelines</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../notebooks/voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a><ul>
@@ -487,22 +541,45 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release.html">Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-2-2">Release 0.2.2</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-3-0">Release 0.3.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../release.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../release.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../release.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../release.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-2-2">Release 0.2.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id79">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id80">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id81">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id82">Thanks to our Contributors</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-2-1">Release 0.2.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id1">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id2">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id3">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id4">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id83">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id84">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id85">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id86">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-2-0">Release 0.2.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id5">Major Features and Improvements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id87">Major Features and Improvements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../release.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../release.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../release.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
@@ -513,43 +590,43 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../release.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id6">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id7">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id8">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id88">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id89">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id90">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-1-4">Release 0.1.4</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../release.html#library-name-change">Library name change</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../release.html#change-of-license">Change of license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id9">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id10">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id11">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id12">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id91">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id92">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id93">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id94">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-1-3">Release 0.1.3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id13">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id14">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id15">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id16">Thanks to our Contributors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id17">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id18">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id19">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id20">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id95">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id96">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id97">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id98">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id99">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id100">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id101">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id102">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-1-1">Release 0.1.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id21">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id22">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id23">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id24">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id103">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id104">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id105">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id106">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-1-0">Release 0.1.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id25">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id26">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id27">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id28">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id107">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id108">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id109">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../release.html#id110">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../release.html#release-0-1a-0">Release 0.1a.0</a></li>

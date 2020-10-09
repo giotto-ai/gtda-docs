@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gtda.graphs.kneighbors &mdash; giotto-tda 0.2.2 documentation</title>
+  <title>gtda.graphs.kneighbors &mdash; giotto-tda 0.3.0 documentation</title>
   
 
   
@@ -103,7 +103,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../library.html#what-s-new">What’s new</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
@@ -173,12 +189,21 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/homology.html#undirected-simplicial-homology">Undirected simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.VietorisRipsPersistence.html">VietorisRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/homology.html#directed-simplicial-homology">Directed simplicial homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.FlagserPersistence.html">FlagserPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/homology.html#cubical-homology">Cubical homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/homology/gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
@@ -203,6 +228,19 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/diagrams.html#features">Features</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.Amplitude.html">Amplitude</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.PersistenceEntropy.html">PersistenceEntropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.NumberOfPoints.html">NumberOfPoints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/diagrams/features/gtda.diagrams.ComplexPolynomial.html">ComplexPolynomial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/curves.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.curves</span></code>: Curves</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/curves.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/curves/preprocessing/gtda.curves.Derivative.html">Derivative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/curves.html#feature-extraction">Feature extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/curves/gtda.curves.StandardFeatures.html">StandardFeatures</a></li>
 </ul>
 </li>
 </ul>
@@ -265,6 +303,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.DilationFiltration.html">DilationFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.ErosionFiltration.html">ErosionFiltration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.SignedDistanceFiltration.html">SignedDistanceFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/generated/images/gtda.images.DensityFiltration.html">DensityFiltration</a></li>
 </ul>
 </li>
 </ul>
@@ -287,7 +326,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../modules/validation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/metaestimators.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.metaestimators</span></code>: Meta-estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/base/gtda.metaestimators.CollectionTransformer.html">CollectionTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_collection.html">check_collection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../modules/generated/utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
@@ -324,6 +367,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
@@ -333,6 +377,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#see-also">See also</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
@@ -378,6 +423,15 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#betti-curves">Betti Curves</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#new-distances-in-the-embedding-space-knn-graphs-and-geodesic-distances">New distances in the embedding space: kNN graphs and geodesic distances</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/MNIST_classification.html">Classifying handwritten digits</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#load-the-mnist-dataset">Load the MNIST dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#from-pixels-to-topological-features">From pixels to topological features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#building-a-full-blown-feature-extraction-pipeline">Building a full-blown feature extraction pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#training-a-classifier">Training a classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#using-hyperparameter-search-with-topological-pipelines">Using hyperparameter search with topological pipelines</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../notebooks/voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a><ul>
@@ -485,22 +539,45 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release.html">Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-2">Release 0.2.2</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-3-0">Release 0.3.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#bug-fixes">Bug Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-2">Release 0.2.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id79">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id80">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id81">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id82">Thanks to our Contributors</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-1">Release 0.2.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id1">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id2">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id3">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id4">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id83">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id84">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id85">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id86">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-0">Release 0.2.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id5">Major Features and Improvements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id87">Major Features and Improvements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
@@ -511,43 +588,43 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../release.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id6">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id7">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id8">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id88">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id89">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id90">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-4">Release 0.1.4</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#library-name-change">Library name change</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../release.html#change-of-license">Change of license</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id9">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id10">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id11">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id12">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id91">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id92">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id93">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id94">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-3">Release 0.1.3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id13">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id14">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id15">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id16">Thanks to our Contributors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id17">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id18">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id19">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id20">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id95">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id96">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id97">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id98">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id99">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id100">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id101">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id102">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-1">Release 0.1.1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id21">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id22">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id23">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id24">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id103">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id104">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id105">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id106">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-0">Release 0.1.0</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id25">Major Features and Improvements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id26">Bug Fixes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id27">Backwards-Incompatible Changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id28">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id107">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id108">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id109">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id110">Thanks to our Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1a-0">Release 0.1a.0</a></li>
@@ -640,22 +717,19 @@
 
 <div class="viewcode-block" id="KNeighborsGraph"><a class="viewcode-back" href="../../../modules/generated/graphs/creation/gtda.graphs.KNeighborsGraph.html#gtda.graphs.KNeighborsGraph">[docs]</a><span class="nd">@adapt_fit_transform_docs</span>
 <span class="k">class</span> <span class="nc">KNeighborsGraph</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Adjacency matrices of k-nearest neighbor graphs.</span>
+    <span class="sd">&quot;&quot;&quot;Adjacency matrices of :math:`k`-nearest neighbor graphs.</span>
 
 <span class="sd">    Given a two-dimensional array of row vectors seen as points in</span>
-<span class="sd">    high-dimensional space, the corresponding kNN graph is a simple,</span>
-<span class="sd">    undirected and unweighted graph with a vertex for every vector in the</span>
-<span class="sd">    array, and an edge between two vertices whenever either the first</span>
-<span class="sd">    corresponding vector is among the k nearest neighbors of the</span>
-<span class="sd">    second, or vice-versa.</span>
-
-<span class="sd">    :func:`sklearn.neighbors.kneighbors_graph` is used to compute the</span>
-<span class="sd">    adjacency matrices of kNN graphs.</span>
+<span class="sd">    high-dimensional space, the corresponding :math:`k`NN graph is a directed</span>
+<span class="sd">    graph with a vertex for every vector in the array, and a directed edge from</span>
+<span class="sd">    vertex :math:`i` to vertex :math:`j \\neq i` whenever vector :math:`j` is</span>
+<span class="sd">    among the :math:`k` nearest neighbors of vector :math:`i`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    n_neighbors : int, optional, default: ``4``</span>
-<span class="sd">        Number of neighbors to use.</span>
+<span class="sd">        Number of neighbors to use. A point is not considered as its own</span>
+<span class="sd">        neighbour.</span>
 
 <span class="sd">    mode : ``&#39;connectivity&#39;`` | ``&#39;distance&#39;``, optional, \</span>
 <span class="sd">        default: ``&#39;connectivity&#39;``</span>
@@ -664,30 +738,10 @@
 <span class="sd">        between neighbors according to the given metric.</span>
 
 <span class="sd">    metric : string or callable, optional, default: ``&#39;euclidean&#39;``</span>
-<span class="sd">        Metric to use for distance computation. Any metric from scikit-learn</span>
-<span class="sd">        or :mod:`scipy.spatial.distance` can be used.</span>
-<span class="sd">        If metric is a callable function, it is called on each</span>
-<span class="sd">        pair of instances (rows) and the resulting value recorded. The callable</span>
-<span class="sd">        should take two arrays as input and return one value indicating the</span>
-<span class="sd">        distance between them. This works for Scipy&#39;s metrics, but is less</span>
-<span class="sd">        efficient than passing the metric name as a string.</span>
-<span class="sd">        Distance matrices are not supported.</span>
-<span class="sd">        Valid values for `metric` are:</span>
-
-<span class="sd">        - from scikit-learn: [``&#39;cityblock&#39;``, ``&#39;cosine&#39;``, ``&#39;euclidean&#39;``,</span>
-<span class="sd">          ``&#39;l1&#39;``, ``&#39;l2&#39;``, ``&#39;manhattan&#39;``]</span>
-<span class="sd">        - from :mod:`scipy.spatial.distance`: [``&#39;braycurtis&#39;``,</span>
-<span class="sd">          ``&#39;canberra&#39;``, ``&#39;chebyshev&#39;``, ``&#39;correlation&#39;``, ``&#39;dice&#39;``,</span>
-<span class="sd">          ``&#39;hamming&#39;``, ``&#39;jaccard&#39;``, ``&#39;kulsinski&#39;``, ``&#39;mahalanobis&#39;``,</span>
-<span class="sd">          ``&#39;minkowski&#39;``, ``&#39;rogerstanimoto&#39;``, ``&#39;russellrao&#39;``,</span>
-<span class="sd">          ``&#39;seuclidean&#39;``, ``&#39;sokalmichener&#39;``, ``&#39;sokalsneath&#39;``,</span>
-<span class="sd">          ``&#39;sqeuclidean&#39;``, ``&#39;yule&#39;``]</span>
-
-<span class="sd">        See the documentation for :mod:`scipy.spatial.distance` for details on</span>
-<span class="sd">        these metrics.</span>
-
-<span class="sd">    metric_params : dict or None, optional, default: ``None``</span>
-<span class="sd">        Additional keyword arguments for the metric function.</span>
+<span class="sd">        The distance metric to use. See the documentation of</span>
+<span class="sd">        :class:`sklearn.neighbors.DistanceMetric` for a list of available</span>
+<span class="sd">        metrics. If set to ``&#39;precomputed&#39;``, input data is interpreted as a</span>
+<span class="sd">        collection of distance matrices.</span>
 
 <span class="sd">    p : int, optional, default: ``2``</span>
 <span class="sd">        Parameter for the Minkowski (i.e. :math:`\\ell^p`) metric from</span>
@@ -695,7 +749,7 @@
 <span class="sd">        when `metric` is ``&#39;minkowski&#39;``. `p` = 1 is the Manhattan distance,</span>
 <span class="sd">        and `p` = 2 reduces to the Euclidean distance.</span>
 
-<span class="sd">    metric_params : dict, optional, default: ``{}``</span>
+<span class="sd">    metric_params : dict or None, optional, default: ``None``</span>
 <span class="sd">        Additional keyword arguments for the metric function.</span>
 
 <span class="sd">    n_jobs : int or None, optional, default: ``None``</span>
@@ -723,9 +777,14 @@
 <span class="sd">    --------</span>
 <span class="sd">    TransitionGraph, GraphGeodesicDistance</span>
 
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    :func:`sklearn.neighbors.kneighbors_graph` is used to compute the</span>
+<span class="sd">    adjacency matrices of kNN graphs.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="KNeighborsGraph.__init__"><a class="viewcode-back" href="../../../modules/generated/graphs/creation/gtda.graphs.KNeighborsGraph.html#gtda.graphs.KNeighborsGraph.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;connectivity&#39;</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span>
+<div class="viewcode-block" id="KNeighborsGraph.__init__"><a class="viewcode-back" href="../../../modules/generated/graphs/creation/gtda.graphs.KNeighborsGraph.html#gtda.graphs.KNeighborsGraph.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;connectivity&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span>
                  <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">n_neighbors</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
@@ -743,9 +802,11 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        X : list of length n_samples, or ndarray of shape (n_samples, \</span>
-<span class="sd">            n_points, n_dimensions)</span>
+<span class="sd">            n_points, n_dimensions) or (n_samples, n_points, n_points)</span>
 <span class="sd">            Input data representing a collection of point clouds. Each entry</span>
-<span class="sd">            in `X` is a 2D array of shape ``(n_points, n_dimensions)``.</span>
+<span class="sd">            in `X` is a 2D array of shape ``(n_points, n_dimensions)`` if</span>
+<span class="sd">            `metric` is not ``&#39;precomputed&#39;``, or a 2D array of shape</span>
+<span class="sd">            ``(n_points, n_points)`` if `metric` is ``&#39;precomputed&#39;``.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -756,7 +817,8 @@
 <span class="sd">        self : object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_precomputed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">==</span> <span class="s1">&#39;precomputed&#39;</span>
+        <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">distance_matrices</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_is_precomputed</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span></div>
@@ -770,7 +832,9 @@
 <span class="sd">        X : list of length n_samples, or ndarray of shape (n_samples, \</span>
 <span class="sd">            n_points, n_dimensions)</span>
 <span class="sd">            Input data representing a collection of point clouds. Each entry</span>
-<span class="sd">            in `X` is a 2D array of shape ``(n_points, n_dimensions)``.</span>
+<span class="sd">            in `X` is a 2D array of shape ``(n_points, n_dimensions)`` if</span>
+<span class="sd">            `metric` is not ``&#39;precomputed&#39;``, or a 2D array of shape</span>
+<span class="sd">            ``(n_points, n_points)`` if `metric` is ``&#39;precomputed&#39;``.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -786,7 +850,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">distance_matrices</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_is_precomputed</span><span class="p">)</span>
 
         <span class="n">_adjacency_matrix_func</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span>
             <span class="n">kneighbors_graph</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
@@ -795,6 +859,7 @@
             <span class="p">)</span>
         <span class="n">Xt</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">_adjacency_matrix_func</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
                                           <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Xt</span><span class="p">)</span>
+
         <span class="k">return</span> <span class="n">Xt</span></div></div>
 </pre></div>
 

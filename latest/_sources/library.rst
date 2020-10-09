@@ -31,6 +31,8 @@ Guiding principles
 30s guide to ``giotto-tda``
 ***************************
 
+.. figure:: images/giotto-tda_workflow.png
+
 For installation instructions, see :ref:`the installation instructions <installation>`.
 
 The functionalities of ``giotto-tda`` are provided in ``scikit-learn``–style transformers.
@@ -114,5 +116,5 @@ What's new
 
 .. include::
    release.rst
-   :start-after: Release 0.2.2
-   :end-before: Release 0.2.1
+   :start-after: Release 0.3.0
+   :end-before: Release 0.2.2

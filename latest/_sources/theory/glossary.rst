@@ -150,8 +150,8 @@ inner product
 .. math:: \langle x, y \rangle = (x_1-y_1)^2 + \cdots + (x_n-y_n)^2.
 
 This inner product is referred to as *dot product* and the associated
-norm and distance function are respectively named *euclidean norm* and
-*euclidean distance*.
+norm and distance function are respectively named *Euclidean norm* and
+*Euclidean distance*.
 
 For any :math:`p \in (0,\infty]` the pair :math:`\mathbb R^n, ||-||_p`
 with
@@ -176,7 +176,7 @@ associated to it is obtained by choosing a total order on
 be equal to :math:`d(x_i, x_j)`.
 
 A *point cloud* is a finite subset of :math:`\mathbb{R}^n` (for some
-:math:`n`) together with the metric induced from the euclidean distance.
+:math:`n`) together with the metric induced from the Euclidean distance.
 
 .. _functional_lp:
 
@@ -686,7 +686,7 @@ where
 .. math:: ||\lambda_i||_p = \left( \int_{\mathbb R} \lambda_i^p(x)\, dx \right)^{1/p}
 
 is finite. In this case we refer to
-(`[equation:persistence_landscape_norm] <#equation:persistence_landscape_norm>`__)
+`[equation:persistence_landscape_norm] <#equation:persistence_landscape_norm>`__
 as the :math:`p`-*landscape norm* of :math:`D` and, for :math:`p = 2`,
 define the value of the *landscape kernel* on two persistence diagrams
 :math:`D` and :math:`E` as
@@ -746,7 +746,7 @@ heat vectorization* is constructed for every persistence diagram
 .. math::
 
    \begin{aligned}
-    \label{equation:heat_equation}
+    \label{equation: heat equation}
        \Delta_x(u) &= \partial_t u && \text{on } \Omega \times \mathbb R_{>0} \nonumber \\
        u &= 0 && \text{on } \{x_1 = x_2\} \times \mathbb R_{\geq 0} \\
        u &= \sum_{p \in D} \delta_p && \text{on } \Omega \times {0} \nonumber
@@ -754,7 +754,7 @@ heat vectorization* is constructed for every persistence diagram
 
 where :math:`\Omega = \{(x_1, x_2) \in \mathbb R^2\ |\ x_1 \leq x_2\}`,
 then solving the same equation after precomposing the data of
-(`[equation:heat_equation] <#equation:heat_equation>`__) with the change
+`[equation: heat equation] <#equation: heat equation>`__ with the change
 of coordinates :math:`(x_1, x_2) \mapsto (x_2, x_1)`, and defining the
 image of :math:`D` to be the difference between these two solutions at
 the chosen time :math:`t`.
@@ -762,7 +762,7 @@ the chosen time :math:`t`.
 Similarly, the *rotation heat vectorization* is defined by sending
 :math:`D` to the solution, evaluated at time :math:`t`, of the equation
 obtained by precomposing the data of
-(`[equation:heat_equation] <#equation:heat_equation>`__) with the change
+`[equation: heat equation] <#equation: heat equation>`__ with the change
 of coordinates :math:`(x_1, x_2) \mapsto (x_1, x_2-x_1)`.
 
 We recall that the solution to the heat equation with initial condition
