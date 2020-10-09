@@ -1,0 +1,1145 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VietorisRipsPersistence &mdash; giotto-tda 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/tda_favicon.svg"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="SparseRipsPersistence" href="gtda.homology.SparseRipsPersistence.html" />
+    <link rel="prev" title="gtda.homology: Persistent homology" href="../../homology.html" />
+<link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script>require=requirejs;</script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+  <a href="{/choose_version.html">Checkout other versions!</a>
+
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/tda_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../library.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#guiding-principles">Guiding principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#s-guide-to-giotto-tda">30s guide to <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#resources">Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#tutorials-and-examples">Tutorials and examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#use-cases">Use cases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../library.html#what-s-new">What’s new</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../library.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../library.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#user-installation">User installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#developer-installation">Developer installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#macos">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#windows">Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#id2">Boost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#pre-built-binaries">Pre-built binaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#source-code">Source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#already-installed-boost-version">Already installed Boost version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#id3">Source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#to-install">To install:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../mapper.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.mapper</span></code>: Mapper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../mapper.html#filters">Filters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/filters/gtda.mapper.Projection.html">Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/filters/gtda.mapper.Eccentricity.html">Eccentricity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/filters/gtda.mapper.Entropy.html">Entropy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../mapper.html#covers">Covers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/covers/gtda.mapper.OneDimensionalCover.html">OneDimensionalCover</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/covers/gtda.mapper.CubicalCover.html">CubicalCover</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../mapper.html#clustering">Clustering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/clustering/gtda.mapper.FirstSimpleGap.html">FirstSimpleGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/clustering/gtda.mapper.FirstHistogramGap.html">FirstHistogramGap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/clustering/gtda.mapper.ParallelClustering.html">ParallelClustering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../mapper.html#nerve-graph-construction">Nerve (graph construction)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/nerve/gtda.mapper.Nerve.html">Nerve</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../mapper.html#pipeline">Pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/pipeline/gtda.mapper.make_mapper_pipeline.html">make_mapper_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/pipeline/gtda.mapper.pipeline.MapperPipeline.html">MapperPipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../mapper.html#visualization">Visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/visualization/gtda.mapper.plot_static_mapper_graph.html">plot_static_mapper_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/visualization/gtda.mapper.plot_interactive_mapper_graph.html">plot_interactive_mapper_graph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../mapper.html#utilities">Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/utils/gtda.mapper.method_to_transform.html">method_to_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapper/utils/gtda.mapper.transformer_from_callable_on_rows.html">transformer_from_callable_on_rows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../homology.html#undirected-simplicial-homology">Undirected simplicial homology</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">VietorisRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gtda.homology.SparseRipsPersistence.html">SparseRipsPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gtda.homology.WeakAlphaPersistence.html">WeakAlphaPersistence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gtda.homology.EuclideanCechPersistence.html">EuclideanCechPersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../homology.html#directed-simplicial-homology">Directed simplicial homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homology.html#cubical-homology">Cubical homology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gtda.homology.CubicalPersistence.html">CubicalPersistence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../diagrams.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.diagrams</span></code>: Persistence diagrams</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../diagrams.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/preprocessing/gtda.diagrams.ForgetDimension.html">ForgetDimension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/preprocessing/gtda.diagrams.Scaler.html">Scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/preprocessing/gtda.diagrams.Filtering.html">Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../diagrams.html#distances">Distances</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/distances/gtda.diagrams.PairwiseDistance.html">PairwiseDistance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../diagrams.html#representations">Representations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/representations/gtda.diagrams.PersistenceLandscape.html">PersistenceLandscape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/representations/gtda.diagrams.BettiCurve.html">BettiCurve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/representations/gtda.diagrams.HeatKernel.html">HeatKernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/representations/gtda.diagrams.PersistenceImage.html">PersistenceImage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/representations/gtda.diagrams.Silhouette.html">Silhouette</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../diagrams.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/features/gtda.diagrams.Amplitude.html">Amplitude</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/features/gtda.diagrams.PersistenceEntropy.html">PersistenceEntropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/features/gtda.diagrams.NumberOfPoints.html">NumberOfPoints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../diagrams/features/gtda.diagrams.ComplexPolynomial.html">ComplexPolynomial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.curves</span></code>: Curves</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../curves.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../curves/preprocessing/gtda.curves.Derivative.html">Derivative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../curves.html#feature-extraction">Feature extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../curves/gtda.curves.StandardFeatures.html">StandardFeatures</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../point_clouds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.point_clouds</span></code>: Point clouds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gtda.point_clouds.ConsistentRescaling.html">ConsistentRescaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gtda.point_clouds.ConsecutiveRescaling.html">ConsecutiveRescaling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../time_series.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.time_series</span></code>: Time series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../time_series.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/preprocessing/gtda.time_series.SlidingWindow.html">SlidingWindow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/preprocessing/gtda.time_series.Resampler.html">Resampler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/preprocessing/gtda.time_series.Stationarizer.html">Stationarizer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../time_series.html#time-delay-embedding">Time-delay embedding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/embedding/gtda.time_series.TakensEmbedding.html">TakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/embedding/gtda.time_series.SingleTakensEmbedding.html">SingleTakensEmbedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/embedding/gtda.time_series.takens_embedding_optimal_parameters.html">takens_embedding_optimal_parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../time_series.html#target-preparation">Target preparation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/target_preparation/gtda.time_series.Labeller.html">Labeller</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../time_series.html#dynamical-systems">Dynamical systems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/dynamical_system/gtda.time_series.PermutationEntropy.html">PermutationEntropy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../time_series.html#multivariate">Multivariate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../time_series/multivariate/gtda.time_series.PearsonDissimilarity.html">PearsonDissimilarity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../graphs.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.graphs</span></code>: Graphs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../graphs.html#graph-creation">Graph creation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../graphs/creation/gtda.graphs.TransitionGraph.html">TransitionGraph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../graphs/creation/gtda.graphs.KNeighborsGraph.html">KNeighborsGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../graphs.html#graph-processing">Graph processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../graphs/processing/gtda.graphs.GraphGeodesicDistance.html">GraphGeodesicDistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../images.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.images</span></code>: Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../images.html#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.Binarizer.html">Binarizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.Inverter.html">Inverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.Padder.html">Padder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.ImageToPointCloud.html">ImageToPointCloud</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../images.html#filtrations">Filtrations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.HeightFiltration.html">HeightFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.RadialFiltration.html">RadialFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.DilationFiltration.html">DilationFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.ErosionFiltration.html">ErosionFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.SignedDistanceFiltration.html">SignedDistanceFiltration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../images/gtda.images.DensityFiltration.html">DensityFiltration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../plotting.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.plotting</span></code>: Plotting functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/gtda.plotting.plot_point_cloud.html">plot_point_cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/gtda.plotting.plot_heatmap.html">plot_heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/gtda.plotting.plot_diagram.html">plot_diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/gtda.plotting.plot_betti_curves.html">plot_betti_curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotting/gtda.plotting.plot_betti_surfaces.html">plot_betti_surfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.base</span></code>: Base</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../base/gtda.base.TransformerResamplerMixin.html">TransformerResamplerMixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../base/gtda.base.PlotterMixin.html">PlotterMixin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../pipeline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.pipeline</span></code>: Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../base/gtda.pipeline.Pipeline.html">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gtda.pipeline.make_pipeline.html">make_pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../metaestimators.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.metaestimators</span></code>: Meta-estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../base/gtda.metaestimators.CollectionTransformer.html">CollectionTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.utils</span></code>: Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_collection.html">check_collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_point_clouds.html">check_point_clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.check_diagrams.html">check_diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/gtda.utils.validate_params.html">validate_params</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/index.html">Tutorials and examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html">Topological feature extraction using <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">PersistenceEntropy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#generate-data">Generate data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#calculate-persistent-homology">Calculate persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#extract-features">Extract features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#use-the-new-features-in-a-standard-classifier">Use the new features in a standard classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/vietoris_rips_quickstart.html#encapsulate-the-steps-above-in-a-pipeline">Encapsulate the steps above in a pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/plotting_api.html">Plotting in <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/plotting_api.html#basic-philosophy-and-plot-methods">1. Basic philosophy and <code class="docutils literal notranslate"><span class="pre">plot</span></code> methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/plotting_api.html#derived-convenience-methods-transform-plot-and-fit-transform-plot">2 Derived convenience methods: <code class="docutils literal notranslate"><span class="pre">transform_plot</span></code> and <code class="docutils literal notranslate"><span class="pre">fit_transform_plot</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html">Getting started with Mapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#generate-and-visualise-data">Generate and visualise data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#configure-the-mapper-pipeline">Configure the Mapper pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-mapper-graph">Visualise the Mapper graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#run-the-mapper-pipeline">Run the Mapper pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#creating-custom-filter-functions">Creating custom filter functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_classification.html">Topology of time series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-periodic-example">A periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_classification.html#gravitational-wave-detection">Gravitational wave detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html">Topology in time series forecasting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#slidingwindow"><code class="docutils literal notranslate"><span class="pre">SlidingWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#multivariate-time-series-example-sliding-window-topology-pipeline">Multivariate time series example: Sliding window + topology <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#univariate-time-series-takensembedding-and-singletakensembedding">Univariate time series – <code class="docutils literal notranslate"><span class="pre">TakensEmbedding</span></code> and <code class="docutils literal notranslate"><span class="pre">SingleTakensEmbedding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#endogeneous-target-preparation-with-labeller">Endogeneous target preparation with <code class="docutils literal notranslate"><span class="pre">Labeller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/time_series_forecasting.html#where-to-next">Where to next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html">Topological feature extraction from graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#undirected-graphs-vietorisripspersistence-and-sparseripspersistence">Undirected graphs – <code class="docutils literal notranslate"><span class="pre">VietorisRipsPersistence</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#directed-graphs-flagserpersistence">Directed graphs – <code class="docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/persistent_homology_graphs.html#where-to-next">Where to next?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/examples.html">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/classifying_shapes.html">Case study: Classification of shapes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#sampling-orientable-surfaces">Sampling orientable surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#computing-persistent-homology">Computing persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#conclusion-of-the-first-part">Conclusion of the first part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#classification-of-noisy-orientable-surfaces">Classification of noisy orientable surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#extract-and-plot-persistent-entropies">Extract and plot persistent entropies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#generating-non-orientable-surfaces">Generating non-orientable surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#id1">Computing persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#id2">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/classifying_shapes.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html">Case study: Lorenz attractor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#import-libraries">Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#setting-up-the-lorenz-attractor-simulation">Setting up the Lorenz attractor simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#resampling-the-time-series">Resampling the time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#takens-embedding">Takens Embedding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#scikit-learnstyle-pipeline">Scikit-learn–style pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#rescaling-the-diagram">Rescaling the diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#filtering-diagrams">Filtering diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#persistence-entropy">Persistence entropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#betti-curves">Betti Curves</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#distances-among-diagrams">Distances among diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/lorenz_attractor.html#new-distances-in-the-embedding-space-knn-graphs-and-geodesic-distances">New distances in the embedding space: kNN graphs and geodesic distances</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/MNIST_classification.html">Classifying handwritten digits</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#load-the-mnist-dataset">Load the MNIST dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#create-train-and-test-sets">Create train and test sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#from-pixels-to-topological-features">From pixels to topological features</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#binarize-the-image">Binarize the image</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#building-a-full-blown-feature-extraction-pipeline">Building a full-blown feature extraction pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/MNIST_classification.html#using-hyperparameter-search-with-topological-pipelines">Using hyperparameter search with topological pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../notebooks/voids_on_the_plane.html">Can two-dimensional topological voids exist in two dimensions?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/voids_on_the_plane.html#import-libraries">Import libraries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/glossary.html">Theory Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#symbols">Symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#analysis">Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#metric-space">Metric space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#normed-space">Normed space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#inner-product-space">Inner product space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vectorization-amplitude-and-kernel">Vectorization, amplitude and kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#euclidean-distance-and-l-p-norms">Euclidean distance and <span class="math notranslate nohighlight">\(l^p\)</span>-norms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#distance-matrices-and-point-clouds">Distance matrices and point clouds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#l-p-norms"><span class="math notranslate nohighlight">\(L^p\)</span>-norms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#homology">Homology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cubical-complex">Cubical complex</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference">Reference:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#simplicial-complex">Simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#abstract-simplicial-complex">Abstract simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#ordered-simplicial-complex">Ordered simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#directed-simplicial-complex">Directed simplicial complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#chain-complex">Chain complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#homology-and-cohomology">Homology and cohomology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#simplicial-chains-and-simplicial-homology">Simplicial chains and simplicial homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cubical-chains-and-cubical-homology">Cubical chains and cubical homology</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#persistence">Persistence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#filtered-complex">Filtered complex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cellwise-filtration">Cellwise filtration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#clique-and-flag-complexes">Clique and flag complexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-module">Persistence module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistent-simplicial-co-homology">Persistent simplicial (co)homology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence">Vietoris-Rips complex and Vietoris-Rips persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#cech-complex-and-cech-persistence">Čech complex and Čech persistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#multiset">Multiset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram">Persistence diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#wasserstein-and-bottleneck-distance">Wasserstein and bottleneck distance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference-1">Reference:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-landscape">Persistence landscape</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#weighted-silhouette">Weighted silhouette</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-1">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#heat-vectorizations">Heat vectorizations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-2">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#persistence-entropy">Persistence entropy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-3">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#betti-curve">Betti curve</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#time-series">Time series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#id31">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#takens-embedding">Takens embedding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#reference-2">Reference:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#manifold">Manifold</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../theory/glossary.html#references-4">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/glossary.html#compact-subset">Compact subset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/glossary.html#bibliography">Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/index.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/index.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/index.html#essentials-for-contributing">Essentials for contributing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#contributor-license-agreement">Contributor License Agreement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#pull-requests">Pull requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#issues">Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/index.html#contribution-guidelines-and-standards">Contribution guidelines and standards</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#general-guidelines-and-philosophy-for-contribution">General guidelines and philosophy for contribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#c-coding-style">C++ coding style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#python-coding-style">Python coding style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#git-pre-commit-hook">Git pre-commit hook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../contributing/index.html#running-unit-tests">Running unit tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release.html">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-3-0">Release 0.3.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#major-features-and-improvements">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#persistent-homology-of-directed-flag-complexes-via-pyflagser">Persistent homology of directed flag complexes via <code class="docutils literal notranslate"><span class="pre">pyflagser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#edge-collapsing-and-performance-improvements-for-persistent-homology">Edge collapsing and performance improvements for persistent homology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-transformers-and-functionality-in-gtda-homology">New transformers and functionality in <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#persistence-diagrams">Persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-curves-subpackage">New <code class="docutils literal notranslate"><span class="pre">curves</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-metaestimators-subpackage">New <code class="docutils literal notranslate"><span class="pre">metaestimators</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#time-series">Time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#graphs">Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#mapper">Mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting">Plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-tutorials-and-examples">New tutorials and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#utils">Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#installation-improvements">Installation improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#backwards-incompatible-changes">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#thanks-to-our-contributors">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-2">Release 0.2.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id79">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id80">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id81">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id82">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-1">Release 0.2.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id83">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id84">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id85">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id86">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-2-0">Release 0.2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id87">Major Features and Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#plotting-functions-and-plotting-api">Plotting functions and plotting API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-homology">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.homology</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-images-subpackage">New <code class="docutils literal notranslate"><span class="pre">images</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#new-point-clouds-subpackage">New <code class="docutils literal notranslate"><span class="pre">point_clouds</span></code> subpackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#list-of-point-cloud-input">List of point cloud input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-diagrams">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.diagrams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#changes-and-additions-to-gtda-utils">Changes and additions to <code class="docutils literal notranslate"><span class="pre">gtda.utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../release.html#external-modules-and-hpc-improvements">External modules and HPC improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id88">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id89">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id90">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-4">Release 0.1.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#library-name-change">Library name change</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#change-of-license">Change of license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id91">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id92">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id93">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id94">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-3">Release 0.1.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id95">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id96">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id97">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id98">Thanks to our Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id99">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id100">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id101">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id102">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-1">Release 0.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id103">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id104">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id105">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id106">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1-0">Release 0.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id107">Major Features and Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id108">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id109">Backwards-Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../release.html#id110">Thanks to our Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../release.html#release-0-1a-0">Release 0.1a.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#i-am-a-researcher-can-i-use-giotto-tda-in-my-project">I am a researcher. Can I use <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> in my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#how-do-i-cite-giotto-tda">How do I cite <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#i-cannot-install-giotto-tda">I cannot install <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#there-are-many-tda-libraries-available-how-is-giotto-tda-different">There are many TDA libraries available. How is <code class="docutils literal notranslate"><span class="pre">giotto-tda</span></code> different?</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">giotto-tda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">API reference</a> &raquo;</li>
+        
+          <li><a href="../../homology.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gtda.homology</span></code>: Persistent homology</a> &raquo;</li>
+        
+      <li>VietorisRipsPersistence</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modules/generated/homology/gtda.homology.VietorisRipsPersistence.rst" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vietorisripspersistence">
+<h1>VietorisRipsPersistence<a class="headerlink" href="#vietorisripspersistence" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="gtda.homology.VietorisRipsPersistence">
+<em class="property">class </em><code class="sig-prename descclassname">gtda.homology.</code><code class="sig-name descname">VietorisRipsPersistence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">metric</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">homology_dimensions</span><span class="o">=</span><span class="default_value">0, 1</span></em>, <em class="sig-param"><span class="n">collapse_edges</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">coeff</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">max_edge_length</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">infinity_values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reduced_homology</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#VietorisRipsPersistence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../../../theory/glossary.html#persistence-diagram"><span class="std std-ref">Persistence diagrams</span></a> resulting from
+<a class="reference internal" href="../../../theory/glossary.html#vietoris-rips-complex-and-vietoris-rips-persistence"><span class="std std-ref">Vietoris–Rips filtrations</span></a>.</p>
+<p>Given a <a class="reference internal" href="../../../theory/glossary.html#distance-matrices-and-point-clouds"><span class="std std-ref">point cloud</span></a> in
+Euclidean space, or an abstract <a class="reference internal" href="../../../theory/glossary.html#distance-matrices-and-point-clouds"><span class="std std-ref">metric space</span></a> encoded by a distance matrix,
+information about the appearance and disappearance of topological features
+(technically, <a class="reference internal" href="../../../theory/glossary.html#homology-and-cohomology"><span class="std std-ref">homology classes</span></a>) of various
+dimensions and at different scales is summarised in the corresponding
+persistence diagram.</p>
+<p><strong>Important note</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Persistence diagrams produced by this class must be interpreted with
+care due to the presence of padding triples which carry no
+information. See <a class="reference internal" href="#gtda.homology.VietorisRipsPersistence.transform" title="gtda.homology.VietorisRipsPersistence.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a> for additional information.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metric</strong> (string or callable, optional, default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>) – If set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, input data is to be interpreted as a
+collection of distance matrices or of adjacency matrices of weighted
+undirected graphs. Otherwise, input data is to be interpreted as a
+collection of point clouds (i.e. feature arrays), and <cite>metric</cite>
+determines a rule with which to calculate distances between pairs of
+points (i.e. row vectors). If <cite>metric</cite> is a string, it must be one of
+the options allowed by <code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.spatial.distance.pdist</span></code> for its
+metric parameter, or a metric listed in
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">sklearn.pairwise.PAIRWISE_DISTANCE_FUNCTIONS</span></code>, including
+<code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>, <code class="docutils literal notranslate"><span class="pre">'manhattan'</span></code> or <code class="docutils literal notranslate"><span class="pre">'cosine'</span></code>. If <cite>metric</cite> is a
+callable, it should take pairs of vectors (1D arrays) as input and, for
+each two vectors in a pair, it should return a scalar indicating the
+distance/dissimilarity between them.</p></li>
+<li><p><strong>homology_dimensions</strong> (list or tuple, optional, default: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code>) – Dimensions (non-negative integers) of the topological features to be
+detected.</p></li>
+<li><p><strong>coeff</strong> (int prime, optional, default: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Compute homology with coefficients in the prime field
+<span class="math notranslate nohighlight">\(\mathbb{F}_p = \{ 0, \ldots, p - 1 \}\)</span> where <span class="math notranslate nohighlight">\(p\)</span>
+equals <cite>coeff</cite>.</p></li>
+<li><p><strong>collapse_edges</strong> (bool, optional, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – Whether to run the edge collapse algorithm in <a class="footnote-reference brackets" href="#id5" id="id1">2</a> prior to the
+persistent homology computation (see the Notes). Can reduce the runtime
+dramatically when the data or the maximum homology dimensions are
+large.</p></li>
+<li><p><strong>max_edge_length</strong> (float, optional, default: <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code>) – Maximum value of the Vietoris–Rips filtration parameter. Points whose
+distance is greater than this value will never be connected by an edge,
+and topological features at scales larger than this value will not be
+detected.</p></li>
+<li><p><strong>infinity_values</strong> (float or None, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Which death value to assign to features which are still alive at
+filtration value <cite>max_edge_length</cite>. <code class="docutils literal notranslate"><span class="pre">None</span></code> means that this death
+value is declared to be equal to <cite>max_edge_length</cite>.</p></li>
+<li><p><strong>reduced_homology</strong> (bool, optional, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the earliest-born triple in homology dimension 0 which has
+infinite death is discarded from each diagram computed in
+<a class="reference internal" href="#gtda.homology.VietorisRipsPersistence.transform" title="gtda.homology.VietorisRipsPersistence.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a>.</p></li>
+<li><p><strong>n_jobs</strong> (int or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The number of jobs to use for the computation. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless
+in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all
+processors.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="gtda.homology.VietorisRipsPersistence.infinity_values_">
+<code class="sig-name descname">infinity_values_</code><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.infinity_values_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Effective death value to assign to features which are still alive at
+filtration value <cite>max_edge_length</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="gtda.homology.FlagserPersistence.html#gtda.homology.FlagserPersistence" title="gtda.homology.FlagserPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlagserPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.SparseRipsPersistence.html#gtda.homology.SparseRipsPersistence" title="gtda.homology.SparseRipsPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparseRipsPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.WeakAlphaPersistence.html#gtda.homology.WeakAlphaPersistence" title="gtda.homology.WeakAlphaPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeakAlphaPersistence</span></code></a>, <a class="reference internal" href="gtda.homology.EuclideanCechPersistence.html#gtda.homology.EuclideanCechPersistence" title="gtda.homology.EuclideanCechPersistence"><code class="xref py py-class docutils literal notranslate"><span class="pre">EuclideanCechPersistence</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ConsistentRescaling</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ConsecutiveRescaling</span></code></p>
+</div>
+<p class="rubric">Notes</p>
+<p><a class="reference external" href="https://github.com/Ripser/ripser">Ripser</a> <a class="footnote-reference brackets" href="#id4" id="id2">1</a> is used as a C++ backend
+for computing Vietoris–Rips persistent homology. Python bindings were
+modified for performance from the <a class="reference external" href="https://github.com/scikit-tda/ripser.py">ripser.py</a> package.</p>
+<p><a class="reference external" href="https://github.com/GUDHI/gudhi-devel">GUDHI</a> is used as a C++ backend
+for the edge collapse algorithm described in <a class="footnote-reference brackets" href="#id5" id="id3">2</a>.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>U. Bauer, “Ripser: efficient computation of Vietoris–Rips
+persistence barcodes”, 2019; <a class="reference external" href="https://arxiv.org/abs/1908.02518">arXiv:1908.02518</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">2</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>J.-D. Boissonnat and S. Pritam, “Edge Collapse and Persistence of
+Flag Complexes”; in <em>36th International Symposium on Computational
+Geometry (SoCG 2020)</em>, pp. 19:1–19:15,
+Schloss Dagstuhl-Leibniz–Zentrum für Informatik, 2020;
+<a class="reference external" href="https://doi.org/10.4230/LIPIcs.SoCG.2020.19">DOI: 10.4230/LIPIcs.SoCG.2020.19</a>.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="gtda.homology.VietorisRipsPersistence.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">metric</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">homology_dimensions</span><span class="o">=</span><span class="default_value">0, 1</span></em>, <em class="sig-param"><span class="n">collapse_edges</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">coeff</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">max_edge_length</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">infinity_values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reduced_homology</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#VietorisRipsPersistence.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gtda.homology.VietorisRipsPersistence.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#VietorisRipsPersistence.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate <a class="reference internal" href="#gtda.homology.VietorisRipsPersistence.infinity_values_" title="gtda.homology.VietorisRipsPersistence.infinity_values_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">infinity_values_</span></code></a>. Then, return the estimator.</p>
+<p>This method is here to implement the usual scikit-learn API and hence
+work in pipelines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray</em><em> or </em><em>list of length n_samples</em>) – <p>Input data representing a collection of point clouds if <cite>metric</cite>
+was not set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, and of distance matrices or
+adjacency matrices of weighted undirected graphs otherwise. Can be
+either a 3D ndarray whose zeroth dimension has size <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>,
+or a list containing <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> 2D ndarrays/sparse matrices.
+Point cloud arrays have shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_dimensions)</span></code>, and if
+<cite>X</cite> is a list these shapes can vary between point clouds. If
+<cite>metric</cite> was set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, then:</p>
+<blockquote>
+<div><ul>
+<li><p>if entries of <cite>X</cite> are dense, only their upper diagonal
+portions (including the diagonal) are considered;</p></li>
+<li><p>if entries of <cite>X</cite> are sparse, they do not need to be upper
+diagonal or symmetric, but correct results can only be
+guaranteed when only one between entry (i, j) and entry
+(j, i) is stored, or both are stored but they are equal.</p></li>
+<li><p>entries of <cite>X</cite> should be compatible with a filtration, i.e.
+the value at index (i, j) should be no smaller than the
+values at diagonal indices (i, i) and (j, j).</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gtda.homology.VietorisRipsPersistence.fit_transform">
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">fit_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
+and returns a transformed version of <cite>X</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray</em><em> or </em><em>list of length n_samples</em>) – <p>Input data representing a collection of point clouds if <cite>metric</cite>
+was not set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, and of distance matrices or
+adjacency matrices of weighted undirected graphs otherwise. Can be
+either a 3D ndarray whose zeroth dimension has size <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>,
+or a list containing <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> 2D ndarrays/sparse matrices.
+Point cloud arrays have shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_dimensions)</span></code>, and if
+<cite>X</cite> is a list these shapes can vary between point clouds. If
+<cite>metric</cite> was set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, then:</p>
+<blockquote>
+<div><ul>
+<li><p>if entries of <cite>X</cite> are dense, only their upper diagonal
+portions (including the diagonal) are considered;</p></li>
+<li><p>if entries of <cite>X</cite> are sparse, they do not need to be upper
+diagonal or symmetric, but correct results can only be
+guaranteed when only one between entry (i, j) and entry
+(j, i) is stored, or both are stored but they are equal.</p></li>
+<li><p>entries of <cite>X</cite> should be compatible with a filtration, i.e.
+the value at index (i, j) should be no smaller than the
+values at diagonal indices (i, i) and (j, j).</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Array of persistence diagrams computed from the feature arrays or
+distance matrices in <cite>X</cite>. <code class="docutils literal notranslate"><span class="pre">n_features</span></code> equals
+<span class="math notranslate nohighlight">\(\sum_q n_q\)</span>, where <span class="math notranslate nohighlight">\(n_q\)</span> is the maximum number of
+topological features in dimension <span class="math notranslate nohighlight">\(q\)</span> across all samples in
+<cite>X</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_features, 3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gtda.homology.VietorisRipsPersistence.fit_transform_plot">
+<code class="sig-name descname">fit_transform_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">plot_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.fit_transform_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then apply <a class="reference internal" href="#gtda.homology.VietorisRipsPersistence.transform_plot" title="gtda.homology.VietorisRipsPersistence.transform_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform_plot</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>..</em><em>)</em>) – Input data.</p></li>
+<li><p><strong>y</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>None</em>) – Target values for supervised problems.</p></li>
+<li><p><strong>sample</strong> (<em>int</em>) – Sample to be plotted.</p></li>
+<li><p><strong>**plot_params</strong> – Optional plotting parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Transformed one-sample slice from the input.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (1, ..)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gtda.homology.VietorisRipsPersistence.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">deep</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>mapping of string to any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gtda.homology.VietorisRipsPersistence.plot">
+<em class="property">static </em><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Xt</span></em>, <em class="sig-param"><span class="n">sample</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">homology_dimensions</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">plotly_params</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#VietorisRipsPersistence.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a sample from a collection of persistence diagrams, with
+homology in multiple dimensions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Xt</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>, </em><em>3</em><em>)</em>) – Collection of persistence diagrams, such as returned by
+<a class="reference internal" href="#gtda.homology.VietorisRipsPersistence.transform" title="gtda.homology.VietorisRipsPersistence.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform</span></code></a>.</p></li>
+<li><p><strong>sample</strong> (int, optional, default: <code class="docutils literal notranslate"><span class="pre">0</span></code>) – Index of the sample in <cite>Xt</cite> to be plotted.</p></li>
+<li><p><strong>homology_dimensions</strong> (list, tuple or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Which homology dimensions to include in the plot. <code class="docutils literal notranslate"><span class="pre">None</span></code> means
+plotting all dimensions present in <code class="docutils literal notranslate"><span class="pre">Xt[sample]</span></code>.</p></li>
+<li><p><strong>plotly_params</strong> (dict or None, optional, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Custom parameters to configure the plotly figure. Allowed keys are
+<code class="docutils literal notranslate"><span class="pre">&quot;traces&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;layout&quot;</span></code>, and the corresponding values should
+be dictionaries containing keyword arguments as would be fed to the
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">update_traces</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">update_layout</span></code> methods of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">plotly.graph_objects.Figure</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – Plotly figure.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">plotly.graph_objects.Figure</span></code> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gtda.homology.VietorisRipsPersistence.set_params">
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s possible to update each
+component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gtda.homology.VietorisRipsPersistence.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gtda/homology/simplicial.html#VietorisRipsPersistence.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each point cloud or distance matrix in <cite>X</cite>, compute the
+relevant persistence diagram as an array of triples [b, d, q]. Each
+triple represents a persistent topological feature in dimension q
+(belonging to <cite>homology_dimensions</cite>) which is born at b and dies at d.
+Only triples in which b &lt; d are meaningful. Triples in which b and d
+are equal (“diagonal elements”) may be artificially introduced during
+the computation for padding purposes, since the number of non-trivial
+persistent topological features is typically not constant across
+samples. They carry no information and hence should be effectively
+ignored by any further computation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray</em><em> or </em><em>list of length n_samples</em>) – <p>Input data representing a collection of point clouds if <cite>metric</cite>
+was not set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, and of distance matrices or
+adjacency matrices of weighted undirected graphs otherwise. Can be
+either a 3D ndarray whose zeroth dimension has size <code class="docutils literal notranslate"><span class="pre">n_samples</span></code>,
+or a list containing <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> 2D ndarrays/sparse matrices.
+Point cloud arrays have shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_dimensions)</span></code>, and if
+<cite>X</cite> is a list these shapes can vary between point clouds. If
+<cite>metric</cite> was set to <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, then:</p>
+<blockquote>
+<div><ul>
+<li><p>if entries of <cite>X</cite> are dense, only their upper diagonal
+portions (including the diagonal) are considered;</p></li>
+<li><p>if entries of <cite>X</cite> are sparse, they do not need to be upper
+diagonal or symmetric, but correct results can only be
+guaranteed when only one between entry (i, j) and entry
+(j, i) is stored, or both are stored but they are equal.</p></li>
+<li><p>entries of <cite>X</cite> should be compatible with a filtration, i.e.
+the value at index (i, j) should be no smaller than the
+values at diagonal indices (i, i) and (j, j).</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
+API requires this parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Array of persistence diagrams computed from the feature arrays or
+distance matrices in <cite>X</cite>. <code class="docutils literal notranslate"><span class="pre">n_features</span></code> equals
+<span class="math notranslate nohighlight">\(\sum_q n_q\)</span>, where <span class="math notranslate nohighlight">\(n_q\)</span> is the maximum number of
+topological features in dimension <span class="math notranslate nohighlight">\(q\)</span> across all samples in
+<cite>X</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_samples, n_features, 3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gtda.homology.VietorisRipsPersistence.transform_plot">
+<code class="sig-name descname">transform_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">sample</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">plot_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gtda.homology.VietorisRipsPersistence.transform_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a one-sample slice from the input collection and transform it.
+Before returning the transformed object, plot the transformed sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>..</em><em>)</em>) – Input data.</p></li>
+<li><p><strong>sample</strong> (<em>int</em>) – Sample to be plotted.</p></li>
+<li><p><strong>**plot_params</strong> – Optional plotting parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Xt</strong> – Transformed one-sample slice from the input.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (1, ..)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gtda.homology.SparseRipsPersistence.html" class="btn btn-neutral float-right" title="SparseRipsPersistence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../homology.html" class="btn btn-neutral float-left" title="gtda.homology: Persistent homology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, L2F
+
+    </p>
+  </div>
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions</span>
+    current: 0.3.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      <!--start_versions_tag-->
+      <!--path_to_root:../../../-->
+<dd><a href="../../../../0.2.0/library.html">0.2.0</a></dd><dd><a href="../../../../0.2.1/library.html">0.2.1</a></dd><dd><a href="../../../../0.2.2/library.html">0.2.2</a></dd><dd><a href="../../../../0.3.0/library.html">0.3.0</a></dd><dd><a href="../../../../latest/library.html">latest</a></dd>
+      <!--end_versions_tag-->
+    </dl>
+  </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
