@@ -1,4 +1,4 @@
-SlidingWindow
+﻿SlidingWindow
 ============================================
 
 .. currentmodule:: gtda.time_series

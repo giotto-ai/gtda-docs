@@ -1,4 +1,4 @@
-ParallelClustering
+﻿ParallelClustering
 ============================================
 
 .. currentmodule:: gtda.mapper

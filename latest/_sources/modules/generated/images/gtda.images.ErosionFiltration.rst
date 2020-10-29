@@ -1,4 +1,4 @@
-ErosionFiltration
+﻿ErosionFiltration
 ===========================================
 
 .. currentmodule:: gtda.images

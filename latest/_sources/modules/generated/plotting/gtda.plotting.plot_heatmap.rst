@@ -1,4 +1,4 @@
-plot_heatmap
+﻿plot_heatmap
 ==============================================
 
 .. currentmodule:: gtda.plotting

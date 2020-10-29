@@ -1,4 +1,4 @@
-ConsecutiveRescaling
+﻿ConsecutiveRescaling
 ====================================================
 
 .. currentmodule:: gtda.point_clouds

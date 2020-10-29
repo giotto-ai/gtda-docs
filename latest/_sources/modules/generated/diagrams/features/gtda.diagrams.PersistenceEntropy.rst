@@ -1,4 +1,4 @@
-PersistenceEntropy
+﻿PersistenceEntropy
 ==============================================
 
 .. currentmodule:: gtda.diagrams

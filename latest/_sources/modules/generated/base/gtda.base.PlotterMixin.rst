@@ -1,4 +1,4 @@
-PlotterMixin
+﻿PlotterMixin
 ====================================
 
 .. currentmodule:: gtda.base

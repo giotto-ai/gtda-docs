@@ -1,4 +1,4 @@
-Entropy
+﻿Entropy
 =================================
 
 .. currentmodule:: gtda.mapper

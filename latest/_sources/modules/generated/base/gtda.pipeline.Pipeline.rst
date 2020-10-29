@@ -1,4 +1,4 @@
-Pipeline
+﻿Pipeline
 ====================================
 
 .. currentmodule:: gtda.pipeline

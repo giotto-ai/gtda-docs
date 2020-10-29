@@ -1,4 +1,4 @@
-make_pipeline
+﻿make_pipeline
 ===============================================
 
 .. currentmodule:: gtda.pipeline

@@ -1,4 +1,4 @@
-Binarizer
+﻿Binarizer
 ===================================
 
 .. currentmodule:: gtda.images

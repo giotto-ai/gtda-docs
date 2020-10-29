@@ -1,4 +1,4 @@
-HeightFiltration
+﻿HeightFiltration
 ==========================================
 
 .. currentmodule:: gtda.images

@@ -1,4 +1,4 @@
-CubicalCover
+﻿CubicalCover
 ======================================
 
 .. currentmodule:: gtda.mapper

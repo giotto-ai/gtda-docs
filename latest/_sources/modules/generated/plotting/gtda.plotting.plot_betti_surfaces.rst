@@ -1,4 +1,4 @@
-plot_betti_surfaces
+﻿plot_betti_surfaces
 =====================================================
 
 .. currentmodule:: gtda.plotting

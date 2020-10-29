@@ -1,4 +1,4 @@
-plot_interactive_mapper_graph
+﻿plot_interactive_mapper_graph
 =============================================================
 
 .. currentmodule:: gtda.mapper

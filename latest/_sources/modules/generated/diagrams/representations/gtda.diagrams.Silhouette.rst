@@ -1,4 +1,4 @@
-Silhouette
+﻿Silhouette
 ======================================
 
 .. currentmodule:: gtda.diagrams

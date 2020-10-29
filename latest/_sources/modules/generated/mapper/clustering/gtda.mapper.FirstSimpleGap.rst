@@ -1,4 +1,4 @@
-FirstSimpleGap
+﻿FirstSimpleGap
 ========================================
 
 .. currentmodule:: gtda.mapper

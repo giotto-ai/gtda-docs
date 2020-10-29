@@ -1,4 +1,4 @@
-FlagserPersistence
+﻿FlagserPersistence
 ==============================================
 
 .. currentmodule:: gtda.homology

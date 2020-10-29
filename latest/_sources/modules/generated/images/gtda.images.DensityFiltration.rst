@@ -1,4 +1,4 @@
-DensityFiltration
+﻿DensityFiltration
 ===========================================
 
 .. currentmodule:: gtda.images

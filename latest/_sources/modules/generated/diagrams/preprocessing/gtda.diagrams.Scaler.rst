@@ -1,4 +1,4 @@
-Scaler
+﻿Scaler
 ==================================
 
 .. currentmodule:: gtda.diagrams

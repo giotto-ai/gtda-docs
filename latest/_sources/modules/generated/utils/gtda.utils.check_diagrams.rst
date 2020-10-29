@@ -1,4 +1,4 @@
-check_diagrams
+﻿check_diagrams
 =============================================
 
 .. currentmodule:: gtda.utils

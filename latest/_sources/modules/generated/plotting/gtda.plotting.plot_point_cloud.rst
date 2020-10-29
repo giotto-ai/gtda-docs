@@ -1,4 +1,4 @@
-plot_point_cloud
+﻿plot_point_cloud
 ==================================================
 
 .. currentmodule:: gtda.plotting

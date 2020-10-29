@@ -1,4 +1,4 @@
-plot_betti_curves
+﻿plot_betti_curves
 ===================================================
 
 .. currentmodule:: gtda.plotting

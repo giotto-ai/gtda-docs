@@ -1,4 +1,4 @@
-PearsonDissimilarity
+﻿PearsonDissimilarity
 ===================================================
 
 .. currentmodule:: gtda.time_series
