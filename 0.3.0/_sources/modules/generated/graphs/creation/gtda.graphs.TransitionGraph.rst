@@ -1,4 +1,4 @@
-TransitionGraph
+﻿TransitionGraph
 =========================================
 
 .. currentmodule:: gtda.graphs

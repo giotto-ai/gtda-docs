@@ -1,4 +1,4 @@
-EuclideanCechPersistence
+﻿EuclideanCechPersistence
 ====================================================
 
 .. currentmodule:: gtda.homology

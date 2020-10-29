@@ -1,4 +1,4 @@
-MapperPipeline
+﻿MapperPipeline
 =================================================
 
 .. currentmodule:: gtda.mapper.pipeline

@@ -1,4 +1,4 @@
-plot_diagram
+﻿plot_diagram
 ==============================================
 
 .. currentmodule:: gtda.plotting

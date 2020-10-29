@@ -1,4 +1,4 @@
-Projection
+﻿Projection
 ====================================
 
 .. currentmodule:: gtda.mapper

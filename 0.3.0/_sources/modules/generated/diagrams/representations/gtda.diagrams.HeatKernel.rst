@@ -1,4 +1,4 @@
-HeatKernel
+﻿HeatKernel
 ======================================
 
 .. currentmodule:: gtda.diagrams

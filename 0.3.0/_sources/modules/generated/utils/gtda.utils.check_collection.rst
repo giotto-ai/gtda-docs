@@ -1,4 +1,4 @@
-check_collection
+﻿check_collection
 ===============================================
 
 .. currentmodule:: gtda.utils

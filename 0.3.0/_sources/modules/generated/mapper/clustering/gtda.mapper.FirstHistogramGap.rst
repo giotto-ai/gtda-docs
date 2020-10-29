@@ -1,4 +1,4 @@
-FirstHistogramGap
+﻿FirstHistogramGap
 ===========================================
 
 .. currentmodule:: gtda.mapper

@@ -1,4 +1,4 @@
-method_to_transform
+﻿method_to_transform
 ===================================================
 
 .. currentmodule:: gtda.mapper

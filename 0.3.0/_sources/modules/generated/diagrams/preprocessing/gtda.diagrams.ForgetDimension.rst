@@ -1,4 +1,4 @@
-ForgetDimension
+﻿ForgetDimension
 ===========================================
 
 .. currentmodule:: gtda.diagrams

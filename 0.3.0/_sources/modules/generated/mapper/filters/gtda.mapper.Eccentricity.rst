@@ -1,4 +1,4 @@
-Eccentricity
+﻿Eccentricity
 ======================================
 
 .. currentmodule:: gtda.mapper

@@ -1,4 +1,4 @@
-PermutationEntropy
+﻿PermutationEntropy
 =================================================
 
 .. currentmodule:: gtda.time_series

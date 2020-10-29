@@ -1,4 +1,4 @@
-OneDimensionalCover
+﻿OneDimensionalCover
 =============================================
 
 .. currentmodule:: gtda.mapper

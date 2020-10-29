@@ -1,4 +1,4 @@
-RadialFiltration
+﻿RadialFiltration
 ==========================================
 
 .. currentmodule:: gtda.images

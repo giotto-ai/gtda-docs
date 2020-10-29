@@ -1,4 +1,4 @@
-WeakAlphaPersistence
+﻿WeakAlphaPersistence
 ================================================
 
 .. currentmodule:: gtda.homology

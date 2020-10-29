@@ -1,4 +1,4 @@
-CubicalPersistence
+﻿CubicalPersistence
 ==============================================
 
 .. currentmodule:: gtda.homology

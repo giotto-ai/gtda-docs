@@ -1,4 +1,4 @@
-transformer_from_callable_on_rows
+﻿transformer_from_callable_on_rows
 =================================================================
 
 .. currentmodule:: gtda.mapper

@@ -1,4 +1,4 @@
-SignedDistanceFiltration
+﻿SignedDistanceFiltration
 ==================================================
 
 .. currentmodule:: gtda.images

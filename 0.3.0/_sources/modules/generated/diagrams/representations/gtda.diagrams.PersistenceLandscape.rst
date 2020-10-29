@@ -1,4 +1,4 @@
-PersistenceLandscape
+﻿PersistenceLandscape
 ================================================
 
 .. currentmodule:: gtda.diagrams

@@ -1,4 +1,4 @@
-Derivative
+﻿Derivative
 ====================================
 
 .. currentmodule:: gtda.curves
