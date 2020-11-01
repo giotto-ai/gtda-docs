@@ -1,4 +1,4 @@
-﻿TakensEmbedding
+TakensEmbedding
 ==============================================
 
 .. currentmodule:: gtda.time_series

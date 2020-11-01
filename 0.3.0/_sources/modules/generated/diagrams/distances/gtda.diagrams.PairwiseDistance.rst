@@ -1,4 +1,4 @@
-﻿PairwiseDistance
+PairwiseDistance
 ============================================
 
 .. currentmodule:: gtda.diagrams

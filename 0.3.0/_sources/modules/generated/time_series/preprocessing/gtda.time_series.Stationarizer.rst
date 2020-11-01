@@ -1,4 +1,4 @@
-﻿Stationarizer
+Stationarizer
 ============================================
 
 .. currentmodule:: gtda.time_series

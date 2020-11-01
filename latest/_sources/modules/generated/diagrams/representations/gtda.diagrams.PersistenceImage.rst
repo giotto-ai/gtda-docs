@@ -1,4 +1,4 @@
-﻿PersistenceImage
+PersistenceImage
 ============================================
 
 .. currentmodule:: gtda.diagrams

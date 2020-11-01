@@ -1,4 +1,4 @@
-﻿Amplitude
+Amplitude
 =====================================
 
 .. currentmodule:: gtda.diagrams

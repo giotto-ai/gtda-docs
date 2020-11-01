@@ -1,4 +1,4 @@
-﻿CollectionTransformer
+CollectionTransformer
 =======================================================
 
 .. currentmodule:: gtda.metaestimators

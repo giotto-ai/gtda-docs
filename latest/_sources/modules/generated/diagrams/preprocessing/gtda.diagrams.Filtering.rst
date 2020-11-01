@@ -1,4 +1,4 @@
-﻿Filtering
+Filtering
 =====================================
 
 .. currentmodule:: gtda.diagrams

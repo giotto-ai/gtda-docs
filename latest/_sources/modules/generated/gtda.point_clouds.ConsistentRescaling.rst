@@ -1,4 +1,4 @@
-﻿ConsistentRescaling
+ConsistentRescaling
 ===================================================
 
 .. currentmodule:: gtda.point_clouds

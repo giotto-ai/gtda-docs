@@ -1,4 +1,4 @@
-﻿ImageToPointCloud
+ImageToPointCloud
 ===========================================
 
 .. currentmodule:: gtda.images

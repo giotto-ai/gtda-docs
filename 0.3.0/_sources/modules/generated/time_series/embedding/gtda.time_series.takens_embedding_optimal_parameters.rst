@@ -1,4 +1,4 @@
-﻿takens_embedding_optimal_parameters
+takens_embedding_optimal_parameters
 ========================================================================
 
 .. currentmodule:: gtda.time_series

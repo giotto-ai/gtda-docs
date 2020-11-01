@@ -1,4 +1,4 @@
-﻿Labeller
+Labeller
 =======================================
 
 .. currentmodule:: gtda.time_series

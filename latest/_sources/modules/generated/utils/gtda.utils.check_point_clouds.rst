@@ -1,4 +1,4 @@
-﻿check_point_clouds
+check_point_clouds
 =================================================
 
 .. currentmodule:: gtda.utils

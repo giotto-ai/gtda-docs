@@ -1,4 +1,4 @@
-﻿StandardFeatures
+StandardFeatures
 ==========================================
 
 .. currentmodule:: gtda.curves

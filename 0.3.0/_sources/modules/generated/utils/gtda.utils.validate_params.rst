@@ -1,4 +1,4 @@
-﻿validate_params
+validate_params
 ==============================================
 
 .. currentmodule:: gtda.utils

@@ -1,4 +1,4 @@
-﻿NumberOfPoints
+NumberOfPoints
 ==========================================
 
 .. currentmodule:: gtda.diagrams

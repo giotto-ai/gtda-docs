@@ -1,4 +1,4 @@
-﻿KNeighborsGraph
+KNeighborsGraph
 =========================================
 
 .. currentmodule:: gtda.graphs

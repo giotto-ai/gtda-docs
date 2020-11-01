@@ -1,4 +1,4 @@
-﻿plot_static_mapper_graph
+plot_static_mapper_graph
 ========================================================
 
 .. currentmodule:: gtda.mapper

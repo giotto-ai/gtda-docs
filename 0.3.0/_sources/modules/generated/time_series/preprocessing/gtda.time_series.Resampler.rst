@@ -1,4 +1,4 @@
-﻿Resampler
+Resampler
 ========================================
 
 .. currentmodule:: gtda.time_series

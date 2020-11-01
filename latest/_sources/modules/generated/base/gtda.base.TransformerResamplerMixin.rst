@@ -1,4 +1,4 @@
-﻿TransformerResamplerMixin
+TransformerResamplerMixin
 =================================================
 
 .. currentmodule:: gtda.base

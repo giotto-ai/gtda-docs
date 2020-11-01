@@ -1,4 +1,4 @@
-﻿SparseRipsPersistence
+SparseRipsPersistence
 =================================================
 
 .. currentmodule:: gtda.homology

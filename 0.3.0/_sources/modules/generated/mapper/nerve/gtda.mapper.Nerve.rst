@@ -1,4 +1,4 @@
-﻿Nerve
+Nerve
 ===============================
 
 .. currentmodule:: gtda.mapper

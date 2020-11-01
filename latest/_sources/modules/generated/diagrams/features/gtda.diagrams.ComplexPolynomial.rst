@@ -1,4 +1,4 @@
-﻿ComplexPolynomial
+ComplexPolynomial
 =============================================
 
 .. currentmodule:: gtda.diagrams

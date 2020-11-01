@@ -1,4 +1,4 @@
-﻿BettiCurve
+BettiCurve
 ======================================
 
 .. currentmodule:: gtda.diagrams

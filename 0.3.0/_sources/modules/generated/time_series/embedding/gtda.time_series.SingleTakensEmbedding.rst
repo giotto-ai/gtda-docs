@@ -1,4 +1,4 @@
-﻿SingleTakensEmbedding
+SingleTakensEmbedding
 ====================================================
 
 .. currentmodule:: gtda.time_series

@@ -1,4 +1,4 @@
-﻿Padder
+Padder
 ================================
 
 .. currentmodule:: gtda.images

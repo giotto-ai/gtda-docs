@@ -1,4 +1,4 @@
-﻿DilationFiltration
+DilationFiltration
 ============================================
 
 .. currentmodule:: gtda.images

@@ -1,4 +1,4 @@
-﻿VietorisRipsPersistence
+VietorisRipsPersistence
 ===================================================
 
 .. currentmodule:: gtda.homology

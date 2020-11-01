@@ -1,4 +1,4 @@
-﻿GraphGeodesicDistance
+GraphGeodesicDistance
 ===============================================
 
 .. currentmodule:: gtda.graphs

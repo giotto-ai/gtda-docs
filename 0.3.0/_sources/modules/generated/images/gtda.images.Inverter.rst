@@ -1,4 +1,4 @@
-﻿Inverter
+Inverter
 ==================================
 
 .. currentmodule:: gtda.images
