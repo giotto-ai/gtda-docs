@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Topological feature extraction from graphs" href="persistent_homology_graphs.html" />
-    <link rel="prev" title="Topology of time series" href="time_series_classification.html" />
+    <link rel="prev" title="Topology of time series" href="topology_time_series.html" />
 <link href="../_static/style.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script>require=requirejs;</script>
@@ -367,15 +367,14 @@
 <li class="toctree-l4"><a class="reference internal" href="mapper_quickstart.html#visualise-the-2d-mapper-graph-interactively-live-jupyter-session-needed">Visualise the 2D Mapper graph interactively (Live Jupyter session needed)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="time_series_classification.html">Topology of time series</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="time_series_classification.html#useful-references">Useful references</a></li>
-<li class="toctree-l4"><a class="reference internal" href="time_series_classification.html#see-also">See also</a></li>
-<li class="toctree-l4"><a class="reference internal" href="time_series_classification.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="time_series_classification.html#a-periodic-example">A periodic example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="time_series_classification.html#a-non-periodic-example">A non-periodic example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="time_series_classification.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
-<li class="toctree-l4"><a class="reference internal" href="time_series_classification.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
-<li class="toctree-l4"><a class="reference internal" href="time_series_classification.html#gravitational-wave-detection">Gravitational wave detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topology_time_series.html">Topology of time series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="topology_time_series.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="topology_time_series.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="topology_time_series.html#from-time-series-to-time-delay-embeddings">From time series to time delay embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="topology_time_series.html#a-periodic-example">A periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="topology_time_series.html#a-non-periodic-example">A non-periodic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="topology_time_series.html#from-time-delay-embeddings-to-persistence-diagrams">From time delay embeddings to persistence diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="topology_time_series.html#picking-the-embedding-dimension-and-time-delay">Picking the embedding dimension and time delay</a></li>
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Topology in time series forecasting</a><ul>
@@ -398,6 +397,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gravitational_waves_detection.html">Gravitational wave detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gravitational_waves_detection.html#useful-references">Useful references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gravitational_waves_detection.html#see-also">See also</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gravitational_waves_detection.html#motivation">Motivation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gravitational_waves_detection.html#generate-the-data">Generate the data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gravitational_waves_detection.html#constant-signal-to-noise-ratio">Constant signal-to-noise ratio</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="classifying_shapes.html">Classifying 3D shapes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="classifying_shapes.html#generate-simple-shapes">Generate simple shapes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classifying_shapes.html#from-data-to-persistence-diagrams">From data to persistence diagrams</a></li>
@@ -1276,7 +1283,7 @@ forecasting techniques inspired by topology.</p></li>
         <a href="persistent_homology_graphs.html" class="btn btn-neutral float-right" title="Topological feature extraction from graphs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="time_series_classification.html" class="btn btn-neutral float-left" title="Topology of time series" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="topology_time_series.html" class="btn btn-neutral float-left" title="Topology of time series" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1314,7 +1321,17 @@ forecasting techniques inspired by topology.</p></li>
       <dt>Versions</dt>
       <!--start_versions_tag-->
       <!--path_to_root:../-->
-<dd><a href="../../0.2.0/library.html">0.2.0</a></dd><dd><a href="../../0.2.1/library.html">0.2.1</a></dd><dd><a href="../../0.2.2/library.html">0.2.2</a></dd><dd><a href="../../0.3.0/library.html">0.3.0</a></dd><dd><a href="../../latest/library.html">latest</a></dd>
+      
+      <dd><a href="../../0.2.1/index.html">0.2.1</a></dd>
+      
+      <dd><a href="../../0.3.0/index.html">0.3.0</a></dd>
+      
+      <dd><a href="../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../0.2.0/index.html">0.2.0</a></dd>
+      
+      <dd><a href="../../0.2.2/index.html">0.2.2</a></dd>
+      
       <!--end_versions_tag-->
     </dl>
   </div>
