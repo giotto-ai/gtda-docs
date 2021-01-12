@@ -2,10 +2,6 @@
 Theory Glossary
 ===============
 
-.. role:: raw-latex(raw)
-   :format: latex
-..
-
 .. contents::
    :depth: 3
 ..
@@ -243,7 +239,7 @@ complex whose elementary cubes are also in :math:`X`.
 Reference:
 ~~~~~~~~~~
 
-:raw-latex:`\cite{mischaikow04computational}`
+(Kaczynski, Mischaikow, and Mrozek 2004)
 
 .. _simplicial_complex:
 
@@ -641,7 +637,7 @@ is a metric space.
 Reference:
 ~~~~~~~~~~
 
-:raw-latex:`\cite{kerber2017geometry}`
+(Kerber, Morozov, and Nigmetov 2017)
 
 .. _persistence_landscape:
 
@@ -703,7 +699,7 @@ landscapes.
 References:
 ~~~~~~~~~~~
 
-:raw-latex:`\cite{bubenik2015statistical}`
+(Bubenik 2015)
 
 .. _weighted_silhouette:
 
@@ -733,7 +729,7 @@ with target the vector space of continuous real-valued functions on
 References:
 ~~~~~~~~~~~
 
-:raw-latex:`\cite{chazal2014stochastic}`
+(Chazal et al. 2014)
 
 .. _heat_vectorization:
 
@@ -783,7 +779,7 @@ variables, it is customary to use the the change of variable
 References:
 ~~~~~~~~~~~
 
-:raw-latex:`\cite{reininghaus2015stable,adams2017persistence}`
+(Reininghaus et al. 2015; Adams et al. 2017)
 
 .. _persistence_entropy:
 
@@ -806,7 +802,7 @@ where
 References:
 ~~~~~~~~~~~
 
-:raw-latex:`\cite{rucco2016characterisation}`
+(Rucco et al. 2016)
 
 .. _betti_curve:
 
@@ -890,7 +886,7 @@ is an injective map with full rank.
 Reference:
 ~~~~~~~~~~
 
-:raw-latex:`\cite{takens1981detecting}`
+(Takens 1981)
 
 Manifold
 --------
@@ -909,7 +905,7 @@ with smooth inverse
 References:
 ~~~~~~~~~~~
 
-:raw-latex:`\cite{milnor1997topology,guillemin2010differential}`
+(Milnor and Weaver 1997; Guillemin and Pollack 2010)
 
 .. _compact_subset:
 
@@ -927,3 +923,81 @@ complete.
 
 Bibliography
 ============
+
+.. container:: references csl-bib-body hanging-indent
+   :name: refs
+
+   .. container:: csl-entry
+      :name: ref-adams2017persistence
+
+      Adams, Henry, Tegan Emerson, Michael Kirby, Rachel Neville, Chris
+      Peterson, Patrick Shipman, Sofya Chepushtanova, Eric Hanson,
+      Francis Motta, and Lori Ziegelmeier. 2017. “Persistence Images: A
+      Stable Vector Representation of Persistent Homology.” *The Journal
+      of Machine Learning Research* 18 (1): 218–52.
+
+   .. container:: csl-entry
+      :name: ref-bubenik2015statistical
+
+      Bubenik, Peter. 2015. “Statistical Topological Data Analysis Using
+      Persistence Landscapes.” *The Journal of Machine Learning
+      Research* 16 (1): 77–102.
+
+   .. container:: csl-entry
+      :name: ref-chazal2014stochastic
+
+      Chazal, Frédéric, Brittany Terese Fasy, Fabrizio Lecci, Alessandro
+      Rinaldo, and Larry Wasserman. 2014. “Stochastic Convergence of
+      Persistence Landscapes and Silhouettes.” In *Proceedings of the
+      Thirtieth Annual Symposium on Computational Geometry*, 474–83.
+      SOCG’14. Kyoto, Japan: Association for Computing Machinery.
+      https://doi.org/10.1145/2582112.2582128.
+
+   .. container:: csl-entry
+      :name: ref-guillemin2010differential
+
+      Guillemin, Victor, and Alan Pollack. 2010. *Differential
+      Topology*. Vol. 370. American Mathematical Soc.
+
+   .. container:: csl-entry
+      :name: ref-mischaikow04computational
+
+      Kaczynski, Tomasz, Konstantin Mischaikow, and Marian Mrozek. 2004.
+      *Computational Homology*. Vol. 157. Applied Mathematical Sciences.
+      Springer-Verlag, New York. https://doi.org/10.1007/b97315.
+
+   .. container:: csl-entry
+      :name: ref-kerber2017geometry
+
+      Kerber, Michael, Dmitriy Morozov, and Arnur Nigmetov. 2017.
+      “Geometry Helps to Compare Persistence Diagrams.” *Journal of
+      Experimental Algorithmics (JEA)* 22: 1–4.
+
+   .. container:: csl-entry
+      :name: ref-milnor1997topology
+
+      Milnor, John Willard, and David W Weaver. 1997. *Topology from the
+      Differentiable Viewpoint*. Princeton university press.
+
+   .. container:: csl-entry
+      :name: ref-reininghaus2015stable
+
+      Reininghaus, Jan, Stefan Huber, Ulrich Bauer, and Roland Kwitt.
+      2015. “A Stable Multi-Scale Kernel for Topological Machine
+      Learning.” In *Proceedings of the IEEE Conference on Computer
+      Vision and Pattern Recognition*, 4741–48.
+
+   .. container:: csl-entry
+      :name: ref-rucco2016characterisation
+
+      Rucco, Matteo, Filippo Castiglione, Emanuela Merelli, and Marco
+      Pettini. 2016. “Characterisation of the Idiotypic Immune Network
+      Through Persistent Entropy.” In *Proceedings of ECCS 2014*,
+      117–28. Springer.
+
+   .. container:: csl-entry
+      :name: ref-takens1981detecting
+
+      Takens, Floris. 1981. “Detecting Strange Attractors in
+      Turbulence.” In *Dynamical Systems and Turbulence, Warwick 1980*,
+      366–81. Springer.

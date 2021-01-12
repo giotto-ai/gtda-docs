@@ -713,7 +713,6 @@ graph.</p>
 <a class="reference internal" href="../pipeline/gtda.mapper.pipeline.MapperPipeline.html#gtda.mapper.pipeline.MapperPipeline" title="gtda.mapper.pipeline.MapperPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.mapper.pipeline.MapperPipeline</span></code></a> objects created
 by <a class="reference internal" href="../pipeline/gtda.mapper.make_mapper_pipeline.html#gtda.mapper.make_mapper_pipeline" title="gtda.mapper.make_mapper_pipeline"><code class="xref py py-func docutils literal notranslate"><span class="pre">gtda.mapper.make_mapper_pipeline</span></code></a>. It corresponds the last two
 arrows in <a class="reference external" href="../../../../_images/mapper_pipeline.svg">this diagram</a>.</p>
-<p>This transformer is not intended for direct use.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -777,19 +776,15 @@ API requires this parameter.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>list of list of tuple</em>) – <p>Data structure describing a cover of a dataset (e.g. as depicted in
-<a class="reference external" href="../../../../_images/mapper_pipeline.svg">this diagram</a>) produced
-by the clustering step of a <code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.mapper.MapperPipeline</span></code>.
-Each sublist corresponds to a (non-empty) pullback cover set –
-equivalently, to a cover set in the filter range which has
-non-empty preimage. It contains triples of the form
-<code class="docutils literal notranslate"><span class="pre">(pullback_set_label,</span> <span class="pre">partial_cluster_label,</span> <span class="pre">node_elements)</span></code>
-where <code class="docutils literal notranslate"><span class="pre">partial_cluster_label</span></code> is a cluster label within the
-pullback cover set identified by <code class="docutils literal notranslate"><span class="pre">pullback_set_label</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">node_elements</span></code> is an array of integer indices. To each pair
-<code class="docutils literal notranslate"><span class="pre">(pullback_set_label,</span> <span class="pre">partial_cluster_label)</span></code> there corresponds
-a unique node in the output Mapper graph. This node represents
-the data subset defined by the indices in <code class="docutils literal notranslate"><span class="pre">node_elements</span></code>.</p>
+<li><p><strong>X</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) – <p>Cluster labels describing a refined cover of a dataset produced by
+the clustering step of a <code class="xref py py-class docutils literal notranslate"><span class="pre">gtda.mapper.MapperPipeline</span></code>,
+as depicted in
+<a class="reference external" href="../../../../_images/mapper_pipeline.svg">this diagram</a>. Each
+entry in <cite>X</cite> is a tuple of pairs of the form
+<code class="docutils literal notranslate"><span class="pre">(pullback_set_label,</span> <span class="pre">partial_cluster_label)</span></code> where
+<code class="docutils literal notranslate"><span class="pre">partial_cluster_label</span></code> is a cluster label within the pullback
+cover set identified by <code class="docutils literal notranslate"><span class="pre">pullback_set_label</span></code>. The unique pairs
+correspond to nodes in the output graph.</p>
 </p></li>
 <li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
 API requires this parameter.</p></li>
@@ -904,17 +899,17 @@ component of a nested object.</p>
       <!--start_versions_tag-->
       <!--path_to_root:../../../../-->
       
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="../../../../../0.3.1/index.html">0.3.1</a></dd>
       
       <dd><a href="../../../../../0.2.1/index.html">0.2.1</a></dd>
       
-      <dd><a href="../../../../../0.3.1/index.html">0.3.1</a></dd>
-      
       <dd><a href="../../../../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
       
       <dd><a href="../../../../../0.3.0/index.html">0.3.0</a></dd>
       
-      <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
+      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <!--end_versions_tag-->
     </dl>

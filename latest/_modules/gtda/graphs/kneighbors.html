@@ -799,8 +799,8 @@
 <span class="sd">            n_points, n_dimensions) or (n_samples, n_points, n_points)</span>
 <span class="sd">            Input data representing a collection of point clouds. Each entry</span>
 <span class="sd">            in `X` is a 2D array of shape ``(n_points, n_dimensions)`` if</span>
-<span class="sd">            `metric` is not ``&#39;precomputed&#39;``, or a 2D array of shape</span>
-<span class="sd">            ``(n_points, n_points)`` if `metric` is ``&#39;precomputed&#39;``.</span>
+<span class="sd">            `metric` is not ``&#39;precomputed&#39;``, or a 2D array or sparse matrix</span>
+<span class="sd">            of shape ``(n_points, n_points)`` if `metric` is ``&#39;precomputed&#39;``.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -812,7 +812,8 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_precomputed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">==</span> <span class="s1">&#39;precomputed&#39;</span>
-        <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">distance_matrices</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_is_precomputed</span><span class="p">)</span>
+        <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                           <span class="n">distance_matrices</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_is_precomputed</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span></div>
@@ -824,11 +825,11 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        X : list of length n_samples, or ndarray of shape (n_samples, \</span>
-<span class="sd">            n_points, n_dimensions)</span>
+<span class="sd">            n_points, n_dimensions) or (n_samples, n_points, n_points)</span>
 <span class="sd">            Input data representing a collection of point clouds. Each entry</span>
 <span class="sd">            in `X` is a 2D array of shape ``(n_points, n_dimensions)`` if</span>
-<span class="sd">            `metric` is not ``&#39;precomputed&#39;``, or a 2D array of shape</span>
-<span class="sd">            ``(n_points, n_points)`` if `metric` is ``&#39;precomputed&#39;``.</span>
+<span class="sd">            `metric` is not ``&#39;precomputed&#39;``, or a 2D array or sparse matrix</span>
+<span class="sd">            of shape ``(n_points, n_points)`` if `metric` is ``&#39;precomputed&#39;``.</span>
 
 <span class="sd">        y : None</span>
 <span class="sd">            There is no need for a target in a transformer, yet the pipeline</span>
@@ -844,7 +845,8 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">distance_matrices</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_is_precomputed</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">check_point_clouds</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">distance_matrices</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_is_precomputed</span><span class="p">)</span>
 
         <span class="n">_adjacency_matrix_func</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span>
             <span class="n">kneighbors_graph</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
@@ -897,17 +899,17 @@
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
       
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="../../../../0.3.1/index.html">0.3.1</a></dd>
       
       <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
-      <dd><a href="../../../../0.3.1/index.html">0.3.1</a></dd>
-      
       <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
       
       <dd><a href="../../../../0.3.0/index.html">0.3.0</a></dd>
       
-      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
+      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <!--end_versions_tag-->
     </dl>

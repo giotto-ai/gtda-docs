@@ -853,7 +853,7 @@
         <span class="k">return</span> <span class="n">fitter</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_limits_</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_limits_</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_limits_</span><span class="p">,</span> <span class="n">X</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_limits_</span><span class="p">)</span>
 
 <div class="viewcode-block" id="OneDimensionalCover.transform"><a class="viewcode-back" href="../../../modules/generated/mapper/covers/gtda.mapper.OneDimensionalCover.html#gtda.mapper.OneDimensionalCover.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute a cover of `X` according to the cover of the real line</span>
@@ -910,7 +910,8 @@
             <span class="n">X_rank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_intervals</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">overlap_frac</span><span class="p">,</span> <span class="n">is_uniform</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">X_rank</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">X_rank</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span>
                                  <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_intervals</span><span class="p">))</span>
-        <span class="n">Xt</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_rank</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left_limits</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">X_rank</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_limits</span><span class="p">)</span>
+        <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">X_rank</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left_limits</span><span class="p">,</span>
+                            <span class="n">X_rank</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_limits</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Xt</span>
 
     <span class="k">def</span> <span class="nf">_fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
@@ -1302,17 +1303,17 @@
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
       
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="../../../../0.3.1/index.html">0.3.1</a></dd>
       
       <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
-      <dd><a href="../../../../0.3.1/index.html">0.3.1</a></dd>
-      
       <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
       
       <dd><a href="../../../../0.3.0/index.html">0.3.0</a></dd>
       
-      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
+      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <!--end_versions_tag-->
     </dl>

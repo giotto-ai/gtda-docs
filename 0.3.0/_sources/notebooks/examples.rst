@@ -6,8 +6,7 @@ This page contains examples of use of ``giotto-tda``.
 
 .. toctree::
    :maxdepth: 1
-   
-   gravitational_waves_detection
+
    classifying_shapes
    lorenz_attractor
    MNIST_classification

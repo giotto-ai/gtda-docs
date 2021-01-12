@@ -774,8 +774,8 @@ work in pipelines.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>list of length n_samples</em><em>, or </em><em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_points</em><em>)</em>) – Input data representing a collection of point clouds. Each entry
 in <cite>X</cite> is a 2D array of shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_dimensions)</span></code> if
-<cite>metric</cite> is not <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, or a 2D array of shape
-<code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code> if <cite>metric</cite> is <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.</p></li>
+<cite>metric</cite> is not <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, or a 2D array or sparse matrix
+of shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code> if <cite>metric</cite> is <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.</p></li>
 <li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
 API requires this parameter.</p></li>
 </ul>
@@ -800,8 +800,8 @@ and returns a transformed version of <cite>X</cite>.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>list of length n_samples</em><em>, or </em><em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_points</em><em>)</em>) – Input data representing a collection of point clouds. Each entry
 in <cite>X</cite> is a 2D array of shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_dimensions)</span></code> if
-<cite>metric</cite> is not <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, or a 2D array of shape
-<code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code> if <cite>metric</cite> is <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.</p></li>
+<cite>metric</cite> is not <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, or a 2D array or sparse matrix
+of shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code> if <cite>metric</cite> is <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.</p></li>
 <li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
 API requires this parameter.</p></li>
 </ul>
@@ -865,10 +865,10 @@ format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>list of length n_samples</em><em>, or </em><em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>)</em>) – Input data representing a collection of point clouds. Each entry
+<li><p><strong>X</strong> (<em>list of length n_samples</em><em>, or </em><em>ndarray of shape</em><em> (</em><em>n_samples</em><em>,             </em><em>n_points</em><em>, </em><em>n_dimensions</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>n_points</em><em>, </em><em>n_points</em><em>)</em>) – Input data representing a collection of point clouds. Each entry
 in <cite>X</cite> is a 2D array of shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_dimensions)</span></code> if
-<cite>metric</cite> is not <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, or a 2D array of shape
-<code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code> if <cite>metric</cite> is <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.</p></li>
+<cite>metric</cite> is not <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>, or a 2D array or sparse matrix
+of shape <code class="docutils literal notranslate"><span class="pre">(n_points,</span> <span class="pre">n_points)</span></code> if <cite>metric</cite> is <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code>.</p></li>
 <li><p><strong>y</strong> (<em>None</em>) – There is no need for a target in a transformer, yet the pipeline
 API requires this parameter.</p></li>
 </ul>
@@ -939,17 +939,17 @@ is <code class="docutils literal notranslate"><span class="pre">'distance'</span
       <!--start_versions_tag-->
       <!--path_to_root:../../../../-->
       
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="../../../../../0.3.1/index.html">0.3.1</a></dd>
       
       <dd><a href="../../../../../0.2.1/index.html">0.2.1</a></dd>
       
-      <dd><a href="../../../../../0.3.1/index.html">0.3.1</a></dd>
-      
       <dd><a href="../../../../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
       
       <dd><a href="../../../../../0.3.0/index.html">0.3.0</a></dd>
       
-      <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
+      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <!--end_versions_tag-->
     </dl>

@@ -706,7 +706,7 @@
 <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
 <span class="kn">from</span> <span class="nn">numpy.ma</span> <span class="kn">import</span> <span class="n">masked_invalid</span>
 <span class="kn">from</span> <span class="nn">numpy.ma.core</span> <span class="kn">import</span> <span class="n">MaskedArray</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">issparse</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">issparse</span><span class="p">,</span> <span class="n">isspmatrix_csr</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse.csgraph</span> <span class="kn">import</span> <span class="n">shortest_path</span>
 <span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
@@ -803,16 +803,19 @@
                         <span class="sa">f</span><span class="s2">&quot;Methods &#39;auto&#39; and &#39;FW&#39; are not supported when &quot;</span>
                         <span class="sa">f</span><span class="s2">&quot;some edge weights are zero. Using &#39;</span><span class="si">{</span><span class="n">method_</span><span class="si">}</span><span class="s2">&#39; &quot;</span>
                         <span class="sa">f</span><span class="s2">&quot;instead for graph </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.&quot;</span>
-                    <span class="p">)</span>
+                        <span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">MaskedArray</span><span class="p">):</span>
                 <span class="c1"># Convert to a masked array with mask given by positions in</span>
                 <span class="c1"># which infs or NaNs occur.</span>
                 <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="nb">bool</span><span class="p">:</span>
                     <span class="n">X</span> <span class="o">=</span> <span class="n">masked_invalid</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">X_distance</span> <span class="o">=</span> <span class="n">shortest_path</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directed</span><span class="p">,</span>
-                                   <span class="n">unweighted</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">unweighted</span><span class="p">,</span>
-                                   <span class="n">method</span><span class="o">=</span><span class="n">method_</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">X_distance</span>
+        <span class="k">elif</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">n_vertices</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="n">isspmatrix_csr</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">else</span> <span class="n">X</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+            <span class="n">X</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n_vertices</span><span class="p">,</span> <span class="n">n_vertices</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">shortest_path</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directed</span><span class="p">,</span>
+                             <span class="n">unweighted</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">unweighted</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method_</span><span class="p">)</span>
 
 <div class="viewcode-block" id="GraphGeodesicDistance.fit"><a class="viewcode-back" href="../../../modules/generated/graphs/processing/gtda.graphs.GraphGeodesicDistance.html#gtda.graphs.GraphGeodesicDistance.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Do nothing and return the estimator unchanged.</span>
@@ -954,17 +957,17 @@
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
       
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="../../../../0.3.1/index.html">0.3.1</a></dd>
       
       <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
-      <dd><a href="../../../../0.3.1/index.html">0.3.1</a></dd>
-      
       <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
       
       <dd><a href="../../../../0.3.0/index.html">0.3.0</a></dd>
       
-      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
+      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <!--end_versions_tag-->
     </dl>

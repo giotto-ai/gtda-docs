@@ -31,8 +31,6 @@ Guiding principles
 30s guide to ``giotto-tda``
 ***************************
 
-.. figure:: images/giotto-tda_workflow.png
-
 For installation instructions, see :ref:`the installation instructions <installation>`.
 
 The functionalities of ``giotto-tda`` are provided in ``scikit-learn``–style transformers.
@@ -107,7 +105,7 @@ We provide a number of :ref:`tutorials and examples <notebooks_index>`, which of
 Use cases
 =========
 
-A selection of use cases for ``giotto-tda`` is collected at `this page <https://giotto.ai/use-cases>`_.
+A selection of use cases for ``giotto-tda`` is collected at `this page <https://giotto.ai/learn/course-content>`_.
 The related GitHub repositories can be found at `github <https://github.com/giotto-ai>`_.
 
 **********

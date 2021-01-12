@@ -711,10 +711,10 @@
 <p>An arbitrary clustering class which stores a <code class="docutils literal notranslate"><span class="pre">labels_</span></code> attribute in
 <code class="docutils literal notranslate"><span class="pre">fit</span></code> can be passed to the constructor. Examples are most classes in
 <code class="docutils literal notranslate"><span class="pre">sklearn.cluster</span></code>. The input of <a class="reference internal" href="#gtda.mapper.ParallelClustering.fit" title="gtda.mapper.ParallelClustering.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a> is of the form <code class="docutils literal notranslate"><span class="pre">[X_tot,</span>
-<span class="pre">masks]</span></code> where <code class="docutils literal notranslate"><span class="pre">X_tot</span></code> is the full dataset, and <code class="docutils literal notranslate"><span class="pre">masks</span></code> is a
-two-dimensional boolean array, each column of which indicates the
-location of a portion of <code class="docutils literal notranslate"><span class="pre">X_tot</span></code> to cluster separately. Parallelism is
-achieved over the columns of <code class="docutils literal notranslate"><span class="pre">masks</span></code>.</p>
+<span class="pre">masks]</span></code> where <code class="docutils literal notranslate"><span class="pre">X_tot</span></code> is the full dataset, and <code class="docutils literal notranslate"><span class="pre">masks</span></code> is a 2D boolean
+array, each column of which indicates the location of a portion of
+<code class="docutils literal notranslate"><span class="pre">X_tot</span></code> to cluster separately. Parallelism is achieved over the columns
+of <code class="docutils literal notranslate"><span class="pre">masks</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -729,28 +729,16 @@ process-based backend is ‘loky’ and the default thread-based backend is
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="gtda.mapper.ParallelClustering.clusterers_">
-<code class="sig-name descname">clusterers_</code><a class="headerlink" href="#gtda.mapper.ParallelClustering.clusterers_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clones of <cite>clusterer</cite> fitted to the portions of the full data array
-specified in <a class="reference internal" href="#gtda.mapper.ParallelClustering.fit" title="gtda.mapper.ParallelClustering.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>.</p>
+<dt id="gtda.mapper.ParallelClustering.labels_">
+<code class="sig-name descname">labels_</code><a class="headerlink" href="#gtda.mapper.ParallelClustering.labels_" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each point in the dataset passed to <a class="reference internal" href="#gtda.mapper.ParallelClustering.fit" title="gtda.mapper.ParallelClustering.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>, a tuple of pairs
+of the form <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">partial_label)</span></code> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the index of a boolean
+mask which selects that point and <code class="docutils literal notranslate"><span class="pre">partial_label</span></code> is the cluster label
+assigned to the point when clustering the subset of the data selected by
+mask <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>tuple of object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="gtda.mapper.ParallelClustering.clusters_">
-<code class="sig-name descname">clusters_</code><a class="headerlink" href="#gtda.mapper.ParallelClustering.clusters_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Labels and indices of each cluster found in <a class="reference internal" href="#gtda.mapper.ParallelClustering.fit" title="gtda.mapper.ParallelClustering.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit</span></code></a>. The i-th
-entry corresponds to the i-th portion of the data; it is a list
-of triples of the form <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">label,</span> <span class="pre">indices)</span></code>, where <code class="docutils literal notranslate"><span class="pre">label</span></code> is a
-cluster label and <code class="docutils literal notranslate"><span class="pre">indices</span></code> is the array of indices of points
-belonging to cluster <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">label)</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>list of list of tuple</p>
+<dd class="field-odd"><p>ndarray of shape (n_samples,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -772,7 +760,7 @@ belonging to cluster <code class="docutils literal notranslate"><span class="pre
 <dt id="gtda.mapper.ParallelClustering.fit">
 <code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_weight</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gtda/mapper/cluster.html#ParallelClustering.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gtda.mapper.ParallelClustering.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit the clusterer on each portion of the data.</p>
-<p><a class="reference internal" href="#gtda.mapper.ParallelClustering.clusterers_" title="gtda.mapper.ParallelClustering.clusterers_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">clusterers_</span></code></a> and <a class="reference internal" href="#gtda.mapper.ParallelClustering.clusters_" title="gtda.mapper.ParallelClustering.clusters_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">clusters_</span></code></a> are computed and stored.</p>
+<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">clusterers_</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">clusters_</span></code> are computed and stored.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -819,10 +807,10 @@ shape (n_samples,).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>clusters</strong> – See <a class="reference internal" href="#gtda.mapper.ParallelClustering.clusters_" title="gtda.mapper.ParallelClustering.clusters_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">clusters_</span></code></a>.</p>
+<dd class="field-even"><p><strong>labels</strong> – See <a class="reference internal" href="#gtda.mapper.ParallelClustering.labels_" title="gtda.mapper.ParallelClustering.labels_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">labels_</span></code></a>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list of list of tuple</p>
+<dd class="field-odd"><p>ndarray of shape (n_samples,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -847,10 +835,10 @@ API requires this parameter.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>Xt</strong> – See <a class="reference internal" href="#gtda.mapper.ParallelClustering.clusters_" title="gtda.mapper.ParallelClustering.clusters_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">clusters_</span></code></a>.</p>
+<dd class="field-even"><p><strong>Xt</strong> – See <a class="reference internal" href="#gtda.mapper.ParallelClustering.labels_" title="gtda.mapper.ParallelClustering.labels_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">labels_</span></code></a>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list of list of tuple</p>
+<dd class="field-odd"><p>ndarray of shape (n_samples,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -965,17 +953,17 @@ API requires this parameter.</p></li>
       <!--start_versions_tag-->
       <!--path_to_root:../../../../-->
       
-      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="../../../../../0.3.1/index.html">0.3.1</a></dd>
       
       <dd><a href="../../../../../0.2.1/index.html">0.2.1</a></dd>
       
-      <dd><a href="../../../../../0.3.1/index.html">0.3.1</a></dd>
-      
       <dd><a href="../../../../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
       
       <dd><a href="../../../../../0.3.0/index.html">0.3.0</a></dd>
       
-      <dd><a href="../../../../../0.2.2/index.html">0.2.2</a></dd>
+      <dd><a href="../../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <!--end_versions_tag-->
     </dl>

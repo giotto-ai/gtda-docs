@@ -719,10 +719,10 @@
 <span class="sd">    An arbitrary clustering class which stores a ``labels_`` attribute in</span>
 <span class="sd">    ``fit`` can be passed to the constructor. Examples are most classes in</span>
 <span class="sd">    ``sklearn.cluster``. The input of :meth:`fit` is of the form ``[X_tot,</span>
-<span class="sd">    masks]`` where ``X_tot`` is the full dataset, and ``masks`` is a</span>
-<span class="sd">    two-dimensional boolean array, each column of which indicates the</span>
-<span class="sd">    location of a portion of ``X_tot`` to cluster separately. Parallelism is</span>
-<span class="sd">    achieved over the columns of ``masks``.</span>
+<span class="sd">    masks]`` where ``X_tot`` is the full dataset, and ``masks`` is a 2D boolean</span>
+<span class="sd">    array, each column of which indicates the location of a portion of</span>
+<span class="sd">    ``X_tot`` to cluster separately. Parallelism is achieved over the columns</span>
+<span class="sd">    of ``masks``.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -742,16 +742,12 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    clusterers_ : tuple of object</span>
-<span class="sd">        Clones of `clusterer` fitted to the portions of the full data array</span>
-<span class="sd">        specified in :meth:`fit`.</span>
-
-<span class="sd">    clusters_ : list of list of tuple</span>
-<span class="sd">       Labels and indices of each cluster found in :meth:`fit`. The i-th</span>
-<span class="sd">       entry corresponds to the i-th portion of the data; it is a list</span>
-<span class="sd">       of triples of the form ``(i, label, indices)``, where ``label`` is a</span>
-<span class="sd">       cluster label and ``indices`` is the array of indices of points</span>
-<span class="sd">       belonging to cluster ``(i, label)``.</span>
+<span class="sd">    labels_ : ndarray of shape (n_samples,)</span>
+<span class="sd">       For each point in the dataset passed to :meth:`fit`, a tuple of pairs</span>
+<span class="sd">       of the form ``(i, partial_label)`` where ``i`` is the index of a boolean</span>
+<span class="sd">       mask which selects that point and ``partial_label`` is the cluster label</span>
+<span class="sd">       assigned to the point when clustering the subset of the data selected by</span>
+<span class="sd">       mask ``i``.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -828,65 +824,50 @@
                              <span class="s2">&quot;of rows.&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_clusterer</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">sample_weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">sample_weight</span><span class="p">[</span><span class="n">masks</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]]</span>
-                              <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+        <span class="n">fit_params</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clusterer</span><span class="o">.</span><span class="n">fit</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span>
+        <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s2">&quot;sample_weight&quot;</span> <span class="ow">in</span> <span class="n">fit_params</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sample_weight_computer</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">rel_indices</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">:</span> \
+                <span class="p">{</span><span class="s2">&quot;sample_weight&quot;</span><span class="p">:</span> <span class="n">sample_weight</span><span class="p">[</span><span class="n">rel_indices</span><span class="p">]}</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">sample_weights</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sample_weight_computer</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="p">{}</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precomputed</span><span class="p">:</span>
-            <span class="n">single_fitter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_single_abs_labels_precomputed</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_indices_computer</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">rel_indices</span><span class="p">:</span> \
+                <span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">rel_indices</span><span class="p">,</span> <span class="n">rel_indices</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">single_fitter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_single_abs_labels</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_indices_computer</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">rel_indices</span><span class="p">:</span> <span class="n">rel_indices</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">clusterers_</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span>
-            <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">prefer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parallel_backend_prefer</span>
-            <span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">single_fitter</span><span class="p">)(</span><span class="n">X_tot</span><span class="p">,</span>
-                                     <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span>
-                                     <span class="n">mask_num</span><span class="p">,</span>
-                                     <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weights</span><span class="p">[</span><span class="n">mask_num</span><span class="p">])</span>
-              <span class="k">for</span> <span class="n">mask_num</span><span class="p">,</span> <span class="n">mask</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">clusters_</span> <span class="o">=</span> <span class="p">[</span><span class="n">clusterer</span><span class="o">.</span><span class="n">abs_labels_</span> <span class="k">for</span> <span class="n">clusterer</span> <span class="ow">in</span>
-                          <span class="bp">self</span><span class="o">.</span><span class="n">clusterers_</span><span class="p">]</span>
+        <span class="c1"># This seems necessary to avoid large overheads when running fit a</span>
+        <span class="c1"># second time. Probably due to refcounts. NOTE: Only works if done</span>
+        <span class="c1"># before assigning labels_single. TODO: Investigate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">labels_single</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">,</span>
+                                 <span class="n">prefer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parallel_backend_prefer</span><span class="p">)(</span>
+            <span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_labels_single</span><span class="p">)(</span>
+                <span class="n">X_tot</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_indices_computer</span><span class="p">(</span><span class="n">rel_indices</span><span class="p">)],</span>
+                <span class="n">rel_indices</span><span class="p">,</span>
+                <span class="n">sample_weight</span>
+                <span class="p">)</span>
+            <span class="k">for</span> <span class="n">rel_indices</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">,</span> <span class="n">masks</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_tot</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">([])]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_tot</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">rel_indices</span><span class="p">,</span> <span class="n">partial_labels</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels_single</span><span class="p">):</span>
+            <span class="n">n_labels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">partial_labels</span><span class="p">)</span>
+            <span class="n">labels_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n_labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="n">labels_i</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[((</span><span class="n">i</span><span class="p">,</span> <span class="n">partial_label</span><span class="p">),)</span>
+                           <span class="k">for</span> <span class="n">partial_label</span> <span class="ow">in</span> <span class="n">partial_labels</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span><span class="p">[</span><span class="n">rel_indices</span><span class="p">]</span> <span class="o">+=</span> <span class="n">labels_i</span>
+
         <span class="k">return</span> <span class="bp">self</span></div>
 
-    <span class="k">def</span> <span class="nf">_fit_single_abs_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">relative_indices</span><span class="p">,</span> <span class="n">mask_num</span><span class="p">,</span>
-                               <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">cloned_clusterer</span><span class="p">,</span> <span class="n">unique_labels</span><span class="p">,</span> <span class="n">unique_labels_inverse</span> <span class="o">=</span> \
-            <span class="bp">self</span><span class="o">.</span><span class="n">_fit_single</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">relative_indices</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_create_abs_labels</span><span class="p">(</span><span class="n">cloned_clusterer</span><span class="p">,</span> <span class="n">relative_indices</span><span class="p">,</span> <span class="n">mask_num</span><span class="p">,</span>
-                                <span class="n">unique_labels</span><span class="p">,</span> <span class="n">unique_labels_inverse</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">cloned_clusterer</span>
-
-    <span class="k">def</span> <span class="nf">_fit_single_abs_labels_precomputed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">relative_indices</span><span class="p">,</span> <span class="n">mask_num</span><span class="p">,</span>
-                                           <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">relative_2d_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">relative_indices</span><span class="p">,</span> <span class="n">relative_indices</span><span class="p">)</span>
-        <span class="n">cloned_clusterer</span><span class="p">,</span> <span class="n">unique_labels</span><span class="p">,</span> <span class="n">unique_labels_inverse</span> <span class="o">=</span> \
-            <span class="bp">self</span><span class="o">.</span><span class="n">_fit_single</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">relative_2d_indices</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_create_abs_labels</span><span class="p">(</span><span class="n">cloned_clusterer</span><span class="p">,</span> <span class="n">relative_indices</span><span class="p">,</span> <span class="n">mask_num</span><span class="p">,</span>
-                                <span class="n">unique_labels</span><span class="p">,</span> <span class="n">unique_labels_inverse</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">cloned_clusterer</span>
-
-    <span class="k">def</span> <span class="nf">_fit_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">relative_indices</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_labels_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">rel_indices</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">):</span>
         <span class="n">cloned_clusterer</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clusterer</span><span class="p">)</span>
-        <span class="n">X_sub</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">relative_indices</span><span class="p">]</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_weight_computer</span><span class="p">(</span><span class="n">rel_indices</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
 
-        <span class="n">fit_params</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">cloned_clusterer</span><span class="o">.</span><span class="n">fit</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span>
-        <span class="k">if</span> <span class="s1">&#39;sample_weight&#39;</span> <span class="ow">in</span> <span class="n">fit_params</span><span class="p">:</span>
-            <span class="n">cloned_clusterer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_sub</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">cloned_clusterer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_sub</span><span class="p">)</span>
-
-        <span class="n">unique_labels</span><span class="p">,</span> <span class="n">unique_labels_inverse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
-            <span class="n">cloned_clusterer</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">cloned_clusterer</span><span class="p">,</span> <span class="n">unique_labels</span><span class="p">,</span> <span class="n">unique_labels_inverse</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_create_abs_labels</span><span class="p">(</span><span class="n">cloned_clusterer</span><span class="p">,</span> <span class="n">relative_indices</span><span class="p">,</span> <span class="n">mask_num</span><span class="p">,</span>
-                           <span class="n">unique_labels</span><span class="p">,</span> <span class="n">inv</span><span class="p">):</span>
-        <span class="n">cloned_clusterer</span><span class="o">.</span><span class="n">abs_labels_</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="p">(</span><span class="n">mask_num</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">relative_indices</span><span class="p">[</span><span class="n">inv</span> <span class="o">==</span> <span class="n">i</span><span class="p">])</span>
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_labels</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">rel_indices</span><span class="p">,</span> <span class="n">cloned_clusterer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">labels_</span>
 
 <div class="viewcode-block" id="ParallelClustering.fit_predict"><a class="viewcode-back" href="../../../modules/generated/mapper/clustering/gtda.mapper.ParallelClustering.html#gtda.mapper.ParallelClustering.fit_predict">[docs]</a>    <span class="k">def</span> <span class="nf">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit to the data, and return the found clusters.</span>
@@ -912,12 +893,12 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        clusters : list of list of tuple</span>
-<span class="sd">            See :attr:`clusters_`.</span>
+<span class="sd">        labels : ndarray of shape (n_samples,)</span>
+<span class="sd">            See :attr:`labels_`.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clusters_</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span></div>
 
 <div class="viewcode-block" id="ParallelClustering.transform"><a class="viewcode-back" href="../../../modules/generated/mapper/clustering/gtda.mapper.ParallelClustering.html#gtda.mapper.ParallelClustering.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Not implemented.</span>
@@ -962,8 +943,8 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Xt : list of list of tuple</span>
-<span class="sd">            See :attr:`clusters_`.</span>
+<span class="sd">        Xt : ndarray of shape (n_samples,)</span>
+<span class="sd">            See :attr:`labels_`.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">Xt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
@@ -1354,17 +1335,17 @@
       <!--start_versions_tag-->
       <!--path_to_root:../../../-->
       
-      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
+      <dd><a href="../../../../0.3.1/index.html">0.3.1</a></dd>
       
       <dd><a href="../../../../0.2.1/index.html">0.2.1</a></dd>
       
-      <dd><a href="../../../../0.3.1/index.html">0.3.1</a></dd>
-      
       <dd><a href="../../../../latest/index.html">latest</a></dd>
+      
+      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
       
       <dd><a href="../../../../0.3.0/index.html">0.3.0</a></dd>
       
-      <dd><a href="../../../../0.2.2/index.html">0.2.2</a></dd>
+      <dd><a href="../../../../0.2.0/index.html">0.2.0</a></dd>
       
       <!--end_versions_tag-->
     </dl>

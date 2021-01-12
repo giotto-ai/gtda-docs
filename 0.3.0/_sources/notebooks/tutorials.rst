@@ -11,7 +11,7 @@ by Lewis Tunstall provides a friendly introduction to the philosophy of ``giotto
    vietoris_rips_quickstart
    plotting_api
    mapper_quickstart
-   topology_time_series
+   time_series_classification
    time_series_forecasting
    persistent_homology_graphs
 
