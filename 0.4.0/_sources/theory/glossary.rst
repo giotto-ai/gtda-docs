@@ -2,6 +2,10 @@
 Theory Glossary
 ===============
 
+.. role:: raw-latex(raw)
+   :format: latex
+..
+
 .. contents::
    :depth: 3
 ..
@@ -609,6 +613,19 @@ A well known result establishes that there exists an isomorphism between
 two persistence module if and only if their persistence diagrams are
 equal.
 
+.. _reference-1:
+
+Reference:
+~~~~~~~~~~
+
+(Zomorodian and Carlsson 2005)
+
+Earlier work:
+~~~~~~~~~~~~~
+
+(Morse 1940; Gabriel 1972; Frosini 1990; Barannikov 1994; Robins 1999;
+Edelsbrunner, Letscher, and Zomorodian 2002)
+
 .. _wasserstein_and_bottleneck_distance:
 
 Wasserstein and bottleneck distance
@@ -632,7 +649,7 @@ value
 The set of persistence diagrams together with any of the distances above
 is a metric space.
 
-.. _reference-1:
+.. _reference-2:
 
 Reference:
 ~~~~~~~~~~
@@ -881,7 +898,7 @@ where
 
 is an injective map with full rank.
 
-.. _reference-2:
+.. _reference-3:
 
 Reference:
 ~~~~~~~~~~
@@ -937,6 +954,13 @@ Bibliography
       of Machine Learning Research* 18 (1): 218–52.
 
    .. container:: csl-entry
+      :name: ref-barannikov1994morse
+
+      Barannikov, S. A. 1994. “The Framed Morse Complex and Its
+      Invariants.” In *Singularities and Bifurcations*, 21:93–115. Adv.
+      Soviet Math. Amer. Math. Soc., Providence, RI.
+
+   .. container:: csl-entry
       :name: ref-bubenik2015statistical
 
       Bubenik, Peter. 2015. “Statistical Topological Data Analysis Using
@@ -952,6 +976,34 @@ Bibliography
       Thirtieth Annual Symposium on Computational Geometry*, 474–83.
       SOCG’14. Kyoto, Japan: Association for Computing Machinery.
       https://doi.org/10.1145/2582112.2582128.
+
+   .. container:: csl-entry
+      :name: ref-cohen-steiner2007stability
+
+      Cohen-Steiner, David, Herbert Edelsbrunner, and John Harer. 2007.
+      “Stability of Persistence Diagrams.” *Discrete Comput. Geom.* 37
+      (1): 103–20. https://doi.org/10.1007/s00454-006-1276-5.
+
+   .. container:: csl-entry
+      :name: ref-edelsbrunner2002simplification
+
+      Edelsbrunner, Herbert, David Letscher, and Afra Zomorodian. 2002.
+      “Topological Persistence and Simplification.” In *Discrete Comput.
+      Geom.*, 28:511–33. 4. https://doi.org/10.1007/s00454-002-2885-2.
+
+   .. container:: csl-entry
+      :name: ref-frosini1990shapes
+
+      Frosini, Patrizio. 1990. “A Distance for Similarity Classes of
+      Submanifolds of a Euclidean Space.” *Bull. Austral. Math. Soc.* 42
+      (3): 407–16. https://doi.org/10.1017/S0004972700028574.
+
+   .. container:: csl-entry
+      :name: ref-gabriel72decomposition
+
+      Gabriel, Peter. 1972. “Unzerlegbare Darstellungen. I.”
+      *Manuscripta Math.* 6: 71–103; correction, ibid. 6 (1972), 309.
+      https://doi.org/10.1007/BF01298413.
 
    .. container:: csl-entry
       :name: ref-guillemin2010differential
@@ -974,10 +1026,23 @@ Bibliography
       Experimental Algorithmics (JEA)* 22: 1–4.
 
    .. container:: csl-entry
+      :name: ref-lee2003nonlinear
+
+      Lee, Ann B, Kim S Pedersen, and David Mumford. 2003. “The
+      Nonlinear Statistics of High-Contrast Patches in Natural Images.”
+      *International Journal of Computer Vision* 54 (1): 83–103.
+
+   .. container:: csl-entry
       :name: ref-milnor1997topology
 
       Milnor, John Willard, and David W Weaver. 1997. *Topology from the
       Differentiable Viewpoint*. Princeton university press.
+
+   .. container:: csl-entry
+      :name: ref-morse1927rank
+
+      Morse, Marston. 1940. “Rank and Span in Functional Topology.”
+      *Ann. Of Math. (2)* 41: 419–54. https://doi.org/10.2307/1969014.
 
    .. container:: csl-entry
       :name: ref-reininghaus2015stable
@@ -986,6 +1051,14 @@ Bibliography
       2015. “A Stable Multi-Scale Kernel for Topological Machine
       Learning.” In *Proceedings of the IEEE Conference on Computer
       Vision and Pattern Recognition*, 4741–48.
+
+   .. container:: csl-entry
+      :name: ref-robins1999approximations
+
+      Robins, V. 1999. “Towards Computing Homology from Finite
+      Approximations.” In *Proceedings of the 14th Summer Conference on
+      General Topology and Its Applications (Brookville, NY, 1999)*,
+      24:503–532 (2001). Summer.
 
    .. container:: csl-entry
       :name: ref-rucco2016characterisation
@@ -1001,3 +1074,23 @@ Bibliography
       Takens, Floris. 1981. “Detecting Strange Attractors in
       Turbulence.” In *Dynamical Systems and Turbulence, Warwick 1980*,
       366–81. Springer.
+
+   .. container:: csl-entry
+      :name: ref-verri1993use
+
+      Verri, Alessandro, Claudio Uras, Patrizio Frosini, and Massimo
+      Ferri. 1993. “On the Use of Size Functions for Shape Analysis.”
+      *Biological Cybernetics* 70 (2): 99–107.
+
+   .. container:: csl-entry
+      :name: ref-vietoris1927hoheren
+
+      Vietoris, Leopold. 1927. “Über Den höheren Zusammenhang Kompakter
+      räume Und Eine Klasse von Zusammenhangstreuen Abbildungen.”
+      *Mathematische Annalen* 97 (1): 454–72.
+
+   .. container:: csl-entry
+      :name: ref-zomorodian2005computing
+
+      Zomorodian, Afra, and Gunnar Carlsson. 2005. “Computing Persistent
+      Homology.” *Discrete & Computational Geometry* 33 (2): 249–74.
